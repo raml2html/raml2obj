@@ -17,13 +17,10 @@
     "RAML"
   ],
   "license": "MIT",
-  "main": "lib/raml2html.js",
+  "main": "raml2html.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/kevinrenskers/raml2obj.git"
   },
-  "preferGlobal": "false",
-  "bin": {
-    "raml2obj": "lib/raml2obj.js"
-  }
+  "preferGlobal": "false"
 }
