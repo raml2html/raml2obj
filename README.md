@@ -1,7 +1,7 @@
 # RAML to object
 
 A thin wrapper around [raml-parser](https://www.npmjs.org/package/raml-parser), adding extra properties to the resulting
-object for use in raml2html and raml2md.
+object for use in [raml2html](https://www.npmjs.org/package/raml2html) and [raml2md](https://www.npmjs.org/package/raml2md).
 
 
 ## Install
