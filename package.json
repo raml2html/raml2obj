@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -17,7 +17,7 @@
     "RAML"
   ],
   "license": "MIT",
-  "main": "raml2html.js",
+  "main": "raml2obj.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/kevinrenskers/raml2obj.git"
