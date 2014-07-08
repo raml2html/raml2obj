@@ -20,10 +20,10 @@ function _makeUniqueId(resource) {
 }
 
 function _traverse(ramlObj, parentUrl, allUriParameters) {
-    var resource;
+    // Add unique id's and parent URL's plus parent URI parameters to resources
     for (var index in ramlObj.resources) {
         if (ramlObj.resources.hasOwnProperty(index)) {
-            resource = ramlObj.resources[index];
+            var resource = ramlObj.resources[index];
             resource.parentUrl = parentUrl || '';
             resource.uniqueId = _makeUniqueId(resource);
             resource.allUriParameters = [];
@@ -47,9 +47,20 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
     return ramlObj;
 }
 
+function _addUniqueIdsToDocs(ramlObj) {
+    // Add unique id's to top level documentation chapters
+    for (var idx in ramlObj.documentation) {
+        if (ramlObj.documentation.hasOwnProperty(idx)) {
+            var docSection = ramlObj.documentation[idx];
+            docSection.uniqueId = docSection.title.replace(/\W/g, '-');
+        }
+    }
+}
+
 function _enhanceRamlObj(ramlObj, onSuccess) {
     ramlObj = _parseBaseUri(ramlObj);
     ramlObj = _traverse(ramlObj);
+    ramlObj = _addUniqueIdsToDocs(ramlObj);
     onSuccess(ramlObj);
 }
 
