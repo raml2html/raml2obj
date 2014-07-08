@@ -55,6 +55,8 @@ function _addUniqueIdsToDocs(ramlObj) {
             docSection.uniqueId = docSection.title.replace(/\W/g, '-');
         }
     }
+
+    return ramlObj;
 }
 
 function _enhanceRamlObj(ramlObj, onSuccess) {
