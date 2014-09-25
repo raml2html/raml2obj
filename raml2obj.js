@@ -68,8 +68,8 @@ function _enhanceRamlObj(ramlObj, onSuccess) {
 
 function _sourceToRamlObj(source, onSuccess, onError) {
     if (typeof(source) === 'string') {
-        if (fs.existsSync(source)) {
-            // Parse as file
+        if (fs.existsSync(source) || source.indexOf('http') === 0) {
+            // Parse as file or url
             raml.loadFile(source).then(onSuccess, onError);
         } else {
             // Parse as string or buffer
@@ -84,7 +84,7 @@ function _sourceToRamlObj(source, onSuccess, onError) {
             onSuccess(source);
         });
     } else {
-        onError(new Error('sourceToRamlObj: You must supply either file, data or obj as source.'));
+        onError(new Error('sourceToRamlObj: You must supply either file, url, data or obj as source.'));
     }
 }
 

@@ -14,7 +14,7 @@ npm i raml2obj --save-dev
 ```
 var raml2obj = require('raml2obj');
 
-// source can either be a filename, file contents (string) or parsed RAML object
+// source can either be a filename, url, file contents (string) or parsed RAML object
 raml2obj.parse(source, onSuccess, onError);
 ```
 

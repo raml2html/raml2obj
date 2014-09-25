@@ -1,3 +1,6 @@
+0.3.0 - September 25, 2014
+- Allow remote urls to be loaded
+
 0.2.1 - July 8, 2014
 - Critical bugfix
 
