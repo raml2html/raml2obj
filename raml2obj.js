@@ -95,3 +95,4 @@ function parse(source, onSuccess, onError) {
 }
 
 module.exports.parse = parse;
+module.exports.FileReader = raml.FileReader;

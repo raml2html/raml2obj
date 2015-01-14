@@ -1,3 +1,6 @@
+0.4.0 - January 14, 2015
+- Export FileReader object
+
 0.3.0 - September 25, 2014
 - Allow remote urls to be loaded
 
