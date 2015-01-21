@@ -1,3 +1,6 @@
+0.5.0 - January 21, 2015
+- Copy resource allUriParameters to its methods
+
 0.4.0 - January 14, 2015
 - Export FileReader object
 

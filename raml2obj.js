@@ -40,6 +40,14 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
                 }
             }
 
+            if (resource.methods) {
+                for (var methodkey in resource.methods) {
+                    if (resource.methods.hasOwnProperty(methodkey)) {
+                        resource.methods[methodkey].allUriParameters = resource.allUriParameters;
+                    }
+                }
+            }
+
             _traverse(resource, resource.parentUrl + resource.relativeUri, resource.allUriParameters);
         }
     }
