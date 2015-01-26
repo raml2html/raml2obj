@@ -1,3 +1,7 @@
+1.0.0 - January 26, 2015
+- **Finalized API**, the parse method is all we need
+- Removed FileReader export
+
 0.5.0 - January 21, 2015
 - Copy resource allUriParameters to its methods
 
