@@ -4,6 +4,7 @@
 
 var raml = require('raml-parser');
 var fs = require('fs');
+var Q = require('q');
 
 function _parseBaseUri(ramlObj) {
     // I have no clue what kind of variables the RAML spec allows in the baseUri.
@@ -67,39 +68,40 @@ function _addUniqueIdsToDocs(ramlObj) {
     return ramlObj;
 }
 
-function _enhanceRamlObj(ramlObj, onSuccess) {
+function _enhanceRamlObj(ramlObj) {
     ramlObj = _parseBaseUri(ramlObj);
     ramlObj = _traverse(ramlObj);
-    ramlObj = _addUniqueIdsToDocs(ramlObj);
-    onSuccess(ramlObj);
+    return _addUniqueIdsToDocs(ramlObj);
 }
 
-function _sourceToRamlObj(source, onSuccess, onError) {
+function _sourceToRamlObj(source) {
     if (typeof(source) === 'string') {
         if (fs.existsSync(source) || source.indexOf('http') === 0) {
             // Parse as file or url
-            raml.loadFile(source).then(onSuccess, onError);
+            return raml.loadFile(source);
         } else {
             // Parse as string or buffer
-            raml.load('' + source).then(onSuccess, onError);
+            return raml.load('' + source);
         }
     } else if (source instanceof Buffer) {
         // Parse as buffer
-        raml.load('' + source).then(onSuccess, onError);
+        return raml.load('' + source);
     } else if (typeof(source) === 'object') {
         // Parse RAML object directly
-        process.nextTick(function() {
-            onSuccess(source);
+        return Q.fcall(function () {
+            return source;
         });
     } else {
-        onError(new Error('sourceToRamlObj: You must supply either file, url, data or obj as source.'));
+        return Q.fcall(function () {
+            throw new Error("_sourceToRamlObj: You must supply either file, url, data or obj as source.");
+        });
     }
 }
 
-function parse(source, onSuccess, onError) {
-    _sourceToRamlObj(source, function(ramlObj) {
-        _enhanceRamlObj(ramlObj, onSuccess);
-    }, onError);
+function parse(source) {
+    return _sourceToRamlObj(source).then(function(ramlObj) {
+        return _enhanceRamlObj(ramlObj);
+    });
 }
 
 module.exports.parse = parse;
