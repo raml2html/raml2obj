@@ -2,7 +2,7 @@
 - Using a promise based API, please see README for updated usage example
 
 1.0.0 - January 26, 2015
-- **Finalized API**, the parse method is all we need
+- Finalized API, the parse method is all we need
 - Removed FileReader export
 
 0.5.0 - January 21, 2015
