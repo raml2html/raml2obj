@@ -88,11 +88,11 @@ function _sourceToRamlObj(source) {
         return raml.load('' + source);
     } else if (typeof(source) === 'object') {
         // Parse RAML object directly
-        return Q.fcall(function () {
+        return Q.fcall(function() {
             return source;
         });
     } else {
-        return Q.fcall(function () {
+        return Q.fcall(function() {
             throw new Error("_sourceToRamlObj: You must supply either file, url, data or obj as source.");
         });
     }
