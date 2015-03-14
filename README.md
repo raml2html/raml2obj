@@ -1,5 +1,7 @@
 # RAML to object
 
+[![NPM version](http://img.shields.io/npm/v/raml2obj.svg)](https://www.npmjs.org/package/raml2obj)
+
 A thin wrapper around [raml-parser](https://www.npmjs.org/package/raml-parser), adding extra properties to the resulting
 object for use in [raml2html](https://www.npmjs.org/package/raml2html) and [raml2md](https://www.npmjs.org/package/raml2md).
 
