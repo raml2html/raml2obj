@@ -13,6 +13,10 @@
     "q": "1.2.x",
     "raml-parser": "0.8.x"
   },
+  "devDependencies": {
+    "jscs": "1.12.x",
+    "jshint": "2.6.x"
+  },
   "homepage": "https://github.com/kevinrenskers/raml2obj",
   "keywords": [
     "RAML"
@@ -23,5 +27,8 @@
     "type": "git",
     "url": "git://github.com/kevinrenskers/raml2obj.git"
   },
-  "preferGlobal": "false"
+  "preferGlobal": "false",
+  "scripts": {
+    "lint": "jscs raml2obj.js && jshint lib/raml2obj.js"
+  }
 }
