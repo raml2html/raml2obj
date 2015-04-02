@@ -8,7 +8,7 @@ object for use in [raml2html](https://www.npmjs.org/package/raml2html) and [raml
 
 ## Install
 ```
-npm i raml2obj --save-dev
+npm i raml2obj --save
 ```
 
 
