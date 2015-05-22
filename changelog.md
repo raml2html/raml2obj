@@ -1,3 +1,7 @@
+2.1.0 - May 22, 2015
+- Renamed raml2obj.js to index.js
+- Trim the left underscore from the uniqueId's
+
 2.0.0 - March 13, 2015
 - Using a promise based API, please see README for updated usage example
 

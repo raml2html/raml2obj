@@ -16,9 +16,14 @@ function _parseBaseUri(ramlObj) {
   return ramlObj;
 }
 
+function _ltrim(str, chr) {
+  var rgxtrim = (!chr) ? new RegExp('^\\s+') : new RegExp('^' + chr + '+');
+  return str.replace(rgxtrim, '');
+}
+
 function _makeUniqueId(resource) {
   var fullUrl = resource.parentUrl + resource.relativeUri;
-  return fullUrl.replace(/\W/g, '_');
+  return _ltrim(fullUrl.replace(/\W/g, '_'), '_');
 }
 
 function _traverse(ramlObj, parentUrl, allUriParameters) {

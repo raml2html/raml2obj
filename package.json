@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -22,13 +22,13 @@
     "RAML"
   ],
   "license": "MIT",
-  "main": "raml2obj.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/kevinrenskers/raml2obj.git"
   },
   "preferGlobal": "false",
   "scripts": {
-    "lint": "jscs raml2obj.js && jshint lib/raml2obj.js"
+    "lint": "jscs index.js && jshint index.js"
   }
 }
