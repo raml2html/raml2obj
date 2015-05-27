@@ -85,10 +85,10 @@ function _sourceToRamlObj(source) {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
       return raml.loadFile(source);
-    } else {
-      // Parse as string or buffer
-      return raml.load('' + source);
     }
+
+    // Parse as string or buffer
+    return raml.load('' + source);
   } else if (source instanceof Buffer) {
     // Parse as buffer
     return raml.load('' + source);
@@ -97,11 +97,11 @@ function _sourceToRamlObj(source) {
     return Q.fcall(function() {
       return source;
     });
-  } else {
-    return Q.fcall(function() {
-      throw new Error('_sourceToRamlObj: You must supply either file, url, data or obj as source.');
-    });
   }
+
+  return Q.fcall(function() {
+    throw new Error('_sourceToRamlObj: You must supply either file, url, data or obj as source.');
+  });
 }
 
 function parse(source) {
