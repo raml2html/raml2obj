@@ -14,8 +14,7 @@
     "raml-parser": "0.8.x"
   },
   "devDependencies": {
-    "jscs": "1.12.x",
-    "jshint": "2.6.x"
+    "eslint": "0.21.x"
   },
   "homepage": "https://github.com/kevinrenskers/raml2obj",
   "keywords": [
@@ -29,6 +28,6 @@
   },
   "preferGlobal": "false",
   "scripts": {
-    "lint": "jscs index.js && jshint index.js"
+    "lint": "eslint ./"
   }
 }
