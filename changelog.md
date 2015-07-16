@@ -1,3 +1,6 @@
+2.2.0 - July 16, 2015
+- Update third party dependencies
+
 2.1.0 - May 22, 2015
 - Renamed raml2obj.js to index.js
 - Trim the left underscore from the uniqueId's
