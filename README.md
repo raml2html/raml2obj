@@ -34,7 +34,7 @@ raml2obj is an open source project and your contribution is very much appreciate
 3. Add an example of the new feature to example.raml (if applicable)
 4. Send a pull request (with the develop branch as the target).
 
-A big thank you goes out to everyone who helped with the project, the [contributors](https://github.com/kevinrenskers/raml2obj/graphs/contributors)
+A big thank you goes out to everyone who helped with the project, the [contributors](https://github.com/raml2html/raml2obj/graphs/contributors)
 and everyone who took the time to report issues and give feedback.
 
 
