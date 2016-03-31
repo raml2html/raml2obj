@@ -1,4 +1,6 @@
-# RAML to object
+# RAML to object - UPDATED FOR RAML 1.0
+
+**IMPORTANT: This is a development branch and should be considered experimental/ pre-alpha**  
 
 [![NPM version](http://img.shields.io/npm/v/raml2obj.svg)](https://www.npmjs.org/package/raml2obj)
 [![js-standard-style](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat)](https://github.com/airbnb/javascript)
