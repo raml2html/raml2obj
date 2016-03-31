@@ -2,7 +2,7 @@
 
 'use strict';
 
-var raml = require('raml-parser');
+var raml = require('raml-1-parser');
 var fs = require('fs');
 var Q = require('q');
 
@@ -84,14 +84,14 @@ function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadFile(source);
+      return raml.loadApi(source, { rejectOnErrors: true }).then(function(raml) {
+        return raml.expand().toJSON();
+      });
     }
 
-    // Parse as string or buffer
-    return raml.load('' + source);
-  } else if (source instanceof Buffer) {
-    // Parse as buffer
-    return raml.load('' + source);
+    return Q.fcall(function() {
+      throw new Error('_sourceToRamlObj: source does not exists');
+    });
   } else if (typeof source === 'object') {
     // Parse RAML object directly
     return Q.fcall(function() {
@@ -100,7 +100,7 @@ function _sourceToRamlObj(source) {
   }
 
   return Q.fcall(function() {
-    throw new Error('_sourceToRamlObj: You must supply either file, url, data or obj as source.');
+    throw new Error('_sourceToRamlObj: You must supply either file, url, or ob as source.');
   });
 }
 
