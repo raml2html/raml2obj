@@ -100,7 +100,7 @@ function _sourceToRamlObj(source) {
   }
 
   return Q.fcall(function() {
-    throw new Error('_sourceToRamlObj: You must supply either file, url, or ob as source.');
+    throw new Error('_sourceToRamlObj: You must supply either file, url, or obj as source.');
   });
 }
 
