@@ -1,3 +1,8 @@
+3.0.0 - March 31, 2015
+- Update to support RAML 1.0 RC1
+- Added example for RAML 1.0 RC1
+- Fixed JSON Schema bugs in example for RAML 0.8
+
 2.2.0 - July 16, 2015
 - Update third party dependencies
 
