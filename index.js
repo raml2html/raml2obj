@@ -5,6 +5,7 @@
 var raml = require('raml-parser');
 var fs = require('fs');
 var Q = require('q');
+var _opts = {};
 
 function _parseBaseUri(ramlObj) {
   // I have no clue what kind of variables the RAML spec allows in the baseUri.
@@ -51,6 +52,7 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
         for (var methodkey in resource.methods) {
           if (resource.methods.hasOwnProperty(methodkey)) {
             resource.methods[methodkey].allUriParameters = resource.allUriParameters;
+            _traverseMethod(resource.methods[methodkey]);
           }
         }
       }
@@ -60,6 +62,79 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
   }
 
   return ramlObj;
+}
+
+function _traverseMethod(method) {
+  _traverseBody(method.body);
+  if (method.responses) {
+    for (var responseKey in method.responses) {
+      _traverseBody(method.responses[responseKey].body);
+    }
+  }
+}
+
+function _traverseBody(body) {
+  if (body) {
+    for (var k in body) {
+      if (body[k].schema && _opts.flattenSchema) {
+        body[k].flatSchema = _flatten(null, JSON.parse(body[k].schema));
+      }
+    }
+  }
+}
+
+/**
+ * Flattens a schema object into a single level map, using dot notation for fields and brackets
+ * to denote array. This method will be recursively called for all nested objects.
+ * This flatSchema can then be used in raml renderers to display the schema in a single flat table.
+ * Example:
+ * {
+ *    type: "object",
+ *    properties: {
+ *      field1: {
+ *         description: "desc1",
+ *         type: "array",
+ *         items: { type: "string", description: "desc2" }
+ *      }
+ *      field2: {
+ *        type: "object",
+ *        description: "desc3",
+ *        properties: {
+ *          field3: { type: "number", description: "desc4" }
+ *        }
+ *      }
+ *    }
+ *  }
+ * Would become:
+ * {
+ *    "field1" : { type: "array", description: "desc1" },
+ *    "field1[]" : { type: "string", description: "desc2" },
+ *    "field2" : { type: "object", description: "desc3" },
+ *    "field2.field3" : { type: "number", description: "desc4" }
+ * }
+ */
+function _flatten(key, obj) {
+  var propMap = {};
+
+  if (key) propMap[key] = obj;
+
+  if (obj.type === 'array') {
+    var itemsMap = _flatten(key + '[]', obj.items);
+    for (var k in itemsMap) {
+      propMap[k] = itemsMap[k];
+    }
+    delete obj.items;
+  } else if (obj.type === 'object') {
+    for (var propKey in obj.properties) {
+      var propPropMap = _flatten(propKey, obj.properties[propKey]);
+      for (var k in propPropMap) {
+        var nestedKey = key == null ? k : key + '.' + k;
+        propMap[nestedKey] = propPropMap[k];
+      }
+    }
+    delete obj.properties;
+  }
+  return propMap;
 }
 
 function _addUniqueIdsToDocs(ramlObj) {
@@ -110,4 +185,9 @@ function parse(source) {
   });
 }
 
+function opts(o) {
+  _opts = o;
+}
+
 module.exports.parse = parse;
+module.exports.opts = opts;
