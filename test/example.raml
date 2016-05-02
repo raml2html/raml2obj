@@ -66,8 +66,42 @@ traits:
           {
             "email": "john@example.com",
             "password": "super_secret",
-            "name": "John Doe"
+            "name": "John Doe",
+            "nicknames": [ "J-Dizzle" ],
+            "address": {
+              "street_address": "1428 Elm Street",
+              "city": "Springwood",
+              "state": "Ohio"
+              "zipcode": 44410
+            }
           }
+        schema: |
+          {
+            "type": "object",
+            "properties": {
+               "email": { "description": "The account's email address", "type": "string"},
+               "password": { "description": "The password use to login", "type": "string"},
+               "name": { "description": "The fullname of the user", "type": "string"},
+               "nicknames": {
+                 "type": "array",
+                 "description": "A list of nicknames for the user",
+                 "items": {
+                   "type": "string",
+                   "description": "A nickname that the user goes by"
+                 }
+               },
+               "address": {
+                 "type": "object",
+                 "description": "The home address of the user",
+                 "properties": {
+                   "street_address": { "type": "string", "description": "The street address where the user lives" },
+                   "city": { "type": "string", "description": "The city where the user lives" },
+                   "state": { "type": "string", "description": "The state where the user lives" },
+                   "zipcode": { "type": "number", "description": "The zipcode where the user lives" }
+                 }
+               }
+             }
+           }
     responses:
       200:
         description: Account was created and user is now logged in
