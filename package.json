@@ -14,7 +14,7 @@
     "raml-1-parser": "0.2.14"
   },
   "devDependencies": {
-    "eslint": "0.24.x"
+    "eslint": "^3.2.2"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
   "keywords": [

@@ -17,7 +17,7 @@ function _parseBaseUri(ramlObj) {
 }
 
 function _ltrim(str, chr) {
-  var rgxtrim = (!chr) ? new RegExp('^\\s+') : new RegExp('^' + chr + '+');
+  var rgxtrim = !chr ? new RegExp('^\\s+') : new RegExp('^' + chr + '+');
   return str.replace(rgxtrim, '');
 }
 
