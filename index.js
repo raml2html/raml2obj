@@ -17,7 +17,7 @@ function _parseBaseUri(ramlObj) {
 }
 
 function _ltrim(str, chr) {
-  var rgxtrim = !chr ? new RegExp('^\\s+') : new RegExp('^' + chr + '+');
+  var rgxtrim = (!chr) ? new RegExp('^\\s+') : new RegExp('^' + chr + '+');
   return str.replace(rgxtrim, '');
 }
 
@@ -80,12 +80,21 @@ function _enhanceRamlObj(ramlObj) {
   return _addUniqueIdsToDocs(ramlObj);
 }
 
+function exists(fp){
+  try {
+    fs.accessSync(fp);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
-    if (fs.existsSync(source) || source.indexOf('http') === 0) {
+    if (exists(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadApi(source, { rejectOnErrors: true }).then(function(raml) {
-        return raml.expand().toJSON();
+      return raml.loadApi(source, { rejectOnErrors: false }).then(function(raml) {
+        return JSON.stringify(raml.expand());
       });
     }
 
