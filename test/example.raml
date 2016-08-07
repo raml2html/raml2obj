@@ -22,9 +22,19 @@ documentation:
       raml2html.parseWithConfig(source, config, onSuccess, onError);
       ```
   - title: Chapter two
-    content: More content here. Including **bold** text!
+    content: |
+      More content here. Including **bold** text!
+
+      Small table:
+
+      | A | B | C |
+      |---|---|---|
+      | 1 | 2 | 3 |
+
+      Done
 
 securitySchemes:
+  - Unauthenticated: !include unauthenticated.raml
   - oauth_1_0:
       description: OAuth 1.0 continues to be supported for all API requests, but OAuth 2.0 is now preferred.
       type: OAuth 1.0
@@ -32,6 +42,17 @@ securitySchemes:
         requestTokenUri: https://api.dropbox.com/1/oauth/request_token
         authorizationUri: https://www.dropbox.com/1/oauth/authorize
         tokenCredentialsUri: https://api.dropbox.com/1/oauth/access_token
+  - x-something:
+      description: The proprietary x-something header.
+      type: x-{other}
+      describedBy:
+        headers:
+          X-SOMETHING:
+            type: string
+            description: For sending an additional token.
+        responses:
+          401:
+            description: Bad token.
 
 traits:
   - paged:
@@ -44,8 +65,13 @@ traits:
           description: The page to return
           type: number
           default: 0
+      headers:
+        TESTING:
+          type: string
+          description: does a trait render its headers?
 
 /account:
+  securedBy: [Unauthenticated]
   displayName: ACCOUNTS
 
   description: |
@@ -180,7 +206,7 @@ traits:
 
 /conversations:
   description: This is the top level description for /conversations.
-  securedBy: [oauth_1_0]
+  securedBy: [oauth_1_0, x-something]
 
   get:
     description: Get a list of conversation for the current user
@@ -238,12 +264,9 @@ traits:
   post:
     description: Creates a new user
     body:
-      application/json:
+      application/xml:
         example: |
-          {
-            "email": "john@example.com",
-            "name": "John Doe",
-          }
+          <h1>Hello!</h1>
 
   /{userId}:
     get:

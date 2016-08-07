@@ -1,9 +1,9 @@
 'use strict';
 
-var raml2obj = require('..');
+const raml2obj = require('..');
 
-raml2obj.parse('example.raml').then(function(ramlObj) {
+raml2obj.parse('example.raml').then((ramlObj) => {
   console.log(ramlObj);
-}, function(error) {
+}, (error) => {
   console.log('error:', error);
 });
