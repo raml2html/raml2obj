@@ -93,8 +93,8 @@ function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
     if (exists(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadApi(source, { rejectOnErrors: false }).then(function(raml) {
-        return JSON.stringify(raml.expand());
+      return raml.loadApi(source, { rejectOnErrors: true }).then(function(raml) {
+        return raml.expand().toJSON();
       });
     }
 
