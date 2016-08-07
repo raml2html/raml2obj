@@ -37,7 +37,7 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
     resource.allUriParameters = [];
 
     if (allUriParameters) {
-      resource.allUriParameters.push(...allUriParameters);
+      resource.allUriParameters.push.apply(resource.allUriParameters, allUriParameters);
     }
 
     if (resource.uriParameters) {
@@ -70,6 +70,18 @@ function _addUniqueIdsToDocs(ramlObj) {
 function _enhanceRamlObj(ramlObj) {
   ramlObj = _parseBaseUri(ramlObj);
   ramlObj = _traverse(ramlObj);
+
+  // Add extra function for finding a security scheme by name
+  ramlObj.securitySchemeWithName = function (name) {
+    if (ramlObj.securitySchemes) {
+      const result = ramlObj.securitySchemes.find(s => s[name]);
+      if (result) {
+        return result[name];
+      }
+    }
+    return {};
+  };
+
   return _addUniqueIdsToDocs(ramlObj);
 }
 

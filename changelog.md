@@ -1,3 +1,8 @@
+3.0.0-beta1 - August 7, 2016
+- Updated code to use ES6 syntax
+- The securitySchemeWithName helper function is now part of raml2obj
+- Breaking change: Node 4 or higher is now required!
+
 2.2.0 - July 16, 2015
 - Update third party dependencies
 
