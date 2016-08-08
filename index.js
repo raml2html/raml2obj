@@ -60,9 +60,11 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
 
 function _addUniqueIdsToDocs(ramlObj) {
   // Add unique id's to top level documentation chapters
-  ramlObj.documentation.forEach((docSection) => {
-    docSection.uniqueId = docSection.title.replace(/\W/g, '-');
-  });
+  if (ramlObj.documentation) {
+    ramlObj.documentation.forEach((docSection) => {
+      docSection.uniqueId = docSection.title.replace(/\W/g, '-');
+    });
+  }
 
   return ramlObj;
 }

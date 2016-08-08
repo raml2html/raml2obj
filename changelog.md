@@ -1,3 +1,6 @@
+3.0.0-beta2 - August 8, 2016
+- Fix JS error
+
 3.0.0-beta1 - August 7, 2016
 - Updated code to use ES6 syntax
 - The securitySchemeWithName helper function is now part of raml2obj
