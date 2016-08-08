@@ -12,7 +12,6 @@ function _parseBaseUri(ramlObj) {
   if (ramlObj.baseUri) {
     ramlObj.baseUri = ramlObj.baseUri.replace('{version}', ramlObj.version);
   }
-
   return ramlObj;
 }
 
@@ -70,7 +69,6 @@ function _addUniqueIdsToDocs(ramlObj) {
       docSection.uniqueId = docSection.title.replace(/\W/g, '-');
     }
   }
-
   return ramlObj;
 }
 
@@ -80,9 +78,18 @@ function _enhanceRamlObj(ramlObj) {
   return _addUniqueIdsToDocs(ramlObj);
 }
 
+function exists(fp){
+  try {
+    fs.accessSync(fp);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
-    if (fs.existsSync(source) || source.indexOf('http') === 0) {
+    if (exists(source) || source.indexOf('http') === 0) {
       // Parse as file or url
       return raml.loadApi(source, { rejectOnErrors: true }).then(function(raml) {
         return raml.expand().toJSON();
@@ -90,7 +97,7 @@ function _sourceToRamlObj(source) {
     }
 
     return Q.fcall(function() {
-      throw new Error('_sourceToRamlObj: source does not exists');
+      throw new Error('_sourceToRamlObj: source does not exist');
     });
   } else if (typeof source === 'object') {
     // Parse RAML object directly
