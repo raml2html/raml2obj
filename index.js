@@ -2,7 +2,7 @@
 
 'use strict';
 
-const raml = require('raml-parser');
+const raml = require('raml-1-parser');
 const fs = require('fs');
 
 function _parseBaseUri(ramlObj) {
@@ -91,14 +91,12 @@ function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadFile(source);
+      return raml.loadApi(source, { rejectOnErrors: true }).then((result) => result.expand().toJSON());
     }
 
-    // Parse as string or buffer
-    return raml.load(String(source));
-  } else if (source instanceof Buffer) {
-    // Parse as buffer
-    return raml.load(String(source));
+    return new Promise((resolve, reject) => {
+      reject(new Error('_sourceToRamlObj: source does not exist.'));
+    });
   } else if (typeof source === 'object') {
     // Parse RAML object directly
     return new Promise((resolve) => {
@@ -107,7 +105,7 @@ function _sourceToRamlObj(source) {
   }
 
   return new Promise((resolve, reject) => {
-    reject(new Error('_sourceToRamlObj: You must supply either file, url, data or obj as source.'));
+    reject(new Error('_sourceToRamlObj: You must supply either file, url or object as source.'));
   });
 }
 

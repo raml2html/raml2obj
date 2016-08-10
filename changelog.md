@@ -1,3 +1,7 @@
+4.0.0-beta1 - August 10, 2016
+- Using the new raml-1-parser which support RAML 1.0 as well as 0.8
+- Breaking change: raml-1-parser doesn't support string or buffer sources anymore
+
 3.0.0 - August 10, 2016
 - Released without further changes
 
