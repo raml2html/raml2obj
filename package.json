@@ -10,11 +10,12 @@
     "url": "https://github.com/raml2html/raml2obj/issues"
   },
   "dependencies": {
-    "raml-1-parser": "0.2.x"
+    "raml-1-parser": "1.0.x"
   },
   "devDependencies": {
-    "eslint": "3.2.x",
-    "eslint-config-loopwerk": "4.1.x"
+    "eslint": "3.4.x",
+    "eslint-config-loopwerk": "4.2.x",
+    "mocha": "3.0.x"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
   "keywords": [
@@ -26,10 +27,11 @@
     "type": "git",
     "url": "git://github.com/raml2html/raml2obj.git"
   },
-  "preferGlobal": "false",
+  "preferGlobal": false,
   "scripts": {
-    "lint": "eslint index.js",
-    "lintfix": "eslint index.js --fix"
+    "lint": "eslint ./",
+    "lintfix": "eslint --fix ./",
+    "test": "mocha 'test/*.js' --reporter progress"
   },
   "engines": {
     "node": ">=4"
