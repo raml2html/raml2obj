@@ -37,8 +37,10 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
     }
 
     if (resource.uriParameters) {
-      Object.keys(resource.uriParameters).forEach((key) => {
-        resource.allUriParameters.push(resource.uriParameters[key]);
+      resource.uriParameters = _objectToArray(resource.uriParameters);
+
+      resource.uriParameters.forEach((uriParameter) => {
+        resource.allUriParameters.push(uriParameter);
       });
     }
 
@@ -54,9 +56,54 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
   return ramlObj;
 }
 
+// EXAMPLE INPUT:
+// {
+//   foo: {
+//     name: "foo"
+//   },
+//   bar: {
+//     name: "bar"
+//   }
+// }
+//
+// EXAMPLE OUTPUT:
+// [ { name: "foo" }, { name: "bar" } ]
+function _objectToArray(obj) {
+  return Object.keys(obj).map((key) => {
+    return obj[key];
+  });
+}
+
+function _isObject(obj) {
+  return obj === Object(obj);
+}
+
+function _recursiveObjectToArray(obj) {
+  if (_isObject(obj)) {
+    Object.keys(obj).forEach((key) => {
+      const value = obj[key];
+      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties'].indexOf(key) !== -1) {
+        obj[key] = _objectToArray(value);
+      }
+
+      _recursiveObjectToArray(value);
+    });
+  }
+
+  if (Array.isArray(obj)) {
+    obj.forEach((value) => {
+      _recursiveObjectToArray(value);
+    });
+  }
+}
+
 function _enhanceRamlObj(ramlObj) {
   ramlObj = _parseBaseUri(ramlObj);
   ramlObj = _traverse(ramlObj);
+
+  // The RAML output is kinda annoying. Some things are a pretty useless objects, while others are an array of objects.
+  // Let's make this consistent and just transform all these things to arrays of objects (see _objectToArray).
+  _recursiveObjectToArray(ramlObj);
 
   // Add extra function for finding a security scheme by name
   ramlObj.securitySchemeWithName = function (name) {

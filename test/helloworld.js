@@ -58,16 +58,17 @@ describe('raml2obj', () => {
 
       assert.equal(method.method, 'get');
       assert.deepEqual(method.allUriParameters, []);
-      assert.deepEqual(Object.keys(method.responses), [200]);
+      assert.deepEqual(method.responses.length, 1);
 
-      const twohundred = method.responses[200];
+      const response = method.responses[0];
 
-      assert.equal(twohundred.code, '200');
-      assert.equal(twohundred.body['application/json'].name, 'application/json');
-      assert.equal(twohundred.body['application/json'].displayName, 'application/json');
-      assert.equal(twohundred.body['application/json'].required, true);
-      assert.equal(twohundred.body['application/json'].type, '{\n  "title": "Hello world Response",\n  "type": "object",\n  "properties": {\n    "message": {\n      "type": "string"\n    }\n  }\n}\n');
-      assert.deepEqual(twohundred.body['application/json'].example, { message: 'Hello world' });
+      assert.equal(response.code, '200');
+      assert.equal(response.body.length, 1);
+      assert.equal(response.body[0].name, 'application/json');
+      assert.equal(response.body[0].displayName, 'application/json');
+      assert.equal(response.body[0].required, true);
+      assert.equal(response.body[0].type, '{\n  "title": "Hello world Response",\n  "type": "object",\n  "properties": {\n    "message": {\n      "type": "string"\n    }\n  }\n}\n');
+      assert.deepEqual(response.body[0].example, { message: 'Hello world' });
     });
 
     it('should test the sub-resource', () => {

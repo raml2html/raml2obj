@@ -1,0 +1,78 @@
+#%RAML 1.0
+title: Lots of parameters
+
+/account:
+  post:
+    body:
+      application/json:
+        example: |
+          {
+            "email": "john@example.com",
+            "password": "super_secret",
+            "name": "John Doe"
+          }
+    responses:
+      200:
+        description: Account was created and user is now logged in
+
+  /find:
+    get:
+      queryParameters:
+        name:
+          description: name on account
+          required: true
+          example: Naruto Uzumaki
+        gender:
+          enum: ["male", "female"]
+          required: true
+        number:
+          type: integer
+          default: 42
+
+  /{id}:
+    uriParameters:
+      id:
+        type: string
+        description: account identifier
+        minLength: 1
+        maxLength: 10
+
+    get:
+      headers:
+        Authorization:
+          type: string
+          description: Basic authentication header
+          example: |
+            Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+
+    put:
+      body:
+        application/x-www-form-urlencoded:
+          properties:
+            name:
+              description: name on account
+              type: string
+              example: Naruto Uzumaki
+            gender:
+              enum: ["male", "female"]
+
+    delete:
+      description: Delete the account
+
+    /{id}:
+      uriParameters:
+        id:
+          type: string
+          description: sub account identifier
+          minLength: 1
+          maxLength: 10
+      get:
+        responses:
+          401:
+            description: Not authorized
+            headers:
+              WWW-Authenticate:
+                type: string
+                description: user was not authorized
+                example: |
+                  WWW-Authenticate: Basic realm="raml2html"
