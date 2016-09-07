@@ -11,11 +11,15 @@ describe('raml2obj', () => {
       raml2obj.parse('test/helloworld-10.raml').then((result) => {
         obj = result;
         done();
+      }, (error) => {
+        console.log('error', error);
       });
     });
 
     it('should test the basic properties of the resource', () => {
       assert.equal(obj.title, 'Hello world');
+      assert.equal(obj.version, '1');
+      assert.equal(obj.baseUri, 'http://example.com/1');
       assert.equal(obj.resources.length, 1);
 
       const resource = obj.resources[0];
@@ -25,6 +29,21 @@ describe('raml2obj', () => {
       assert.equal(resource.parentUrl, '');
       assert.equal(resource.uniqueId, 'helloworld');
       assert.deepEqual(resource.allUriParameters, []);
+    });
+
+    it('should test the documentation', () => {
+      assert.equal(obj.documentation.length, 2);
+
+      const first = obj.documentation[0];
+      const second = obj.documentation[1];
+
+      assert.equal(first.title, 'Welcome');
+      assert.equal(first.content, 'Welcome to the Example Documentation. The Example API allows you\nto do stuff. See also [example.com](https://www.example.com).\n');
+      assert.equal(first.uniqueId, 'welcome');
+
+      assert.equal(second.title, 'Chapter two');
+      assert.equal(second.content, 'More content here. Including **bold** text!\n');
+      assert.equal(second.uniqueId, 'chapter_two');
     });
 
     it('should test the methods', () => {
@@ -63,6 +82,8 @@ describe('raml2obj', () => {
 
     it('should test the basic properties of the resource', () => {
       assert.equal(obj.title, 'Hello world');
+      assert.equal(obj.version, '1');
+      assert.equal(obj.baseUri, 'http://example.com/1');
       assert.equal(obj.resources.length, 1);
 
       const resource = obj.resources[0];
@@ -72,6 +93,21 @@ describe('raml2obj', () => {
       assert.equal(resource.parentUrl, '');
       assert.equal(resource.uniqueId, 'helloworld');
       assert.deepEqual(resource.allUriParameters, []);
+    });
+
+    it('should test the documentation', () => {
+      assert.equal(obj.documentation.length, 2);
+
+      const first = obj.documentation[0];
+      const second = obj.documentation[1];
+
+      assert.equal(first.title, 'Welcome');
+      assert.equal(first.content, 'Welcome to the Example Documentation. The Example API allows you\nto do stuff. See also [example.com](https://www.example.com).\n');
+      assert.equal(first.uniqueId, 'welcome');
+
+      assert.equal(second.title, 'Chapter two');
+      assert.equal(second.content, 'More content here. Including **bold** text!\n');
+      assert.equal(second.uniqueId, 'chapter_two');
     });
 
     it('should test the methods', () => {

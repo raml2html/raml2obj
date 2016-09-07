@@ -1,5 +1,15 @@
 #%RAML 1.0
 title: Hello world # required title
+version: 1
+baseUri: http://example.com/{version}
+documentation:
+  - title: Welcome
+    content: |
+      Welcome to the Example Documentation. The Example API allows you
+      to do stuff. See also [example.com](https://www.example.com).
+  - title: Chapter two
+    content: |
+      More content here. Including **bold** text!
 
 /helloworld: # optional resource
   get: # HTTP method declaration

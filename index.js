@@ -20,9 +20,8 @@ function _ltrim(str, chr) {
   return str.replace(rgxtrim, '');
 }
 
-function _makeUniqueId(resource) {
-  const fullUrl = resource.parentUrl + resource.relativeUri;
-  return _ltrim(fullUrl.replace(/\W/g, '_'), '_');
+function _makeUniqueId(str) {
+  return _ltrim(str.replace(/\W/g, '_'), '_').toLowerCase();
 }
 
 function _traverse(ramlObj, parentUrl, allUriParameters) {
@@ -33,7 +32,7 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
 
   ramlObj.resources.forEach((resource) => {
     resource.parentUrl = parentUrl || '';
-    resource.uniqueId = _makeUniqueId(resource);
+    resource.uniqueId = _makeUniqueId(resource.parentUrl + resource.relativeUri);
     resource.allUriParameters = [];
 
     if (allUriParameters) {
@@ -62,7 +61,7 @@ function _addUniqueIdsToDocs(ramlObj) {
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {
     ramlObj.documentation.forEach((docSection) => {
-      docSection.uniqueId = docSection.title.replace(/\W/g, '-');
+      docSection.uniqueId = _makeUniqueId(docSection.title);
     });
   }
 
