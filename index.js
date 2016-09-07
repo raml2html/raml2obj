@@ -43,8 +43,8 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
     }
 
     if (resource.methods) {
-      Object.keys(resource.methods).forEach((methodkey) => {
-        resource.methods[methodkey].allUriParameters = resource.allUriParameters;
+      resource.methods.forEach((method) => {
+        method.allUriParameters = resource.allUriParameters;
       });
     }
 
@@ -83,7 +83,13 @@ function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadApi(source, { rejectOnErrors: true }).then((result) => result.expand().toJSON());
+      return raml.loadApi(source, { rejectOnErrors: true }).then((result) => {
+        if (result._node._universe._typedVersion === '0.8') {
+          throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
+        }
+
+        return result.expand().toJSON();
+      });
     }
 
     return new Promise((resolve, reject) => {

@@ -12,6 +12,8 @@ documentation:
       More content here. Including **bold** text!
 
 /helloworld: # optional resource
+  description: This is the top level description for /helloworld.
+
   get: # HTTP method declaration
     responses: # declare a response
       200: # HTTP status code
@@ -31,3 +33,7 @@ documentation:
               {
                 "message": "Hello world"
               }
+  /test:
+    displayName: TEST
+    get:
+      description: a sub resource
