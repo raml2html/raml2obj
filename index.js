@@ -15,13 +15,10 @@ function _parseBaseUri(ramlObj) {
   return ramlObj;
 }
 
-function _ltrim(str, chr) {
-  const rgxtrim = (!chr) ? new RegExp('^\\s+') : new RegExp(`^${chr}+`);
-  return str.replace(rgxtrim, '');
-}
-
-function _makeUniqueId(str) {
-  return _ltrim(str.replace(/\W/g, '_'), '_').toLowerCase();
+function _makeUniqueId(string) {
+  const stringWithSpacesReplaced = string.replace(/\W/g, '_');
+  const stringWithLeadingUnderscoreRemoved = stringWithSpacesReplaced.replace(new RegExp('^_+'), '');
+  return stringWithLeadingUnderscoreRemoved.toLowerCase();
 }
 
 function _traverse(ramlObj, parentUrl, allUriParameters) {
@@ -57,17 +54,6 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
   return ramlObj;
 }
 
-function _addUniqueIdsToDocs(ramlObj) {
-  // Add unique id's to top level documentation chapters
-  if (ramlObj.documentation) {
-    ramlObj.documentation.forEach((docSection) => {
-      docSection.uniqueId = _makeUniqueId(docSection.title);
-    });
-  }
-
-  return ramlObj;
-}
-
 function _enhanceRamlObj(ramlObj) {
   ramlObj = _parseBaseUri(ramlObj);
   ramlObj = _traverse(ramlObj);
@@ -83,7 +69,14 @@ function _enhanceRamlObj(ramlObj) {
     return {};
   };
 
-  return _addUniqueIdsToDocs(ramlObj);
+  // Add unique id's to top level documentation chapters
+  if (ramlObj.documentation) {
+    ramlObj.documentation.forEach((docSection) => {
+      docSection.uniqueId = _makeUniqueId(docSection.title);
+    });
+  }
+
+  return ramlObj;
 }
 
 function _sourceToRamlObj(source) {
@@ -108,8 +101,6 @@ function _sourceToRamlObj(source) {
   });
 }
 
-function parse(source) {
+module.exports.parse = function (source) {
   return _sourceToRamlObj(source).then((ramlObj) => _enhanceRamlObj(ramlObj));
-}
-
-module.exports.parse = parse;
+};
