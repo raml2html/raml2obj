@@ -19,7 +19,7 @@ describe('raml2obj', () => {
     it('should test the basic properties of the raml object', () => {
       assert.equal(obj.title, 'Hello world');
       assert.equal(obj.version, '1');
-      assert.equal(obj.baseUri, 'http://example.com/1');
+      assert.equal(obj.baseUri, 'http://example.com/{version}');
       assert.equal(obj.resources.length, 1);
     });
 

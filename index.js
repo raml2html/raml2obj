@@ -5,16 +5,6 @@
 const raml = require('raml-1-parser');
 const fs = require('fs');
 
-function _parseBaseUri(ramlObj) {
-  // I have no clue what kind of variables the RAML spec allows in the baseUri.
-  // For now keep it super super simple.
-  if (ramlObj.baseUri) {
-    ramlObj.baseUri = ramlObj.baseUri.replace('{version}', ramlObj.version);
-  }
-
-  return ramlObj;
-}
-
 function _makeUniqueId(string) {
   const stringWithSpacesReplaced = string.replace(/\W/g, '_');
   const stringWithLeadingUnderscoreRemoved = stringWithSpacesReplaced.replace(new RegExp('^_+'), '');
@@ -82,7 +72,7 @@ function _recursiveObjectToArray(obj) {
   if (_isObject(obj)) {
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
-      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties'].indexOf(key) !== -1) {
+      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters'].indexOf(key) !== -1) {
         obj[key] = _objectToArray(value);
       }
 
@@ -97,24 +87,44 @@ function _recursiveObjectToArray(obj) {
   }
 }
 
+// EXAMPLE INPUT:
+// [
+//   { foo: { ... } },
+//   { bar: { ... } },
+// ]
+//
+// EXAMPLE OUTPUT:
+// { foo: { ... }, bar: { ... } }
+function _arrayToObject(arr) {
+  return arr.reduce((acc, cur) => {
+    Object.keys(cur).forEach((key) => {
+      acc[key] = cur[key];
+    });
+    return acc;
+  }, {});
+}
+
+function _arraysToObjects(ramlObj) {
+  ['types', 'traits', 'resourceTypes', 'annotationTypes', 'securitySchemes'].forEach((key) => {
+    if (ramlObj[key]) {
+      ramlObj[key] = _arrayToObject(ramlObj[key]);
+    }
+  });
+
+  return ramlObj;
+}
+
 function _enhanceRamlObj(ramlObj) {
-  ramlObj = _parseBaseUri(ramlObj);
   ramlObj = _traverse(ramlObj);
 
   // The RAML output is kinda annoying. Some things are a pretty useless objects, while others are an array of objects.
   // Let's make this consistent and just transform all these things to arrays of objects (see _objectToArray).
   _recursiveObjectToArray(ramlObj);
 
-  // Add extra function for finding a security scheme by name
-  ramlObj.securitySchemeWithName = function (name) {
-    if (ramlObj.securitySchemes) {
-      const result = ramlObj.securitySchemes.find(s => s[name]);
-      if (result) {
-        return result[name];
-      }
-    }
-    return {};
-  };
+  // TODO: ramlObj.uses is currently completely useless
+  // Do we need to parse the values, which are links to other RAML files, or is raml-1-parser going to do this?
+
+  ramlObj = _arraysToObjects(ramlObj);
 
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {
