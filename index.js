@@ -38,6 +38,11 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
     resource.uniqueId = _makeUniqueId(resource.parentUrl + resource.relativeUri);
     resource.allUriParameters = [];
 
+    // Since types are an array everywhere else, make sure they're also an array on the resource level
+    if (resource.type && !Array.isArray(resource.type)) {
+      resource.type = [resource.type];
+    }
+
     if (allUriParameters) {
       resource.allUriParameters.push.apply(resource.allUriParameters, allUriParameters);
     }
@@ -70,7 +75,7 @@ function _recursiveObjectToArray(obj) {
   if (_isObject(obj)) {
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
-      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters'].indexOf(key) !== -1) {
+      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters', 'annotations'].indexOf(key) !== -1) {
         obj[key] = _objectToArray(value);
       }
 
