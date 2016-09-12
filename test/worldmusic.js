@@ -4,7 +4,9 @@ const raml2obj = require('..');
 const assert = require('assert');
 
 describe('raml2obj', () => {
-  describe('worldmusic.raml', () => {
+  describe('worldmusic.raml', function () {
+    this.timeout(10000);
+
     let obj;
 
     before((done) => {
@@ -92,7 +94,7 @@ describe('raml2obj', () => {
       assert.deepEqual(post.securedBy, ['custom_scheme']);
       assert.equal(post.body.length, 1);
       assert.equal(post.body[0].name, 'application/json');
-      assert.deepEqual(post.body[0].type, ['ApiLib.RamlDataType']);
+      assert.equal(post.body[0].type[0].split('#')[1], '/types/RamlDataType');
       assert.equal(post.body[0].required, true);
     });
   });

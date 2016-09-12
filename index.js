@@ -11,6 +11,22 @@ function _makeUniqueId(string) {
   return stringWithLeadingUnderscoreRemoved.toLowerCase();
 }
 
+// EXAMPLE INPUT:
+// {
+//   foo: {
+//     name: "foo"
+//   },
+//   bar: {
+//     name: "bar"
+//   }
+// }
+//
+// EXAMPLE OUTPUT:
+// [ { name: "foo" }, { name: "bar" } ]
+function _objectToArray(obj) {
+  return Object.keys(obj).map((key) => obj[key]);
+}
+
 function _traverse(ramlObj, parentUrl, allUriParameters) {
   // Add unique id's and parent URL's plus parent URI parameters to resources
   if (!ramlObj.resources) {
@@ -46,24 +62,6 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
   return ramlObj;
 }
 
-// EXAMPLE INPUT:
-// {
-//   foo: {
-//     name: "foo"
-//   },
-//   bar: {
-//     name: "bar"
-//   }
-// }
-//
-// EXAMPLE OUTPUT:
-// [ { name: "foo" }, { name: "bar" } ]
-function _objectToArray(obj) {
-  return Object.keys(obj).map((key) => {
-    return obj[key];
-  });
-}
-
 function _isObject(obj) {
   return obj === Object(obj);
 }
@@ -85,6 +83,8 @@ function _recursiveObjectToArray(obj) {
       _recursiveObjectToArray(value);
     });
   }
+
+  return obj;
 }
 
 // EXAMPLE INPUT:
@@ -119,12 +119,14 @@ function _enhanceRamlObj(ramlObj) {
 
   // The RAML output is kinda annoying. Some things are a pretty useless objects, while others are an array of objects.
   // Let's make this consistent and just transform all these things to arrays of objects (see _objectToArray).
-  _recursiveObjectToArray(ramlObj);
+  ramlObj = _recursiveObjectToArray(ramlObj);
+
+  // Some other structures are different still: an array of objects wrapped in other objects.
+  // Let's also make this consistent (see _arraysToObjects).
+  ramlObj = _arraysToObjects(ramlObj);
 
   // TODO: ramlObj.uses is currently completely useless
   // Do we need to parse the values, which are links to other RAML files, or is raml-1-parser going to do this?
-
-  ramlObj = _arraysToObjects(ramlObj);
 
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {
@@ -145,7 +147,9 @@ function _sourceToRamlObj(source) {
           throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
         }
 
-        return result.expand().toJSON();
+        const expandedResult = result.expand();
+        expandedResult.expandLibraries();
+        return expandedResult.toJSON();
       });
     }
 
