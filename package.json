@@ -10,7 +10,7 @@
     "url": "https://github.com/raml2html/raml2obj/issues"
   },
   "dependencies": {
-    "raml-parser": "0.8.x"
+    "raml-parser": "^1.1.1"
   },
   "devDependencies": {
     "eslint": "3.2.x",
