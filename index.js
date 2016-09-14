@@ -154,7 +154,7 @@ function _sourceToRamlObj(source) {
 
         const expandedResult = result.expand();
         expandedResult.expandLibraries();
-        return expandedResult.toJSON();
+        return expandedResult.toJSON({ serializeMetadata: false });
       });
     }
 

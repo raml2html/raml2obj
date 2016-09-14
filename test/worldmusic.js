@@ -4,7 +4,7 @@ const raml2obj = require('..');
 const assert = require('assert');
 
 describe('raml2obj', () => {
-  describe.only('worldmusic.raml', function () {
+  describe('worldmusic.raml', function () {
     this.timeout(10000);
 
     let obj;
@@ -14,7 +14,7 @@ describe('raml2obj', () => {
         obj = result;
         done();
       }, (error) => {
-        console.log('error', error);
+        console.log(JSON.stringify(error));
       });
     });
 
