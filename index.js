@@ -152,9 +152,7 @@ function _sourceToRamlObj(source) {
           throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
         }
 
-        const expandedResult = result.expand();
-        expandedResult.expandLibraries();
-        return expandedResult.toJSON({ serializeMetadata: false });
+        return result.expand(true).toJSON({ serializeMetadata: false });
       });
     }
 

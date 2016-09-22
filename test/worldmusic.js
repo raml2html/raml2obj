@@ -95,7 +95,7 @@ describe('raml2obj', () => {
       assert.deepEqual(post.securedBy, ['custom_scheme']);
       assert.equal(post.body.length, 1);
       assert.equal(post.body[0].name, 'application/json');
-      assert.equal(post.body[0].type[0].split('#')[1], '/types/RamlDataType');
+      assert.deepEqual(post.body[0].type, ['ApiLib.RamlDataType']);
       assert.equal(post.body[0].required, true);
     });
 
@@ -137,7 +137,7 @@ describe('raml2obj', () => {
       assert.equal(get.responses[0].code, '200');
       assert.equal(get.responses[0].body.length, 1);
       assert.equal(get.responses[0].body[0].name, 'application/json');
-      assert.equal(get.responses[0].body[0].schema, '<<resourcePathName|!singularize|!uppercamelcase>>');
+      assert.deepEqual(get.responses[0].body[0].schema, ['Entry']);
     });
 
     it('should test the /songs resource', () => {
