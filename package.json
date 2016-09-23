@@ -13,8 +13,8 @@
     "raml-1-parser": "1.1.3"
   },
   "devDependencies": {
-    "eslint": "3.4.x",
-    "eslint-config-loopwerk": "4.2.x",
+    "eslint": "3.5.x",
+    "eslint-config-loopwerk": "4.3.0",
     "mocha": "3.0.x"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
