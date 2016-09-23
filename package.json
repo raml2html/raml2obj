@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "4.0.0-beta2",
+  "version": "4.0.0-beta3",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -33,6 +33,9 @@
     "lintfix": "eslint --fix ./",
     "test": "mocha 'test/*.js' --reporter progress"
   },
+  "files": [
+    "index.js"
+  ],
   "engines": {
     "node": ">=4"
   }
