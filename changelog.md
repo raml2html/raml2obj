@@ -1,3 +1,6 @@
+4.0.0-beta3 - September 23, 2016
+- Limit the `files` that are sent to NPM
+
 4.0.0-beta2 - September 22, 2016
 - Updated raml-1-parser to 1.1.3
 - Added a bunch of unit tests
