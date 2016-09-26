@@ -130,9 +130,6 @@ function _enhanceRamlObj(ramlObj) {
   // Let's also make this consistent (see _arraysToObjects).
   ramlObj = _arraysToObjects(ramlObj);
 
-  // TODO: ramlObj.uses is currently completely useless
-  // Do we need to parse the values, which are links to other RAML files, or is raml-1-parser going to do this?
-
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {
     ramlObj.documentation.forEach((docSection) => {
