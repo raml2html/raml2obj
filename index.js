@@ -24,7 +24,7 @@ function _makeUniqueId(string) {
 // EXAMPLE OUTPUT:
 // [ { name: "foo" }, { name: "bar" } ]
 function _objectToArray(obj) {
-  return Object.keys(obj).map((key) => obj[key]);
+  return Object.keys(obj).map(key => obj[key]);
 }
 
 function _traverse(ramlObj, parentUrl, allUriParameters) {
@@ -169,5 +169,5 @@ function _sourceToRamlObj(source) {
 }
 
 module.exports.parse = function (source) {
-  return _sourceToRamlObj(source).then((ramlObj) => _enhanceRamlObj(ramlObj));
+  return _sourceToRamlObj(source).then(ramlObj => _enhanceRamlObj(ramlObj));
 };
