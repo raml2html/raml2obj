@@ -14,7 +14,7 @@ function _makeUniqueId(string) {
 // EXAMPLE INPUT:
 // {
 //   foo: {
-//     name: "foo"
+//     name: "foo!"
 //   },
 //   bar: {
 //     name: "bar"
@@ -22,9 +22,12 @@ function _makeUniqueId(string) {
 // }
 //
 // EXAMPLE OUTPUT:
-// [ { name: "foo" }, { name: "bar" } ]
+// [ { name: "foo!", key: "foo" }, { name: "bar", key: "bar" } ]
 function _objectToArray(obj) {
-  return Object.keys(obj).map(key => obj[key]);
+  return Object.keys(obj).map((key) => {
+    obj[key].key = key;
+    return obj[key];
+  });
 }
 
 function _traverse(ramlObj, parentUrl, allUriParameters) {
@@ -71,21 +74,37 @@ function _isObject(obj) {
   return obj === Object(obj);
 }
 
-function _recursiveObjectToArray(obj) {
+function _expandTypes(arr, ramlObj) {
+  return arr.map((obj) => {
+    if (obj.type && Array.isArray(obj.type)) {
+      obj.type.forEach((type) => {
+        if (ramlObj.types[type]) {
+          Object.assign(obj, ramlObj.types[type])
+        }
+      });
+    }
+
+    return obj;
+  });
+}
+
+function _recursiveObjectToArray(obj, ramlObj) {
   if (_isObject(obj)) {
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
       if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters', 'annotations'].indexOf(key) !== -1) {
         obj[key] = _objectToArray(value);
+
+        if (ramlObj.types) {
+          obj[key] = _expandTypes(obj[key], ramlObj);
+        }
       }
 
-      _recursiveObjectToArray(value);
+      _recursiveObjectToArray(value, ramlObj);
     });
-  }
-
-  if (Array.isArray(obj)) {
+  } else if (Array.isArray(obj)) {
     obj.forEach((value) => {
-      _recursiveObjectToArray(value);
+      _recursiveObjectToArray(value, ramlObj);
     });
   }
 
@@ -122,13 +141,36 @@ function _arraysToObjects(ramlObj) {
 function _enhanceRamlObj(ramlObj) {
   ramlObj = _traverse(ramlObj);
 
-  // The RAML output is kinda annoying. Some things are a pretty useless objects, while others are an array of objects.
-  // Let's make this consistent and just transform all these things to arrays of objects (see _objectToArray).
-  ramlObj = _recursiveObjectToArray(ramlObj);
-
-  // Some other structures are different still: an array of objects wrapped in other objects.
-  // Let's also make this consistent (see _arraysToObjects).
+  // Some of the structures (like `types`) are an array that hold key/value pairs, which is very annoying to work with.
+  // Let's make them into a simple object, this makes it easy to use them for direct lookups.
+  //
+  // EXAMPLE of these structures:
+  // [
+  //   { foo: { ... } },
+  //   { bar: { ... } },
+  // ]
+  //
+  // EXAMPLE of what we want:
+  // { foo: { ... }, bar: { ... } }
   ramlObj = _arraysToObjects(ramlObj);
+
+  // Other structures (like `responses`) are an object that hold other wrapped objects.
+  // Flatten this to simple (non-wrapped) objects in an array instead,
+  // this makes it easy to loop over them in raml2html / raml2md.
+  //
+  // EXAMPLE of these structures:
+  // {
+  //   foo: {
+  //     name: "foo!"
+  //   },
+  //   bar: {
+  //     name: "bar"
+  //   }
+  // }
+  //
+  // EXAMPLE of what we want:
+  // [ { name: "foo!", key: "foo" }, { name: "bar", key: "bar" } ]
+  ramlObj = _recursiveObjectToArray(ramlObj, ramlObj);
 
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {

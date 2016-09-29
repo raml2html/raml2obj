@@ -101,8 +101,9 @@ describe('raml2obj', () => {
       assert.equal(post.allUriParameters.length, 0);
       assert.deepEqual(post.securedBy, ['custom_scheme']);
       assert.equal(post.body.length, 1);
-      assert.equal(post.body[0].name, 'application/json');
-      assert.deepEqual(post.body[0].type, ['ApiLib.RamlDataType']);
+      assert.equal(post.body[0].name, 'RamlDataType');
+      assert.equal(post.body[0].key, 'application/json');
+      assert.deepEqual(post.body[0].type, ['object']);
       assert.equal(post.body[0].required, true);
     });
 
@@ -131,8 +132,9 @@ describe('raml2obj', () => {
       assert.equal(post.responses.length, 1);
       assert.equal(post.responses[0].code, '200');
       assert.equal(post.responses[0].body.length, 1);
-      assert.equal(post.responses[0].body[0].name, 'application/json');
-      assert.deepEqual(post.responses[0].body[0].type, ['AnotherEntry']);
+      assert.equal(post.responses[0].body[0].name, 'AnotherEntry');
+      assert.equal(post.responses[0].body[0].key, 'application/json');
+      assert.deepEqual(post.responses[0].body[0].type, ['Entry']);
 
       const get = methods[1];
 
@@ -212,7 +214,10 @@ describe('raml2obj', () => {
       assert.deepEqual(get.securedBy, ['custom_scheme']);
 
       assert.equal(get.responses[0].body.length, 2);
-      assert.equal(get.responses[0].body[0].type[0], 'SongsLib.Song');
+      assert.equal(get.responses[0].body[0].displayName, 'Song');
+      assert.equal(get.responses[0].body[0].key, 'application/json');
+      assert.equal(get.responses[0].body[0].type[0], 'object');
+
       assert.equal(get.responses[0].body[1].type[0].indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);
     });
   });
