@@ -1,3 +1,7 @@
+4.0.0-beta4 - September 29, 2016
+- Expanding types where possible
+- Added more unit tests
+
 4.0.0-beta3 - September 23, 2016
 - Limit the `files` that are sent to NPM
 
