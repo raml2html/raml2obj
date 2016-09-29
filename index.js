@@ -95,7 +95,7 @@ function _makeExamplesConsistent(arr) {
     }
 
     if (obj.examples.length) {
-      obj.examples = obj.examples.map(example => example.value);
+      obj.examples = obj.examples.map(example => example.value ? example.value : example);
     }
 
     if (obj.structuredExample) {

@@ -105,6 +105,8 @@ describe('raml2obj', () => {
       assert.equal(post.body[0].key, 'application/json');
       assert.deepEqual(post.body[0].type, ['object']);
       assert.equal(post.body[0].required, true);
+      assert.equal(post.body[0].properties.length, 14);
+      assert.equal(post.body[0].properties[4].examples[0], 'very well made');
     });
 
     it('should test the /entry resource', () => {

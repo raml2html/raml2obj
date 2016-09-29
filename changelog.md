@@ -1,3 +1,6 @@
+4.0.0-beta6 - September 29, 2016
+- Fixed examples array
+
 4.0.0-beta5 - September 29, 2016
 - Always return an `examples` array containing simple strings
 
