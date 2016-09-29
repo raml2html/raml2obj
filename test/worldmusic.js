@@ -210,6 +210,10 @@ describe('raml2obj', () => {
       assert.equal(get.annotations.length, 1);
       assert.equal(get.responses.length, 1);
       assert.deepEqual(get.securedBy, ['custom_scheme']);
+
+      assert.equal(get.responses[0].body.length, 2);
+      assert.equal(get.responses[0].body[0].type[0], 'SongsLib.Song');
+      assert.equal(get.responses[0].body[1].type[0].indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);
     });
   });
 });
