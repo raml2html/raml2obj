@@ -25,6 +25,13 @@ describe('raml2obj', () => {
       assert.equal(obj.resources.length, 3); // /api, /entry, /songs
     });
 
+    it('should test the expanded types', () => {
+      assert.equal(Object.keys(obj.types).length, 8);
+      assert.equal(obj.types['ApiLib.RamlDataType'].displayName, 'RamlDataType');
+      assert.equal(obj.types['ApiLib.RamlDataType'].properties.length, 14);
+      assert.equal(obj.types['ApiLib.RamlDataType'].required, true);
+    });
+
     it('should test baseUriParameters', () => {
       assert.equal(obj.baseUriParameters.length, 2);
 
