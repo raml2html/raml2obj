@@ -79,9 +79,29 @@ function _expandTypes(arr, ramlObj) {
     if (obj.type && Array.isArray(obj.type)) {
       obj.type.forEach((type) => {
         if (ramlObj.types[type]) {
-          Object.assign(obj, ramlObj.types[type])
+          Object.assign(obj, ramlObj.types[type]);
         }
       });
+    }
+
+    return obj;
+  });
+}
+
+function _makeExamplesConsistent(arr) {
+  return arr.map((obj) => {
+    if (typeof obj.examples === 'undefined') {
+      obj.examples = [];
+    }
+
+    if (obj.examples.length) {
+      obj.examples = obj.examples.map(example => example.value);
+    }
+
+    if (obj.structuredExample) {
+      obj.examples.push(obj.structuredExample.value);
+      delete obj.example;
+      delete obj.structuredExample;
     }
 
     return obj;
@@ -98,6 +118,8 @@ function _recursiveObjectToArray(obj, ramlObj) {
         if (ramlObj.types) {
           obj[key] = _expandTypes(obj[key], ramlObj);
         }
+
+        obj[key] = _makeExamplesConsistent(obj[key]);
       }
 
       _recursiveObjectToArray(value, ramlObj);

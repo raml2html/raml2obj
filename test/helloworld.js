@@ -68,7 +68,7 @@ describe('raml2obj', () => {
       assert.equal(response.body[0].displayName, 'application/json');
       assert.equal(response.body[0].required, true);
       assert.equal(response.body[0].type, '{\n  "title": "Hello world Response",\n  "type": "object",\n  "properties": {\n    "message": {\n      "type": "string"\n    }\n  }\n}\n');
-      assert.deepEqual(response.body[0].example, { message: 'Hello world' });
+      assert.equal(response.body[0].examples[0], '{\n  "message": "Hello world"\n}');
     });
 
     it('should test the sub-resource', () => {

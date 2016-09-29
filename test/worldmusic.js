@@ -216,6 +216,7 @@ describe('raml2obj', () => {
       assert.equal(get.responses[0].body.length, 2);
       assert.equal(get.responses[0].body[0].displayName, 'Song');
       assert.equal(get.responses[0].body[0].key, 'application/json');
+      assert.equal(get.responses[0].body[0].examples.length, 2);
       assert.equal(get.responses[0].body[0].type[0], 'object');
 
       assert.equal(get.responses[0].body[1].type[0].indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);

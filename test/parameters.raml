@@ -5,12 +5,14 @@ title: Lots of parameters
   post:
     body:
       application/json:
-        example: |
-          {
-            "email": "john@example.com",
-            "password": "super_secret",
-            "name": "John Doe"
-          }
+        examples:
+          example1:
+            value:
+              {
+                "email": "john@example.com",
+                "password": "super_secret",
+                "name": "John Doe"
+              }
     responses:
       200:
         description: Account was created and user is now logged in
@@ -52,7 +54,10 @@ title: Lots of parameters
             name:
               description: name on account
               type: string
-              example: Naruto Uzumaki
+              examples:
+                example1: Naruto Uzumaki
+                example2:
+                  value: Kevin Renskers
             gender:
               enum: ["male", "female"]
 

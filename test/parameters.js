@@ -37,13 +37,8 @@ describe('raml2obj', () => {
       assert.equal(method.body.length, 1);
       assert.equal(method.body[0].name, 'application/json');
       assert.deepEqual(method.body[0].type, ['object']);
-      assert.deepEqual(method.body[0].example, {
-        email: 'john@example.com',
-        password: 'super_secret',
-        name: 'John Doe',
-      });
+      assert.equal(method.body[0].examples[0], '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}');
       assert.equal(method.body[0].required, true);
-
       assert.equal(method.responses.length, 1);
       assert.equal(method.responses[0].code, '200');
       assert.equal(method.responses[0].description, 'Account was created and user is now logged in');
@@ -67,7 +62,7 @@ describe('raml2obj', () => {
       assert.equal(method.queryParameters[0].name, 'name');
       assert.equal(method.queryParameters[0].displayName, 'name');
       assert.deepEqual(method.queryParameters[0].type, ['string']);
-      assert.equal(method.queryParameters[0].example, 'Naruto Uzumaki');
+      assert.equal(method.queryParameters[0].examples[0], 'Naruto Uzumaki');
       assert.equal(method.queryParameters[0].required, true);
       assert.equal(method.queryParameters[0].description, 'name on account');
 
@@ -112,7 +107,7 @@ describe('raml2obj', () => {
       assert.equal(get.headers[0].name, 'Authorization');
       assert.equal(get.headers[0].displayName, 'Authorization');
       assert.deepEqual(get.headers[0].type, ['string']);
-      assert.equal(get.headers[0].example, 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n');
+      assert.equal(get.headers[0].examples[0], 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n');
       assert.equal(get.headers[0].required, true);
       assert.equal(get.headers[0].description, 'Basic authentication header');
 
@@ -127,6 +122,9 @@ describe('raml2obj', () => {
       assert.equal(put.body[0].required, true);
       assert.equal(put.body[0].properties.length, 2);
       assert.equal(put.body[0].properties[0].name, 'name');
+      assert.equal(put.body[0].properties[0].examples.length, 2);
+      assert.equal(put.body[0].properties[0].examples[0], 'Naruto Uzumaki');
+      assert.equal(put.body[0].properties[0].examples[1], 'Kevin Renskers');
       assert.equal(put.body[0].properties[1].name, 'gender');
     });
 

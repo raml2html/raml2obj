@@ -1,3 +1,6 @@
+4.0.0-beta5 - September 29, 2016
+- Always return an `examples` array containing simple strings
+
 4.0.0-beta4 - September 29, 2016
 - Expanding types where possible
 - Added more unit tests
