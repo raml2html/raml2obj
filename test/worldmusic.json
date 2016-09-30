@@ -1,0 +1,1542 @@
+{
+    "annotations": [
+        {
+            "structuredValue": {
+                "license": "MIT"
+            },
+            "name": "info",
+            "key": "info",
+            "examples": []
+        }
+    ],
+    "types": {
+        "Entry": {
+            "name": "Entry",
+            "displayName": "Entry",
+            "type": [
+                "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n"
+            ],
+            "required": true
+        },
+        "AnotherEntry": {
+            "name": "AnotherEntry",
+            "displayName": "AnotherEntry",
+            "type": [
+                "Entry"
+            ],
+            "required": true,
+            "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
+        },
+        "User": {
+            "name": "User",
+            "displayName": "User",
+            "type": [
+                "object"
+            ],
+            "example": {
+                "firstname": "John"
+            },
+            "required": true,
+            "properties": [
+                {
+                    "name": "firstname",
+                    "displayName": "firstname",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "0",
+                    "examples": []
+                },
+                {
+                    "name": "lastname",
+                    "displayName": "lastname",
+                    "type": [
+                        "string"
+                    ],
+                    "required": false,
+                    "key": "1",
+                    "examples": [
+                        "Doe"
+                    ]
+                }
+            ],
+            "structuredExample": {
+                "value": "{\n  \"firstname\": \"John\"\n}",
+                "strict": true,
+                "name": null,
+                "structuredValue": {
+                    "firstname": "John"
+                }
+            }
+        },
+        "ApiLib.RamlDataType": {
+            "name": "RamlDataType",
+            "displayName": "RamlDataType",
+            "type": [
+                "object"
+            ],
+            "required": true,
+            "properties": [
+                {
+                    "name": "propString",
+                    "displayName": "propString",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "0",
+                    "examples": []
+                },
+                {
+                    "name": "propStringArray1",
+                    "displayName": "propStringArray1",
+                    "type": [
+                        "array"
+                    ],
+                    "required": true,
+                    "items": "string",
+                    "key": "1",
+                    "examples": []
+                },
+                {
+                    "name": "ideas",
+                    "displayName": "ideas",
+                    "type": [
+                        "array"
+                    ],
+                    "required": true,
+                    "items": {
+                        "name": "items",
+                        "displayName": "items",
+                        "type": [
+                            "object"
+                        ],
+                        "required": true,
+                        "properties": [
+                            {
+                                "name": "comment",
+                                "displayName": "comment",
+                                "type": [
+                                    "string"
+                                ],
+                                "required": true,
+                                "key": "0",
+                                "examples": []
+                            }
+                        ]
+                    },
+                    "key": "2",
+                    "examples": []
+                },
+                {
+                    "name": "extIdeas",
+                    "displayName": "extIdeas",
+                    "required": true,
+                    "properties": [
+                        {
+                            "name": "createdBy",
+                            "displayName": "createdBy",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "0",
+                            "examples": []
+                        }
+                    ],
+                    "type": {
+                        "name": "type",
+                        "displayName": "type",
+                        "type": [
+                            "object"
+                        ],
+                        "required": true,
+                        "properties": [
+                            {
+                                "name": "comment",
+                                "displayName": "comment",
+                                "type": [
+                                    "string"
+                                ],
+                                "required": true,
+                                "__METADATA__": {
+                                    "primitiveValuesMeta": {
+                                        "displayName": {
+                                            "calculated": true
+                                        },
+                                        "required": {
+                                            "insertedAsDefault": true
+                                        }
+                                    }
+                                },
+                                "key": "0",
+                                "examples": []
+                            }
+                        ],
+                        "__METADATA__": {
+                            "primitiveValuesMeta": {
+                                "displayName": {
+                                    "calculated": true
+                                },
+                                "type": {
+                                    "insertedAsDefault": true
+                                },
+                                "required": {
+                                    "insertedAsDefault": true
+                                }
+                            }
+                        }
+                    },
+                    "key": "3",
+                    "examples": []
+                },
+                {
+                    "name": "feedback",
+                    "displayName": "feedback",
+                    "type": [
+                        "string"
+                    ],
+                    "default": "very nice",
+                    "required": true,
+                    "pattern": "[a-zA-Z\\s]*",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "key": "4",
+                    "examples": [
+                        "very well made"
+                    ]
+                },
+                {
+                    "name": "propNumber",
+                    "displayName": "propNumber",
+                    "type": [
+                        "number"
+                    ],
+                    "required": true,
+                    "minimum": 0,
+                    "maximum": 32,
+                    "format": "int32",
+                    "multipleOf": 2,
+                    "fixedFacets": {
+                        "format": "int32"
+                    },
+                    "key": "5",
+                    "examples": []
+                },
+                {
+                    "name": "propInteger",
+                    "displayName": "propInteger",
+                    "type": [
+                        "integer"
+                    ],
+                    "required": true,
+                    "minimum": 3,
+                    "maximum": 5,
+                    "format": "int8",
+                    "multipleOf": 1,
+                    "fixedFacets": {
+                        "format": "int8"
+                    },
+                    "key": "6",
+                    "examples": []
+                },
+                {
+                    "name": "propBoolean",
+                    "displayName": "propBoolean",
+                    "type": [
+                        "boolean"
+                    ],
+                    "required": true,
+                    "key": "7",
+                    "examples": []
+                },
+                {
+                    "name": "propDate",
+                    "displayName": "propDate",
+                    "type": [
+                        "date-only"
+                    ],
+                    "required": true,
+                    "key": "8",
+                    "examples": [
+                        "2015-05-23"
+                    ]
+                },
+                {
+                    "name": "userPicture",
+                    "displayName": "userPicture",
+                    "type": [
+                        "file"
+                    ],
+                    "required": true,
+                    "fileTypes": [
+                        {},
+                        {}
+                    ],
+                    "maxLength": 307200,
+                    "fixedFacets": {
+                        "fileTypes": [
+                            "image/jpeg",
+                            "image/png"
+                        ],
+                        "maxLength": 307200
+                    },
+                    "key": "9",
+                    "examples": []
+                },
+                {
+                    "name": "NilValue",
+                    "displayName": "NilValue",
+                    "type": [
+                        "object"
+                    ],
+                    "required": true,
+                    "properties": [
+                        {
+                            "name": "name",
+                            "displayName": "name",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "0",
+                            "examples": []
+                        },
+                        {
+                            "name": "comment",
+                            "displayName": "comment",
+                            "type": [
+                                "string?"
+                            ],
+                            "required": true,
+                            "key": "1",
+                            "examples": []
+                        }
+                    ],
+                    "key": "10",
+                    "examples": []
+                },
+                {
+                    "name": "CatOrDog",
+                    "displayName": "CatOrDog",
+                    "type": [
+                        "ApiLib.Cat | ApiLib.Dog"
+                    ],
+                    "required": true,
+                    "key": "11",
+                    "examples": []
+                },
+                [
+                    {
+                        "name": "CatAndDog",
+                        "displayName": "CatAndDog",
+                        "type": [
+                            "ApiLib.Cat"
+                        ],
+                        "required": true
+                    },
+                    {
+                        "name": "CatAndDog",
+                        "displayName": "CatAndDog",
+                        "type": [
+                            "ApiLib.Dog"
+                        ],
+                        "required": true
+                    }
+                ],
+                {
+                    "name": "CustomDate",
+                    "displayName": "CustomDate",
+                    "type": [
+                        "date-only"
+                    ],
+                    "required": true,
+                    "fixedFacets": {
+                        "noHolidays": true
+                    },
+                    "key": "13",
+                    "facets": {
+                        "onlyFutureDates": {
+                            "name": "onlyFutureDates",
+                            "displayName": "onlyFutureDates",
+                            "type": [
+                                "boolean"
+                            ],
+                            "required": false
+                        },
+                        "noHolidays": {
+                            "name": "noHolidays",
+                            "displayName": "noHolidays",
+                            "type": [
+                                "boolean"
+                            ],
+                            "required": true
+                        }
+                    },
+                    "examples": []
+                }
+            ]
+        },
+        "ApiLib.Cat": {
+            "name": "Cat",
+            "displayName": "Cat",
+            "type": [
+                "object"
+            ],
+            "required": true,
+            "properties": [
+                {
+                    "name": "name",
+                    "displayName": "name",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "name",
+                    "examples": []
+                },
+                {
+                    "name": "color",
+                    "displayName": "color",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "color",
+                    "examples": []
+                }
+            ]
+        },
+        "ApiLib.Dog": {
+            "name": "Dog",
+            "displayName": "Dog",
+            "type": [
+                "object"
+            ],
+            "required": true,
+            "properties": [
+                {
+                    "name": "name",
+                    "displayName": "name",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "name",
+                    "examples": []
+                },
+                {
+                    "name": "fangs",
+                    "displayName": "fangs",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "fangs",
+                    "examples": []
+                }
+            ]
+        },
+        "ApiLib.CustomDate": {
+            "name": "CustomDate",
+            "displayName": "CustomDate",
+            "facets": {
+                "onlyFutureDates": {
+                    "name": "onlyFutureDates",
+                    "displayName": "onlyFutureDates",
+                    "type": [
+                        "boolean"
+                    ],
+                    "required": false
+                },
+                "noHolidays": {
+                    "name": "noHolidays",
+                    "displayName": "noHolidays",
+                    "type": [
+                        "boolean"
+                    ],
+                    "required": true
+                }
+            },
+            "type": [
+                "date-only"
+            ],
+            "required": true
+        },
+        "SongsLib.Song": {
+            "name": "Song",
+            "displayName": "Song",
+            "type": [
+                "object"
+            ],
+            "examples": [
+                {
+                    "value": "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
+                    "strict": false,
+                    "name": "song1",
+                    "structuredValue": {
+                        "title": "My Song",
+                        "length": 12
+                    }
+                },
+                {
+                    "value": "{\n  \"title\": \"Last\",\n  \"length\": 3\n}",
+                    "strict": true,
+                    "name": "song2",
+                    "structuredValue": {
+                        "title": "Last",
+                        "length": 3
+                    }
+                }
+            ],
+            "required": true,
+            "properties": [
+                {
+                    "name": "title",
+                    "displayName": "title",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "0",
+                    "examples": []
+                },
+                {
+                    "name": "length",
+                    "displayName": "length",
+                    "type": [
+                        "number"
+                    ],
+                    "required": true,
+                    "key": "1",
+                    "examples": []
+                }
+            ]
+        }
+    },
+    "traits": {
+        "secured": {
+            "queryParameters": [
+                {
+                    "name": "access_token",
+                    "displayName": "access_token",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "access_token",
+                    "examples": []
+                }
+            ],
+            "securedBy": [
+                "custom_scheme"
+            ],
+            "name": "secured",
+            "usage": "This trait can be used to apply an access token query parameter\nto any resources or HTTP methods.\n"
+        }
+    },
+    "resourceTypes": {
+        "collection": {
+            "securedBy": [
+                "custom_scheme"
+            ],
+            "name": "collection",
+            "get": {
+                "responses": [
+                    {
+                        "code": "200",
+                        "body": [
+                            {
+                                "name": "application/json",
+                                "displayName": "application/json",
+                                "schema": [
+                                    "<<resourcePathName|!singularize|!uppercamelcase>>"
+                                ],
+                                "required": true,
+                                "key": "application/json",
+                                "examples": []
+                            }
+                        ],
+                        "key": "200",
+                        "examples": []
+                    }
+                ],
+                "securedBy": [
+                    "custom_scheme"
+                ],
+                "description": "returns a list of <<resourcePathName|!singularize>>",
+                "method": "get"
+            }
+        }
+    },
+    "annotationTypes": {
+        "deprecated": {
+            "name": "deprecated",
+            "displayName": "deprecated",
+            "type": [
+                "object"
+            ],
+            "required": true,
+            "properties": [
+                {
+                    "name": "date",
+                    "displayName": "date",
+                    "type": [
+                        "datetime"
+                    ],
+                    "required": true,
+                    "key": "date",
+                    "examples": []
+                },
+                {
+                    "name": "User",
+                    "displayName": "User",
+                    "type": [
+                        "object"
+                    ],
+                    "required": true,
+                    "key": "deprecatedBy",
+                    "properties": [
+                        {
+                            "name": "firstname",
+                            "displayName": "firstname",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "0",
+                            "examples": []
+                        },
+                        {
+                            "name": "lastname",
+                            "displayName": "lastname",
+                            "type": [
+                                "string"
+                            ],
+                            "required": false,
+                            "key": "1",
+                            "examples": [
+                                "Doe"
+                            ]
+                        }
+                    ],
+                    "examples": [
+                        "{\n  \"firstname\": \"John\"\n}"
+                    ]
+                },
+                {
+                    "name": "comment",
+                    "displayName": "comment",
+                    "type": [
+                        "nil | string"
+                    ],
+                    "required": true,
+                    "key": "comment",
+                    "examples": []
+                }
+            ]
+        },
+        "monitoringInterval": {
+            "name": "monitoringInterval",
+            "displayName": "monitoringInterval",
+            "type": [
+                "integer"
+            ],
+            "example": null,
+            "required": true,
+            "description": "interval in seconds"
+        },
+        "ready": {
+            "name": "ready",
+            "displayName": "ready",
+            "type": [
+                "nil"
+            ],
+            "required": true,
+            "description": "markes a resource as ready",
+            "allowedTargets": [
+                "Resource"
+            ]
+        },
+        "info": {
+            "name": "info",
+            "displayName": "info",
+            "type": [
+                "object"
+            ],
+            "required": true,
+            "allowedTargets": [
+                "API"
+            ],
+            "properties": [
+                {
+                    "name": "license",
+                    "displayName": "license",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "enum": [
+                        "MIT",
+                        "Apache 2.0"
+                    ],
+                    "key": "license",
+                    "examples": []
+                }
+            ]
+        },
+        "rediractable": {
+            "name": "rediractable",
+            "displayName": "rediractable",
+            "type": [
+                "boolean"
+            ],
+            "required": true
+        }
+    },
+    "securitySchemes": {
+        "oauth_1_0": {
+            "name": "oauth_1_0",
+            "type": "OAuth 1.0",
+            "description": "OAuth 1.0 continues to be supported for all API requests, but OAuth 2.0 is now preferred.\n",
+            "settings": {
+                "requestTokenUri": "https://api.mysampleapi.com/1/oauth/request_token",
+                "authorizationUri": "https://api.mysampleapi.com/1/oauth/authorize",
+                "tokenCredentialsUri": "https://api.mysampleapi.com/1/oauth/access_token",
+                "signatures": [
+                    "HMAC-SHA1",
+                    "PLAINTEXT"
+                ]
+            }
+        },
+        "oauth_2_0": {
+            "name": "oauth_2_0",
+            "type": "OAuth 2.0",
+            "description": "Dropbox supports OAuth 2.0 for authenticating all API requests.\n",
+            "describedBy": {
+                "queryParameters": [
+                    {
+                        "name": "access_token",
+                        "displayName": "access_token",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "description": "Used to send a valid OAuth 2 access token. Do not use with\nthe \"Authorization\" header.\n",
+                        "key": "access_token",
+                        "examples": []
+                    }
+                ],
+                "headers": [
+                    {
+                        "name": "Authorization",
+                        "displayName": "Authorization",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "description": "Used to send a valid OAuth 2 access token. Do not use\nwith the \"access_token\" query string parameter.\n",
+                        "key": "Authorization",
+                        "examples": []
+                    }
+                ],
+                "responses": [
+                    {
+                        "code": "401",
+                        "description": "Bad or expired token. This can happen if the user or Dropbox\nrevoked or expired an access token. To fix, re-authenticate\nthe user.\n",
+                        "key": "0",
+                        "examples": []
+                    },
+                    {
+                        "code": "403",
+                        "description": "Bad OAuth request (wrong consumer key, bad nonce, expired\ntimestamp...). Unfortunately, re-authenticating the user won't help here.\n",
+                        "key": "1",
+                        "examples": []
+                    }
+                ]
+            },
+            "settings": {
+                "accessTokenUri": "https://api.dropbox.com/1/oauth2/token",
+                "authorizationUri": "https://www.dropbox.com/1/oauth2/authorize",
+                "authorizationGrants": [
+                    "authorization_code",
+                    "implicit",
+                    "urn:ietf:params:oauth:grant-type:saml2-bearer"
+                ]
+            }
+        },
+        "custom_scheme": {
+            "name": "custom_scheme",
+            "type": "x-custom",
+            "description": "A custom security scheme for authenticating requests.\n",
+            "describedBy": {
+                "headers": [
+                    {
+                        "name": "SpecialToken",
+                        "displayName": "SpecialToken",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "description": "Used to send a custom token.\n",
+                        "key": "SpecialToken",
+                        "examples": []
+                    }
+                ],
+                "responses": [
+                    {
+                        "code": "401",
+                        "description": "Bad token.\n",
+                        "key": "0",
+                        "examples": []
+                    },
+                    {
+                        "code": "403",
+                        "key": "1",
+                        "examples": []
+                    }
+                ]
+            }
+        }
+    },
+    "title": "World Music API",
+    "description": "This is an example of a music API.",
+    "version": "v1",
+    "baseUri": "http://{environment}.musicapi.com/{version}",
+    "baseUriParameters": [
+        {
+            "name": "environment",
+            "displayName": "environment",
+            "type": [
+                "string"
+            ],
+            "required": true,
+            "enum": [
+                "stg",
+                "dev",
+                "test",
+                "prod"
+            ],
+            "key": "environment",
+            "examples": []
+        },
+        {
+            "name": "version",
+            "displayName": "version",
+            "type": [
+                "string"
+            ],
+            "required": true,
+            "enum": [
+                "v1"
+            ],
+            "key": "version",
+            "examples": []
+        }
+    ],
+    "protocols": [
+        "HTTP",
+        "HTTPS"
+    ],
+    "mediaType": "application/json",
+    "securedBy": [
+        "custom_scheme"
+    ],
+    "resources": [
+        {
+            "methods": [
+                {
+                    "queryString": {
+                        "name": "queryString",
+                        "displayName": "queryString",
+                        "type": [
+                            "object"
+                        ],
+                        "required": true,
+                        "properties": [
+                            {
+                                "name": "start",
+                                "displayName": "start",
+                                "type": [
+                                    "number"
+                                ],
+                                "required": false,
+                                "key": "start",
+                                "examples": []
+                            },
+                            {
+                                "name": "page-size",
+                                "displayName": "page-size",
+                                "type": [
+                                    "number"
+                                ],
+                                "required": false,
+                                "key": "page-size",
+                                "examples": []
+                            }
+                        ]
+                    },
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "securedBy": [
+                        "custom_scheme"
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                },
+                {
+                    "body": [
+                        {
+                            "name": "RamlDataType",
+                            "displayName": "RamlDataType",
+                            "type": [
+                                "object"
+                            ],
+                            "required": true,
+                            "key": "application/json",
+                            "properties": [
+                                {
+                                    "name": "propString",
+                                    "displayName": "propString",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "key": "0",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "propStringArray1",
+                                    "displayName": "propStringArray1",
+                                    "type": [
+                                        "array"
+                                    ],
+                                    "required": true,
+                                    "items": "string",
+                                    "key": "1",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "ideas",
+                                    "displayName": "ideas",
+                                    "type": [
+                                        "array"
+                                    ],
+                                    "required": true,
+                                    "items": {
+                                        "name": "items",
+                                        "displayName": "items",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "required": true,
+                                        "properties": [
+                                            {
+                                                "name": "comment",
+                                                "displayName": "comment",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "0",
+                                                "examples": []
+                                            }
+                                        ]
+                                    },
+                                    "key": "2",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "extIdeas",
+                                    "displayName": "extIdeas",
+                                    "required": true,
+                                    "properties": [
+                                        {
+                                            "name": "createdBy",
+                                            "displayName": "createdBy",
+                                            "type": [
+                                                "string"
+                                            ],
+                                            "required": true,
+                                            "key": "0",
+                                            "examples": []
+                                        }
+                                    ],
+                                    "type": {
+                                        "name": "type",
+                                        "displayName": "type",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "required": true,
+                                        "properties": [
+                                            {
+                                                "name": "comment",
+                                                "displayName": "comment",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "__METADATA__": {
+                                                    "primitiveValuesMeta": {
+                                                        "displayName": {
+                                                            "calculated": true
+                                                        },
+                                                        "required": {
+                                                            "insertedAsDefault": true
+                                                        }
+                                                    }
+                                                },
+                                                "key": "0",
+                                                "examples": []
+                                            }
+                                        ],
+                                        "__METADATA__": {
+                                            "primitiveValuesMeta": {
+                                                "displayName": {
+                                                    "calculated": true
+                                                },
+                                                "type": {
+                                                    "insertedAsDefault": true
+                                                },
+                                                "required": {
+                                                    "insertedAsDefault": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "key": "3",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "feedback",
+                                    "displayName": "feedback",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "default": "very nice",
+                                    "required": true,
+                                    "pattern": "[a-zA-Z\\s]*",
+                                    "minLength": 1,
+                                    "maxLength": 255,
+                                    "key": "4",
+                                    "examples": [
+                                        "very well made"
+                                    ]
+                                },
+                                {
+                                    "name": "propNumber",
+                                    "displayName": "propNumber",
+                                    "type": [
+                                        "number"
+                                    ],
+                                    "required": true,
+                                    "minimum": 0,
+                                    "maximum": 32,
+                                    "format": "int32",
+                                    "multipleOf": 2,
+                                    "fixedFacets": {
+                                        "format": "int32"
+                                    },
+                                    "key": "5",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "propInteger",
+                                    "displayName": "propInteger",
+                                    "type": [
+                                        "integer"
+                                    ],
+                                    "required": true,
+                                    "minimum": 3,
+                                    "maximum": 5,
+                                    "format": "int8",
+                                    "multipleOf": 1,
+                                    "fixedFacets": {
+                                        "format": "int8"
+                                    },
+                                    "key": "6",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "propBoolean",
+                                    "displayName": "propBoolean",
+                                    "type": [
+                                        "boolean"
+                                    ],
+                                    "required": true,
+                                    "key": "7",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "propDate",
+                                    "displayName": "propDate",
+                                    "type": [
+                                        "date-only"
+                                    ],
+                                    "required": true,
+                                    "key": "8",
+                                    "examples": [
+                                        "2015-05-23"
+                                    ]
+                                },
+                                {
+                                    "name": "userPicture",
+                                    "displayName": "userPicture",
+                                    "type": [
+                                        "file"
+                                    ],
+                                    "required": true,
+                                    "fileTypes": [
+                                        {},
+                                        {}
+                                    ],
+                                    "maxLength": 307200,
+                                    "fixedFacets": {
+                                        "fileTypes": [
+                                            "image/jpeg",
+                                            "image/png"
+                                        ],
+                                        "maxLength": 307200
+                                    },
+                                    "key": "9",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "NilValue",
+                                    "displayName": "NilValue",
+                                    "type": [
+                                        "object"
+                                    ],
+                                    "required": true,
+                                    "properties": [
+                                        {
+                                            "name": "name",
+                                            "displayName": "name",
+                                            "type": [
+                                                "string"
+                                            ],
+                                            "required": true,
+                                            "key": "0",
+                                            "examples": []
+                                        },
+                                        {
+                                            "name": "comment",
+                                            "displayName": "comment",
+                                            "type": [
+                                                "string?"
+                                            ],
+                                            "required": true,
+                                            "key": "1",
+                                            "examples": []
+                                        }
+                                    ],
+                                    "key": "10",
+                                    "examples": []
+                                },
+                                {
+                                    "name": "CatOrDog",
+                                    "displayName": "CatOrDog",
+                                    "type": [
+                                        "ApiLib.Cat | ApiLib.Dog"
+                                    ],
+                                    "required": true,
+                                    "key": "11",
+                                    "examples": []
+                                },
+                                [
+                                    {
+                                        "name": "CatAndDog",
+                                        "displayName": "CatAndDog",
+                                        "type": [
+                                            "ApiLib.Cat"
+                                        ],
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "CatAndDog",
+                                        "displayName": "CatAndDog",
+                                        "type": [
+                                            "ApiLib.Dog"
+                                        ],
+                                        "required": true
+                                    }
+                                ],
+                                {
+                                    "name": "CustomDate",
+                                    "displayName": "CustomDate",
+                                    "type": [
+                                        "date-only"
+                                    ],
+                                    "required": true,
+                                    "fixedFacets": {
+                                        "noHolidays": true
+                                    },
+                                    "key": "13",
+                                    "facets": {
+                                        "onlyFutureDates": {
+                                            "name": "onlyFutureDates",
+                                            "displayName": "onlyFutureDates",
+                                            "type": [
+                                                "boolean"
+                                            ],
+                                            "required": false
+                                        },
+                                        "noHolidays": {
+                                            "name": "noHolidays",
+                                            "displayName": "noHolidays",
+                                            "type": [
+                                                "boolean"
+                                            ],
+                                            "required": true
+                                        }
+                                    },
+                                    "examples": []
+                                }
+                            ],
+                            "examples": []
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "securedBy": [
+                        "custom_scheme"
+                    ],
+                    "method": "post",
+                    "allUriParameters": []
+                }
+            ],
+            "securedBy": [
+                "custom_scheme"
+            ],
+            "relativeUri": "/api",
+            "displayName": "/api",
+            "relativeUriPathSegments": [
+                "api"
+            ],
+            "parentUrl": "",
+            "uniqueId": "api",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "AnotherEntry",
+                                    "displayName": "AnotherEntry",
+                                    "type": [
+                                        "Entry"
+                                    ],
+                                    "required": true,
+                                    "key": "application/json",
+                                    "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n",
+                                    "examples": []
+                                }
+                            ],
+                            "key": "200",
+                            "examples": []
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "securedBy": [
+                        "custom_scheme"
+                    ],
+                    "method": "post",
+                    "allUriParameters": []
+                },
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "application/json",
+                                    "displayName": "application/json",
+                                    "schema": [
+                                        "Entry"
+                                    ],
+                                    "required": true,
+                                    "key": "application/json",
+                                    "examples": []
+                                }
+                            ],
+                            "key": "200",
+                            "examples": []
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "securedBy": [
+                        "custom_scheme"
+                    ],
+                    "description": "returns a list of entry",
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "type": [
+                "collection"
+            ],
+            "securedBy": [
+                "custom_scheme"
+            ],
+            "relativeUri": "/entry",
+            "displayName": "/entry",
+            "relativeUriPathSegments": [
+                "entry"
+            ],
+            "parentUrl": "",
+            "uniqueId": "entry",
+            "allUriParameters": []
+        },
+        {
+            "annotations": [
+                {
+                    "structuredValue": null,
+                    "name": "ready",
+                    "key": "ready",
+                    "examples": []
+                }
+            ],
+            "methods": [
+                {
+                    "annotations": [
+                        {
+                            "structuredValue": 30,
+                            "name": "monitoringInterval",
+                            "key": "monitoringInterval",
+                            "examples": []
+                        }
+                    ],
+                    "queryParameters": [
+                        {
+                            "name": "genre",
+                            "displayName": "genre",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "description": "filter the songs by genre",
+                            "key": "genre",
+                            "examples": []
+                        },
+                        {
+                            "name": "access_token",
+                            "displayName": "access_token",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "access_token",
+                            "examples": []
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "securedBy": [
+                        "oauth_2_0",
+                        null
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                },
+                {
+                    "queryParameters": [
+                        {
+                            "name": "access_token",
+                            "displayName": "access_token",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "access_token",
+                            "examples": []
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "securedBy": [
+                        "custom_scheme"
+                    ],
+                    "method": "post",
+                    "allUriParameters": []
+                }
+            ],
+            "is": [
+                "secured"
+            ],
+            "description": "Access to all songs inside the music world library.",
+            "securedBy": [
+                "custom_scheme"
+            ],
+            "relativeUri": "/songs",
+            "displayName": "Songs",
+            "resources": [
+                {
+                    "methods": [
+                        {
+                            "annotations": [
+                                {
+                                    "structuredValue": {
+                                        "date": "2016-02-28T16:41:41.090Z",
+                                        "deprecatedBy": {
+                                            "firstname": "Christian"
+                                        },
+                                        "comment": "no comment"
+                                    },
+                                    "name": "deprecated",
+                                    "key": "deprecated",
+                                    "examples": []
+                                }
+                            ],
+                            "responses": [
+                                {
+                                    "code": "200",
+                                    "body": [
+                                        {
+                                            "name": "Song",
+                                            "displayName": "Song",
+                                            "type": [
+                                                "object"
+                                            ],
+                                            "required": true,
+                                            "key": "application/json",
+                                            "examples": [
+                                                "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
+                                                "{\n  \"title\": \"Last\",\n  \"length\": 3\n}"
+                                            ],
+                                            "properties": [
+                                                {
+                                                    "name": "title",
+                                                    "displayName": "title",
+                                                    "type": [
+                                                        "string"
+                                                    ],
+                                                    "required": true,
+                                                    "key": "0",
+                                                    "examples": []
+                                                },
+                                                {
+                                                    "name": "length",
+                                                    "displayName": "length",
+                                                    "type": [
+                                                        "number"
+                                                    ],
+                                                    "required": true,
+                                                    "key": "1",
+                                                    "examples": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "application/xml",
+                                            "displayName": "application/xml",
+                                            "type": [
+                                                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n"
+                                            ],
+                                            "required": true,
+                                            "key": "application/xml",
+                                            "examples": [
+                                                "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<song>\n  <title>str1234</title>\n  <artist>str1234</artist>\n</song>\n"
+                                            ]
+                                        }
+                                    ],
+                                    "key": "200",
+                                    "examples": []
+                                }
+                            ],
+                            "protocols": [
+                                "HTTP"
+                            ],
+                            "securedBy": [
+                                "custom_scheme"
+                            ],
+                            "method": "get",
+                            "allUriParameters": [
+                                {
+                                    "name": "songId",
+                                    "displayName": "songId",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "key": "songId"
+                                }
+                            ]
+                        }
+                    ],
+                    "securedBy": [
+                        "custom_scheme"
+                    ],
+                    "uriParameters": [
+                        {
+                            "name": "songId",
+                            "displayName": "songId",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "songId"
+                        }
+                    ],
+                    "relativeUri": "/{songId}",
+                    "displayName": "/{songId}",
+                    "relativeUriPathSegments": [
+                        "{songId}"
+                    ],
+                    "parentUrl": "/songs",
+                    "uniqueId": "songs__songid_",
+                    "allUriParameters": [
+                        {
+                            "name": "songId",
+                            "displayName": "songId",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "songId"
+                        }
+                    ]
+                }
+            ],
+            "relativeUriPathSegments": [
+                "songs"
+            ],
+            "parentUrl": "",
+            "uniqueId": "songs",
+            "allUriParameters": []
+        }
+    ],
+    "documentation": [
+        {
+            "title": "Getting Started",
+            "content": "This is a getting started guide for the World Music API.\n",
+            "uniqueId": "getting_started"
+        },
+        {
+            "title": "Legal",
+            "content": "See http://legal.musicapi.com",
+            "uniqueId": "legal"
+        }
+    ],
+    "scalarsAnnotations": {
+        "baseUri": [
+            {
+                "structuredValue": true,
+                "name": "rediractable"
+            }
+        ]
+    }
+}
