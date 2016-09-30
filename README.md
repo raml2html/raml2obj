@@ -15,7 +15,7 @@ npm i raml2obj --save
 
 
 ## Usage
-```
+```js
 var raml2obj = require('raml2obj');
 
 // source can either be a filename, url, or parsed RAML object.
