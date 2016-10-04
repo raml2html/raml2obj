@@ -26,7 +26,7 @@ describe('raml2obj', () => {
     });
 
     it('should test the expanded types', () => {
-      assert.equal(Object.keys(obj.types).length, 8);
+      assert.equal(Object.keys(obj.types).length, 9);
       assert.equal(obj.types['ApiLib.RamlDataType'].displayName, 'RamlDataType');
       assert.equal(obj.types['ApiLib.RamlDataType'].properties.length, 14);
       assert.equal(obj.types['ApiLib.RamlDataType'].required, true);

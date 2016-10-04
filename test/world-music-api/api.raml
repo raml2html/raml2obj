@@ -19,6 +19,24 @@ documentation:
     content: See http://legal.musicapi.com
 
 types:
+  Comment:
+    type: object
+    properties:
+      author:
+        type: string
+        required: true
+      body:
+        type: string
+        required: true
+      date:
+        type: integer
+        required: true
+      editAuthor:
+        type: string
+        required: false
+      edited:
+        type: integer
+        required: false
   Entry: |
     {
       "type": "array",

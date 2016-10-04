@@ -1,3 +1,8 @@
+4.0.0-beta7 - October 4, 2016
+- Fixed JS error when `body` is used as a property (#14)
+- Removed all the empty examples arrays
+- Fixed `key` properties that were sometimes integers
+
 4.0.0-beta6 - September 29, 2016
 - Fixed examples array
 

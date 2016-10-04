@@ -5,11 +5,65 @@
                 "license": "MIT"
             },
             "name": "info",
-            "key": "info",
-            "examples": []
+            "key": "info"
         }
     ],
     "types": {
+        "Comment": {
+            "name": "Comment",
+            "displayName": "Comment",
+            "type": [
+                "object"
+            ],
+            "required": true,
+            "properties": [
+                {
+                    "name": "author",
+                    "displayName": "author",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "author"
+                },
+                {
+                    "name": "body",
+                    "displayName": "body",
+                    "type": [
+                        "string"
+                    ],
+                    "required": true,
+                    "key": "body"
+                },
+                {
+                    "name": "date",
+                    "displayName": "date",
+                    "type": [
+                        "integer"
+                    ],
+                    "required": true,
+                    "key": "date"
+                },
+                {
+                    "name": "editAuthor",
+                    "displayName": "editAuthor",
+                    "type": [
+                        "string"
+                    ],
+                    "required": false,
+                    "key": "editAuthor"
+                },
+                {
+                    "name": "edited",
+                    "displayName": "edited",
+                    "type": [
+                        "integer"
+                    ],
+                    "required": false,
+                    "key": "edited"
+                }
+            ]
+        },
         "Entry": {
             "name": "Entry",
             "displayName": "Entry",
@@ -45,8 +99,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "0",
-                    "examples": []
+                    "key": "firstname"
                 },
                 {
                     "name": "lastname",
@@ -55,7 +108,7 @@
                         "string"
                     ],
                     "required": false,
-                    "key": "1",
+                    "key": "lastname",
                     "examples": [
                         "Doe"
                     ]
@@ -85,8 +138,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "0",
-                    "examples": []
+                    "key": "propString"
                 },
                 {
                     "name": "propStringArray1",
@@ -96,8 +148,7 @@
                     ],
                     "required": true,
                     "items": "string",
-                    "key": "1",
-                    "examples": []
+                    "key": "propStringArray1"
                 },
                 {
                     "name": "ideas",
@@ -121,13 +172,11 @@
                                     "string"
                                 ],
                                 "required": true,
-                                "key": "0",
-                                "examples": []
+                                "key": "comment"
                             }
                         ]
                     },
-                    "key": "2",
-                    "examples": []
+                    "key": "ideas"
                 },
                 {
                     "name": "extIdeas",
@@ -141,8 +190,7 @@
                                 "string"
                             ],
                             "required": true,
-                            "key": "0",
-                            "examples": []
+                            "key": "createdBy"
                         }
                     ],
                     "type": {
@@ -170,8 +218,7 @@
                                         }
                                     }
                                 },
-                                "key": "0",
-                                "examples": []
+                                "key": "comment"
                             }
                         ],
                         "__METADATA__": {
@@ -188,8 +235,7 @@
                             }
                         }
                     },
-                    "key": "3",
-                    "examples": []
+                    "key": "extIdeas"
                 },
                 {
                     "name": "feedback",
@@ -202,7 +248,7 @@
                     "pattern": "[a-zA-Z\\s]*",
                     "minLength": 1,
                     "maxLength": 255,
-                    "key": "4",
+                    "key": "feedback",
                     "examples": [
                         "very well made"
                     ]
@@ -221,8 +267,7 @@
                     "fixedFacets": {
                         "format": "int32"
                     },
-                    "key": "5",
-                    "examples": []
+                    "key": "propNumber"
                 },
                 {
                     "name": "propInteger",
@@ -238,8 +283,7 @@
                     "fixedFacets": {
                         "format": "int8"
                     },
-                    "key": "6",
-                    "examples": []
+                    "key": "propInteger"
                 },
                 {
                     "name": "propBoolean",
@@ -248,8 +292,7 @@
                         "boolean"
                     ],
                     "required": true,
-                    "key": "7",
-                    "examples": []
+                    "key": "propBoolean"
                 },
                 {
                     "name": "propDate",
@@ -258,7 +301,7 @@
                         "date-only"
                     ],
                     "required": true,
-                    "key": "8",
+                    "key": "propDate",
                     "examples": [
                         "2015-05-23"
                     ]
@@ -282,8 +325,7 @@
                         ],
                         "maxLength": 307200
                     },
-                    "key": "9",
-                    "examples": []
+                    "key": "userPicture"
                 },
                 {
                     "name": "NilValue",
@@ -300,8 +342,7 @@
                                 "string"
                             ],
                             "required": true,
-                            "key": "0",
-                            "examples": []
+                            "key": "name"
                         },
                         {
                             "name": "comment",
@@ -310,12 +351,10 @@
                                 "string?"
                             ],
                             "required": true,
-                            "key": "1",
-                            "examples": []
+                            "key": "comment"
                         }
                     ],
-                    "key": "10",
-                    "examples": []
+                    "key": "NilValue"
                 },
                 {
                     "name": "CatOrDog",
@@ -324,8 +363,7 @@
                         "ApiLib.Cat | ApiLib.Dog"
                     ],
                     "required": true,
-                    "key": "11",
-                    "examples": []
+                    "key": "CatOrDog"
                 },
                 [
                     {
@@ -355,7 +393,7 @@
                     "fixedFacets": {
                         "noHolidays": true
                     },
-                    "key": "13",
+                    "key": "PossibleMeetingDate",
                     "facets": {
                         "onlyFutureDates": {
                             "name": "onlyFutureDates",
@@ -373,8 +411,7 @@
                             ],
                             "required": true
                         }
-                    },
-                    "examples": []
+                    }
                 }
             ]
         },
@@ -393,8 +430,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "name",
-                    "examples": []
+                    "key": "name"
                 },
                 {
                     "name": "color",
@@ -403,8 +439,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "color",
-                    "examples": []
+                    "key": "color"
                 }
             ]
         },
@@ -423,8 +458,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "name",
-                    "examples": []
+                    "key": "name"
                 },
                 {
                     "name": "fangs",
@@ -433,8 +467,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "fangs",
-                    "examples": []
+                    "key": "fangs"
                 }
             ]
         },
@@ -499,8 +532,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "0",
-                    "examples": []
+                    "key": "title"
                 },
                 {
                     "name": "length",
@@ -509,8 +541,7 @@
                         "number"
                     ],
                     "required": true,
-                    "key": "1",
-                    "examples": []
+                    "key": "length"
                 }
             ]
         }
@@ -525,8 +556,7 @@
                         "string"
                     ],
                     "required": true,
-                    "key": "access_token",
-                    "examples": []
+                    "key": "access_token"
                 }
             ],
             "securedBy": [
@@ -554,12 +584,10 @@
                                     "<<resourcePathName|!singularize|!uppercamelcase>>"
                                 ],
                                 "required": true,
-                                "key": "application/json",
-                                "examples": []
+                                "key": "application/json"
                             }
                         ],
-                        "key": "200",
-                        "examples": []
+                        "key": "200"
                     }
                 ],
                 "securedBy": [
@@ -586,8 +614,7 @@
                         "datetime"
                     ],
                     "required": true,
-                    "key": "date",
-                    "examples": []
+                    "key": "date"
                 },
                 {
                     "name": "User",
@@ -605,8 +632,7 @@
                                 "string"
                             ],
                             "required": true,
-                            "key": "0",
-                            "examples": []
+                            "key": "firstname"
                         },
                         {
                             "name": "lastname",
@@ -615,7 +641,7 @@
                                 "string"
                             ],
                             "required": false,
-                            "key": "1",
+                            "key": "lastname",
                             "examples": [
                                 "Doe"
                             ]
@@ -632,8 +658,7 @@
                         "nil | string"
                     ],
                     "required": true,
-                    "key": "comment",
-                    "examples": []
+                    "key": "comment"
                 }
             ]
         },
@@ -681,8 +706,7 @@
                         "MIT",
                         "Apache 2.0"
                     ],
-                    "key": "license",
-                    "examples": []
+                    "key": "license"
                 }
             ]
         },
@@ -724,8 +748,7 @@
                         ],
                         "required": true,
                         "description": "Used to send a valid OAuth 2 access token. Do not use with\nthe \"Authorization\" header.\n",
-                        "key": "access_token",
-                        "examples": []
+                        "key": "access_token"
                     }
                 ],
                 "headers": [
@@ -737,22 +760,17 @@
                         ],
                         "required": true,
                         "description": "Used to send a valid OAuth 2 access token. Do not use\nwith the \"access_token\" query string parameter.\n",
-                        "key": "Authorization",
-                        "examples": []
+                        "key": "Authorization"
                     }
                 ],
                 "responses": [
                     {
                         "code": "401",
-                        "description": "Bad or expired token. This can happen if the user or Dropbox\nrevoked or expired an access token. To fix, re-authenticate\nthe user.\n",
-                        "key": "0",
-                        "examples": []
+                        "description": "Bad or expired token. This can happen if the user or Dropbox\nrevoked or expired an access token. To fix, re-authenticate\nthe user.\n"
                     },
                     {
                         "code": "403",
-                        "description": "Bad OAuth request (wrong consumer key, bad nonce, expired\ntimestamp...). Unfortunately, re-authenticating the user won't help here.\n",
-                        "key": "1",
-                        "examples": []
+                        "description": "Bad OAuth request (wrong consumer key, bad nonce, expired\ntimestamp...). Unfortunately, re-authenticating the user won't help here.\n"
                     }
                 ]
             },
@@ -780,21 +798,16 @@
                         ],
                         "required": true,
                         "description": "Used to send a custom token.\n",
-                        "key": "SpecialToken",
-                        "examples": []
+                        "key": "SpecialToken"
                     }
                 ],
                 "responses": [
                     {
                         "code": "401",
-                        "description": "Bad token.\n",
-                        "key": "0",
-                        "examples": []
+                        "description": "Bad token.\n"
                     },
                     {
-                        "code": "403",
-                        "key": "1",
-                        "examples": []
+                        "code": "403"
                     }
                 ]
             }
@@ -818,8 +831,7 @@
                 "test",
                 "prod"
             ],
-            "key": "environment",
-            "examples": []
+            "key": "environment"
         },
         {
             "name": "version",
@@ -831,8 +843,7 @@
             "enum": [
                 "v1"
             ],
-            "key": "version",
-            "examples": []
+            "key": "version"
         }
     ],
     "protocols": [
@@ -862,8 +873,7 @@
                                     "number"
                                 ],
                                 "required": false,
-                                "key": "start",
-                                "examples": []
+                                "key": "start"
                             },
                             {
                                 "name": "page-size",
@@ -872,8 +882,7 @@
                                     "number"
                                 ],
                                 "required": false,
-                                "key": "page-size",
-                                "examples": []
+                                "key": "page-size"
                             }
                         ]
                     },
@@ -904,8 +913,7 @@
                                         "string"
                                     ],
                                     "required": true,
-                                    "key": "0",
-                                    "examples": []
+                                    "key": "propString"
                                 },
                                 {
                                     "name": "propStringArray1",
@@ -915,8 +923,7 @@
                                     ],
                                     "required": true,
                                     "items": "string",
-                                    "key": "1",
-                                    "examples": []
+                                    "key": "propStringArray1"
                                 },
                                 {
                                     "name": "ideas",
@@ -940,13 +947,11 @@
                                                     "string"
                                                 ],
                                                 "required": true,
-                                                "key": "0",
-                                                "examples": []
+                                                "key": "comment"
                                             }
                                         ]
                                     },
-                                    "key": "2",
-                                    "examples": []
+                                    "key": "ideas"
                                 },
                                 {
                                     "name": "extIdeas",
@@ -960,8 +965,7 @@
                                                 "string"
                                             ],
                                             "required": true,
-                                            "key": "0",
-                                            "examples": []
+                                            "key": "createdBy"
                                         }
                                     ],
                                     "type": {
@@ -989,8 +993,7 @@
                                                         }
                                                     }
                                                 },
-                                                "key": "0",
-                                                "examples": []
+                                                "key": "comment"
                                             }
                                         ],
                                         "__METADATA__": {
@@ -1007,8 +1010,7 @@
                                             }
                                         }
                                     },
-                                    "key": "3",
-                                    "examples": []
+                                    "key": "extIdeas"
                                 },
                                 {
                                     "name": "feedback",
@@ -1021,7 +1023,7 @@
                                     "pattern": "[a-zA-Z\\s]*",
                                     "minLength": 1,
                                     "maxLength": 255,
-                                    "key": "4",
+                                    "key": "feedback",
                                     "examples": [
                                         "very well made"
                                     ]
@@ -1040,8 +1042,7 @@
                                     "fixedFacets": {
                                         "format": "int32"
                                     },
-                                    "key": "5",
-                                    "examples": []
+                                    "key": "propNumber"
                                 },
                                 {
                                     "name": "propInteger",
@@ -1057,8 +1058,7 @@
                                     "fixedFacets": {
                                         "format": "int8"
                                     },
-                                    "key": "6",
-                                    "examples": []
+                                    "key": "propInteger"
                                 },
                                 {
                                     "name": "propBoolean",
@@ -1067,8 +1067,7 @@
                                         "boolean"
                                     ],
                                     "required": true,
-                                    "key": "7",
-                                    "examples": []
+                                    "key": "propBoolean"
                                 },
                                 {
                                     "name": "propDate",
@@ -1077,7 +1076,7 @@
                                         "date-only"
                                     ],
                                     "required": true,
-                                    "key": "8",
+                                    "key": "propDate",
                                     "examples": [
                                         "2015-05-23"
                                     ]
@@ -1101,8 +1100,7 @@
                                         ],
                                         "maxLength": 307200
                                     },
-                                    "key": "9",
-                                    "examples": []
+                                    "key": "userPicture"
                                 },
                                 {
                                     "name": "NilValue",
@@ -1119,8 +1117,7 @@
                                                 "string"
                                             ],
                                             "required": true,
-                                            "key": "0",
-                                            "examples": []
+                                            "key": "name"
                                         },
                                         {
                                             "name": "comment",
@@ -1129,12 +1126,10 @@
                                                 "string?"
                                             ],
                                             "required": true,
-                                            "key": "1",
-                                            "examples": []
+                                            "key": "comment"
                                         }
                                     ],
-                                    "key": "10",
-                                    "examples": []
+                                    "key": "NilValue"
                                 },
                                 {
                                     "name": "CatOrDog",
@@ -1143,8 +1138,7 @@
                                         "ApiLib.Cat | ApiLib.Dog"
                                     ],
                                     "required": true,
-                                    "key": "11",
-                                    "examples": []
+                                    "key": "CatOrDog"
                                 },
                                 [
                                     {
@@ -1174,7 +1168,7 @@
                                     "fixedFacets": {
                                         "noHolidays": true
                                     },
-                                    "key": "13",
+                                    "key": "PossibleMeetingDate",
                                     "facets": {
                                         "onlyFutureDates": {
                                             "name": "onlyFutureDates",
@@ -1192,11 +1186,9 @@
                                             ],
                                             "required": true
                                         }
-                                    },
-                                    "examples": []
+                                    }
                                 }
-                            ],
-                            "examples": []
+                            ]
                         }
                     ],
                     "protocols": [
@@ -1236,12 +1228,10 @@
                                     ],
                                     "required": true,
                                     "key": "application/json",
-                                    "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n",
-                                    "examples": []
+                                    "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
                                 }
                             ],
-                            "key": "200",
-                            "examples": []
+                            "key": "200"
                         }
                     ],
                     "protocols": [
@@ -1265,12 +1255,10 @@
                                         "Entry"
                                     ],
                                     "required": true,
-                                    "key": "application/json",
-                                    "examples": []
+                                    "key": "application/json"
                                 }
                             ],
-                            "key": "200",
-                            "examples": []
+                            "key": "200"
                         }
                     ],
                     "protocols": [
@@ -1304,8 +1292,7 @@
                 {
                     "structuredValue": null,
                     "name": "ready",
-                    "key": "ready",
-                    "examples": []
+                    "key": "ready"
                 }
             ],
             "methods": [
@@ -1314,8 +1301,7 @@
                         {
                             "structuredValue": 30,
                             "name": "monitoringInterval",
-                            "key": "monitoringInterval",
-                            "examples": []
+                            "key": "monitoringInterval"
                         }
                     ],
                     "queryParameters": [
@@ -1327,8 +1313,7 @@
                             ],
                             "required": true,
                             "description": "filter the songs by genre",
-                            "key": "genre",
-                            "examples": []
+                            "key": "genre"
                         },
                         {
                             "name": "access_token",
@@ -1337,8 +1322,7 @@
                                 "string"
                             ],
                             "required": true,
-                            "key": "access_token",
-                            "examples": []
+                            "key": "access_token"
                         }
                     ],
                     "protocols": [
@@ -1360,8 +1344,7 @@
                                 "string"
                             ],
                             "required": true,
-                            "key": "access_token",
-                            "examples": []
+                            "key": "access_token"
                         }
                     ],
                     "protocols": [
@@ -1397,8 +1380,7 @@
                                         "comment": "no comment"
                                     },
                                     "name": "deprecated",
-                                    "key": "deprecated",
-                                    "examples": []
+                                    "key": "deprecated"
                                 }
                             ],
                             "responses": [
@@ -1425,8 +1407,7 @@
                                                         "string"
                                                     ],
                                                     "required": true,
-                                                    "key": "0",
-                                                    "examples": []
+                                                    "key": "title"
                                                 },
                                                 {
                                                     "name": "length",
@@ -1435,8 +1416,7 @@
                                                         "number"
                                                     ],
                                                     "required": true,
-                                                    "key": "1",
-                                                    "examples": []
+                                                    "key": "length"
                                                 }
                                             ]
                                         },
@@ -1453,8 +1433,7 @@
                                             ]
                                         }
                                     ],
-                                    "key": "200",
-                                    "examples": []
+                                    "key": "200"
                                 }
                             ],
                             "protocols": [

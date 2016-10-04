@@ -11,6 +11,10 @@ function _makeUniqueId(string) {
   return stringWithLeadingUnderscoreRemoved.toLowerCase();
 }
 
+function _isObject(obj) {
+  return obj === Object(obj);
+}
+
 // EXAMPLE INPUT:
 // {
 //   foo: {
@@ -24,8 +28,14 @@ function _makeUniqueId(string) {
 // EXAMPLE OUTPUT:
 // [ { name: "foo!", key: "foo" }, { name: "bar", key: "bar" } ]
 function _objectToArray(obj) {
+  if (Array.isArray(obj)) {
+    return obj;
+  }
+
   return Object.keys(obj).map((key) => {
-    obj[key].key = key;
+    if (_isObject(obj[key])) {
+      obj[key].key = key;
+    }
     return obj[key];
   });
 }
@@ -70,10 +80,6 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
   return ramlObj;
 }
 
-function _isObject(obj) {
-  return obj === Object(obj);
-}
-
 function _expandTypes(arr, ramlObj) {
   return arr.map((obj) => {
     if (obj.type && Array.isArray(obj.type)) {
@@ -90,15 +96,15 @@ function _expandTypes(arr, ramlObj) {
 
 function _makeExamplesConsistent(arr) {
   return arr.map((obj) => {
-    if (typeof obj.examples === 'undefined') {
-      obj.examples = [];
-    }
-
-    if (obj.examples.length) {
-      obj.examples = obj.examples.map(example => example.value ? example.value : example);
+    if (obj.examples && obj.examples.length) {
+      obj.examples = obj.examples.map(example => (example.value ? example.value : example));
     }
 
     if (obj.structuredExample) {
+      if (typeof obj.examples === 'undefined') {
+        obj.examples = [];
+      }
+
       obj.examples.push(obj.structuredExample.value);
       delete obj.example;
       delete obj.structuredExample;
