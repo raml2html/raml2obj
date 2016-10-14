@@ -89,6 +89,10 @@ function _expandTypes(arr, types) {
           Object.assign(obj, types[type]);
         }
       });
+
+      if (obj.type.length === 1) {
+        obj.type = obj.type[0];
+      }
     }
 
     return obj;

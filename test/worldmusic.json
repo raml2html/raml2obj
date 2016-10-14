@@ -8,553 +8,13 @@
             "key": "info"
         }
     ],
-    "types": {
-        "Comment": {
-            "name": "Comment",
-            "displayName": "Comment",
-            "type": [
-                "object"
-            ],
-            "required": true,
-            "properties": [
-                {
-                    "name": "author",
-                    "displayName": "author",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "author"
-                },
-                {
-                    "name": "body",
-                    "displayName": "body",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "body"
-                },
-                {
-                    "name": "date",
-                    "displayName": "date",
-                    "type": [
-                        "integer"
-                    ],
-                    "required": true,
-                    "key": "date"
-                },
-                {
-                    "name": "editAuthor",
-                    "displayName": "editAuthor",
-                    "type": [
-                        "string"
-                    ],
-                    "required": false,
-                    "key": "editAuthor"
-                },
-                {
-                    "name": "edited",
-                    "displayName": "edited",
-                    "type": [
-                        "integer"
-                    ],
-                    "required": false,
-                    "key": "edited"
-                }
-            ]
-        },
-        "Entry": {
-            "name": "Entry",
-            "displayName": "Entry",
-            "type": [
-                "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n"
-            ],
-            "required": true
-        },
-        "AnotherEntry": {
-            "name": "AnotherEntry",
-            "displayName": "AnotherEntry",
-            "type": [
-                "Entry"
-            ],
-            "required": true,
-            "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
-        },
-        "User": {
-            "name": "User",
-            "displayName": "User",
-            "type": [
-                "object"
-            ],
-            "example": {
-                "firstname": "John"
-            },
-            "required": true,
-            "properties": [
-                {
-                    "name": "firstname",
-                    "displayName": "firstname",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "firstname"
-                },
-                {
-                    "name": "lastname",
-                    "displayName": "lastname",
-                    "type": [
-                        "string"
-                    ],
-                    "required": false,
-                    "key": "lastname",
-                    "examples": [
-                        "Doe"
-                    ]
-                }
-            ],
-            "structuredExample": {
-                "value": "{\n  \"firstname\": \"John\"\n}",
-                "strict": true,
-                "name": null,
-                "structuredValue": {
-                    "firstname": "John"
-                }
-            }
-        },
-        "ApiLib.RamlDataType": {
-            "name": "RamlDataType",
-            "displayName": "RamlDataType",
-            "type": [
-                "object"
-            ],
-            "required": true,
-            "properties": [
-                {
-                    "name": "propString",
-                    "displayName": "propString",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "propString"
-                },
-                {
-                    "name": "propStringArray1",
-                    "displayName": "propStringArray1",
-                    "type": [
-                        "array"
-                    ],
-                    "required": true,
-                    "items": "string",
-                    "key": "propStringArray1"
-                },
-                {
-                    "name": "ideas",
-                    "displayName": "ideas",
-                    "type": [
-                        "array"
-                    ],
-                    "required": true,
-                    "items": {
-                        "name": "items",
-                        "displayName": "items",
-                        "type": [
-                            "object"
-                        ],
-                        "required": true,
-                        "properties": [
-                            {
-                                "name": "comment",
-                                "displayName": "comment",
-                                "type": [
-                                    "string"
-                                ],
-                                "required": true,
-                                "key": "comment"
-                            }
-                        ]
-                    },
-                    "key": "ideas"
-                },
-                {
-                    "name": "extIdeas",
-                    "displayName": "extIdeas",
-                    "required": true,
-                    "properties": [
-                        {
-                            "name": "createdBy",
-                            "displayName": "createdBy",
-                            "type": [
-                                "string"
-                            ],
-                            "required": true,
-                            "key": "createdBy"
-                        }
-                    ],
-                    "type": {
-                        "name": "type",
-                        "displayName": "type",
-                        "type": [
-                            "object"
-                        ],
-                        "required": true,
-                        "properties": [
-                            {
-                                "name": "comment",
-                                "displayName": "comment",
-                                "type": [
-                                    "string"
-                                ],
-                                "required": true,
-                                "__METADATA__": {
-                                    "primitiveValuesMeta": {
-                                        "displayName": {
-                                            "calculated": true
-                                        },
-                                        "required": {
-                                            "insertedAsDefault": true
-                                        }
-                                    }
-                                },
-                                "key": "comment"
-                            }
-                        ],
-                        "__METADATA__": {
-                            "primitiveValuesMeta": {
-                                "displayName": {
-                                    "calculated": true
-                                },
-                                "type": {
-                                    "insertedAsDefault": true
-                                },
-                                "required": {
-                                    "insertedAsDefault": true
-                                }
-                            }
-                        }
-                    },
-                    "key": "extIdeas"
-                },
-                {
-                    "name": "feedback",
-                    "displayName": "feedback",
-                    "type": [
-                        "string"
-                    ],
-                    "default": "very nice",
-                    "required": true,
-                    "pattern": "[a-zA-Z\\s]*",
-                    "minLength": 1,
-                    "maxLength": 255,
-                    "key": "feedback",
-                    "examples": [
-                        "very well made"
-                    ]
-                },
-                {
-                    "name": "propNumber",
-                    "displayName": "propNumber",
-                    "type": [
-                        "number"
-                    ],
-                    "required": true,
-                    "minimum": 0,
-                    "maximum": 32,
-                    "format": "int32",
-                    "multipleOf": 2,
-                    "fixedFacets": {
-                        "format": "int32"
-                    },
-                    "key": "propNumber"
-                },
-                {
-                    "name": "propInteger",
-                    "displayName": "propInteger",
-                    "type": [
-                        "integer"
-                    ],
-                    "required": true,
-                    "minimum": 3,
-                    "maximum": 5,
-                    "format": "int8",
-                    "multipleOf": 1,
-                    "fixedFacets": {
-                        "format": "int8"
-                    },
-                    "key": "propInteger"
-                },
-                {
-                    "name": "propBoolean",
-                    "displayName": "propBoolean",
-                    "type": [
-                        "boolean"
-                    ],
-                    "required": true,
-                    "key": "propBoolean"
-                },
-                {
-                    "name": "propDate",
-                    "displayName": "propDate",
-                    "type": [
-                        "date-only"
-                    ],
-                    "required": true,
-                    "key": "propDate",
-                    "examples": [
-                        "2015-05-23"
-                    ]
-                },
-                {
-                    "name": "userPicture",
-                    "displayName": "userPicture",
-                    "type": [
-                        "file"
-                    ],
-                    "required": true,
-                    "fileTypes": [
-                        {},
-                        {}
-                    ],
-                    "maxLength": 307200,
-                    "fixedFacets": {
-                        "fileTypes": [
-                            "image/jpeg",
-                            "image/png"
-                        ],
-                        "maxLength": 307200
-                    },
-                    "key": "userPicture"
-                },
-                {
-                    "name": "NilValue",
-                    "displayName": "NilValue",
-                    "type": [
-                        "object"
-                    ],
-                    "required": true,
-                    "properties": [
-                        {
-                            "name": "name",
-                            "displayName": "name",
-                            "type": [
-                                "string"
-                            ],
-                            "required": true,
-                            "key": "name"
-                        },
-                        {
-                            "name": "comment",
-                            "displayName": "comment",
-                            "type": [
-                                "string?"
-                            ],
-                            "required": true,
-                            "key": "comment"
-                        }
-                    ],
-                    "key": "NilValue"
-                },
-                {
-                    "name": "CatOrDog",
-                    "displayName": "CatOrDog",
-                    "type": [
-                        "ApiLib.Cat | ApiLib.Dog"
-                    ],
-                    "required": true,
-                    "key": "CatOrDog"
-                },
-                [
-                    {
-                        "name": "CatAndDog",
-                        "displayName": "CatAndDog",
-                        "type": [
-                            "ApiLib.Cat"
-                        ],
-                        "required": true
-                    },
-                    {
-                        "name": "CatAndDog",
-                        "displayName": "CatAndDog",
-                        "type": [
-                            "ApiLib.Dog"
-                        ],
-                        "required": true
-                    }
-                ],
-                {
-                    "name": "CustomDate",
-                    "displayName": "CustomDate",
-                    "type": [
-                        "date-only"
-                    ],
-                    "required": true,
-                    "fixedFacets": {
-                        "noHolidays": true
-                    },
-                    "key": "PossibleMeetingDate",
-                    "facets": {
-                        "onlyFutureDates": {
-                            "name": "onlyFutureDates",
-                            "displayName": "onlyFutureDates",
-                            "type": [
-                                "boolean"
-                            ],
-                            "required": false
-                        },
-                        "noHolidays": {
-                            "name": "noHolidays",
-                            "displayName": "noHolidays",
-                            "type": [
-                                "boolean"
-                            ],
-                            "required": true
-                        }
-                    }
-                }
-            ]
-        },
-        "ApiLib.Cat": {
-            "name": "Cat",
-            "displayName": "Cat",
-            "type": [
-                "object"
-            ],
-            "required": true,
-            "properties": [
-                {
-                    "name": "name",
-                    "displayName": "name",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "name"
-                },
-                {
-                    "name": "color",
-                    "displayName": "color",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "color"
-                }
-            ]
-        },
-        "ApiLib.Dog": {
-            "name": "Dog",
-            "displayName": "Dog",
-            "type": [
-                "object"
-            ],
-            "required": true,
-            "properties": [
-                {
-                    "name": "name",
-                    "displayName": "name",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "name"
-                },
-                {
-                    "name": "fangs",
-                    "displayName": "fangs",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "fangs"
-                }
-            ]
-        },
-        "ApiLib.CustomDate": {
-            "name": "CustomDate",
-            "displayName": "CustomDate",
-            "facets": {
-                "onlyFutureDates": {
-                    "name": "onlyFutureDates",
-                    "displayName": "onlyFutureDates",
-                    "type": [
-                        "boolean"
-                    ],
-                    "required": false
-                },
-                "noHolidays": {
-                    "name": "noHolidays",
-                    "displayName": "noHolidays",
-                    "type": [
-                        "boolean"
-                    ],
-                    "required": true
-                }
-            },
-            "type": [
-                "date-only"
-            ],
-            "required": true
-        },
-        "SongsLib.Song": {
-            "name": "Song",
-            "displayName": "Song",
-            "type": [
-                "object"
-            ],
-            "examples": [
-                {
-                    "value": "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
-                    "strict": false,
-                    "name": "song1",
-                    "structuredValue": {
-                        "title": "My Song",
-                        "length": 12
-                    }
-                },
-                {
-                    "value": "{\n  \"title\": \"Last\",\n  \"length\": 3\n}",
-                    "strict": true,
-                    "name": "song2",
-                    "structuredValue": {
-                        "title": "Last",
-                        "length": 3
-                    }
-                }
-            ],
-            "required": true,
-            "properties": [
-                {
-                    "name": "title",
-                    "displayName": "title",
-                    "type": [
-                        "string"
-                    ],
-                    "required": true,
-                    "key": "title"
-                },
-                {
-                    "name": "length",
-                    "displayName": "length",
-                    "type": [
-                        "number"
-                    ],
-                    "required": true,
-                    "key": "length"
-                }
-            ]
-        }
-    },
     "traits": {
         "secured": {
             "queryParameters": [
                 {
                     "name": "access_token",
                     "displayName": "access_token",
-                    "type": [
-                        "string"
-                    ],
+                    "type": "string",
                     "required": true,
                     "key": "access_token"
                 }
@@ -610,36 +70,29 @@
                 {
                     "name": "date",
                     "displayName": "date",
-                    "type": [
-                        "datetime"
-                    ],
+                    "type": "datetime",
                     "required": true,
                     "key": "date"
                 },
                 {
                     "name": "User",
                     "displayName": "User",
-                    "type": [
-                        "object"
-                    ],
+                    "type": "object",
                     "required": true,
                     "key": "deprecatedBy",
+                    "additionalProperties": true,
                     "properties": [
                         {
-                            "name": "firstname",
+                            "type": "string",
                             "displayName": "firstname",
-                            "type": [
-                                "string"
-                            ],
+                            "name": "firstname",
                             "required": true,
                             "key": "firstname"
                         },
                         {
-                            "name": "lastname",
+                            "type": "string",
                             "displayName": "lastname",
-                            "type": [
-                                "string"
-                            ],
+                            "name": "lastname",
                             "required": false,
                             "key": "lastname",
                             "examples": [
@@ -654,9 +107,7 @@
                 {
                     "name": "comment",
                     "displayName": "comment",
-                    "type": [
-                        "nil | string"
-                    ],
+                    "type": "nil | string",
                     "required": true,
                     "key": "comment"
                 }
@@ -698,9 +149,7 @@
                 {
                     "name": "license",
                     "displayName": "license",
-                    "type": [
-                        "string"
-                    ],
+                    "type": "string",
                     "required": true,
                     "enum": [
                         "MIT",
@@ -743,9 +192,7 @@
                     {
                         "name": "access_token",
                         "displayName": "access_token",
-                        "type": [
-                            "string"
-                        ],
+                        "type": "string",
                         "required": true,
                         "description": "Used to send a valid OAuth 2 access token. Do not use with\nthe \"Authorization\" header.\n",
                         "key": "access_token"
@@ -755,9 +202,7 @@
                     {
                         "name": "Authorization",
                         "displayName": "Authorization",
-                        "type": [
-                            "string"
-                        ],
+                        "type": "string",
                         "required": true,
                         "description": "Used to send a valid OAuth 2 access token. Do not use\nwith the \"access_token\" query string parameter.\n",
                         "key": "Authorization"
@@ -793,9 +238,7 @@
                     {
                         "name": "SpecialToken",
                         "displayName": "SpecialToken",
-                        "type": [
-                            "string"
-                        ],
+                        "type": "string",
                         "required": true,
                         "description": "Used to send a custom token.\n",
                         "key": "SpecialToken"
@@ -821,9 +264,7 @@
         {
             "name": "environment",
             "displayName": "environment",
-            "type": [
-                "string"
-            ],
+            "type": "string",
             "required": true,
             "enum": [
                 "stg",
@@ -836,9 +277,7 @@
         {
             "name": "version",
             "displayName": "version",
-            "type": [
-                "string"
-            ],
+            "type": "string",
             "required": true,
             "enum": [
                 "v1"
@@ -869,18 +308,14 @@
                             {
                                 "name": "start",
                                 "displayName": "start",
-                                "type": [
-                                    "number"
-                                ],
+                                "type": "number",
                                 "required": false,
                                 "key": "start"
                             },
                             {
                                 "name": "page-size",
                                 "displayName": "page-size",
-                                "type": [
-                                    "number"
-                                ],
+                                "type": "number",
                                 "required": false,
                                 "key": "page-size"
                             }
@@ -900,27 +335,21 @@
                         {
                             "name": "RamlDataType",
                             "displayName": "RamlDataType",
-                            "type": [
-                                "object"
-                            ],
+                            "type": "object",
                             "required": true,
                             "key": "application/json",
                             "properties": [
                                 {
                                     "name": "propString",
                                     "displayName": "propString",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "key": "propString"
                                 },
                                 {
                                     "name": "propStringArray1",
                                     "displayName": "propStringArray1",
-                                    "type": [
-                                        "array"
-                                    ],
+                                    "type": "array",
                                     "required": true,
                                     "items": "string",
                                     "key": "propStringArray1"
@@ -928,9 +357,7 @@
                                 {
                                     "name": "ideas",
                                     "displayName": "ideas",
-                                    "type": [
-                                        "array"
-                                    ],
+                                    "type": "array",
                                     "required": true,
                                     "items": {
                                         "name": "items",
@@ -943,9 +370,7 @@
                                             {
                                                 "name": "comment",
                                                 "displayName": "comment",
-                                                "type": [
-                                                    "string"
-                                                ],
+                                                "type": "string",
                                                 "required": true,
                                                 "key": "comment"
                                             }
@@ -961,9 +386,7 @@
                                         {
                                             "name": "createdBy",
                                             "displayName": "createdBy",
-                                            "type": [
-                                                "string"
-                                            ],
+                                            "type": "string",
                                             "required": true,
                                             "key": "createdBy"
                                         }
@@ -979,9 +402,7 @@
                                             {
                                                 "name": "comment",
                                                 "displayName": "comment",
-                                                "type": [
-                                                    "string"
-                                                ],
+                                                "type": "string",
                                                 "required": true,
                                                 "__METADATA__": {
                                                     "primitiveValuesMeta": {
@@ -1015,9 +436,7 @@
                                 {
                                     "name": "feedback",
                                     "displayName": "feedback",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "default": "very nice",
                                     "required": true,
                                     "pattern": "[a-zA-Z\\s]*",
@@ -1031,9 +450,7 @@
                                 {
                                     "name": "propNumber",
                                     "displayName": "propNumber",
-                                    "type": [
-                                        "number"
-                                    ],
+                                    "type": "number",
                                     "required": true,
                                     "minimum": 0,
                                     "maximum": 32,
@@ -1047,9 +464,7 @@
                                 {
                                     "name": "propInteger",
                                     "displayName": "propInteger",
-                                    "type": [
-                                        "integer"
-                                    ],
+                                    "type": "integer",
                                     "required": true,
                                     "minimum": 3,
                                     "maximum": 5,
@@ -1063,18 +478,14 @@
                                 {
                                     "name": "propBoolean",
                                     "displayName": "propBoolean",
-                                    "type": [
-                                        "boolean"
-                                    ],
+                                    "type": "boolean",
                                     "required": true,
                                     "key": "propBoolean"
                                 },
                                 {
                                     "name": "propDate",
                                     "displayName": "propDate",
-                                    "type": [
-                                        "date-only"
-                                    ],
+                                    "type": "date-only",
                                     "required": true,
                                     "key": "propDate",
                                     "examples": [
@@ -1084,9 +495,7 @@
                                 {
                                     "name": "userPicture",
                                     "displayName": "userPicture",
-                                    "type": [
-                                        "file"
-                                    ],
+                                    "type": "file",
                                     "required": true,
                                     "fileTypes": [
                                         {},
@@ -1105,26 +514,20 @@
                                 {
                                     "name": "NilValue",
                                     "displayName": "NilValue",
-                                    "type": [
-                                        "object"
-                                    ],
+                                    "type": "object",
                                     "required": true,
                                     "properties": [
                                         {
                                             "name": "name",
                                             "displayName": "name",
-                                            "type": [
-                                                "string"
-                                            ],
+                                            "type": "string",
                                             "required": true,
                                             "key": "name"
                                         },
                                         {
                                             "name": "comment",
                                             "displayName": "comment",
-                                            "type": [
-                                                "string?"
-                                            ],
+                                            "type": "string?",
                                             "required": true,
                                             "key": "comment"
                                         }
@@ -1134,9 +537,7 @@
                                 {
                                     "name": "CatOrDog",
                                     "displayName": "CatOrDog",
-                                    "type": [
-                                        "ApiLib.Cat | ApiLib.Dog"
-                                    ],
+                                    "type": "ApiLib.Cat | ApiLib.Dog",
                                     "required": true,
                                     "key": "CatOrDog"
                                 },
@@ -1161,9 +562,7 @@
                                 {
                                     "name": "CustomDate",
                                     "displayName": "CustomDate",
-                                    "type": [
-                                        "date-only"
-                                    ],
+                                    "type": "date-only",
                                     "required": true,
                                     "fixedFacets": {
                                         "noHolidays": true
@@ -1223,9 +622,7 @@
                                 {
                                     "name": "AnotherEntry",
                                     "displayName": "AnotherEntry",
-                                    "type": [
-                                        "Entry"
-                                    ],
+                                    "type": "Entry",
                                     "required": true,
                                     "key": "application/json",
                                     "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
@@ -1308,9 +705,7 @@
                         {
                             "name": "genre",
                             "displayName": "genre",
-                            "type": [
-                                "string"
-                            ],
+                            "type": "string",
                             "required": true,
                             "description": "filter the songs by genre",
                             "key": "genre"
@@ -1318,9 +713,7 @@
                         {
                             "name": "access_token",
                             "displayName": "access_token",
-                            "type": [
-                                "string"
-                            ],
+                            "type": "string",
                             "required": true,
                             "key": "access_token"
                         }
@@ -1340,9 +733,7 @@
                         {
                             "name": "access_token",
                             "displayName": "access_token",
-                            "type": [
-                                "string"
-                            ],
+                            "type": "string",
                             "required": true,
                             "key": "access_token"
                         }
@@ -1390,31 +781,26 @@
                                         {
                                             "name": "Song",
                                             "displayName": "Song",
-                                            "type": [
-                                                "object"
-                                            ],
+                                            "type": "object",
                                             "required": true,
                                             "key": "application/json",
+                                            "additionalProperties": true,
                                             "examples": [
                                                 "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
                                                 "{\n  \"title\": \"Last\",\n  \"length\": 3\n}"
                                             ],
                                             "properties": [
                                                 {
-                                                    "name": "title",
+                                                    "type": "string",
                                                     "displayName": "title",
-                                                    "type": [
-                                                        "string"
-                                                    ],
+                                                    "name": "title",
                                                     "required": true,
                                                     "key": "title"
                                                 },
                                                 {
-                                                    "name": "length",
+                                                    "type": "number",
                                                     "displayName": "length",
-                                                    "type": [
-                                                        "number"
-                                                    ],
+                                                    "name": "length",
                                                     "required": true,
                                                     "key": "length"
                                                 }
@@ -1423,9 +809,7 @@
                                         {
                                             "name": "application/xml",
                                             "displayName": "application/xml",
-                                            "type": [
-                                                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n"
-                                            ],
+                                            "type": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n",
                                             "required": true,
                                             "key": "application/xml",
                                             "examples": [

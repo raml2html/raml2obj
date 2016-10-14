@@ -1,3 +1,6 @@
+4.0.0-beta9 - October 14, 2016
+- Types are just a string instead of an array
+
 4.0.0-beta8 - October 14, 2016
 - Updated raml-1-parser to 1.1.5
 - Fixed handling of type inheritance (#15)
