@@ -25,13 +25,6 @@ describe('raml2obj', () => {
       assert.equal(obj.resources.length, 3); // /api, /entry, /songs
     });
 
-    it('should test the expanded types', () => {
-      assert.equal(Object.keys(obj.types).length, 9);
-      assert.equal(obj.types['ApiLib.RamlDataType'].displayName, 'RamlDataType');
-      assert.equal(obj.types['ApiLib.RamlDataType'].properties.length, 14);
-      assert.equal(obj.types['ApiLib.RamlDataType'].required, true);
-    });
-
     it('should test baseUriParameters', () => {
       assert.equal(obj.baseUriParameters.length, 2);
 
@@ -219,7 +212,7 @@ describe('raml2obj', () => {
       assert.equal(get.responses[0].body[0].displayName, 'Song');
       assert.equal(get.responses[0].body[0].key, 'application/json');
       assert.equal(get.responses[0].body[0].examples.length, 2);
-      assert.equal(get.responses[0].body[0].type[0], 'object');
+      assert.equal(get.responses[0].body[0].type, 'object');
 
       assert.equal(get.responses[0].body[1].type[0].indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);
     });

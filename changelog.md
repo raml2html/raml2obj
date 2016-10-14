@@ -1,3 +1,7 @@
+4.0.0-beta8 - October 14, 2016
+- Updated raml-1-parser to 1.1.5
+- Fixed handling of type inheritance (#15)
+
 4.0.0-beta7 - October 4, 2016
 - Fixed JS error when `body` is used as a property (#14)
 - Removed all the empty examples arrays

@@ -1,0 +1,29 @@
+#%RAML 1.0
+title: Inheritance Test
+
+types:
+  Email:
+    type: string
+    pattern: ^.+@.+\..+$
+  Account:
+    properties:
+      name: string
+      email: Email
+      gender:
+        type: string
+        enum: [ "male", "female" ]
+        required: false
+  PasswordProtectedAccount:
+    type: Account
+    properties:
+      password: string
+
+/account:
+  displayName: ACCOUNT
+
+  post:
+    description: |
+      Creates a new account
+    body:
+      application/json:
+        type: PasswordProtectedAccount

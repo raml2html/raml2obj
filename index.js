@@ -3,6 +3,7 @@
 'use strict';
 
 const raml = require('raml-1-parser');
+const tools = require('datatype-expansion');
 const fs = require('fs');
 
 function _makeUniqueId(string) {
@@ -80,12 +81,12 @@ function _traverse(ramlObj, parentUrl, allUriParameters) {
   return ramlObj;
 }
 
-function _expandTypes(arr, ramlObj) {
+function _expandTypes(arr, types) {
   return arr.map((obj) => {
     if (obj.type && Array.isArray(obj.type)) {
       obj.type.forEach((type) => {
-        if (ramlObj.types[type]) {
-          Object.assign(obj, ramlObj.types[type]);
+        if (types[type]) {
+          Object.assign(obj, types[type]);
         }
       });
     }
@@ -114,25 +115,25 @@ function _makeExamplesConsistent(arr) {
   });
 }
 
-function _recursiveObjectToArray(obj, ramlObj) {
+function _recursiveObjectToArray(obj, types) {
   if (_isObject(obj)) {
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
       if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters', 'annotations'].indexOf(key) !== -1) {
         obj[key] = _objectToArray(value);
 
-        if (ramlObj.types) {
-          obj[key] = _expandTypes(obj[key], ramlObj);
+        if (types) {
+          obj[key] = _expandTypes(obj[key], types);
         }
 
         obj[key] = _makeExamplesConsistent(obj[key]);
       }
 
-      _recursiveObjectToArray(value, ramlObj);
+      _recursiveObjectToArray(value, types);
     });
   } else if (Array.isArray(obj)) {
     obj.forEach((value) => {
-      _recursiveObjectToArray(value, ramlObj);
+      _recursiveObjectToArray(value, types);
     });
   }
 
@@ -166,6 +167,27 @@ function _arraysToObjects(ramlObj) {
   return ramlObj;
 }
 
+// This uses the datatype-expansion library to expand all the root type to their canonical expanded form
+function _expandRootTypes(types) {
+  if (!types) {
+    return types;
+  }
+
+  Object.keys(types).forEach((key) => {
+    tools.expandedForm(types[key], types, (err, expanded) => {
+      if (expanded) {
+        tools.canonicalForm(expanded, (err, canonical) => {
+          if (canonical) {
+            types[key] = canonical;
+          }
+        });
+      }
+    });
+  });
+
+  return types;
+}
+
 function _enhanceRamlObj(ramlObj) {
   ramlObj = _traverse(ramlObj);
 
@@ -181,6 +203,12 @@ function _enhanceRamlObj(ramlObj) {
   // EXAMPLE of what we want:
   // { foo: { ... }, bar: { ... } }
   ramlObj = _arraysToObjects(ramlObj);
+
+  // We want to expand inherited root types, so that later on when we copy type properties into an object,
+  // we get the full graph.
+  // Delete the types from the ramlObj so it's not processed again later on.
+  const types = _expandRootTypes(ramlObj.types);
+  delete ramlObj.types;
 
   // Other structures (like `responses`) are an object that hold other wrapped objects.
   // Flatten this to simple (non-wrapped) objects in an array instead,
@@ -198,7 +226,7 @@ function _enhanceRamlObj(ramlObj) {
   //
   // EXAMPLE of what we want:
   // [ { name: "foo!", key: "foo" }, { name: "bar", key: "bar" } ]
-  ramlObj = _recursiveObjectToArray(ramlObj, ramlObj);
+  ramlObj = _recursiveObjectToArray(ramlObj, types);
 
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {
