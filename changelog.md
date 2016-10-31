@@ -1,3 +1,6 @@
+4.0.0-beta10 - October 31, 2016
+- Updated raml-1-parser to 1.1.6
+
 4.0.0-beta9 - October 14, 2016
 - Types are just a string instead of an array
 
