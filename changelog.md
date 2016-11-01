@@ -1,3 +1,6 @@
+4.0.0-beta12 - November 1, 2016
+- Handling `array` types with `items` by expanding the items into a type object 
+
 4.0.0-beta11 - November 1, 2016
 - Updated datatype-expansion to 0.0.14
 

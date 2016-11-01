@@ -95,6 +95,10 @@ function _expandTypes(arr, types) {
       }
     }
 
+    if (obj.items && types[obj.items]) {
+      obj.items = types[obj.items];
+    }
+
     return obj;
   });
 }
