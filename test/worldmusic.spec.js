@@ -129,7 +129,7 @@ describe('raml2obj', () => {
       assert.equal(post.responses[0].body.length, 1);
       assert.equal(post.responses[0].body[0].name, 'AnotherEntry');
       assert.equal(post.responses[0].body[0].key, 'application/json');
-      assert.equal(post.responses[0].body[0].type, 'Entry'); // <- THIS SHOULD BE 'array'! Bug in datatype-expansion.
+      assert.equal(post.responses[0].body[0].type, 'json');
 
       const get = methods[1];
 

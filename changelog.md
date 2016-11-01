@@ -1,3 +1,6 @@
+4.0.0-beta11 - November 1, 2016
+- Updated datatype-expansion to 0.0.14
+
 4.0.0-beta10 - October 31, 2016
 - Updated raml-1-parser to 1.1.6
 
