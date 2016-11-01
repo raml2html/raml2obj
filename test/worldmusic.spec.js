@@ -130,6 +130,7 @@ describe('raml2obj', () => {
       assert.equal(post.responses[0].body[0].name, 'AnotherEntry');
       assert.equal(post.responses[0].body[0].key, 'application/json');
       assert.equal(post.responses[0].body[0].type, 'json');
+      assert.equal(post.responses[0].body[0].content.indexOf('{\n  "type": "array"'), 0);
 
       const get = methods[1];
 
