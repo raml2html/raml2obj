@@ -127,7 +127,7 @@ function _recursiveObjectToArray(obj, types) {
   if (_isObject(obj)) {
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
-      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters', 'annotations'].indexOf(key) !== -1) {
+      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters', 'annotations', 'uriParameters'].indexOf(key) !== -1) {
         obj[key] = _objectToArray(value);
 
         if (types) {
@@ -242,6 +242,10 @@ function _enhanceRamlObj(ramlObj) {
       docSection.uniqueId = _makeUniqueId(docSection.title);
     });
   }
+
+  // if (types) {
+  //   ramlObj.types = types;
+  // }
 
   return ramlObj;
 }
