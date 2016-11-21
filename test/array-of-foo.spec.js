@@ -4,11 +4,11 @@ const raml2obj = require('..');
 const assert = require('assert');
 
 describe('raml2obj', () => {
-  describe('arrayitems.raml', () => {
+  describe('array-of-foo.raml', () => {
     let obj;
 
     before((done) => {
-      raml2obj.parse('test/arrayitems.raml').then((result) => {
+      raml2obj.parse('test/array-of-foo.raml').then((result) => {
         obj = result;
         done();
       }, (error) => {
@@ -18,9 +18,9 @@ describe('raml2obj', () => {
 
     it('should test the array items', () => {
       const body = obj.resources[0].methods[0].responses[0].body[0];
-      assert.equal(body.type, 'array');
-      assert.equal(body.items.displayName, 'Foo');
-      assert.equal(body.items.required, true);
+      assert.strictEqual(body.type, 'array');
+      assert.strictEqual(body.items.displayName, 'Foo');
+      assert.strictEqual(body.items.required, true);
     });
   });
 });

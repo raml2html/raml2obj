@@ -17,27 +17,27 @@ describe('raml2obj', () => {
     });
 
     it('should test the basic properties of the raml object', () => {
-      assert.equal(obj.title, 'Inheritance Test');
-      assert.equal(obj.resources.length, 1);
+      assert.strictEqual(obj.title, 'Inheritance Test');
+      assert.strictEqual(obj.resources.length, 1);
     });
 
     it('should test type inheritance', () => {
       const properties = obj.resources[0].methods[0].body[0].properties;
 
-      assert.equal(properties.length, 4);
-      assert.equal(properties[0].displayName, 'name');
-      assert.equal(properties[0].type, 'string');
+      assert.strictEqual(properties.length, 4);
+      assert.strictEqual(properties[0].displayName, 'name');
+      assert.strictEqual(properties[0].type, 'string');
 
-      assert.equal(properties[1].displayName, 'email');
-      assert.equal(properties[1].type, 'string');
-      assert.equal(properties[1].pattern, '^.+@.+\\..+$');
+      assert.strictEqual(properties[1].displayName, 'email');
+      assert.strictEqual(properties[1].type, 'string');
+      assert.strictEqual(properties[1].pattern, '^.+@.+\\..+$');
 
-      assert.equal(properties[2].displayName, 'gender');
-      assert.equal(properties[2].type, 'string');
-      assert.equal(properties[2].enum.length, 2);
+      assert.strictEqual(properties[2].displayName, 'gender');
+      assert.strictEqual(properties[2].type, 'string');
+      assert.strictEqual(properties[2].enum.length, 2);
 
-      assert.equal(properties[3].displayName, 'password');
-      assert.equal(properties[3].type, 'string');
+      assert.strictEqual(properties[3].displayName, 'password');
+      assert.strictEqual(properties[3].type, 'string');
     });
   });
 });
