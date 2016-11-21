@@ -1,3 +1,6 @@
+4.0.0-beta14 - November 21, 2016
+- Updated datatype-expansion library
+
 4.0.0-beta13 - November 2, 2016
 - Correctly expanding types within uriParameters
 - Updated datatype-expansion and raml-1-parser
