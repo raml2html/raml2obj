@@ -1,0 +1,65 @@
+{
+    "title": "Inheritance Test",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "body": [
+                        {
+                            "name": "PasswordProtectedAccount",
+                            "displayName": "PasswordProtectedAccount",
+                            "type": "object",
+                            "required": true,
+                            "key": "application/json",
+                            "additionalProperties": true,
+                            "properties": [
+                                {
+                                    "displayName": "name",
+                                    "type": "string",
+                                    "required": true,
+                                    "key": "name"
+                                },
+                                {
+                                    "displayName": "email",
+                                    "type": "string",
+                                    "required": true,
+                                    "pattern": "^.+@.+\\..+$",
+                                    "key": "email"
+                                },
+                                {
+                                    "enum": [
+                                        "male",
+                                        "female"
+                                    ],
+                                    "displayName": "gender",
+                                    "type": "string",
+                                    "required": false,
+                                    "key": "gender"
+                                },
+                                {
+                                    "type": "string",
+                                    "displayName": "password",
+                                    "name": "password",
+                                    "required": true,
+                                    "key": "password"
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "Creates a new account\n",
+                    "method": "post",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/account",
+            "displayName": "ACCOUNT",
+            "relativeUriPathSegments": [
+                "account"
+            ],
+            "absoluteUri": "/account",
+            "parentUrl": "",
+            "uniqueId": "account",
+            "allUriParameters": []
+        }
+    ]
+}

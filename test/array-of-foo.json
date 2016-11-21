@@ -1,0 +1,79 @@
+{
+    "title": "Test",
+    "description": "Test of array support",
+    "version": "v1",
+    "baseUri": "https://exmaple.com/{version}",
+    "baseUriParameters": [
+        {
+            "name": "version",
+            "displayName": "version",
+            "type": [
+                "string"
+            ],
+            "required": true,
+            "enum": [
+                "v1"
+            ],
+            "key": "version"
+        }
+    ],
+    "protocols": [
+        "HTTPS"
+    ],
+    "mediaType": "application/json",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "Foos",
+                                    "displayName": "Foos",
+                                    "type": [
+                                        "array"
+                                    ],
+                                    "required": true,
+                                    "key": "application/json",
+                                    "items": {
+                                        "additionalProperties": true,
+                                        "type": "object",
+                                        "displayName": "Foo",
+                                        "name": "Foo",
+                                        "required": true,
+                                        "properties": [
+                                            {
+                                                "type": "string",
+                                                "displayName": "id",
+                                                "name": "id",
+                                                "required": true,
+                                                "key": "id"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "protocols": [
+                        "HTTPS"
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/foos",
+            "displayName": "/foos",
+            "relativeUriPathSegments": [
+                "foos"
+            ],
+            "absoluteUri": "https://exmaple.com/{version}/foos",
+            "parentUrl": "",
+            "uniqueId": "foos",
+            "allUriParameters": []
+        }
+    ]
+}

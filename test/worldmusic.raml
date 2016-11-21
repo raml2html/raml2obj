@@ -73,7 +73,7 @@ types:
       firstname: John
 
 traits:
-  secured: !include secured/accessToken.raml
+  secured: !include world-music-api/secured/accessToken.raml
 
 resourceTypes:
   collection:
@@ -171,8 +171,8 @@ securitySchemes:
 securedBy: custom_scheme
 
 uses:
-  SongsLib: libraries/songs-library.raml
-  ApiLib: libraries/api-library.raml
+  SongsLib: world-music-api/libraries/songs-library.raml
+  ApiLib: world-music-api/libraries/api-library.raml
 
 /api:
   get:
@@ -215,5 +215,5 @@ uses:
             application/json:
               type: SongsLib.Song
             application/xml:
-              type: !include schemas/songs.xsd
-              example: !include examples/songs.xml
+              type: !include world-music-api/schemas/songs.xsd
+              example: !include world-music-api/examples/songs.xml

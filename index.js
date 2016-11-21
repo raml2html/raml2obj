@@ -89,10 +89,6 @@ function _expandTypes(arr, types) {
           Object.assign(obj, types[type]);
         }
       });
-
-      if (obj.type.length === 1) {
-        obj.type = obj.type[0];
-      }
     }
 
     if (obj.items && types[obj.items]) {
@@ -184,7 +180,7 @@ function _expandRootTypes(types) {
   Object.keys(types).forEach((key) => {
     tools.expandedForm(types[key], types, (err, expanded) => {
       if (expanded) {
-        tools.canonicalForm(expanded, (err, canonical) => {
+        tools.canonicalForm(expanded, (err2, canonical) => {
           if (canonical) {
             types[key] = canonical;
           }

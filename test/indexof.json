@@ -1,0 +1,71 @@
+{
+    "title": "Test",
+    "version": "v1",
+    "mediaType": "application/json",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "body": [
+                        {
+                            "name": "application/json",
+                            "displayName": "application/json",
+                            "required": true,
+                            "type": {
+                                "name": "type",
+                                "displayName": "type",
+                                "type": [
+                                    "object"
+                                ],
+                                "required": true,
+                                "properties": [
+                                    {
+                                        "name": "o1a",
+                                        "displayName": "o1a",
+                                        "type": [
+                                            "string"
+                                        ],
+                                        "required": true,
+                                        "__METADATA__": {
+                                            "primitiveValuesMeta": {
+                                                "displayName": {
+                                                    "calculated": true
+                                                },
+                                                "required": {
+                                                    "insertedAsDefault": true
+                                                }
+                                            }
+                                        },
+                                        "key": "o1a"
+                                    }
+                                ],
+                                "__METADATA__": {
+                                    "primitiveValuesMeta": {
+                                        "displayName": {
+                                            "calculated": true
+                                        },
+                                        "required": {
+                                            "insertedAsDefault": true
+                                        }
+                                    }
+                                }
+                            },
+                            "key": "application/json"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/test",
+            "displayName": "/test",
+            "relativeUriPathSegments": [
+                "test"
+            ],
+            "absoluteUri": "/test",
+            "parentUrl": "",
+            "uniqueId": "test",
+            "allUriParameters": []
+        }
+    ]
+}

@@ -14,7 +14,9 @@
                 {
                     "name": "access_token",
                     "displayName": "access_token",
-                    "type": "string",
+                    "type": [
+                        "string"
+                    ],
                     "required": true,
                     "key": "access_token"
                 }
@@ -70,7 +72,9 @@
                 {
                     "name": "date",
                     "displayName": "date",
-                    "type": "datetime",
+                    "type": [
+                        "datetime"
+                    ],
                     "required": true,
                     "key": "date"
                 },
@@ -107,7 +111,9 @@
                 {
                     "name": "comment",
                     "displayName": "comment",
-                    "type": "nil | string",
+                    "type": [
+                        "nil | string"
+                    ],
                     "required": true,
                     "key": "comment"
                 }
@@ -149,7 +155,9 @@
                 {
                     "name": "license",
                     "displayName": "license",
-                    "type": "string",
+                    "type": [
+                        "string"
+                    ],
                     "required": true,
                     "enum": [
                         "MIT",
@@ -192,7 +200,9 @@
                     {
                         "name": "access_token",
                         "displayName": "access_token",
-                        "type": "string",
+                        "type": [
+                            "string"
+                        ],
                         "required": true,
                         "description": "Used to send a valid OAuth 2 access token. Do not use with\nthe \"Authorization\" header.\n",
                         "key": "access_token"
@@ -202,7 +212,9 @@
                     {
                         "name": "Authorization",
                         "displayName": "Authorization",
-                        "type": "string",
+                        "type": [
+                            "string"
+                        ],
                         "required": true,
                         "description": "Used to send a valid OAuth 2 access token. Do not use\nwith the \"access_token\" query string parameter.\n",
                         "key": "Authorization"
@@ -238,7 +250,9 @@
                     {
                         "name": "SpecialToken",
                         "displayName": "SpecialToken",
-                        "type": "string",
+                        "type": [
+                            "string"
+                        ],
                         "required": true,
                         "description": "Used to send a custom token.\n",
                         "key": "SpecialToken"
@@ -264,7 +278,9 @@
         {
             "name": "environment",
             "displayName": "environment",
-            "type": "string",
+            "type": [
+                "string"
+            ],
             "required": true,
             "enum": [
                 "stg",
@@ -277,7 +293,9 @@
         {
             "name": "version",
             "displayName": "version",
-            "type": "string",
+            "type": [
+                "string"
+            ],
             "required": true,
             "enum": [
                 "v1"
@@ -308,14 +326,18 @@
                             {
                                 "name": "start",
                                 "displayName": "start",
-                                "type": "number",
+                                "type": [
+                                    "number"
+                                ],
                                 "required": false,
                                 "key": "start"
                             },
                             {
                                 "name": "page-size",
                                 "displayName": "page-size",
-                                "type": "number",
+                                "type": [
+                                    "number"
+                                ],
                                 "required": false,
                                 "key": "page-size"
                             }
@@ -335,21 +357,27 @@
                         {
                             "name": "RamlDataType",
                             "displayName": "RamlDataType",
-                            "type": "object",
+                            "type": [
+                                "object"
+                            ],
                             "required": true,
                             "key": "application/json",
                             "properties": [
                                 {
                                     "name": "propString",
                                     "displayName": "propString",
-                                    "type": "string",
+                                    "type": [
+                                        "string"
+                                    ],
                                     "required": true,
                                     "key": "propString"
                                 },
                                 {
                                     "name": "propStringArray1",
                                     "displayName": "propStringArray1",
-                                    "type": "array",
+                                    "type": [
+                                        "array"
+                                    ],
                                     "required": true,
                                     "items": "string",
                                     "key": "propStringArray1"
@@ -357,7 +385,9 @@
                                 {
                                     "name": "ideas",
                                     "displayName": "ideas",
-                                    "type": "array",
+                                    "type": [
+                                        "array"
+                                    ],
                                     "required": true,
                                     "items": {
                                         "name": "items",
@@ -370,7 +400,9 @@
                                             {
                                                 "name": "comment",
                                                 "displayName": "comment",
-                                                "type": "string",
+                                                "type": [
+                                                    "string"
+                                                ],
                                                 "required": true,
                                                 "key": "comment"
                                             }
@@ -386,7 +418,9 @@
                                         {
                                             "name": "createdBy",
                                             "displayName": "createdBy",
-                                            "type": "string",
+                                            "type": [
+                                                "string"
+                                            ],
                                             "required": true,
                                             "key": "createdBy"
                                         }
@@ -402,7 +436,9 @@
                                             {
                                                 "name": "comment",
                                                 "displayName": "comment",
-                                                "type": "string",
+                                                "type": [
+                                                    "string"
+                                                ],
                                                 "required": true,
                                                 "__METADATA__": {
                                                     "primitiveValuesMeta": {
@@ -436,7 +472,9 @@
                                 {
                                     "name": "feedback",
                                     "displayName": "feedback",
-                                    "type": "string",
+                                    "type": [
+                                        "string"
+                                    ],
                                     "default": "very nice",
                                     "required": true,
                                     "pattern": "[a-zA-Z\\s]*",
@@ -450,7 +488,9 @@
                                 {
                                     "name": "propNumber",
                                     "displayName": "propNumber",
-                                    "type": "number",
+                                    "type": [
+                                        "number"
+                                    ],
                                     "required": true,
                                     "minimum": 0,
                                     "maximum": 32,
@@ -464,7 +504,9 @@
                                 {
                                     "name": "propInteger",
                                     "displayName": "propInteger",
-                                    "type": "integer",
+                                    "type": [
+                                        "integer"
+                                    ],
                                     "required": true,
                                     "minimum": 3,
                                     "maximum": 5,
@@ -478,14 +520,18 @@
                                 {
                                     "name": "propBoolean",
                                     "displayName": "propBoolean",
-                                    "type": "boolean",
+                                    "type": [
+                                        "boolean"
+                                    ],
                                     "required": true,
                                     "key": "propBoolean"
                                 },
                                 {
                                     "name": "propDate",
                                     "displayName": "propDate",
-                                    "type": "date-only",
+                                    "type": [
+                                        "date-only"
+                                    ],
                                     "required": true,
                                     "key": "propDate",
                                     "examples": [
@@ -495,7 +541,9 @@
                                 {
                                     "name": "userPicture",
                                     "displayName": "userPicture",
-                                    "type": "file",
+                                    "type": [
+                                        "file"
+                                    ],
                                     "required": true,
                                     "fileTypes": [
                                         {},
@@ -514,20 +562,26 @@
                                 {
                                     "name": "NilValue",
                                     "displayName": "NilValue",
-                                    "type": "object",
+                                    "type": [
+                                        "object"
+                                    ],
                                     "required": true,
                                     "properties": [
                                         {
                                             "name": "name",
                                             "displayName": "name",
-                                            "type": "string",
+                                            "type": [
+                                                "string"
+                                            ],
                                             "required": true,
                                             "key": "name"
                                         },
                                         {
                                             "name": "comment",
                                             "displayName": "comment",
-                                            "type": "string?",
+                                            "type": [
+                                                "string?"
+                                            ],
                                             "required": true,
                                             "key": "comment"
                                         }
@@ -537,7 +591,9 @@
                                 {
                                     "name": "CatOrDog",
                                     "displayName": "CatOrDog",
-                                    "type": "ApiLib.Cat | ApiLib.Dog",
+                                    "type": [
+                                        "ApiLib.Cat | ApiLib.Dog"
+                                    ],
                                     "required": true,
                                     "key": "CatOrDog"
                                 },
@@ -570,20 +626,18 @@
                                     "key": "PossibleMeetingDate",
                                     "facets": {
                                         "onlyFutureDates": {
-                                            "name": "onlyFutureDates",
-                                            "displayName": "onlyFutureDates",
                                             "type": [
-                                                "boolean"
-                                            ],
-                                            "required": false
+                                                {
+                                                    "type": "boolean"
+                                                }
+                                            ]
                                         },
                                         "noHolidays": {
-                                            "name": "noHolidays",
-                                            "displayName": "noHolidays",
                                             "type": [
-                                                "boolean"
-                                            ],
-                                            "required": true
+                                                {
+                                                    "type": "boolean"
+                                                }
+                                            ]
                                         }
                                     }
                                 }
@@ -608,6 +662,7 @@
             "relativeUriPathSegments": [
                 "api"
             ],
+            "absoluteUri": "http://{environment}.musicapi.com/{version}/api",
             "parentUrl": "",
             "uniqueId": "api",
             "allUriParameters": []
@@ -622,9 +677,10 @@
                                 {
                                     "name": "AnotherEntry",
                                     "displayName": "AnotherEntry",
-                                    "type": "Entry",
+                                    "type": "json",
                                     "required": true,
                                     "key": "application/json",
+                                    "content": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
                                     "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
                                 }
                             ],
@@ -680,6 +736,7 @@
             "relativeUriPathSegments": [
                 "entry"
             ],
+            "absoluteUri": "http://{environment}.musicapi.com/{version}/entry",
             "parentUrl": "",
             "uniqueId": "entry",
             "allUriParameters": []
@@ -705,7 +762,9 @@
                         {
                             "name": "genre",
                             "displayName": "genre",
-                            "type": "string",
+                            "type": [
+                                "string"
+                            ],
                             "required": true,
                             "description": "filter the songs by genre",
                             "key": "genre"
@@ -713,7 +772,9 @@
                         {
                             "name": "access_token",
                             "displayName": "access_token",
-                            "type": "string",
+                            "type": [
+                                "string"
+                            ],
                             "required": true,
                             "key": "access_token"
                         }
@@ -733,7 +794,9 @@
                         {
                             "name": "access_token",
                             "displayName": "access_token",
-                            "type": "string",
+                            "type": [
+                                "string"
+                            ],
                             "required": true,
                             "key": "access_token"
                         }
@@ -809,7 +872,9 @@
                                         {
                                             "name": "application/xml",
                                             "displayName": "application/xml",
-                                            "type": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n",
+                                            "type": [
+                                                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n"
+                                            ],
                                             "required": true,
                                             "key": "application/xml",
                                             "examples": [
@@ -859,6 +924,7 @@
                     "relativeUriPathSegments": [
                         "{songId}"
                     ],
+                    "absoluteUri": "http://{environment}.musicapi.com/{version}/songs/{songId}",
                     "parentUrl": "/songs",
                     "uniqueId": "songs__songid_",
                     "allUriParameters": [
@@ -877,6 +943,7 @@
             "relativeUriPathSegments": [
                 "songs"
             ],
+            "absoluteUri": "http://{environment}.musicapi.com/{version}/songs",
             "parentUrl": "",
             "uniqueId": "songs",
             "allUriParameters": []

@@ -1,0 +1,100 @@
+{
+    "title": "Hello world",
+    "version": "1",
+    "baseUri": "http://example.com/{version}",
+    "baseUriParameters": [
+        {
+            "name": "version",
+            "displayName": "version",
+            "type": [
+                "string"
+            ],
+            "required": true,
+            "enum": [
+                "1"
+            ],
+            "key": "version"
+        }
+    ],
+    "protocols": [
+        "HTTP"
+    ],
+    "resources": [
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "application/json",
+                                    "displayName": "application/json",
+                                    "type": [
+                                        "{\n  \"title\": \"Hello world Response\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n"
+                                    ],
+                                    "required": true,
+                                    "key": "application/json",
+                                    "examples": [
+                                        "{\n  \"message\": \"Hello world\"\n}"
+                                    ]
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "description": "This is the top level description for /helloworld.",
+            "relativeUri": "/helloworld",
+            "displayName": "/helloworld",
+            "resources": [
+                {
+                    "methods": [
+                        {
+                            "protocols": [
+                                "HTTP"
+                            ],
+                            "description": "a sub resource",
+                            "method": "get",
+                            "allUriParameters": []
+                        }
+                    ],
+                    "relativeUri": "/test",
+                    "displayName": "TEST",
+                    "relativeUriPathSegments": [
+                        "test"
+                    ],
+                    "absoluteUri": "http://example.com/{version}/helloworld/test",
+                    "parentUrl": "/helloworld",
+                    "uniqueId": "helloworld_test",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUriPathSegments": [
+                "helloworld"
+            ],
+            "absoluteUri": "http://example.com/{version}/helloworld",
+            "parentUrl": "",
+            "uniqueId": "helloworld",
+            "allUriParameters": []
+        }
+    ],
+    "documentation": [
+        {
+            "title": "Welcome",
+            "content": "Welcome to the Example Documentation. The Example API allows you\nto do stuff. See also [example.com](https://www.example.com).\n",
+            "uniqueId": "welcome"
+        },
+        {
+            "title": "Chapter two",
+            "content": "More content here. Including **bold** text!\n",
+            "uniqueId": "chapter_two"
+        }
+    ]
+}

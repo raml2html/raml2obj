@@ -1,0 +1,351 @@
+{
+    "title": "Lots of parameters",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "description": "Account was created and user is now logged in",
+                            "key": "200"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "name": "application/json",
+                            "displayName": "application/json",
+                            "type": [
+                                "object"
+                            ],
+                            "examples": [
+                                "{\n  \"email\": \"john@example.com\",\n  \"password\": \"super_secret\",\n  \"name\": \"John Doe\"\n}"
+                            ],
+                            "required": true,
+                            "key": "application/json"
+                        }
+                    ],
+                    "method": "post",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/account",
+            "displayName": "/account",
+            "resources": [
+                {
+                    "methods": [
+                        {
+                            "queryParameters": [
+                                {
+                                    "name": "name",
+                                    "displayName": "name",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "name on account",
+                                    "key": "name",
+                                    "examples": [
+                                        "Naruto Uzumaki"
+                                    ]
+                                },
+                                {
+                                    "name": "gender",
+                                    "displayName": "gender",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "enum": [
+                                        "male",
+                                        "female"
+                                    ],
+                                    "key": "gender"
+                                },
+                                {
+                                    "name": "number",
+                                    "displayName": "number",
+                                    "type": [
+                                        "integer"
+                                    ],
+                                    "default": 42,
+                                    "required": true,
+                                    "key": "number"
+                                }
+                            ],
+                            "method": "get",
+                            "allUriParameters": []
+                        }
+                    ],
+                    "relativeUri": "/find",
+                    "displayName": "/find",
+                    "relativeUriPathSegments": [
+                        "find"
+                    ],
+                    "absoluteUri": "/account/find",
+                    "parentUrl": "/account",
+                    "uniqueId": "account_find",
+                    "allUriParameters": []
+                },
+                {
+                    "methods": [
+                        {
+                            "headers": [
+                                {
+                                    "name": "Authorization",
+                                    "displayName": "Authorization",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "Basic authentication header",
+                                    "key": "Authorization",
+                                    "examples": [
+                                        "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n"
+                                    ]
+                                }
+                            ],
+                            "method": "get",
+                            "allUriParameters": [
+                                {
+                                    "name": "id",
+                                    "displayName": "id",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "account identifier",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "key": "id"
+                                }
+                            ]
+                        },
+                        {
+                            "body": [
+                                {
+                                    "name": "application/x-www-form-urlencoded",
+                                    "displayName": "application/x-www-form-urlencoded",
+                                    "type": [
+                                        "object"
+                                    ],
+                                    "required": true,
+                                    "properties": [
+                                        {
+                                            "name": "name",
+                                            "displayName": "name",
+                                            "type": [
+                                                "string"
+                                            ],
+                                            "examples": [
+                                                "Naruto Uzumaki",
+                                                "Kevin Renskers"
+                                            ],
+                                            "required": true,
+                                            "description": "name on account",
+                                            "key": "name"
+                                        },
+                                        {
+                                            "name": "gender",
+                                            "displayName": "gender",
+                                            "type": [
+                                                "string"
+                                            ],
+                                            "required": true,
+                                            "enum": [
+                                                "male",
+                                                "female"
+                                            ],
+                                            "key": "gender"
+                                        }
+                                    ],
+                                    "key": "application/x-www-form-urlencoded"
+                                }
+                            ],
+                            "method": "put",
+                            "allUriParameters": [
+                                {
+                                    "name": "id",
+                                    "displayName": "id",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "account identifier",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "key": "id"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Delete the account",
+                            "method": "delete",
+                            "allUriParameters": [
+                                {
+                                    "name": "id",
+                                    "displayName": "id",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "account identifier",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    ],
+                    "uriParameters": [
+                        {
+                            "name": "id",
+                            "displayName": "id",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "description": "account identifier",
+                            "minLength": 1,
+                            "maxLength": 10,
+                            "key": "id"
+                        }
+                    ],
+                    "relativeUri": "/{id}",
+                    "displayName": "/{id}",
+                    "resources": [
+                        {
+                            "methods": [
+                                {
+                                    "responses": [
+                                        {
+                                            "code": "401",
+                                            "headers": [
+                                                {
+                                                    "name": "WWW-Authenticate",
+                                                    "displayName": "WWW-Authenticate",
+                                                    "type": [
+                                                        "string"
+                                                    ],
+                                                    "required": true,
+                                                    "description": "user was not authorized",
+                                                    "examples": [
+                                                        "WWW-Authenticate: Basic realm=\"raml2html\"\n"
+                                                    ]
+                                                }
+                                            ],
+                                            "description": "Not authorized",
+                                            "key": "401"
+                                        }
+                                    ],
+                                    "method": "get",
+                                    "allUriParameters": [
+                                        {
+                                            "name": "id",
+                                            "displayName": "id",
+                                            "type": [
+                                                "string"
+                                            ],
+                                            "required": true,
+                                            "description": "account identifier",
+                                            "minLength": 1,
+                                            "maxLength": 10,
+                                            "key": "id"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "displayName": "id",
+                                            "type": [
+                                                "string"
+                                            ],
+                                            "required": true,
+                                            "description": "sub account identifier",
+                                            "minLength": 1,
+                                            "maxLength": 10,
+                                            "key": "id"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "uriParameters": [
+                                {
+                                    "name": "id",
+                                    "displayName": "id",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "sub account identifier",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "key": "id"
+                                }
+                            ],
+                            "relativeUri": "/{id}",
+                            "displayName": "/{id}",
+                            "relativeUriPathSegments": [
+                                "{id}"
+                            ],
+                            "absoluteUri": "/account/{id}/{id}",
+                            "parentUrl": "/account/{id}",
+                            "uniqueId": "account__id___id_",
+                            "allUriParameters": [
+                                {
+                                    "name": "id",
+                                    "displayName": "id",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "account identifier",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "key": "id"
+                                },
+                                {
+                                    "name": "id",
+                                    "displayName": "id",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "description": "sub account identifier",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    ],
+                    "relativeUriPathSegments": [
+                        "{id}"
+                    ],
+                    "absoluteUri": "/account/{id}",
+                    "parentUrl": "/account",
+                    "uniqueId": "account__id_",
+                    "allUriParameters": [
+                        {
+                            "name": "id",
+                            "displayName": "id",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "description": "account identifier",
+                            "minLength": 1,
+                            "maxLength": 10,
+                            "key": "id"
+                        }
+                    ]
+                }
+            ],
+            "relativeUriPathSegments": [
+                "account"
+            ],
+            "absoluteUri": "/account",
+            "parentUrl": "",
+            "uniqueId": "account",
+            "allUriParameters": []
+        }
+    ]
+}

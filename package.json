@@ -10,12 +10,13 @@
     "url": "https://github.com/raml2html/raml2obj/issues"
   },
   "dependencies": {
-    "datatype-expansion": "0.1.0",
+    "datatype-expansion": "0.0.15",
     "raml-1-parser": "1.1.8"
   },
   "devDependencies": {
     "eslint": "3.10.x",
     "eslint-config-loopwerk": "6.0.x",
+    "glob": "7.1.1",
     "mocha": "3.1.x"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
@@ -30,6 +31,7 @@
   },
   "preferGlobal": false,
   "scripts": {
+    "json": "node test/output-json.js",
     "lint": "eslint ./",
     "lintfix": "eslint --fix ./",
     "test": "mocha 'test/*.spec.js' --reporter progress"

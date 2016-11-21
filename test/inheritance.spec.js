@@ -26,18 +26,18 @@ describe('raml2obj', () => {
 
       assert.strictEqual(properties.length, 4);
       assert.strictEqual(properties[0].displayName, 'name');
-      assert.strictEqual(properties[0].type, 'string');
+      assert.deepEqual(properties[0].type, ['string']);
 
       assert.strictEqual(properties[1].displayName, 'email');
-      assert.strictEqual(properties[1].type, 'string');
+      assert.deepEqual(properties[1].type, ['string']);
       assert.strictEqual(properties[1].pattern, '^.+@.+\\..+$');
 
       assert.strictEqual(properties[2].displayName, 'gender');
-      assert.strictEqual(properties[2].type, 'string');
+      assert.deepEqual(properties[2].type, ['string']);
       assert.strictEqual(properties[2].enum.length, 2);
 
       assert.strictEqual(properties[3].displayName, 'password');
-      assert.strictEqual(properties[3].type, 'string');
+      assert.deepEqual(properties[3].type, ['string']);
     });
   });
 });

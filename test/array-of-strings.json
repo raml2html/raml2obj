@@ -1,0 +1,65 @@
+{
+    "title": "API used to test broken features",
+    "version": "v1",
+    "baseUri": "http://api.samplehost.com/broken/{version}",
+    "baseUriParameters": [
+        {
+            "name": "version",
+            "displayName": "version",
+            "type": [
+                "string"
+            ],
+            "required": true,
+            "enum": [
+                "v1"
+            ],
+            "key": "version"
+        }
+    ],
+    "protocols": [
+        "HTTP",
+        "HTTPS"
+    ],
+    "mediaType": "application/json",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "application/json",
+                                    "displayName": "application/json",
+                                    "type": [
+                                        "array"
+                                    ],
+                                    "required": true,
+                                    "items": "string",
+                                    "key": "application/json",
+                                    "examples": [
+                                        "[\n  \"somevalue\",\n  \"anothervalue\"\n]"
+                                    ]
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "protocols": [
+                        "HTTP"
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/",
+            "displayName": "/",
+            "relativeUriPathSegments": [],
+            "absoluteUri": "http://api.samplehost.com/broken/{version}/",
+            "parentUrl": "",
+            "uniqueId": "",
+            "allUriParameters": []
+        }
+    ]
+}

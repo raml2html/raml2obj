@@ -10,7 +10,7 @@ describe('raml2obj', () => {
     let obj;
 
     before((done) => {
-      raml2obj.parse('test/world-music-api/api.raml').then((result) => {
+      raml2obj.parse('test/worldmusic.raml').then((result) => {
         obj = result;
         done();
       }, (error) => {
@@ -29,12 +29,12 @@ describe('raml2obj', () => {
       assert.strictEqual(obj.baseUriParameters.length, 2);
 
       assert.strictEqual(obj.baseUriParameters[0].name, 'environment');
-      assert.strictEqual(obj.baseUriParameters[0].type, 'string');
+      assert.deepEqual(obj.baseUriParameters[0].type, ['string']);
       assert.strictEqual(obj.baseUriParameters[0].required, true);
       assert.deepEqual(obj.baseUriParameters[0].enum, ['stg', 'dev', 'test', 'prod']);
 
       assert.strictEqual(obj.baseUriParameters[1].name, 'version');
-      assert.strictEqual(obj.baseUriParameters[1].type, 'string');
+      assert.deepEqual(obj.baseUriParameters[1].type, ['string']);
       assert.strictEqual(obj.baseUriParameters[1].required, true);
       assert.deepEqual(obj.baseUriParameters[1].enum, ['v1']);
     });
@@ -82,11 +82,11 @@ describe('raml2obj', () => {
       assert.strictEqual(get.queryString.properties.length, 2);
       assert.strictEqual(get.queryString.properties[0].name, 'start');
       assert.strictEqual(get.queryString.properties[0].required, false);
-      assert.strictEqual(get.queryString.properties[0].type, 'number');
+      assert.deepEqual(get.queryString.properties[0].type, ['number']);
 
       assert.strictEqual(get.queryString.properties[1].name, 'page-size');
       assert.strictEqual(get.queryString.properties[1].required, false);
-      assert.strictEqual(get.queryString.properties[1].type, 'number');
+      assert.deepEqual(get.queryString.properties[1].type, ['number']);
 
       const post = methods[1];
 
@@ -96,7 +96,7 @@ describe('raml2obj', () => {
       assert.strictEqual(post.body.length, 1);
       assert.strictEqual(post.body[0].name, 'RamlDataType');
       assert.strictEqual(post.body[0].key, 'application/json');
-      assert.strictEqual(post.body[0].type, 'object');
+      assert.deepEqual(post.body[0].type, ['object']);
       assert.strictEqual(post.body[0].required, true);
       assert.strictEqual(post.body[0].properties.length, 14);
       assert.strictEqual(post.body[0].properties[4].examples[0], 'very well made');
@@ -129,7 +129,7 @@ describe('raml2obj', () => {
       assert.strictEqual(post.responses[0].body.length, 1);
       assert.strictEqual(post.responses[0].body[0].name, 'AnotherEntry');
       assert.strictEqual(post.responses[0].body[0].key, 'application/json');
-      assert.strictEqual(post.responses[0].body[0].type, 'json');
+      assert.deepEqual(post.responses[0].body[0].type, 'json');
       assert.strictEqual(post.responses[0].body[0].content.indexOf('{\n  "type": "array"'), 0);
 
       const get = methods[1];
@@ -213,9 +213,9 @@ describe('raml2obj', () => {
       assert.strictEqual(get.responses[0].body[0].displayName, 'Song');
       assert.strictEqual(get.responses[0].body[0].key, 'application/json');
       assert.strictEqual(get.responses[0].body[0].examples.length, 2);
-      assert.strictEqual(get.responses[0].body[0].type, 'object');
+      assert.strictEqual(get.responses[0].body[0].type, ['object']);
 
-      assert.strictEqual(get.responses[0].body[1].type.indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);
+      assert.strictEqual(get.responses[0].body[1].type[0].indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);
     });
   });
 });
