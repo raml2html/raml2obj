@@ -12,11 +12,11 @@
                             "displayName": "objectid",
                             "type": "string",
                             "required": true,
-                            "key": "id",
                             "description": "A valid MongoDB object id.",
                             "examples": [
                                 "576bca8b70fddb149c4a9e92"
-                            ]
+                            ],
+                            "key": "id"
                         }
                     ]
                 }
@@ -27,11 +27,11 @@
                     "displayName": "objectid",
                     "type": "string",
                     "required": true,
-                    "key": "id",
                     "description": "A valid MongoDB object id.",
                     "examples": [
                         "576bca8b70fddb149c4a9e92"
-                    ]
+                    ],
+                    "key": "id"
                 }
             ],
             "relativeUri": "/company",
@@ -48,13 +48,25 @@
                     "displayName": "objectid",
                     "type": "string",
                     "required": true,
-                    "key": "id",
                     "description": "A valid MongoDB object id.",
                     "examples": [
                         "576bca8b70fddb149c4a9e92"
-                    ]
+                    ],
+                    "key": "id"
                 }
             ]
         }
-    ]
+    ],
+    "types": {
+        "objectid": {
+            "type": "string",
+            "description": "A valid MongoDB object id.",
+            "displayName": "objectid",
+            "name": "objectid",
+            "required": true,
+            "examples": [
+                "576bca8b70fddb149c4a9e92"
+            ]
+        }
+    }
 }

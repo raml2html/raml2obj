@@ -10,7 +10,6 @@
                             "displayName": "PasswordProtectedAccount",
                             "type": "object",
                             "required": true,
-                            "key": "application/json",
                             "additionalProperties": true,
                             "properties": [
                                 {
@@ -43,7 +42,8 @@
                                     "required": true,
                                     "key": "password"
                                 }
-                            ]
+                            ],
+                            "key": "application/json"
                         }
                     ],
                     "description": "Creates a new account\n",
@@ -61,5 +61,85 @@
             "uniqueId": "account",
             "allUriParameters": []
         }
-    ]
+    ],
+    "types": {
+        "Email": {
+            "type": "string",
+            "displayName": "Email",
+            "name": "Email",
+            "required": true,
+            "pattern": "^.+@.+\\..+$"
+        },
+        "Account": {
+            "additionalProperties": true,
+            "type": "object",
+            "displayName": "Account",
+            "name": "Account",
+            "required": true,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "displayName": "name",
+                    "name": "name",
+                    "required": true
+                },
+                "email": {
+                    "displayName": "email",
+                    "type": "string",
+                    "required": true,
+                    "pattern": "^.+@.+\\..+$",
+                    "name": "email"
+                },
+                "gender": {
+                    "type": "string",
+                    "enum": [
+                        "male",
+                        "female"
+                    ],
+                    "displayName": "gender",
+                    "name": "gender",
+                    "required": false
+                }
+            }
+        },
+        "PasswordProtectedAccount": {
+            "additionalProperties": true,
+            "displayName": "PasswordProtectedAccount",
+            "type": "object",
+            "required": true,
+            "name": "PasswordProtectedAccount",
+            "properties": {
+                "name": {
+                    "displayName": "name",
+                    "type": "string",
+                    "required": true,
+                    "key": "name"
+                },
+                "email": {
+                    "displayName": "email",
+                    "type": "string",
+                    "required": true,
+                    "pattern": "^.+@.+\\..+$",
+                    "key": "email"
+                },
+                "gender": {
+                    "enum": [
+                        "male",
+                        "female"
+                    ],
+                    "displayName": "gender",
+                    "type": "string",
+                    "required": false,
+                    "key": "gender"
+                },
+                "password": {
+                    "type": "string",
+                    "displayName": "password",
+                    "name": "password",
+                    "required": true,
+                    "key": "password"
+                }
+            }
+        }
+    }
 }

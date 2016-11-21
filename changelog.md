@@ -1,3 +1,7 @@
+4.0.0-beta15 - November 21, 2016
+- Downgraded datatype-expansion library
+- Making all the types consistent ourselves now, always an array
+
 4.0.0-beta14 - November 21, 2016
 - Updated datatype-expansion library
 

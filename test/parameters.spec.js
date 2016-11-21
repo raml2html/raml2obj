@@ -36,7 +36,7 @@ describe('raml2obj', () => {
       assert.strictEqual(method.method, 'post');
       assert.strictEqual(method.body.length, 1);
       assert.strictEqual(method.body[0].name, 'application/json');
-      assert.deepEqual(method.body[0].type, ['object']);
+      assert.strictEqual(method.body[0].type, 'object');
       assert.strictEqual(method.body[0].examples[0], '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}');
       assert.strictEqual(method.body[0].required, true);
       assert.strictEqual(method.responses.length, 1);
@@ -61,20 +61,20 @@ describe('raml2obj', () => {
       assert.strictEqual(method.queryParameters.length, 3);
       assert.strictEqual(method.queryParameters[0].name, 'name');
       assert.strictEqual(method.queryParameters[0].displayName, 'name');
-      assert.deepEqual(method.queryParameters[0].type, ['string']);
+      assert.strictEqual(method.queryParameters[0].type, 'string');
       assert.strictEqual(method.queryParameters[0].examples[0], 'Naruto Uzumaki');
       assert.strictEqual(method.queryParameters[0].required, true);
       assert.strictEqual(method.queryParameters[0].description, 'name on account');
 
       assert.strictEqual(method.queryParameters[1].name, 'gender');
       assert.strictEqual(method.queryParameters[1].displayName, 'gender');
-      assert.deepEqual(method.queryParameters[1].type, ['string']);
+      assert.strictEqual(method.queryParameters[1].type, 'string');
       assert.strictEqual(method.queryParameters[1].required, true);
       assert.deepEqual(method.queryParameters[1].enum, ['male', 'female']);
 
       assert.strictEqual(method.queryParameters[2].name, 'number');
       assert.strictEqual(method.queryParameters[2].displayName, 'number');
-      assert.deepEqual(method.queryParameters[2].type, ['integer']);
+      assert.strictEqual(method.queryParameters[2].type, 'integer');
       assert.strictEqual(method.queryParameters[2].required, true);
       assert.strictEqual(method.queryParameters[2].default, 42);
     });
@@ -90,7 +90,7 @@ describe('raml2obj', () => {
       assert.strictEqual(resource.uriParameters.length, 1);
       assert.strictEqual(resource.uriParameters[0].name, 'id');
       assert.strictEqual(resource.uriParameters[0].displayName, 'id');
-      assert.deepEqual(resource.uriParameters[0].type, ['string']);
+      assert.strictEqual(resource.uriParameters[0].type, 'string');
       assert.strictEqual(resource.uriParameters[0].required, true);
       assert.strictEqual(resource.uriParameters[0].description, 'account identifier');
       assert.strictEqual(resource.uriParameters[0].minLength, 1);
@@ -106,7 +106,7 @@ describe('raml2obj', () => {
       assert.strictEqual(get.headers.length, 1);
       assert.strictEqual(get.headers[0].name, 'Authorization');
       assert.strictEqual(get.headers[0].displayName, 'Authorization');
-      assert.deepEqual(get.headers[0].type, ['string']);
+      assert.strictEqual(get.headers[0].type, 'string');
       assert.strictEqual(get.headers[0].examples[0], 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n');
       assert.strictEqual(get.headers[0].required, true);
       assert.strictEqual(get.headers[0].description, 'Basic authentication header');
@@ -118,7 +118,7 @@ describe('raml2obj', () => {
       assert.strictEqual(put.allUriParameters[0].name, 'id');
       assert.strictEqual(put.body.length, 1);
       assert.strictEqual(put.body[0].name, 'application/x-www-form-urlencoded');
-      assert.deepEqual(put.body[0].type, ['object']);
+      assert.strictEqual(put.body[0].type, 'object');
       assert.strictEqual(put.body[0].required, true);
       assert.strictEqual(put.body[0].properties.length, 2);
       assert.strictEqual(put.body[0].properties[0].name, 'name');

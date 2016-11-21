@@ -6,9 +6,7 @@
         {
             "name": "version",
             "displayName": "version",
-            "type": [
-                "string"
-            ],
+            "type": "string",
             "required": true,
             "enum": [
                 "v1"
@@ -32,15 +30,13 @@
                                 {
                                     "name": "application/json",
                                     "displayName": "application/json",
-                                    "type": [
-                                        "array"
-                                    ],
+                                    "type": "array",
                                     "required": true,
                                     "items": "string",
-                                    "key": "application/json",
                                     "examples": [
                                         "[\n  \"somevalue\",\n  \"anothervalue\"\n]"
-                                    ]
+                                    ],
+                                    "key": "application/json"
                                 }
                             ],
                             "key": "200"

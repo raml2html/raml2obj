@@ -7,9 +7,7 @@
         {
             "name": "version",
             "displayName": "version",
-            "type": [
-                "string"
-            ],
+            "type": "string",
             "required": true,
             "enum": [
                 "v1"
@@ -32,11 +30,8 @@
                                 {
                                     "name": "Foos",
                                     "displayName": "Foos",
-                                    "type": [
-                                        "array"
-                                    ],
+                                    "type": "array",
                                     "required": true,
-                                    "key": "application/json",
                                     "items": {
                                         "additionalProperties": true,
                                         "type": "object",
@@ -52,7 +47,8 @@
                                                 "key": "id"
                                             }
                                         ]
-                                    }
+                                    },
+                                    "key": "application/json"
                                 }
                             ],
                             "key": "200"
@@ -75,5 +71,30 @@
             "uniqueId": "foos",
             "allUriParameters": []
         }
-    ]
+    ],
+    "types": {
+        "Foo": {
+            "additionalProperties": true,
+            "type": "object",
+            "displayName": "Foo",
+            "name": "Foo",
+            "required": true,
+            "properties": [
+                {
+                    "type": "string",
+                    "displayName": "id",
+                    "name": "id",
+                    "required": true,
+                    "key": "id"
+                }
+            ]
+        },
+        "Foos": {
+            "name": "Foos",
+            "displayName": "Foos",
+            "type": "array",
+            "required": true,
+            "items": "Foo"
+        }
+    }
 }

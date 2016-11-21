@@ -15,9 +15,7 @@
                         {
                             "name": "application/json",
                             "displayName": "application/json",
-                            "type": [
-                                "object"
-                            ],
+                            "type": "object",
                             "examples": [
                                 "{\n  \"email\": \"john@example.com\",\n  \"password\": \"super_secret\",\n  \"name\": \"John Doe\"\n}"
                             ],
@@ -39,22 +37,18 @@
                                 {
                                     "name": "name",
                                     "displayName": "name",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "name on account",
-                                    "key": "name",
                                     "examples": [
                                         "Naruto Uzumaki"
-                                    ]
+                                    ],
+                                    "key": "name"
                                 },
                                 {
                                     "name": "gender",
                                     "displayName": "gender",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "enum": [
                                         "male",
@@ -65,9 +59,7 @@
                                 {
                                     "name": "number",
                                     "displayName": "number",
-                                    "type": [
-                                        "integer"
-                                    ],
+                                    "type": "integer",
                                     "default": 42,
                                     "required": true,
                                     "key": "number"
@@ -94,15 +86,13 @@
                                 {
                                     "name": "Authorization",
                                     "displayName": "Authorization",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "Basic authentication header",
-                                    "key": "Authorization",
                                     "examples": [
                                         "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n"
-                                    ]
+                                    ],
+                                    "key": "Authorization"
                                 }
                             ],
                             "method": "get",
@@ -110,9 +100,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "account identifier",
                                     "minLength": 1,
@@ -126,17 +114,13 @@
                                 {
                                     "name": "application/x-www-form-urlencoded",
                                     "displayName": "application/x-www-form-urlencoded",
-                                    "type": [
-                                        "object"
-                                    ],
+                                    "type": "object",
                                     "required": true,
                                     "properties": [
                                         {
                                             "name": "name",
                                             "displayName": "name",
-                                            "type": [
-                                                "string"
-                                            ],
+                                            "type": "string",
                                             "examples": [
                                                 "Naruto Uzumaki",
                                                 "Kevin Renskers"
@@ -148,9 +132,7 @@
                                         {
                                             "name": "gender",
                                             "displayName": "gender",
-                                            "type": [
-                                                "string"
-                                            ],
+                                            "type": "string",
                                             "required": true,
                                             "enum": [
                                                 "male",
@@ -167,9 +149,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "account identifier",
                                     "minLength": 1,
@@ -185,9 +165,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "account identifier",
                                     "minLength": 1,
@@ -201,9 +179,7 @@
                         {
                             "name": "id",
                             "displayName": "id",
-                            "type": [
-                                "string"
-                            ],
+                            "type": "string",
                             "required": true,
                             "description": "account identifier",
                             "minLength": 1,
@@ -224,9 +200,7 @@
                                                 {
                                                     "name": "WWW-Authenticate",
                                                     "displayName": "WWW-Authenticate",
-                                                    "type": [
-                                                        "string"
-                                                    ],
+                                                    "type": "string",
                                                     "required": true,
                                                     "description": "user was not authorized",
                                                     "examples": [
@@ -243,9 +217,7 @@
                                         {
                                             "name": "id",
                                             "displayName": "id",
-                                            "type": [
-                                                "string"
-                                            ],
+                                            "type": "string",
                                             "required": true,
                                             "description": "account identifier",
                                             "minLength": 1,
@@ -255,9 +227,7 @@
                                         {
                                             "name": "id",
                                             "displayName": "id",
-                                            "type": [
-                                                "string"
-                                            ],
+                                            "type": "string",
                                             "required": true,
                                             "description": "sub account identifier",
                                             "minLength": 1,
@@ -271,9 +241,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "sub account identifier",
                                     "minLength": 1,
@@ -293,9 +261,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "account identifier",
                                     "minLength": 1,
@@ -305,9 +271,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
-                                    "type": [
-                                        "string"
-                                    ],
+                                    "type": "string",
                                     "required": true,
                                     "description": "sub account identifier",
                                     "minLength": 1,
@@ -327,9 +291,7 @@
                         {
                             "name": "id",
                             "displayName": "id",
-                            "type": [
-                                "string"
-                            ],
+                            "type": "string",
                             "required": true,
                             "description": "account identifier",
                             "minLength": 1,

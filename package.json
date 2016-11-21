@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "4.0.0-beta14",
+  "version": "4.0.0-beta15",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -37,7 +37,9 @@
     "test": "mocha 'test/*.spec.js' --reporter progress"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "arrays-objects-helpers.js",
+    "consistency-helpers.js"
   ],
   "engines": {
     "node": ">=4"
