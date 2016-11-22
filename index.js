@@ -137,7 +137,13 @@ function _sourceToRamlObj(source) {
           throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
         }
 
-        return result.expand(true).toJSON({ serializeMetadata: false });
+        if (result.expand) {
+          return result.expand(true).toJSON({ serializeMetadata: false });
+        }
+
+        return new Promise((resolve, reject) => {
+          reject(new Error('_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'));
+        });
       });
     }
 
