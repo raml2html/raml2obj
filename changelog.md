@@ -1,3 +1,8 @@
+4.0.0 - December 1, 2016
+- After almost 4 months of development, it's done: 4.0.0 with RAML 1 support, and a much more consistent output. And a whole lot of unit tests!
+- Breaking change: removed support for RAML 0.8 files
+- Breaking change: the output of raml2obj has changed
+
 4.0.0-beta16 - November 30, 2016
 - Updated raml-1-parser to 1.1.9 (#18)
 

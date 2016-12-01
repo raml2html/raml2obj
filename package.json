@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "4.0.0-beta16",
+  "version": "4.0.0",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -16,7 +16,7 @@
   "devDependencies": {
     "eslint": "3.11.x",
     "eslint-config-loopwerk": "6.0.x",
-    "glob": "7.1.1",
+    "glob": "7.1.x",
     "mocha": "3.2.x"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
