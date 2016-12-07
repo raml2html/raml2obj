@@ -6,7 +6,7 @@ const raml = require('raml-1-parser');
 const tools = require('datatype-expansion');
 const fs = require('fs');
 const makeExamplesAndTypesConsistent = require('./consistency-helpers');
-const { arraysToObjects, recursiveObjectToArray } = require('./arrays-objects-helpers');
+const helpers = require('./arrays-objects-helpers');
 
 function _makeUniqueId(string) {
   const stringWithSpacesReplaced = string.replace(/\W/g, '_');
@@ -88,7 +88,7 @@ function _enhanceRamlObj(ramlObj) {
   //
   // EXAMPLE of what we want:
   // { foo: { ... }, bar: { ... } }
-  ramlObj = arraysToObjects(ramlObj);
+  ramlObj = helpers.arraysToObjects(ramlObj);
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
   // we get the full graph.
@@ -115,7 +115,7 @@ function _enhanceRamlObj(ramlObj) {
   //
   // EXAMPLE of what we want:
   // [ { name: "foo!", key: "foo" }, { name: "bar", key: "bar" } ]
-  ramlObj = recursiveObjectToArray(ramlObj);
+  ramlObj = helpers.recursiveObjectToArray(ramlObj);
 
   // Now add all the properties and things that we need for raml2html, stuff like the uniqueId, parentUrl,
   // and allUriParameters.

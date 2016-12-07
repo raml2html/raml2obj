@@ -1,3 +1,6 @@
+4.0.1 - December 7, 2016
+- Fixed Node 4 support
+
 4.0.0 - December 1, 2016
 - After almost 4 months of development, it's done: 4.0.0 with RAML 1 support, and a much more consistent output. And a whole lot of unit tests!
 - Breaking change: removed support for RAML 0.8 files
