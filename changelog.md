@@ -1,3 +1,6 @@
+4.0.2 - December 8, 2016
+- Fixed more Node 4 problems, now actually tested via NVM
+
 4.0.1 - December 7, 2016
 - Fixed Node 4 support
 

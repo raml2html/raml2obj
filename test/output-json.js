@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const raml2obj = require('..');
 const glob = require('glob');

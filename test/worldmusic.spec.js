@@ -1,5 +1,7 @@
 /* eslint-env node, mocha */
 
+'use strict';
+
 const raml2obj = require('..');
 const assert = require('assert');
 
