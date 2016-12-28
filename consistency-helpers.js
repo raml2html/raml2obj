@@ -31,12 +31,12 @@ function makeConsistent(obj, types) {
       delete obj.example;
       delete obj.structuredExample;
     }
-    
+
     // The RAML 1.0 spec allows that:
     //  "A securedBy node containing null as the array component indicates
     //   the method can be called without applying any security scheme."
-    if(Array.isArray(obj.securedBy) && obj.securedBy.length === 1 && obj.securedBy[0] === null) {
-        delete obj.securedBy;
+    if (Array.isArray(obj.securedBy) && obj.securedBy.length === 1 && obj.securedBy[0] === null) {
+      delete obj.securedBy;
     }
 
     Object.keys(obj).forEach((key) => {
