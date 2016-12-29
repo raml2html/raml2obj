@@ -1,3 +1,6 @@
+4.0.3 - December 29, 2016
+- Made securedBy: [ null] consistent with no security
+
 4.0.2 - December 8, 2016
 - Fixed more Node 4 problems, now actually tested via NVM
 
