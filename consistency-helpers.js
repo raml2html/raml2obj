@@ -9,7 +9,7 @@ function makeConsistent(obj, types) {
         obj.type = obj.type[0];
       }
 
-      if (types && types && types[obj.type]) {
+      if (types && types[obj.type]) {
         Object.assign(obj, types[obj.type]);
       }
     }
@@ -30,6 +30,13 @@ function makeConsistent(obj, types) {
       obj.examples.push(obj.structuredExample.value);
       delete obj.example;
       delete obj.structuredExample;
+    }
+
+    // The RAML 1.0 spec allows that:
+    //  "A securedBy node containing null as the array component indicates
+    //   the method can be called without applying any security scheme."
+    if (Array.isArray(obj.securedBy) && obj.securedBy.length === 1 && obj.securedBy[0] === null) {
+      delete obj.securedBy;
     }
 
     Object.keys(obj).forEach((key) => {
