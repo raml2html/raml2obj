@@ -39,6 +39,16 @@ function makeConsistent(obj, types) {
       delete obj.securedBy;
     }
 
+    // Fix inconsistency between request headers and response headers from raml-1-parser.
+    // https://github.com/raml-org/raml-js-parser-2/issues/582
+    if (Array.isArray(obj.headers)) {
+      obj.headers.forEach((hdr) => {
+        if (typeof hdr.key === 'undefined' && hdr.name) {
+          hdr.key = hdr.name;
+        }
+      });
+    }
+
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
       makeConsistent(value, types);
