@@ -1,0 +1,12 @@
+#%RAML 1.0
+title: Consistent Headers
+
+
+/A:
+    get:
+        headers:
+            X-Some-Header: string
+        responses:
+            200:
+                headers:
+                    X-Some-Other-Header: string
