@@ -1,3 +1,6 @@
+4.0.4 - January 10, 2017
+- Fix response headers inconsistency (#23)
+
 4.0.3 - December 29, 2016
 - Made securedBy: [ null] consistent with no security
 
