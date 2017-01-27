@@ -41,5 +41,12 @@ describe('raml2obj', () => {
       assert.strictEqual(properties[3].displayName, 'password');
       assert.strictEqual(properties[3].type, 'string');
     });
+
+    it('should test description of descendants', () => {
+      const methods = obj.resources[0].methods;
+
+      assert.strictEqual(methods[0].body[0].description, 'An account which is password protected.');
+      assert.strictEqual(methods[1].body[0].description, 'An account which is password protected.');
+    });
   });
 });
