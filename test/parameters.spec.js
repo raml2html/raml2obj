@@ -121,7 +121,6 @@ describe('raml2obj', () => {
       assert.strictEqual(put.body.length, 1);
       assert.strictEqual(put.body[0].name, 'application/x-www-form-urlencoded');
       assert.strictEqual(put.body[0].type, 'object');
-      assert.strictEqual(put.body[0].required, true);
       assert.strictEqual(put.body[0].properties.length, 2);
       assert.strictEqual(put.body[0].properties[0].name, 'name');
       assert.strictEqual(put.body[0].properties[0].examples.length, 2);

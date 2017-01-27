@@ -68,7 +68,6 @@ describe('raml2obj', () => {
       assert.strictEqual(response.body.length, 1);
       assert.strictEqual(response.body[0].name, 'application/json');
       assert.strictEqual(response.body[0].displayName, 'application/json');
-      assert.strictEqual(response.body[0].required, true);
       assert.strictEqual(response.body[0].type, '{\n  "title": "Hello world Response",\n  "type": "object",\n  "properties": {\n    "message": {\n      "type": "string"\n    }\n  }\n}\n');
       assert.strictEqual(response.body[0].examples[0], '{\n  "message": "Hello world"\n}');
     });
