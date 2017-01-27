@@ -8,9 +8,9 @@
                         {
                             "name": "PasswordProtectedAccount",
                             "displayName": "PasswordProtectedAccount",
-                            "description": "An account which is password protected.",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "object",
+                            "description": "An account which is password protected.",
                             "additionalProperties": true,
                             "properties": [
                                 {
@@ -57,9 +57,9 @@
                         {
                             "name": "BannableAccount",
                             "displayName": "BannableAccount",
-                            "description": "An account which is password protected.",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "object",
+                            "description": "An account which is password protected.",
                             "additionalProperties": true,
                             "properties": [
                                 {
@@ -86,10 +86,8 @@
                                     "key": "gender"
                                 },
                                 {
-                                    "type": "string",
                                     "displayName": "password",
-                                    "name": "password",
-                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "string",
                                     "required": true,
                                     "key": "password"
                                 },
@@ -131,8 +129,8 @@
         "Account": {
             "additionalProperties": true,
             "type": "object",
-            "displayName": "Account",
             "description": "A basic account in the inheritance test",
+            "displayName": "Account",
             "name": "Account",
             "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
@@ -165,9 +163,9 @@
             }
         },
         "PasswordProtectedAccount": {
+            "description": "An account which is password protected.",
             "additionalProperties": true,
             "displayName": "PasswordProtectedAccount",
-            "description": "An account which is password protected.",
             "type": "object",
             "name": "PasswordProtectedAccount",
             "typePropertyKind": "TYPE_EXPRESSION",
@@ -206,6 +204,7 @@
             }
         },
         "BannableAccount": {
+            "description": "An account which is password protected.",
             "additionalProperties": true,
             "displayName": "BannableAccount",
             "type": "object",
@@ -236,10 +235,8 @@
                     "key": "gender"
                 },
                 "password": {
-                    "type": "string",
                     "displayName": "password",
-                    "name": "password",
-                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
                     "required": true,
                     "key": "password"
                 },
