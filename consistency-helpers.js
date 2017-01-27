@@ -10,7 +10,14 @@ function makeConsistent(obj, types) {
       }
 
       if (types && types[obj.type]) {
-        Object.assign(obj, types[obj.type]);
+        const mergedObj = Object.assign({}, obj, types[obj.type]);
+
+        // Every exception of inheritance should be deleted from mergedObj
+        if (obj.description && types[obj.type].description) {
+          delete mergedObj.description;
+        }
+
+        Object.assign(obj, mergedObj);
       }
     }
 
