@@ -6,6 +6,7 @@ types:
     type: string
     pattern: ^.+@.+\..+$
   Account:
+    description: A basic account in the inheritance test
     properties:
       name: string
       email: Email
@@ -14,9 +15,14 @@ types:
         enum: [ "male", "female" ]
         required: false
   PasswordProtectedAccount:
+    description: An account which is password protected.
     type: Account
     properties:
       password: string
+  BannableAccount:
+    type: PasswordProtectedAccount
+    properties:
+      banned: boolean
 
 /account:
   displayName: ACCOUNT
@@ -27,3 +33,7 @@ types:
     body:
       application/json:
         type: PasswordProtectedAccount
+  put:
+    body:
+      application/json:
+        type: BannableAccount

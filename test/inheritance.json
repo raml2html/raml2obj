@@ -8,6 +8,7 @@
                         {
                             "name": "PasswordProtectedAccount",
                             "displayName": "PasswordProtectedAccount",
+                            "description": "An account which is password protected.",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "object",
                             "additionalProperties": true,
@@ -50,6 +51,62 @@
                     "description": "Creates a new account\n",
                     "method": "post",
                     "allUriParameters": []
+                },
+                {
+                    "body": [
+                        {
+                            "name": "BannableAccount",
+                            "displayName": "BannableAccount",
+                            "description": "An account which is password protected.",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "object",
+                            "additionalProperties": true,
+                            "properties": [
+                                {
+                                    "displayName": "name",
+                                    "type": "string",
+                                    "required": true,
+                                    "key": "name"
+                                },
+                                {
+                                    "displayName": "email",
+                                    "type": "string",
+                                    "required": true,
+                                    "pattern": "^.+@.+\\..+$",
+                                    "key": "email"
+                                },
+                                {
+                                    "enum": [
+                                        "male",
+                                        "female"
+                                    ],
+                                    "displayName": "gender",
+                                    "type": "string",
+                                    "required": false,
+                                    "key": "gender"
+                                },
+                                {
+                                    "type": "string",
+                                    "displayName": "password",
+                                    "name": "password",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "key": "password"
+                                },
+                                {
+                                    "type": "boolean",
+                                    "displayName": "banned",
+                                    "name": "banned",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "key": "banned"
+                                }
+                            ],
+                            "key": "application/json"
+                        }
+                    ],
+                    "method": "put",
+                    "allUriParameters": []
                 }
             ],
             "relativeUri": "/account",
@@ -75,6 +132,7 @@
             "additionalProperties": true,
             "type": "object",
             "displayName": "Account",
+            "description": "A basic account in the inheritance test",
             "name": "Account",
             "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
@@ -109,6 +167,7 @@
         "PasswordProtectedAccount": {
             "additionalProperties": true,
             "displayName": "PasswordProtectedAccount",
+            "description": "An account which is password protected.",
             "type": "object",
             "name": "PasswordProtectedAccount",
             "typePropertyKind": "TYPE_EXPRESSION",
@@ -143,6 +202,54 @@
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "key": "password"
+                }
+            }
+        },
+        "BannableAccount": {
+            "additionalProperties": true,
+            "displayName": "BannableAccount",
+            "type": "object",
+            "name": "BannableAccount",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "properties": {
+                "name": {
+                    "displayName": "name",
+                    "type": "string",
+                    "required": true,
+                    "key": "name"
+                },
+                "email": {
+                    "displayName": "email",
+                    "type": "string",
+                    "required": true,
+                    "pattern": "^.+@.+\\..+$",
+                    "key": "email"
+                },
+                "gender": {
+                    "enum": [
+                        "male",
+                        "female"
+                    ],
+                    "displayName": "gender",
+                    "type": "string",
+                    "required": false,
+                    "key": "gender"
+                },
+                "password": {
+                    "type": "string",
+                    "displayName": "password",
+                    "name": "password",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "password"
+                },
+                "banned": {
+                    "type": "boolean",
+                    "displayName": "banned",
+                    "name": "banned",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "banned"
                 }
             }
         }
