@@ -18,10 +18,6 @@ function makeConsistent(obj, types) {
       obj.items = types[obj.items];
     }
 
-    if (obj.examples && obj.examples.length) {
-      obj.examples = obj.examples.map(example => (example.value ? example : { value: example }));
-    }
-
     if (obj.structuredExample) {
       if (typeof obj.examples === 'undefined') {
         obj.examples = [];
@@ -30,6 +26,10 @@ function makeConsistent(obj, types) {
       obj.examples.push(obj.structuredExample.value);
       delete obj.example;
       delete obj.structuredExample;
+    }
+
+    if (obj.examples && obj.examples.length) {
+      obj.examples = obj.examples.map(example => (example.value ? example : { value: example }));
     }
 
     // The RAML 1.0 spec allows that:
