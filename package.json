@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
