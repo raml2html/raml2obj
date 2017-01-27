@@ -63,7 +63,7 @@ describe('raml2obj', () => {
       assert.strictEqual(method.queryParameters[0].name, 'name');
       assert.strictEqual(method.queryParameters[0].displayName, 'name');
       assert.strictEqual(method.queryParameters[0].type, 'string');
-      assert.strictEqual(method.queryParameters[0].examples[0], 'Naruto Uzumaki');
+      assert.strictEqual(method.queryParameters[0].examples[0].value, 'Naruto Uzumaki');
       assert.strictEqual(method.queryParameters[0].required, true);
       assert.strictEqual(method.queryParameters[0].description, 'name on account');
 
@@ -108,7 +108,7 @@ describe('raml2obj', () => {
       assert.strictEqual(get.headers[0].name, 'Authorization');
       assert.strictEqual(get.headers[0].displayName, 'Authorization');
       assert.strictEqual(get.headers[0].type, 'string');
-      assert.strictEqual(get.headers[0].examples[0], 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n');
+      assert.strictEqual(get.headers[0].examples[0].value, 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n');
       assert.strictEqual(get.headers[0].required, true);
       assert.strictEqual(get.headers[0].description, 'Basic authentication header');
 
