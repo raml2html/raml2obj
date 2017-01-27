@@ -51,7 +51,9 @@
                                     "required": true,
                                     "description": "name on account",
                                     "examples": [
-                                        "Naruto Uzumaki"
+                                        {
+                                            "value": "Naruto Uzumaki"
+                                        }
                                     ],
                                     "key": "name"
                                 },
@@ -103,7 +105,9 @@
                                     "required": true,
                                     "description": "Basic authentication header",
                                     "examples": [
-                                        "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n"
+                                        {
+                                            "value": "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n"
+                                        }
                                     ],
                                     "key": "Authorization"
                                 }
@@ -235,7 +239,9 @@
                                                     "description": "user was not authorized",
                                                     "key": "WWW-Authenticate",
                                                     "examples": [
-                                                        "WWW-Authenticate: Basic realm=\"raml2html\"\n"
+                                                        {
+                                                            "value": "WWW-Authenticate: Basic realm=\"raml2html\"\n"
+                                                        }
                                                     ]
                                                 }
                                             ],

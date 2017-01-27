@@ -32,7 +32,9 @@
                                     "typePropertyKind": "JSON",
                                     "type": "{\n  \"title\": \"Hello world Response\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n",
                                     "examples": [
-                                        "{\n  \"message\": \"Hello world\"\n}"
+                                        {
+                                            "value": "{\n  \"message\": \"Hello world\"\n}"
+                                        }
                                     ],
                                     "key": "application/json"
                                 }

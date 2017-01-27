@@ -35,7 +35,9 @@
                                     "type": "array",
                                     "items": "string",
                                     "examples": [
-                                        "[\n  \"somevalue\",\n  \"anothervalue\"\n]"
+                                        {
+                                            "value": "[\n  \"somevalue\",\n  \"anothervalue\"\n]"
+                                        }
                                     ],
                                     "key": "application/json"
                                 }
