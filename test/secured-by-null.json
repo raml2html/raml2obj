@@ -1,0 +1,89 @@
+{
+    "securitySchemes": {
+        "oauth_2_0": {
+            "name": "oauth_2_0",
+            "type": "OAuth 2.0",
+            "describedBy": {
+                "headers": [
+                    {
+                        "name": "Authorization",
+                        "displayName": "Authorization",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": "string",
+                        "required": true,
+                        "key": "Authorization"
+                    }
+                ],
+                "responses": [
+                    {
+                        "code": "401",
+                        "description": "Invalid or expired token."
+                    }
+                ]
+            },
+            "settings": {
+                "accessTokenUri": "/token",
+                "authorizationGrants": [
+                    "client_credentials"
+                ]
+            }
+        }
+    },
+    "title": "Secured By Null",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/A",
+            "displayName": "/A",
+            "relativeUriPathSegments": [
+                "A"
+            ],
+            "absoluteUri": "/A",
+            "parentUrl": "",
+            "uniqueId": "a",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/B",
+            "displayName": "/B",
+            "relativeUriPathSegments": [
+                "B"
+            ],
+            "absoluteUri": "/B",
+            "parentUrl": "",
+            "uniqueId": "b",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "securedBy": [
+                        "oauth_2_0"
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/C",
+            "displayName": "/C",
+            "relativeUriPathSegments": [
+                "C"
+            ],
+            "absoluteUri": "/C",
+            "parentUrl": "",
+            "uniqueId": "c",
+            "allUriParameters": []
+        }
+    ]
+}

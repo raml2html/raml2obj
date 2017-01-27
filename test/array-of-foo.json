@@ -7,6 +7,7 @@
         {
             "name": "version",
             "displayName": "version",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "type": "string",
             "required": true,
             "enum": [
@@ -30,19 +31,20 @@
                                 {
                                     "name": "Foos",
                                     "displayName": "Foos",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "array",
-                                    "required": true,
                                     "items": {
                                         "additionalProperties": true,
                                         "type": "object",
                                         "displayName": "Foo",
                                         "name": "Foo",
-                                        "required": true,
+                                        "typePropertyKind": "TYPE_EXPRESSION",
                                         "properties": [
                                             {
                                                 "type": "string",
                                                 "displayName": "id",
                                                 "name": "id",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
                                                 "required": true,
                                                 "key": "id"
                                             }
@@ -78,12 +80,13 @@
             "type": "object",
             "displayName": "Foo",
             "name": "Foo",
-            "required": true,
+            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": [
                 {
                     "type": "string",
                     "displayName": "id",
                     "name": "id",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "key": "id"
                 }
@@ -92,8 +95,8 @@
         "Foos": {
             "name": "Foos",
             "displayName": "Foos",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "type": "array",
-            "required": true,
             "items": "Foo"
         }
     }

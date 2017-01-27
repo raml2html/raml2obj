@@ -8,8 +8,8 @@
                         {
                             "name": "PasswordProtectedAccount",
                             "displayName": "PasswordProtectedAccount",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "object",
-                            "required": true,
                             "additionalProperties": true,
                             "properties": [
                                 {
@@ -39,6 +39,7 @@
                                     "type": "string",
                                     "displayName": "password",
                                     "name": "password",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "required": true,
                                     "key": "password"
                                 }
@@ -67,7 +68,7 @@
             "type": "string",
             "displayName": "Email",
             "name": "Email",
-            "required": true,
+            "typePropertyKind": "TYPE_EXPRESSION",
             "pattern": "^.+@.+\\..+$"
         },
         "Account": {
@@ -75,20 +76,22 @@
             "type": "object",
             "displayName": "Account",
             "name": "Account",
-            "required": true,
+            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "name": {
                     "type": "string",
                     "displayName": "name",
                     "name": "name",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true
                 },
                 "email": {
                     "displayName": "email",
                     "type": "string",
-                    "required": true,
                     "pattern": "^.+@.+\\..+$",
-                    "name": "email"
+                    "name": "email",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true
                 },
                 "gender": {
                     "type": "string",
@@ -98,6 +101,7 @@
                     ],
                     "displayName": "gender",
                     "name": "gender",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "required": false
                 }
             }
@@ -106,8 +110,8 @@
             "additionalProperties": true,
             "displayName": "PasswordProtectedAccount",
             "type": "object",
-            "required": true,
             "name": "PasswordProtectedAccount",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "name": {
                     "displayName": "name",
@@ -136,6 +140,7 @@
                     "type": "string",
                     "displayName": "password",
                     "name": "password",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "key": "password"
                 }

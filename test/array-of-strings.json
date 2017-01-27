@@ -6,6 +6,7 @@
         {
             "name": "version",
             "displayName": "version",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "type": "string",
             "required": true,
             "enum": [
@@ -30,8 +31,8 @@
                                 {
                                     "name": "application/json",
                                     "displayName": "application/json",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "array",
-                                    "required": true,
                                     "items": "string",
                                     "examples": [
                                         "[\n  \"somevalue\",\n  \"anothervalue\"\n]"

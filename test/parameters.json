@@ -15,11 +15,20 @@
                         {
                             "name": "application/json",
                             "displayName": "application/json",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "object",
                             "examples": [
-                                "{\n  \"email\": \"john@example.com\",\n  \"password\": \"super_secret\",\n  \"name\": \"John Doe\"\n}"
+                                {
+                                    "value": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"super_secret\",\n  \"name\": \"John Doe\"\n}",
+                                    "strict": true,
+                                    "name": "example1",
+                                    "structuredValue": {
+                                        "email": "john@example.com",
+                                        "password": "super_secret",
+                                        "name": "John Doe"
+                                    }
+                                }
                             ],
-                            "required": true,
                             "key": "application/json"
                         }
                     ],
@@ -37,6 +46,7 @@
                                 {
                                     "name": "name",
                                     "displayName": "name",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "name on account",
@@ -48,6 +58,7 @@
                                 {
                                     "name": "gender",
                                     "displayName": "gender",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "enum": [
@@ -59,6 +70,7 @@
                                 {
                                     "name": "number",
                                     "displayName": "number",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "integer",
                                     "default": 42,
                                     "required": true,
@@ -86,6 +98,7 @@
                                 {
                                     "name": "Authorization",
                                     "displayName": "Authorization",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "Basic authentication header",
@@ -100,6 +113,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "account identifier",
@@ -114,16 +128,27 @@
                                 {
                                     "name": "application/x-www-form-urlencoded",
                                     "displayName": "application/x-www-form-urlencoded",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "object",
-                                    "required": true,
                                     "properties": [
                                         {
                                             "name": "name",
                                             "displayName": "name",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": "string",
                                             "examples": [
-                                                "Naruto Uzumaki",
-                                                "Kevin Renskers"
+                                                {
+                                                    "value": "Naruto Uzumaki",
+                                                    "strict": true,
+                                                    "name": "example1",
+                                                    "structuredValue": "Naruto Uzumaki"
+                                                },
+                                                {
+                                                    "value": "Kevin Renskers",
+                                                    "strict": true,
+                                                    "name": "example2",
+                                                    "structuredValue": "Kevin Renskers"
+                                                }
                                             ],
                                             "required": true,
                                             "description": "name on account",
@@ -132,6 +157,7 @@
                                         {
                                             "name": "gender",
                                             "displayName": "gender",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": "string",
                                             "required": true,
                                             "enum": [
@@ -149,6 +175,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "account identifier",
@@ -165,6 +192,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "account identifier",
@@ -179,6 +207,7 @@
                         {
                             "name": "id",
                             "displayName": "id",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "string",
                             "required": true,
                             "description": "account identifier",
@@ -200,9 +229,11 @@
                                                 {
                                                     "name": "WWW-Authenticate",
                                                     "displayName": "WWW-Authenticate",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
                                                     "type": "string",
                                                     "required": true,
                                                     "description": "user was not authorized",
+                                                    "key": "WWW-Authenticate",
                                                     "examples": [
                                                         "WWW-Authenticate: Basic realm=\"raml2html\"\n"
                                                     ]
@@ -217,6 +248,7 @@
                                         {
                                             "name": "id",
                                             "displayName": "id",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": "string",
                                             "required": true,
                                             "description": "account identifier",
@@ -227,6 +259,7 @@
                                         {
                                             "name": "id",
                                             "displayName": "id",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": "string",
                                             "required": true,
                                             "description": "sub account identifier",
@@ -241,6 +274,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "sub account identifier",
@@ -261,6 +295,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "account identifier",
@@ -271,6 +306,7 @@
                                 {
                                     "name": "id",
                                     "displayName": "id",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "string",
                                     "required": true,
                                     "description": "sub account identifier",
@@ -291,6 +327,7 @@
                         {
                             "name": "id",
                             "displayName": "id",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "string",
                             "required": true,
                             "description": "account identifier",

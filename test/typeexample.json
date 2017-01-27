@@ -10,11 +10,14 @@
                         {
                             "name": "objectid",
                             "displayName": "objectid",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": "string",
                             "required": true,
                             "description": "A valid MongoDB object id.",
                             "examples": [
-                                "576bca8b70fddb149c4a9e92"
+                                {
+                                    "value": "576bca8b70fddb149c4a9e92"
+                                }
                             ],
                             "key": "id"
                         }
@@ -25,11 +28,14 @@
                 {
                     "name": "objectid",
                     "displayName": "objectid",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "type": "string",
                     "required": true,
                     "description": "A valid MongoDB object id.",
                     "examples": [
-                        "576bca8b70fddb149c4a9e92"
+                        {
+                            "value": "576bca8b70fddb149c4a9e92"
+                        }
                     ],
                     "key": "id"
                 }
@@ -46,11 +52,14 @@
                 {
                     "name": "objectid",
                     "displayName": "objectid",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "type": "string",
                     "required": true,
                     "description": "A valid MongoDB object id.",
                     "examples": [
-                        "576bca8b70fddb149c4a9e92"
+                        {
+                            "value": "576bca8b70fddb149c4a9e92"
+                        }
                     ],
                     "key": "id"
                 }
@@ -63,7 +72,7 @@
             "description": "A valid MongoDB object id.",
             "displayName": "objectid",
             "name": "objectid",
-            "required": true,
+            "typePropertyKind": "TYPE_EXPRESSION",
             "examples": [
                 "576bca8b70fddb149c4a9e92"
             ]

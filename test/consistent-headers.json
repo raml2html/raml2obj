@@ -1,0 +1,48 @@
+{
+    "title": "Consistent Headers",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "headers": [
+                        {
+                            "name": "X-Some-Header",
+                            "displayName": "X-Some-Header",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "key": "X-Some-Header"
+                        }
+                    ],
+                    "responses": [
+                        {
+                            "code": "200",
+                            "headers": [
+                                {
+                                    "name": "X-Some-Other-Header",
+                                    "displayName": "X-Some-Other-Header",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "string",
+                                    "required": true,
+                                    "key": "X-Some-Other-Header"
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/A",
+            "displayName": "/A",
+            "relativeUriPathSegments": [
+                "A"
+            ],
+            "absoluteUri": "/A",
+            "parentUrl": "",
+            "uniqueId": "a",
+            "allUriParameters": []
+        }
+    ]
+}

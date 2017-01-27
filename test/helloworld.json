@@ -6,6 +6,7 @@
         {
             "name": "version",
             "displayName": "version",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "type": "string",
             "required": true,
             "enum": [
@@ -28,8 +29,8 @@
                                 {
                                     "name": "application/json",
                                     "displayName": "application/json",
+                                    "typePropertyKind": "JSON",
                                     "type": "{\n  \"title\": \"Hello world Response\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n",
-                                    "required": true,
                                     "examples": [
                                         "{\n  \"message\": \"Hello world\"\n}"
                                     ],

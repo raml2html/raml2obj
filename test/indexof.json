@@ -10,41 +10,22 @@
                         {
                             "name": "application/json",
                             "displayName": "application/json",
-                            "required": true,
+                            "typePropertyKind": "INPLACE",
                             "type": {
                                 "name": "type",
                                 "displayName": "type",
+                                "typePropertyKind": "TYPE_EXPRESSION",
                                 "type": "object",
-                                "required": true,
                                 "properties": [
                                     {
                                         "name": "o1a",
                                         "displayName": "o1a",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
                                         "type": "string",
                                         "required": true,
-                                        "__METADATA__": {
-                                            "primitiveValuesMeta": {
-                                                "displayName": {
-                                                    "calculated": true
-                                                },
-                                                "required": {
-                                                    "insertedAsDefault": true
-                                                }
-                                            }
-                                        },
                                         "key": "o1a"
                                     }
-                                ],
-                                "__METADATA__": {
-                                    "primitiveValuesMeta": {
-                                        "displayName": {
-                                            "calculated": true
-                                        },
-                                        "required": {
-                                            "insertedAsDefault": true
-                                        }
-                                    }
-                                }
+                                ]
                             },
                             "key": "application/json"
                         }
