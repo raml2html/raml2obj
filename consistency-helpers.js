@@ -19,9 +19,7 @@ function makeConsistent(obj, types) {
     }
 
     if (obj.examples && obj.examples.length) {
-      obj.examples = obj.examples.map(example => {
-        return example.value ? example : { value: example }
-      });
+      obj.examples = obj.examples.map(example => (example.value ? example : { value: example }));
     }
 
     if (obj.structuredExample) {
