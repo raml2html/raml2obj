@@ -39,8 +39,7 @@ describe('raml2obj', () => {
       assert.strictEqual(method.body.length, 1);
       assert.strictEqual(method.body[0].name, 'application/json');
       assert.strictEqual(method.body[0].type, 'object');
-      assert.strictEqual(method.body[0].examples[0], '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}');
-      assert.strictEqual(method.body[0].required, true);
+      assert.strictEqual(method.body[0].examples[0].value, '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}');
       assert.strictEqual(method.responses.length, 1);
       assert.strictEqual(method.responses[0].code, '200');
       assert.strictEqual(method.responses[0].description, 'Account was created and user is now logged in');
@@ -124,8 +123,8 @@ describe('raml2obj', () => {
       assert.strictEqual(put.body[0].properties.length, 2);
       assert.strictEqual(put.body[0].properties[0].name, 'name');
       assert.strictEqual(put.body[0].properties[0].examples.length, 2);
-      assert.strictEqual(put.body[0].properties[0].examples[0], 'Naruto Uzumaki');
-      assert.strictEqual(put.body[0].properties[0].examples[1], 'Kevin Renskers');
+      assert.strictEqual(put.body[0].properties[0].examples[0].value, 'Naruto Uzumaki');
+      assert.strictEqual(put.body[0].properties[0].examples[1].value, 'Kevin Renskers');
       assert.strictEqual(put.body[0].properties[1].name, 'gender');
     });
 

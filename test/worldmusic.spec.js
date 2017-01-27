@@ -80,7 +80,6 @@ describe('raml2obj', () => {
 
       assert.strictEqual(get.queryString.name, 'queryString');
       assert.strictEqual(get.queryString.type, 'object');
-      assert.strictEqual(get.queryString.required, true);
       assert.strictEqual(get.queryString.properties.length, 2);
       assert.strictEqual(get.queryString.properties[0].name, 'start');
       assert.strictEqual(get.queryString.properties[0].required, false);
@@ -99,9 +98,8 @@ describe('raml2obj', () => {
       assert.strictEqual(post.body[0].name, 'RamlDataType');
       assert.strictEqual(post.body[0].key, 'application/json');
       assert.strictEqual(post.body[0].type, 'object');
-      assert.strictEqual(post.body[0].required, true);
       assert.strictEqual(post.body[0].properties.length, 14);
-      assert.strictEqual(post.body[0].properties[4].examples[0], 'very well made');
+      assert.strictEqual(post.body[0].properties[4].examples[0].value, 'very well made');
     });
 
     it('should test the /entry resource', () => {
