@@ -1,6 +1,7 @@
-4.0.5 - January 27, 2017
+4.1.0 - January 27, 2017
 - Added extra properties to examples (#22)
 - Updated raml-js-parser-2 dependancy (#25)
+- Fixed types' parent overriding behaviour (#26)
 
 4.0.4 - January 10, 2017
 - Fix response headers inconsistency (#23)
