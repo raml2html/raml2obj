@@ -30,7 +30,7 @@ function makeConsistent(obj, types) {
         obj.examples = [];
       }
 
-      obj.examples.push(obj.structuredExample.value);
+      obj.examples.push(obj.structuredExample);
       delete obj.example;
       delete obj.structuredExample;
     }
