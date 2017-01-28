@@ -36,7 +36,15 @@ function makeConsistent(obj, types) {
     }
 
     if (obj.examples && obj.examples.length) {
-      obj.examples = obj.examples.map(example => (example.value ? example : { value: example }));
+      obj.examples = obj.examples.map((example) => {
+        if (!example.value) {
+          return { value: example };
+        }
+        if (!example.displayName && example.name) {
+          example.displayName = example.name;
+        }
+        return example;
+      });
     }
 
     // The RAML 1.0 spec allows that:
