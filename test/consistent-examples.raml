@@ -1,0 +1,108 @@
+#%RAML 1.0
+title: Consistent Examples
+
+types:
+    HasFullExamples:
+        properties:
+            SomeField: string
+        examples:
+            firstExample:
+                displayName: First Example!
+                description: It's the first example
+                value:
+                    SomeField: Uno
+            secondExample:
+                displayName: Second Example!
+                description: It's the second example
+                value:
+                    SomeField: Duo
+    
+    HasJsonExample:
+        properties:
+            TestField: string
+        example: |
+            {
+                "TestField": "This example is defined in JSON."
+            }
+
+    NestedExample:
+        properties:
+            ChildObject:
+                type: Nestee
+            Message:
+                type: string
+                example: I'm layered, bro
+
+    Nestee:
+        properties:
+            HereIsANumber:
+                type: number
+            HereIsAString:
+                type: string
+        example:
+            displayName: Sneaky nested example
+            description: It's sneaky!
+            value:
+                HereIsANumber: 42
+                HereIsAString: Strange strong string
+
+
+/FullExamples:
+    get:
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: HasFullExamples
+
+/JsonExample:
+    get:
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: HasJsonExample
+
+/HeaderExample:
+    get:
+        headers:
+            X-MyImportantHeader:
+                type: string
+                example: Very Important
+            X-MyDescriptiveHeader:
+                type: string
+                example:
+                    displayName: Baloon Assertion
+                    description: This descriptive header example
+                    value: Red baloons are known to be the colour red.
+
+/UriExample/{Id}/{Mood}:
+    uriParameters:
+        Id:
+            type: string
+            example: ABC123
+        Mood:
+            type: string
+            example:
+                displayName: How are ya
+                description: ARE YOU ANGRY
+                value: Serene.
+
+/QueryParamsExample:
+    get:
+        queryParameters:
+            Temperature:
+                type: number
+                description: In celsius you savages
+                example:
+                    displayName: Comfortable
+                    description: Best combined with a sunny day
+                    value: 24
+
+/NestedExample:
+    get:
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: NestedExample
