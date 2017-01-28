@@ -98,7 +98,9 @@
                             "required": false,
                             "examples": [
                                 {
-                                    "value": "Doe"
+                                    "value": "Doe",
+                                    "strict": true,
+                                    "structuredValue": "Doe"
                                 }
                             ],
                             "key": "lastname"
@@ -106,7 +108,11 @@
                     ],
                     "examples": [
                         {
-                            "value": "{\n  \"firstname\": \"John\"\n}"
+                            "value": "{\n  \"firstname\": \"John\"\n}",
+                            "strict": true,
+                            "structuredValue": {
+                                "firstname": "John"
+                            }
                         }
                     ],
                     "key": "deprecatedBy"
@@ -430,7 +436,10 @@
                                     "maxLength": 255,
                                     "examples": [
                                         {
-                                            "value": "very well made"
+                                            "value": "very well made",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": "very well made"
                                         }
                                     ],
                                     "key": "feedback"
@@ -481,7 +490,10 @@
                                     "required": true,
                                     "examples": [
                                         {
-                                            "value": "2015-05-23"
+                                            "value": "2015-05-23",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": "2015-05-23"
                                         }
                                     ],
                                     "key": "propDate"
@@ -826,7 +838,8 @@
                                                     "structuredValue": {
                                                         "title": "My Song",
                                                         "length": 12
-                                                    }
+                                                    },
+                                                    "displayName": "song1"
                                                 },
                                                 {
                                                     "value": "{\n  \"title\": \"Last\",\n  \"length\": 3\n}",
@@ -835,7 +848,8 @@
                                                     "structuredValue": {
                                                         "title": "Last",
                                                         "length": 3
-                                                    }
+                                                    },
+                                                    "displayName": "song2"
                                                 }
                                             ],
                                             "properties": [
@@ -865,7 +879,10 @@
                                             "type": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n",
                                             "examples": [
                                                 {
-                                                    "value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<song>\n  <title>str1234</title>\n  <artist>str1234</artist>\n</song>\n"
+                                                    "value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<song>\n  <title>str1234</title>\n  <artist>str1234</artist>\n</song>\n",
+                                                    "strict": true,
+                                                    "name": null,
+                                                    "structuredValue": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<song>\n  <title>str1234</title>\n  <artist>str1234</artist>\n</song>\n"
                                                 }
                                             ],
                                             "key": "application/xml"
@@ -1038,7 +1055,9 @@
                     "required": false,
                     "examples": [
                         {
-                            "value": "Doe"
+                            "value": "Doe",
+                            "strict": true,
+                            "structuredValue": "Doe"
                         }
                     ],
                     "key": "lastname"
@@ -1046,7 +1065,11 @@
             },
             "examples": [
                 {
-                    "value": "{\n  \"firstname\": \"John\"\n}"
+                    "value": "{\n  \"firstname\": \"John\"\n}",
+                    "strict": true,
+                    "structuredValue": {
+                        "firstname": "John"
+                    }
                 }
             ]
         },
@@ -1142,7 +1165,10 @@
                     "maxLength": 255,
                     "examples": [
                         {
-                            "value": "very well made"
+                            "value": "very well made",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "very well made"
                         }
                     ],
                     "key": "feedback"
@@ -1193,7 +1219,10 @@
                     "required": true,
                     "examples": [
                         {
-                            "value": "2015-05-23"
+                            "value": "2015-05-23",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "2015-05-23"
                         }
                     ],
                     "key": "propDate"
@@ -1412,7 +1441,8 @@
                     "structuredValue": {
                         "title": "My Song",
                         "length": 12
-                    }
+                    },
+                    "displayName": "song1"
                 },
                 {
                     "value": "{\n  \"title\": \"Last\",\n  \"length\": 3\n}",
@@ -1421,7 +1451,8 @@
                     "structuredValue": {
                         "title": "Last",
                         "length": 3
-                    }
+                    },
+                    "displayName": "song2"
                 }
             ],
             "typePropertyKind": "TYPE_EXPRESSION",

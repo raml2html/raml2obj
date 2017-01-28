@@ -33,7 +33,12 @@
                                     "type": "{\n  \"title\": \"Hello world Response\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n",
                                     "examples": [
                                         {
-                                            "value": "{\n  \"message\": \"Hello world\"\n}"
+                                            "value": "{\n  \"message\": \"Hello world\"\n}",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": {
+                                                "message": "Hello world"
+                                            }
                                         }
                                     ],
                                     "key": "application/json"

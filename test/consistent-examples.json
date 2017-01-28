@@ -1,0 +1,592 @@
+{
+    "title": "Consistent Examples",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "HasFullExamples",
+                                    "displayName": "HasFullExamples",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "object",
+                                    "additionalProperties": true,
+                                    "examples": [
+                                        {
+                                            "value": "{\n  \"SomeField\": \"Uno\"\n}",
+                                            "strict": true,
+                                            "name": "firstExample",
+                                            "displayName": "First Example!",
+                                            "description": "It's the first example",
+                                            "structuredValue": {
+                                                "SomeField": "Uno"
+                                            }
+                                        },
+                                        {
+                                            "value": "{\n  \"SomeField\": \"Duo\"\n}",
+                                            "strict": true,
+                                            "name": "secondExample",
+                                            "displayName": "Second Example!",
+                                            "description": "It's the second example",
+                                            "structuredValue": {
+                                                "SomeField": "Duo"
+                                            }
+                                        }
+                                    ],
+                                    "properties": [
+                                        {
+                                            "type": "string",
+                                            "displayName": "SomeField",
+                                            "name": "SomeField",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "SomeField"
+                                        }
+                                    ],
+                                    "key": "application/json"
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/FullExamples",
+            "displayName": "/FullExamples",
+            "relativeUriPathSegments": [
+                "FullExamples"
+            ],
+            "absoluteUri": "/FullExamples",
+            "parentUrl": "",
+            "uniqueId": "fullexamples",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "HasJsonExample",
+                                    "displayName": "HasJsonExample",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "object",
+                                    "additionalProperties": true,
+                                    "properties": [
+                                        {
+                                            "type": "string",
+                                            "displayName": "TestField",
+                                            "name": "TestField",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "TestField"
+                                        }
+                                    ],
+                                    "examples": [
+                                        {
+                                            "value": "{\n    \"TestField\": \"This example is defined in JSON.\"\n}\n",
+                                            "strict": true,
+                                            "structuredValue": {
+                                                "TestField": "This example is defined in JSON."
+                                            }
+                                        }
+                                    ],
+                                    "key": "application/json"
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/JsonExample",
+            "displayName": "/JsonExample",
+            "relativeUriPathSegments": [
+                "JsonExample"
+            ],
+            "absoluteUri": "/JsonExample",
+            "parentUrl": "",
+            "uniqueId": "jsonexample",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "headers": [
+                        {
+                            "name": "X-MyImportantHeader",
+                            "displayName": "X-MyImportantHeader",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "examples": [
+                                {
+                                    "value": "Very Important",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "Very Important"
+                                }
+                            ],
+                            "key": "X-MyImportantHeader"
+                        },
+                        {
+                            "name": "X-MyDescriptiveHeader",
+                            "displayName": "X-MyDescriptiveHeader",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "examples": [
+                                {
+                                    "value": "Red baloons are known to be the colour red.",
+                                    "strict": true,
+                                    "name": null,
+                                    "displayName": "Baloon Assertion",
+                                    "description": "This descriptive header example",
+                                    "structuredValue": "Red baloons are known to be the colour red."
+                                }
+                            ],
+                            "key": "X-MyDescriptiveHeader"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/HeaderExample",
+            "displayName": "/HeaderExample",
+            "relativeUriPathSegments": [
+                "HeaderExample"
+            ],
+            "absoluteUri": "/HeaderExample",
+            "parentUrl": "",
+            "uniqueId": "headerexample",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "method": "get",
+                    "allUriParameters": [
+                        {
+                            "name": "Id",
+                            "displayName": "Id",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "examples": [
+                                {
+                                    "value": "ABC123",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "ABC123"
+                                }
+                            ],
+                            "key": "Id"
+                        },
+                        {
+                            "name": "Mood",
+                            "displayName": "Mood",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "examples": [
+                                {
+                                    "value": "Serene.",
+                                    "strict": true,
+                                    "name": null,
+                                    "displayName": "How are ya",
+                                    "description": "ARE YOU ANGRY",
+                                    "structuredValue": "Serene."
+                                }
+                            ],
+                            "key": "Mood"
+                        }
+                    ]
+                }
+            ],
+            "uriParameters": [
+                {
+                    "name": "Id",
+                    "displayName": "Id",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "examples": [
+                        {
+                            "value": "ABC123",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "ABC123"
+                        }
+                    ],
+                    "key": "Id"
+                },
+                {
+                    "name": "Mood",
+                    "displayName": "Mood",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "examples": [
+                        {
+                            "value": "Serene.",
+                            "strict": true,
+                            "name": null,
+                            "displayName": "How are ya",
+                            "description": "ARE YOU ANGRY",
+                            "structuredValue": "Serene."
+                        }
+                    ],
+                    "key": "Mood"
+                }
+            ],
+            "relativeUri": "/UriExample/{Id}/{Mood}",
+            "displayName": "/UriExample/{Id}/{Mood}",
+            "relativeUriPathSegments": [
+                "UriExample",
+                "{Id}",
+                "{Mood}"
+            ],
+            "absoluteUri": "/UriExample/{Id}/{Mood}",
+            "parentUrl": "",
+            "uniqueId": "uriexample__id___mood_",
+            "allUriParameters": [
+                {
+                    "name": "Id",
+                    "displayName": "Id",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "examples": [
+                        {
+                            "value": "ABC123",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "ABC123"
+                        }
+                    ],
+                    "key": "Id"
+                },
+                {
+                    "name": "Mood",
+                    "displayName": "Mood",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "examples": [
+                        {
+                            "value": "Serene.",
+                            "strict": true,
+                            "name": null,
+                            "displayName": "How are ya",
+                            "description": "ARE YOU ANGRY",
+                            "structuredValue": "Serene."
+                        }
+                    ],
+                    "key": "Mood"
+                }
+            ]
+        },
+        {
+            "methods": [
+                {
+                    "queryParameters": [
+                        {
+                            "name": "Temperature",
+                            "displayName": "Temperature",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "number",
+                            "required": true,
+                            "description": "In celsius you savages",
+                            "examples": [
+                                {
+                                    "value": "24",
+                                    "strict": true,
+                                    "name": null,
+                                    "displayName": "Comfortable",
+                                    "description": "Best combined with a sunny day",
+                                    "structuredValue": 24
+                                }
+                            ],
+                            "key": "Temperature"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/QueryParamsExample",
+            "displayName": "/QueryParamsExample",
+            "relativeUriPathSegments": [
+                "QueryParamsExample"
+            ],
+            "absoluteUri": "/QueryParamsExample",
+            "parentUrl": "",
+            "uniqueId": "queryparamsexample",
+            "allUriParameters": []
+        },
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "NestedExample",
+                                    "displayName": "NestedExample",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "object",
+                                    "additionalProperties": true,
+                                    "properties": [
+                                        {
+                                            "properties": [
+                                                {
+                                                    "type": "number",
+                                                    "displayName": "HereIsANumber",
+                                                    "name": "HereIsANumber",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "HereIsANumber"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "displayName": "HereIsAString",
+                                                    "name": "HereIsAString",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "HereIsAString"
+                                                }
+                                            ],
+                                            "additionalProperties": true,
+                                            "displayName": "ChildObject",
+                                            "name": "ChildObject",
+                                            "type": "object",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "examples": [
+                                                {
+                                                    "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
+                                                    "strict": true,
+                                                    "displayName": "Sneaky nested example",
+                                                    "description": "It's sneaky!",
+                                                    "structuredValue": {
+                                                        "HereIsANumber": 42,
+                                                        "HereIsAString": "Strange strong string"
+                                                    }
+                                                }
+                                            ],
+                                            "key": "ChildObject"
+                                        },
+                                        {
+                                            "type": "string",
+                                            "displayName": "Message",
+                                            "name": "Message",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "examples": [
+                                                {
+                                                    "value": "I'm layered, bro",
+                                                    "strict": true,
+                                                    "structuredValue": "I'm layered, bro"
+                                                }
+                                            ],
+                                            "key": "Message"
+                                        }
+                                    ],
+                                    "key": "application/json"
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/NestedExample",
+            "displayName": "/NestedExample",
+            "relativeUriPathSegments": [
+                "NestedExample"
+            ],
+            "absoluteUri": "/NestedExample",
+            "parentUrl": "",
+            "uniqueId": "nestedexample",
+            "allUriParameters": []
+        }
+    ],
+    "types": {
+        "HasFullExamples": {
+            "additionalProperties": true,
+            "type": "object",
+            "displayName": "HasFullExamples",
+            "name": "HasFullExamples",
+            "examples": [
+                {
+                    "value": "{\n  \"SomeField\": \"Uno\"\n}",
+                    "strict": true,
+                    "name": "firstExample",
+                    "displayName": "First Example!",
+                    "description": "It's the first example",
+                    "structuredValue": {
+                        "SomeField": "Uno"
+                    }
+                },
+                {
+                    "value": "{\n  \"SomeField\": \"Duo\"\n}",
+                    "strict": true,
+                    "name": "secondExample",
+                    "displayName": "Second Example!",
+                    "description": "It's the second example",
+                    "structuredValue": {
+                        "SomeField": "Duo"
+                    }
+                }
+            ],
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "properties": {
+                "SomeField": {
+                    "type": "string",
+                    "displayName": "SomeField",
+                    "name": "SomeField",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "SomeField"
+                }
+            }
+        },
+        "HasJsonExample": {
+            "additionalProperties": true,
+            "type": "object",
+            "displayName": "HasJsonExample",
+            "name": "HasJsonExample",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "properties": {
+                "TestField": {
+                    "type": "string",
+                    "displayName": "TestField",
+                    "name": "TestField",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "TestField"
+                }
+            },
+            "examples": [
+                {
+                    "value": "{\n    \"TestField\": \"This example is defined in JSON.\"\n}\n",
+                    "strict": true,
+                    "structuredValue": {
+                        "TestField": "This example is defined in JSON."
+                    }
+                }
+            ]
+        },
+        "NestedExample": {
+            "additionalProperties": true,
+            "type": "object",
+            "displayName": "NestedExample",
+            "name": "NestedExample",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "properties": {
+                "ChildObject": {
+                    "properties": [
+                        {
+                            "type": "number",
+                            "displayName": "HereIsANumber",
+                            "name": "HereIsANumber",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "required": true,
+                            "key": "HereIsANumber"
+                        },
+                        {
+                            "type": "string",
+                            "displayName": "HereIsAString",
+                            "name": "HereIsAString",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "required": true,
+                            "key": "HereIsAString"
+                        }
+                    ],
+                    "additionalProperties": true,
+                    "displayName": "ChildObject",
+                    "name": "ChildObject",
+                    "type": "object",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "examples": [
+                        {
+                            "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
+                            "strict": true,
+                            "displayName": "Sneaky nested example",
+                            "description": "It's sneaky!",
+                            "structuredValue": {
+                                "HereIsANumber": 42,
+                                "HereIsAString": "Strange strong string"
+                            }
+                        }
+                    ],
+                    "key": "ChildObject"
+                },
+                "Message": {
+                    "type": "string",
+                    "displayName": "Message",
+                    "name": "Message",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "examples": [
+                        {
+                            "value": "I'm layered, bro",
+                            "strict": true,
+                            "structuredValue": "I'm layered, bro"
+                        }
+                    ],
+                    "key": "Message"
+                }
+            }
+        },
+        "Nestee": {
+            "additionalProperties": true,
+            "type": "object",
+            "displayName": "Nestee",
+            "name": "Nestee",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "properties": {
+                "HereIsANumber": {
+                    "type": "number",
+                    "displayName": "HereIsANumber",
+                    "name": "HereIsANumber",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true
+                },
+                "HereIsAString": {
+                    "type": "string",
+                    "displayName": "HereIsAString",
+                    "name": "HereIsAString",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true
+                }
+            },
+            "examples": [
+                {
+                    "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
+                    "strict": true,
+                    "displayName": "Sneaky nested example",
+                    "description": "It's sneaky!",
+                    "structuredValue": {
+                        "HereIsANumber": 42,
+                        "HereIsAString": "Strange strong string"
+                    }
+                }
+            ]
+        }
+    }
+}

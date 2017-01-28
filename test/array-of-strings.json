@@ -36,7 +36,13 @@
                                     "items": "string",
                                     "examples": [
                                         {
-                                            "value": "[\n  \"somevalue\",\n  \"anothervalue\"\n]"
+                                            "value": "[\n  \"somevalue\",\n  \"anothervalue\"\n]",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": [
+                                                "somevalue",
+                                                "anothervalue"
+                                            ]
                                         }
                                     ],
                                     "key": "application/json"

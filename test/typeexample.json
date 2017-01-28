@@ -16,7 +16,9 @@
                             "description": "A valid MongoDB object id.",
                             "examples": [
                                 {
-                                    "value": "576bca8b70fddb149c4a9e92"
+                                    "value": "576bca8b70fddb149c4a9e92",
+                                    "strict": true,
+                                    "structuredValue": "576bca8b70fddb149c4a9e92"
                                 }
                             ],
                             "key": "id"
@@ -34,7 +36,9 @@
                     "description": "A valid MongoDB object id.",
                     "examples": [
                         {
-                            "value": "576bca8b70fddb149c4a9e92"
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
                         }
                     ],
                     "key": "id"
@@ -58,7 +62,9 @@
                     "description": "A valid MongoDB object id.",
                     "examples": [
                         {
-                            "value": "576bca8b70fddb149c4a9e92"
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
                         }
                     ],
                     "key": "id"
@@ -75,7 +81,9 @@
             "typePropertyKind": "TYPE_EXPRESSION",
             "examples": [
                 {
-                    "value": "576bca8b70fddb149c4a9e92"
+                    "value": "576bca8b70fddb149c4a9e92",
+                    "strict": true,
+                    "structuredValue": "576bca8b70fddb149c4a9e92"
                 }
             ]
         }

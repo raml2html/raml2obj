@@ -26,7 +26,8 @@
                                         "email": "john@example.com",
                                         "password": "super_secret",
                                         "name": "John Doe"
-                                    }
+                                    },
+                                    "displayName": "example1"
                                 }
                             ],
                             "key": "application/json"
@@ -52,7 +53,10 @@
                                     "description": "name on account",
                                     "examples": [
                                         {
-                                            "value": "Naruto Uzumaki"
+                                            "value": "Naruto Uzumaki",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": "Naruto Uzumaki"
                                         }
                                     ],
                                     "key": "name"
@@ -106,7 +110,10 @@
                                     "description": "Basic authentication header",
                                     "examples": [
                                         {
-                                            "value": "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n"
+                                            "value": "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n"
                                         }
                                     ],
                                     "key": "Authorization"
@@ -145,13 +152,15 @@
                                                     "value": "Naruto Uzumaki",
                                                     "strict": true,
                                                     "name": "example1",
-                                                    "structuredValue": "Naruto Uzumaki"
+                                                    "structuredValue": "Naruto Uzumaki",
+                                                    "displayName": "example1"
                                                 },
                                                 {
                                                     "value": "Kevin Renskers",
                                                     "strict": true,
                                                     "name": "example2",
-                                                    "structuredValue": "Kevin Renskers"
+                                                    "structuredValue": "Kevin Renskers",
+                                                    "displayName": "example2"
                                                 }
                                             ],
                                             "required": true,
@@ -240,7 +249,10 @@
                                                     "key": "WWW-Authenticate",
                                                     "examples": [
                                                         {
-                                                            "value": "WWW-Authenticate: Basic realm=\"raml2html\"\n"
+                                                            "value": "WWW-Authenticate: Basic realm=\"raml2html\"\n",
+                                                            "strict": true,
+                                                            "name": null,
+                                                            "structuredValue": "WWW-Authenticate: Basic realm=\"raml2html\"\n"
                                                         }
                                                     ]
                                                 }
