@@ -56,7 +56,7 @@ function makeConsistent(obj, types) {
     }
 
     if (Array.isArray(obj.securedBy)) {
-      if (obj.securedBy.every(scheme => (scheme === null))) {
+      if (obj.securedBy.length === 0 || obj.securedBy.every(scheme => (scheme === null))) {
         // The RAML 1.0 spec allows that:
         //  "A securedBy node containing null as the array component indicates
         //   the method can be called without applying any security scheme."
