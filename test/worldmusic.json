@@ -21,7 +21,9 @@
                 }
             ],
             "securedBy": [
-                "custom_scheme"
+                {
+                    "schemeName": "custom_scheme"
+                }
             ],
             "name": "secured",
             "usage": "This trait can be used to apply an access token query parameter\nto any resources or HTTP methods.\n"
@@ -30,7 +32,9 @@
     "resourceTypes": {
         "collection": {
             "securedBy": [
-                "custom_scheme"
+                {
+                    "schemeName": "custom_scheme"
+                }
             ],
             "name": "collection",
             "get": {
@@ -52,7 +56,9 @@
                     }
                 ],
                 "securedBy": [
-                    "custom_scheme"
+                    {
+                        "schemeName": "custom_scheme"
+                    }
                 ],
                 "description": "returns a list of <<resourcePathName|!singularize>>",
                 "method": "get"
@@ -188,7 +194,8 @@
                     "HMAC-SHA1",
                     "PLAINTEXT"
                 ]
-            }
+            },
+            "displayName": "oauth_1_0"
         },
         "oauth_2_0": {
             "name": "oauth_2_0",
@@ -236,7 +243,8 @@
                     "implicit",
                     "urn:ietf:params:oauth:grant-type:saml2-bearer"
                 ]
-            }
+            },
+            "displayName": "oauth_2_0"
         },
         "custom_scheme": {
             "name": "custom_scheme",
@@ -263,7 +271,8 @@
                         "code": "403"
                     }
                 ]
-            }
+            },
+            "displayName": "custom_scheme"
         }
     },
     "title": "World Music API",
@@ -303,7 +312,9 @@
     ],
     "mediaType": "application/json",
     "securedBy": [
-        "custom_scheme"
+        {
+            "schemeName": "custom_scheme"
+        }
     ],
     "resources": [
         {
@@ -337,7 +348,9 @@
                         "HTTP"
                     ],
                     "securedBy": [
-                        "custom_scheme"
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "method": "get",
                     "allUriParameters": []
@@ -637,14 +650,18 @@
                         "HTTP"
                     ],
                     "securedBy": [
-                        "custom_scheme"
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "method": "post",
                     "allUriParameters": []
                 }
             ],
             "securedBy": [
-                "custom_scheme"
+                {
+                    "schemeName": "custom_scheme"
+                }
             ],
             "relativeUri": "/api",
             "displayName": "/api",
@@ -680,7 +697,9 @@
                         "HTTP"
                     ],
                     "securedBy": [
-                        "custom_scheme"
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "method": "post",
                     "allUriParameters": []
@@ -706,7 +725,9 @@
                         "HTTP"
                     ],
                     "securedBy": [
-                        "custom_scheme"
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "description": "returns a list of entry",
                     "method": "get",
@@ -715,7 +736,9 @@
             ],
             "type": "collection",
             "securedBy": [
-                "custom_scheme"
+                {
+                    "schemeName": "custom_scheme"
+                }
             ],
             "relativeUri": "/entry",
             "displayName": "/entry",
@@ -767,7 +790,9 @@
                         "HTTP"
                     ],
                     "securedBy": [
-                        "oauth_2_0",
+                        {
+                            "schemeName": "oauth_2_0"
+                        },
                         null
                     ],
                     "method": "get",
@@ -788,7 +813,9 @@
                         "HTTP"
                     ],
                     "securedBy": [
-                        "custom_scheme"
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "method": "post",
                     "allUriParameters": []
@@ -799,7 +826,9 @@
             ],
             "description": "Access to all songs inside the music world library.",
             "securedBy": [
-                "custom_scheme"
+                {
+                    "schemeName": "custom_scheme"
+                }
             ],
             "relativeUri": "/songs",
             "displayName": "Songs",
@@ -895,7 +924,9 @@
                                 "HTTP"
                             ],
                             "securedBy": [
-                                "custom_scheme"
+                                {
+                                    "schemeName": "custom_scheme"
+                                }
                             ],
                             "method": "get",
                             "allUriParameters": [
@@ -911,7 +942,9 @@
                         }
                     ],
                     "securedBy": [
-                        "custom_scheme"
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "uriParameters": [
                         {
