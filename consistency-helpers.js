@@ -47,11 +47,34 @@ function makeConsistent(obj, types) {
       });
     }
 
-    // The RAML 1.0 spec allows that:
-    //  "A securedBy node containing null as the array component indicates
-    //   the method can be called without applying any security scheme."
-    if (Array.isArray(obj.securedBy) && obj.securedBy.length === 1 && obj.securedBy[0] === null) {
-      delete obj.securedBy;
+    // Give each security scheme a displayName if it isn't already set
+    if (obj.securitySchemes) {
+      Object.keys(obj.securitySchemes).forEach((schemeName) => {
+        const scheme = obj.securitySchemes[schemeName];
+        scheme.displayName = scheme.displayName || scheme.name;
+      });
+    }
+
+    if (Array.isArray(obj.securedBy)) {
+      if (obj.securedBy.every(scheme => (scheme === null))) {
+        // The RAML 1.0 spec allows that:
+        //  "A securedBy node containing null as the array component indicates
+        //   the method can be called without applying any security scheme."
+        delete obj.securedBy;
+      } else {
+        // Guarantee that all elements of the securedBy array are either null or
+        // objects containing a schemeName property (and an optional scopes property)
+        obj.securedBy = obj.securedBy.map((scheme) => {
+          if (scheme === null) {
+            return null;
+          }
+          if (typeof scheme === 'string') {
+            return { schemeName: scheme };
+          }
+          const schemeName = Object.keys(scheme)[0];
+          return Object.assign({ schemeName }, scheme[schemeName] || {});
+        });
+      }
     }
 
     // Fix inconsistency between request headers and response headers from raml-1-parser.
