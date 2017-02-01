@@ -1,0 +1,49 @@
+#%RAML 1.0
+title: Secured By Null
+
+securitySchemes:
+  oauth_2_0:
+      type: OAuth 2.0
+      describedBy:
+          headers:
+              Authorization: string
+          responses:
+              401:
+                  description: Invalid or expired token.
+      settings:
+          accessTokenUri: /token
+          authorizationGrants: [ client_credentials ]
+  custom_scheme:
+    description: |
+      A custom security scheme for authenticating requests.
+    type: x-custom
+    describedBy:
+      headers:
+        SpecialToken:
+          description: |
+            Used to send a custom token.
+          type: string
+      responses:
+        401:
+          description: |
+            Bad token.
+        403:
+
+/A:
+    get:
+    post:
+      securedBy: [  ]
+    put:
+      securedBy: [ null ]
+    delete:
+      securedBy: [ null, null, null ]
+
+/B:
+    get:
+      securedBy: [ oauth_2_0 ]
+    post:
+      securedBy: [ oauth_2_0, null ]
+
+/C:
+    get:
+      securedBy: [ oauth_2_0, custom_scheme ]

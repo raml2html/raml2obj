@@ -26,7 +26,36 @@
                 "authorizationGrants": [
                     "client_credentials"
                 ]
-            }
+            },
+            "displayName": "oauth_2_0"
+        },
+        "custom_scheme": {
+            "name": "custom_scheme",
+            "type": "x-custom",
+            "description": "A custom security scheme for authenticating requests.\n",
+            "describedBy": {
+                "headers": [
+                    {
+                        "name": "SpecialToken",
+                        "displayName": "SpecialToken",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": "string",
+                        "required": true,
+                        "description": "Used to send a custom token.\n",
+                        "key": "SpecialToken"
+                    }
+                ],
+                "responses": [
+                    {
+                        "code": "401",
+                        "description": "Bad token.\n"
+                    },
+                    {
+                        "code": "403"
+                    }
+                ]
+            },
+            "displayName": "custom_scheme"
         }
     },
     "title": "Secured By Null",
@@ -35,6 +64,18 @@
             "methods": [
                 {
                     "method": "get",
+                    "allUriParameters": []
+                },
+                {
+                    "method": "post",
+                    "allUriParameters": []
+                },
+                {
+                    "method": "put",
+                    "allUriParameters": []
+                },
+                {
+                    "method": "delete",
                     "allUriParameters": []
                 }
             ],
@@ -51,7 +92,22 @@
         {
             "methods": [
                 {
+                    "securedBy": [
+                        {
+                            "schemeName": "oauth_2_0"
+                        }
+                    ],
                     "method": "get",
+                    "allUriParameters": []
+                },
+                {
+                    "securedBy": [
+                        {
+                            "schemeName": "oauth_2_0"
+                        },
+                        null
+                    ],
+                    "method": "post",
                     "allUriParameters": []
                 }
             ],
@@ -69,7 +125,12 @@
             "methods": [
                 {
                     "securedBy": [
-                        "oauth_2_0"
+                        {
+                            "schemeName": "oauth_2_0"
+                        },
+                        {
+                            "schemeName": "custom_scheme"
+                        }
                     ],
                     "method": "get",
                     "allUriParameters": []
