@@ -28,7 +28,7 @@ describe('raml2obj', () => {
       assert.strictEqual(A.methods[0].securedBy, undefined);
       assert.strictEqual(B.methods[0].securedBy, undefined);
       assert.strictEqual(C.methods[0].securedBy.length, 1);
-      assert.strictEqual(C.methods[0].securedBy[0], 'oauth_2_0');
+      assert.deepEqual(C.methods[0].securedBy, [{schemeName: 'oauth_2_0'}]);
     });
   });
 });
