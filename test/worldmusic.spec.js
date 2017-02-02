@@ -63,7 +63,7 @@ describe('raml2obj', () => {
       assert.strictEqual(resource.displayName, '/api');
       assert.strictEqual(resource.parentUrl, '');
       assert.strictEqual(resource.uniqueId, 'api');
-      assert.deepEqual(resource.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(resource.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(resource.allUriParameters.length, 0);
     });
 
@@ -76,7 +76,7 @@ describe('raml2obj', () => {
 
       assert.strictEqual(get.method, 'get');
       assert.strictEqual(get.allUriParameters.length, 0);
-      assert.deepEqual(get.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(get.securedBy, [{ schemeName: 'custom_scheme' }]);
 
       assert.strictEqual(get.queryString.name, 'queryString');
       assert.strictEqual(get.queryString.type, 'object');
@@ -93,7 +93,7 @@ describe('raml2obj', () => {
 
       assert.strictEqual(post.method, 'post');
       assert.strictEqual(post.allUriParameters.length, 0);
-      assert.deepEqual(post.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(post.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(post.body.length, 1);
       assert.strictEqual(post.body[0].name, 'RamlDataType');
       assert.strictEqual(post.body[0].key, 'application/json');
@@ -110,7 +110,7 @@ describe('raml2obj', () => {
       assert.strictEqual(resource.parentUrl, '');
       assert.strictEqual(resource.uniqueId, 'entry');
       assert.strictEqual(resource.type, 'collection');
-      assert.deepEqual(resource.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(resource.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(resource.allUriParameters.length, 0);
     });
 
@@ -123,7 +123,7 @@ describe('raml2obj', () => {
 
       assert.strictEqual(post.method, 'post');
       assert.strictEqual(post.allUriParameters.length, 0);
-      assert.deepEqual(post.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(post.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(post.responses.length, 1);
       assert.strictEqual(post.responses[0].code, '200');
       assert.strictEqual(post.responses[0].body.length, 1);
@@ -137,7 +137,7 @@ describe('raml2obj', () => {
       assert.strictEqual(get.method, 'get');
       assert.strictEqual(get.description, 'returns a list of entry');
       assert.strictEqual(get.allUriParameters.length, 0);
-      assert.deepEqual(get.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(get.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(get.responses.length, 1);
       assert.strictEqual(get.responses[0].code, '200');
       assert.strictEqual(get.responses[0].body.length, 1);
@@ -153,7 +153,7 @@ describe('raml2obj', () => {
       assert.strictEqual(resource.description, 'Access to all songs inside the music world library.');
       assert.strictEqual(resource.parentUrl, '');
       assert.strictEqual(resource.uniqueId, 'songs');
-      assert.deepEqual(resource.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(resource.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(resource.allUriParameters.length, 0);
       assert.strictEqual(resource.annotations.length, 1);
       assert.strictEqual(resource.annotations[0].name, 'ready');
@@ -170,7 +170,7 @@ describe('raml2obj', () => {
 
       assert.strictEqual(get.method, 'get');
       assert.strictEqual(get.allUriParameters.length, 0);
-      assert.deepEqual(get.securedBy, [{schemeName: 'oauth_2_0'}, null]);
+      assert.deepEqual(get.securedBy, [{ schemeName: 'oauth_2_0' }, null]);
 
       assert.strictEqual(get.annotations.length, 1);
       assert.strictEqual(get.annotations[0].name, 'monitoringInterval');
@@ -181,7 +181,7 @@ describe('raml2obj', () => {
       const post = methods[1];
 
       assert.strictEqual(post.method, 'post');
-      assert.deepEqual(post.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(post.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(post.queryParameters.length, 1);
     });
 
@@ -192,7 +192,7 @@ describe('raml2obj', () => {
       assert.strictEqual(resource.displayName, '/{songId}');
       assert.strictEqual(resource.parentUrl, '/songs');
       assert.strictEqual(resource.uniqueId, 'songs__songid_');
-      assert.deepEqual(resource.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(resource.securedBy, [{ schemeName: 'custom_scheme' }]);
       assert.strictEqual(resource.allUriParameters.length, 1);
     });
 
@@ -207,7 +207,7 @@ describe('raml2obj', () => {
       assert.strictEqual(get.allUriParameters.length, 1);
       assert.strictEqual(get.annotations.length, 1);
       assert.strictEqual(get.responses.length, 1);
-      assert.deepEqual(get.securedBy, [{schemeName: 'custom_scheme'}]);
+      assert.deepEqual(get.securedBy, [{ schemeName: 'custom_scheme' }]);
 
       assert.strictEqual(get.responses[0].body.length, 2);
       assert.strictEqual(get.responses[0].body[0].displayName, 'Song');

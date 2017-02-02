@@ -20,10 +20,10 @@ describe('raml2obj', () => {
 
     it('should remove securedBy', () => {
       const A = obj.resources[0];
-      const get = A.methods[0]
-      const post = A.methods[1]
-      const put = A.methods[2]
-      const del = A.methods[3]
+      const get = A.methods[0];
+      const post = A.methods[1];
+      const put = A.methods[2];
+      const del = A.methods[3];
 
       assert.strictEqual(get.securedBy, undefined);
       assert.strictEqual(post.securedBy, undefined);
