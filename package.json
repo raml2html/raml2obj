@@ -14,7 +14,7 @@
     "raml-1-parser": "1.1.13"
   },
   "devDependencies": {
-    "eslint": "3.11.x",
+    "eslint": "3.14.x",
     "eslint-config-loopwerk": "6.0.x",
     "glob": "7.1.x",
     "mocha": "3.2.x"
