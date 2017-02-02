@@ -45,12 +45,24 @@ describe('raml2obj', () => {
       assert.strictEqual(B.methods[1].securedBy[0].schemeName, 'oauth_2_0');
       assert.strictEqual(B.methods[1].securedBy[1], null);
 
+      assert.strictEqual(B.methods[2].securedBy.constructor, Array);
+      assert.strictEqual(B.methods[2].securedBy.length, 2);
+      assert.strictEqual(B.methods[2].securedBy[0], Object(B.methods[2].securedBy[0]));
+      assert.strictEqual(B.methods[2].securedBy[0].schemeName, 'oauth_2_0_withscopes');
+      assert.strictEqual(B.methods[2].securedBy[0].scopes.constructor, Array);
+      assert.strictEqual(B.methods[2].securedBy[0].scopes.length, 1);
+      assert.strictEqual(B.methods[2].securedBy[0].scopes[0], 'remove-b');
+      assert.strictEqual(B.methods[2].securedBy[1], null);
+
       const C = obj.resources[2];
 
       assert.strictEqual(C.methods[0].securedBy.constructor, Array);
       assert.strictEqual(C.methods[0].securedBy.length, 2);
       assert.strictEqual(C.methods[0].securedBy[0], Object(C.methods[0].securedBy[0]));
-      assert.strictEqual(C.methods[0].securedBy[0].schemeName, 'oauth_2_0');
+      assert.strictEqual(C.methods[0].securedBy[0].schemeName, 'oauth_2_0_withscopes');
+      assert.strictEqual(C.methods[0].securedBy[0].scopes.constructor, Array);
+      assert.strictEqual(C.methods[0].securedBy[0].scopes.length, 1);
+      assert.strictEqual(C.methods[0].securedBy[0].scopes[0], 'read-c');
       assert.strictEqual(C.methods[0].securedBy[1], Object(C.methods[0].securedBy[1]));
       assert.strictEqual(C.methods[0].securedBy[1].schemeName, 'custom_scheme');
     });

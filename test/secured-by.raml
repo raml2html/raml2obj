@@ -13,6 +13,18 @@ securitySchemes:
       settings:
           accessTokenUri: /token
           authorizationGrants: [ client_credentials ]
+  oauth_2_0_withscopes:
+    type: OAuth 2.0
+    describedBy:
+      headers:
+        Authorization: string
+      responses:
+        401:
+          description: Invalid or expired token.
+    settings:
+      accessTokenUri: /token
+      authorizationGrants: [ client_credentials ]
+      scopes: [ add-a, remove-a, add-b, remove-b, read-c ]
   custom_scheme:
     description: |
       A custom security scheme for authenticating requests.
@@ -43,7 +55,9 @@ securitySchemes:
       securedBy: [ oauth_2_0 ]
     post:
       securedBy: [ oauth_2_0, null ]
+    delete:
+      securedBy: [ oauth_2_0_withscopes: { scopes: [ remove-b ] }, null ]
 
 /C:
     get:
-      securedBy: [ oauth_2_0, custom_scheme ]
+      securedBy: [ oauth_2_0_withscopes: { scopes: [ read-c ] }, custom_scheme ]

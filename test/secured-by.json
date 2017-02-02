@@ -29,6 +29,42 @@
             },
             "displayName": "oauth_2_0"
         },
+        "oauth_2_0_withscopes": {
+            "name": "oauth_2_0_withscopes",
+            "type": "OAuth 2.0",
+            "describedBy": {
+                "headers": [
+                    {
+                        "name": "Authorization",
+                        "displayName": "Authorization",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": "string",
+                        "required": true,
+                        "key": "Authorization"
+                    }
+                ],
+                "responses": [
+                    {
+                        "code": "401",
+                        "description": "Invalid or expired token."
+                    }
+                ]
+            },
+            "settings": {
+                "accessTokenUri": "/token",
+                "authorizationGrants": [
+                    "client_credentials"
+                ],
+                "scopes": [
+                    "add-a",
+                    "remove-a",
+                    "add-b",
+                    "remove-b",
+                    "read-c"
+                ]
+            },
+            "displayName": "oauth_2_0_withscopes"
+        },
         "custom_scheme": {
             "name": "custom_scheme",
             "type": "x-custom",
@@ -109,6 +145,19 @@
                     ],
                     "method": "post",
                     "allUriParameters": []
+                },
+                {
+                    "securedBy": [
+                        {
+                            "schemeName": "oauth_2_0_withscopes",
+                            "scopes": [
+                                "remove-b"
+                            ]
+                        },
+                        null
+                    ],
+                    "method": "delete",
+                    "allUriParameters": []
                 }
             ],
             "relativeUri": "/B",
@@ -126,7 +175,10 @@
                 {
                     "securedBy": [
                         {
-                            "schemeName": "oauth_2_0"
+                            "schemeName": "oauth_2_0_withscopes",
+                            "scopes": [
+                                "read-c"
+                            ]
                         },
                         {
                             "schemeName": "custom_scheme"
