@@ -9,7 +9,7 @@ function makeConsistent(obj, types) {
         obj.type = obj.type[0];
       }
 
-      if (Array.isArray(obj.items)) {
+      if (obj.type === 'array' && Array.isArray(obj.items) && obj.items.length === 1) {
         obj.items = obj.items[0];
       }
 
