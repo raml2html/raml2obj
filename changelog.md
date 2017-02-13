@@ -1,12 +1,3 @@
-5.0.0 - February 14, 2017
-- Added support for themes:
-  - the command line interface now takes an optional `--theme` parameter
-  - we ship two officially supported themes: raml2html-default-theme and raml2html-markdown-theme
-  - themes can overwrite the entire rendering process, allowing themes to use different templating engines
-    or output formats (Markdown, PDF, etc)
-  - the `getDefaultConfig` function has been split into `getConfigForTemplate` and `getConfigForTheme`,
-    use `getConfigForTheme` without any parameters to get the old behaviour of `getDefaultConfig`
-
 4.1.0 - January 27, 2017
 - Added extra properties to examples (#22)
 - Updated raml-js-parser-2 dependancy (#25)
@@ -16,7 +7,7 @@
 - Fix response headers inconsistency (#23)
 
 4.0.3 - December 29, 2016
-- Made securedBy: [null] consistent with no security
+- Made securedBy: [ null] consistent with no security
 
 4.0.2 - December 8, 2016
 - Fixed more Node 4 problems, now actually tested via NVM
