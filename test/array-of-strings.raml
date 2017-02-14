@@ -12,3 +12,10 @@ protocols: [HTTP, HTTPS]
         body:
           type: string[]
           example: ["somevalue","anothervalue"]
+  post:
+    responses:
+      200:
+        body:
+          type: array
+          items: string
+          example: ["somevalue","anothervalue"]

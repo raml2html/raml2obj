@@ -9,6 +9,10 @@ function makeConsistent(obj, types) {
         obj.type = obj.type[0];
       }
 
+      if (obj.type === 'array' && Array.isArray(obj.items) && obj.items.length === 1) {
+        obj.items = obj.items[0];
+      }
+
       if (types && types[obj.type]) {
         const mergedObj = Object.assign({}, obj, types[obj.type]);
 
