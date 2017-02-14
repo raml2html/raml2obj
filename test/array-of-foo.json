@@ -61,6 +61,45 @@
                     ],
                     "method": "get",
                     "allUriParameters": []
+                },
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "application/json",
+                                    "displayName": "application/json",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "array",
+                                    "items": {
+                                        "additionalProperties": true,
+                                        "type": "object",
+                                        "displayName": "Foo",
+                                        "name": "Foo",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "properties": [
+                                            {
+                                                "type": "string",
+                                                "displayName": "id",
+                                                "name": "id",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "required": true,
+                                                "key": "id"
+                                            }
+                                        ]
+                                    },
+                                    "key": "application/json"
+                                }
+                            ],
+                            "key": "200"
+                        }
+                    ],
+                    "protocols": [
+                        "HTTPS"
+                    ],
+                    "method": "post",
+                    "allUriParameters": []
                 }
             ],
             "relativeUri": "/foos",
