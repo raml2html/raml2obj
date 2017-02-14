@@ -1,3 +1,7 @@
+5.0.0 - Date TBC
+- Updated mapping of securitySchemes and securedBy. Note - the securedBy change is not backwards compatible with outputs from previous versions of raml2obj.
+- Fixed an issue with some array type declarations having inconsistent item type definitions. raml2html/raml2html#323 (#29)
+
 4.1.0 - January 27, 2017
 - Added extra properties to examples (#22)
 - Updated raml-js-parser-2 dependancy (#25)
