@@ -27,8 +27,7 @@ describe('raml2obj', () => {
 
       body = obj.resources[0].methods[1].responses[0].body[0];
       assert.strictEqual(body.type, 'array');
-      assert.strictEqual(body.items.displayName, 'items');
-      assert.strictEqual(body.items.type, 'string');
+      assert.strictEqual(body.items, 'string');
     });
   });
 });

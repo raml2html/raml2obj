@@ -6,7 +6,7 @@ const glob = require('glob');
 
 process.chdir(__dirname);
 
-const ramlFiles = glob.sync('*.raml').filter(ramlFile => ramlFile !== 'zeropointeight.raml');
+const ramlFiles = glob.sync('*.raml').filter(ramlFile => (ramlFile !== 'zeropointeight.raml' && ramlFile !== 'outofmemory.raml'));
 
 ramlFiles.forEach((ramlFile) => {
   console.log(ramlFile);
