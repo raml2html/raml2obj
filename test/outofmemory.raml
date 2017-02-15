@@ -1,0 +1,36 @@
+#%RAML 1.0
+title: some API
+baseUri: https://someserver.com/api
+mediaType: application/json
+
+types:
+  SomeProfile:
+    type: object
+    properties:
+      attr1: string?
+      attr2: string?
+      attr3: string?
+      attr4: string?
+      attr5: string?
+      attr6: string?
+      attr7: string?
+      attr8: string?
+      attr9: string?
+      attr10: string?
+      attr11: string?
+      attr12: string?
+      attr13: string?
+      attr14: string?
+      attr15: string?
+
+  ManyProfiles:
+    type: object
+    properties:
+      profiles?: SomeProfile
+
+/api:
+  get:
+    responses:
+      200:
+        body:
+          type: ManyProfiles
