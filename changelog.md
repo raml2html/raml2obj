@@ -1,3 +1,6 @@
+5.1.0 - March 1, 2017
+- Updated raml-1-parser dependency
+
 5.0.0 - February 15, 2017
 - Breaking change: updated mapping of securitySchemes and securedBy
 - Fixed an issue with some array type declarations having inconsistent item type definitions (raml2html/raml2html#323) (#29)
