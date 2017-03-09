@@ -9,13 +9,16 @@ describe('raml2obj', () => {
   describe('helloworld.raml', () => {
     let obj;
 
-    before((done) => {
-      raml2obj.parse('test/helloworld.raml').then((result) => {
-        obj = result;
-        done();
-      }, (error) => {
-        console.log('error', error);
-      });
+    before(done => {
+      raml2obj.parse('test/helloworld.raml').then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log('error', error);
+        }
+      );
     });
 
     it('should test the basic properties of the raml object', () => {
@@ -32,11 +35,17 @@ describe('raml2obj', () => {
       const second = obj.documentation[1];
 
       assert.strictEqual(first.title, 'Welcome');
-      assert.strictEqual(first.content, 'Welcome to the Example Documentation. The Example API allows you\nto do stuff. See also [example.com](https://www.example.com).\n');
+      assert.strictEqual(
+        first.content,
+        'Welcome to the Example Documentation. The Example API allows you\nto do stuff. See also [example.com](https://www.example.com).\n'
+      );
       assert.strictEqual(first.uniqueId, 'welcome');
 
       assert.strictEqual(second.title, 'Chapter two');
-      assert.strictEqual(second.content, 'More content here. Including **bold** text!\n');
+      assert.strictEqual(
+        second.content,
+        'More content here. Including **bold** text!\n'
+      );
       assert.strictEqual(second.uniqueId, 'chapter_two');
     });
 
@@ -45,7 +54,10 @@ describe('raml2obj', () => {
 
       assert.strictEqual(resource.relativeUri, '/helloworld');
       assert.strictEqual(resource.displayName, '/helloworld');
-      assert.strictEqual(resource.description, 'This is the top level description for /helloworld.');
+      assert.strictEqual(
+        resource.description,
+        'This is the top level description for /helloworld.'
+      );
       assert.strictEqual(resource.parentUrl, '');
       assert.strictEqual(resource.uniqueId, 'helloworld');
       assert.deepEqual(resource.allUriParameters, []);
@@ -68,8 +80,14 @@ describe('raml2obj', () => {
       assert.strictEqual(response.body.length, 1);
       assert.strictEqual(response.body[0].name, 'application/json');
       assert.strictEqual(response.body[0].displayName, 'application/json');
-      assert.strictEqual(response.body[0].type, '{\n  "title": "Hello world Response",\n  "type": "object",\n  "properties": {\n    "message": {\n      "type": "string"\n    }\n  }\n}\n');
-      assert.strictEqual(response.body[0].examples[0].value, '{\n  "message": "Hello world"\n}');
+      assert.strictEqual(
+        response.body[0].type,
+        '{\n  "title": "Hello world Response",\n  "type": "object",\n  "properties": {\n    "message": {\n      "type": "string"\n    }\n  }\n}\n'
+      );
+      assert.strictEqual(
+        response.body[0].examples[0].value,
+        '{\n  "message": "Hello world"\n}'
+      );
     });
 
     it('should test the sub-resource', () => {

@@ -6,15 +6,23 @@ const glob = require('glob');
 
 process.chdir(__dirname);
 
-const ramlFiles = glob.sync('*.raml').filter(ramlFile => (ramlFile !== 'zeropointeight.raml' && ramlFile !== 'outofmemory.raml'));
+const ramlFiles = glob
+  .sync('*.raml')
+  .filter(
+    ramlFile =>
+      ramlFile !== 'zeropointeight.raml' && ramlFile !== 'outofmemory.raml'
+  );
 
-ramlFiles.forEach((ramlFile) => {
+ramlFiles.forEach(ramlFile => {
   console.log(ramlFile);
-  raml2obj.parse(ramlFile).then((result) => {
-    const jsonString = JSON.stringify(result, null, 4);
-    const filename = ramlFile.replace('.raml', '.json');
-    fs.writeFileSync(filename, jsonString);
-  }, (error) => {
-    console.log(ramlFile, error);
-  });
+  raml2obj.parse(ramlFile).then(
+    result => {
+      const jsonString = JSON.stringify(result, null, 4);
+      const filename = ramlFile.replace('.raml', '.json');
+      fs.writeFileSync(filename, jsonString);
+    },
+    error => {
+      console.log(ramlFile, error);
+    }
+  );
 });

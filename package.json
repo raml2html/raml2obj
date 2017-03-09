@@ -15,9 +15,10 @@
   },
   "devDependencies": {
     "eslint": "3.14.x",
-    "eslint-config-loopwerk": "7.0.x",
+    "eslint-plugin-prettier": "2.0.x",
     "glob": "7.1.x",
-    "mocha": "3.2.x"
+    "mocha": "3.2.x",
+    "prettier": "0.22.x"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
   "keywords": [
@@ -32,8 +33,7 @@
   "preferGlobal": false,
   "scripts": {
     "json": "node test/output-json.js",
-    "lint": "eslint ./",
-    "lintfix": "eslint --fix ./",
+    "lint": "eslint . --fix",
     "test": "mocha 'test/*.spec.js' --reporter progress"
   },
   "files": [

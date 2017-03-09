@@ -9,7 +9,11 @@ function makeConsistent(obj, types) {
         obj.type = obj.type[0];
       }
 
-      if (obj.type === 'array' && Array.isArray(obj.items) && obj.items.length === 1) {
+      if (
+        obj.type === 'array' &&
+        Array.isArray(obj.items) &&
+        obj.items.length === 1
+      ) {
         obj.items = obj.items[0];
       }
 
@@ -40,7 +44,7 @@ function makeConsistent(obj, types) {
     }
 
     if (obj.examples && obj.examples.length) {
-      obj.examples = obj.examples.map((example) => {
+      obj.examples = obj.examples.map(example => {
         if (!example.value) {
           return { value: example };
         }
@@ -53,14 +57,17 @@ function makeConsistent(obj, types) {
 
     // Give each security scheme a displayName if it isn't already set
     if (obj.securitySchemes) {
-      Object.keys(obj.securitySchemes).forEach((schemeName) => {
+      Object.keys(obj.securitySchemes).forEach(schemeName => {
         const scheme = obj.securitySchemes[schemeName];
         scheme.displayName = scheme.displayName || scheme.name;
       });
     }
 
     if (Array.isArray(obj.securedBy)) {
-      if (obj.securedBy.length === 0 || obj.securedBy.every(scheme => (scheme === null))) {
+      if (
+        obj.securedBy.length === 0 ||
+        obj.securedBy.every(scheme => scheme === null)
+      ) {
         // The RAML 1.0 spec allows that:
         //  "A securedBy node containing null as the array component indicates
         //   the method can be called without applying any security scheme."
@@ -68,7 +75,7 @@ function makeConsistent(obj, types) {
       } else {
         // Guarantee that all elements of the securedBy array are either null or
         // objects containing a schemeName property (and an optional scopes property)
-        obj.securedBy = obj.securedBy.map((scheme) => {
+        obj.securedBy = obj.securedBy.map(scheme => {
           if (scheme === null) {
             return null;
           }
@@ -84,19 +91,19 @@ function makeConsistent(obj, types) {
     // Fix inconsistency between request headers and response headers from raml-1-parser.
     // https://github.com/raml-org/raml-js-parser-2/issues/582
     if (Array.isArray(obj.headers)) {
-      obj.headers.forEach((hdr) => {
+      obj.headers.forEach(hdr => {
         if (typeof hdr.key === 'undefined' && hdr.name) {
           hdr.key = hdr.name;
         }
       });
     }
 
-    Object.keys(obj).forEach((key) => {
+    Object.keys(obj).forEach(key => {
       const value = obj[key];
       makeConsistent(value, types);
     });
   } else if (Array.isArray(obj)) {
-    obj.forEach((value) => {
+    obj.forEach(value => {
       makeConsistent(value, types);
     });
   }

@@ -19,7 +19,7 @@ function _objectToArray(obj) {
     return obj;
   }
 
-  return Object.keys(obj).map((key) => {
+  return Object.keys(obj).map(key => {
     if (_isObject(obj[key])) {
       obj[key].key = key;
     }
@@ -36,28 +36,43 @@ function _objectToArray(obj) {
 // EXAMPLE OUTPUT:
 // { foo: { ... }, bar: { ... } }
 function _arrayToObject(arr) {
-  return arr.reduce((acc, cur) => {
-    Object.keys(cur).forEach((key) => {
-      acc[key] = cur[key];
-    });
-    return acc;
-  }, {});
+  return arr.reduce(
+    (acc, cur) => {
+      Object.keys(cur).forEach(key => {
+        acc[key] = cur[key];
+      });
+      return acc;
+    },
+    {}
+  );
 }
 
 // PUBLIC
 
 function recursiveObjectToArray(obj) {
   if (_isObject(obj)) {
-    Object.keys(obj).forEach((key) => {
+    Object.keys(obj).forEach(key => {
       const value = obj[key];
-      if (_isObject(obj) && ['responses', 'body', 'queryParameters', 'headers', 'properties', 'baseUriParameters', 'annotations', 'uriParameters'].indexOf(key) !== -1) {
+      if (
+        _isObject(obj) &&
+        [
+          'responses',
+          'body',
+          'queryParameters',
+          'headers',
+          'properties',
+          'baseUriParameters',
+          'annotations',
+          'uriParameters',
+        ].indexOf(key) !== -1
+      ) {
         obj[key] = _objectToArray(value);
       }
 
       recursiveObjectToArray(value);
     });
   } else if (Array.isArray(obj)) {
-    obj.forEach((value) => {
+    obj.forEach(value => {
       recursiveObjectToArray(value);
     });
   }
@@ -67,7 +82,13 @@ function recursiveObjectToArray(obj) {
 
 // Transform some TOP LEVEL properties from arrays to simple objects
 function arraysToObjects(ramlObj) {
-  ['types', 'traits', 'resourceTypes', 'annotationTypes', 'securitySchemes'].forEach((key) => {
+  [
+    'types',
+    'traits',
+    'resourceTypes',
+    'annotationTypes',
+    'securitySchemes',
+  ].forEach(key => {
     if (ramlObj[key]) {
       ramlObj[key] = _arrayToObject(ramlObj[key]);
     }

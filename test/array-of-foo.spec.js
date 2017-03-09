@@ -9,13 +9,16 @@ describe('raml2obj', () => {
   describe('array-of-foo.raml', () => {
     let obj;
 
-    before((done) => {
-      raml2obj.parse('test/array-of-foo.raml').then((result) => {
-        obj = result;
-        done();
-      }, (error) => {
-        console.log('error', error);
-      });
+    before(done => {
+      raml2obj.parse('test/array-of-foo.raml').then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log('error', error);
+        }
+      );
     });
 
     it('should test the array items', () => {

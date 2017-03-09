@@ -10,7 +10,10 @@ const helpers = require('./arrays-objects-helpers');
 
 function _makeUniqueId(string) {
   const stringWithSpacesReplaced = string.replace(/\W/g, '_');
-  const stringWithLeadingUnderscoreRemoved = stringWithSpacesReplaced.replace(new RegExp('^_+'), '');
+  const stringWithLeadingUnderscoreRemoved = stringWithSpacesReplaced.replace(
+    new RegExp('^_+'),
+    ''
+  );
   return stringWithLeadingUnderscoreRemoved.toLowerCase();
 }
 
@@ -18,7 +21,7 @@ function _makeUniqueId(string) {
 function _addRaml2htmlProperties(ramlObj, parentUrl, allUriParameters) {
   // Add unique id's to top level documentation chapters
   if (ramlObj.documentation) {
-    ramlObj.documentation.forEach((docSection) => {
+    ramlObj.documentation.forEach(docSection => {
       docSection.uniqueId = _makeUniqueId(docSection.title);
     });
   }
@@ -27,29 +30,38 @@ function _addRaml2htmlProperties(ramlObj, parentUrl, allUriParameters) {
     return ramlObj;
   }
 
-  ramlObj.resources.forEach((resource) => {
+  ramlObj.resources.forEach(resource => {
     resource.parentUrl = parentUrl || '';
-    resource.uniqueId = _makeUniqueId(resource.parentUrl + resource.relativeUri);
+    resource.uniqueId = _makeUniqueId(
+      resource.parentUrl + resource.relativeUri
+    );
     resource.allUriParameters = [];
 
     if (allUriParameters) {
-      resource.allUriParameters.push.apply(resource.allUriParameters, allUriParameters);
+      resource.allUriParameters.push.apply(
+        resource.allUriParameters,
+        allUriParameters
+      );
     }
 
     if (resource.uriParameters) {
-      resource.uriParameters.forEach((uriParameter) => {
+      resource.uriParameters.forEach(uriParameter => {
         resource.allUriParameters.push(uriParameter);
       });
     }
 
     // Copy the RESOURCE uri parameters to the METHOD, because that's where they will be rendered.
     if (resource.methods) {
-      resource.methods.forEach((method) => {
+      resource.methods.forEach(method => {
         method.allUriParameters = resource.allUriParameters;
       });
     }
 
-    _addRaml2htmlProperties(resource, resource.parentUrl + resource.relativeUri, resource.allUriParameters);
+    _addRaml2htmlProperties(
+      resource,
+      resource.parentUrl + resource.relativeUri,
+      resource.allUriParameters
+    );
   });
 
   return ramlObj;
@@ -61,7 +73,7 @@ function _expandRootTypes(types) {
     return types;
   }
 
-  Object.keys(types).forEach((key) => {
+  Object.keys(types).forEach(key => {
     tools.expandedForm(types[key], types, (err, expanded) => {
       if (expanded) {
         tools.canonicalForm(expanded, (err2, canonical) => {
@@ -132,7 +144,7 @@ function _sourceToRamlObj(source) {
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadApi(source, { rejectOnErrors: true }).then((result) => {
+      return raml.loadApi(source, { rejectOnErrors: true }).then(result => {
         if (result._node._universe._typedVersion === '0.8') {
           throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
         }
@@ -142,7 +154,11 @@ function _sourceToRamlObj(source) {
         }
 
         return new Promise((resolve, reject) => {
-          reject(new Error('_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'));
+          reject(
+            new Error(
+              '_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'
+            )
+          );
         });
       });
     }
@@ -152,16 +168,20 @@ function _sourceToRamlObj(source) {
     });
   } else if (typeof source === 'object') {
     // Parse RAML object directly
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       resolve(source);
     });
   }
 
   return new Promise((resolve, reject) => {
-    reject(new Error('_sourceToRamlObj: You must supply either file, url or object as source.'));
+    reject(
+      new Error(
+        '_sourceToRamlObj: You must supply either file, url or object as source.'
+      )
+    );
   });
 }
 
-module.exports.parse = function (source) {
+module.exports.parse = function(source) {
   return _sourceToRamlObj(source).then(ramlObj => _enhanceRamlObj(ramlObj));
 };

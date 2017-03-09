@@ -9,13 +9,16 @@ describe('raml2obj', () => {
   describe('inheritance.raml', () => {
     let obj;
 
-    before((done) => {
-      raml2obj.parse('test/inheritance.raml').then((result) => {
-        obj = result;
-        done();
-      }, (error) => {
-        console.log('error', error);
-      });
+    before(done => {
+      raml2obj.parse('test/inheritance.raml').then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log('error', error);
+        }
+      );
     });
 
     it('should test the basic properties of the raml object', () => {
@@ -45,8 +48,14 @@ describe('raml2obj', () => {
     it('should test description of descendants', () => {
       const methods = obj.resources[0].methods;
 
-      assert.strictEqual(methods[0].body[0].description, 'An account which is password protected.');
-      assert.strictEqual(methods[1].body[0].description, 'An account which is password protected.');
+      assert.strictEqual(
+        methods[0].body[0].description,
+        'An account which is password protected.'
+      );
+      assert.strictEqual(
+        methods[1].body[0].description,
+        'An account which is password protected.'
+      );
     });
   });
 });

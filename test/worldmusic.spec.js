@@ -6,24 +6,30 @@ const raml2obj = require('..');
 const assert = require('assert');
 
 describe('raml2obj', () => {
-  describe('worldmusic.raml', function () {
+  describe('worldmusic.raml', function() {
     this.timeout(10000);
 
     let obj;
 
-    before((done) => {
-      raml2obj.parse('test/worldmusic.raml').then((result) => {
-        obj = result;
-        done();
-      }, (error) => {
-        console.log(JSON.stringify(error));
-      });
+    before(done => {
+      raml2obj.parse('test/worldmusic.raml').then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log(JSON.stringify(error));
+        }
+      );
     });
 
     it('should test the basic properties of the raml object', () => {
       assert.strictEqual(obj.title, 'World Music API');
       assert.strictEqual(obj.version, 'v1');
-      assert.strictEqual(obj.baseUri, 'http://{environment}.musicapi.com/{version}');
+      assert.strictEqual(
+        obj.baseUri,
+        'http://{environment}.musicapi.com/{version}'
+      );
       assert.strictEqual(obj.resources.length, 3); // /api, /entry, /songs
     });
 
@@ -33,7 +39,12 @@ describe('raml2obj', () => {
       assert.strictEqual(obj.baseUriParameters[0].name, 'environment');
       assert.strictEqual(obj.baseUriParameters[0].type, 'string');
       assert.strictEqual(obj.baseUriParameters[0].required, true);
-      assert.deepEqual(obj.baseUriParameters[0].enum, ['stg', 'dev', 'test', 'prod']);
+      assert.deepEqual(obj.baseUriParameters[0].enum, [
+        'stg',
+        'dev',
+        'test',
+        'prod',
+      ]);
 
       assert.strictEqual(obj.baseUriParameters[1].name, 'version');
       assert.strictEqual(obj.baseUriParameters[1].type, 'string');
@@ -48,7 +59,10 @@ describe('raml2obj', () => {
       const second = obj.documentation[1];
 
       assert.strictEqual(first.title, 'Getting Started');
-      assert.strictEqual(first.content, 'This is a getting started guide for the World Music API.\n');
+      assert.strictEqual(
+        first.content,
+        'This is a getting started guide for the World Music API.\n'
+      );
       assert.strictEqual(first.uniqueId, 'getting_started');
 
       assert.strictEqual(second.title, 'Legal');
@@ -99,7 +113,10 @@ describe('raml2obj', () => {
       assert.strictEqual(post.body[0].key, 'application/json');
       assert.strictEqual(post.body[0].type, 'object');
       assert.strictEqual(post.body[0].properties.length, 14);
-      assert.strictEqual(post.body[0].properties[4].examples[0].value, 'very well made');
+      assert.strictEqual(
+        post.body[0].properties[4].examples[0].value,
+        'very well made'
+      );
     });
 
     it('should test the /entry resource', () => {
@@ -130,7 +147,10 @@ describe('raml2obj', () => {
       assert.strictEqual(post.responses[0].body[0].name, 'AnotherEntry');
       assert.strictEqual(post.responses[0].body[0].key, 'application/json');
       assert.strictEqual(post.responses[0].body[0].type, 'json');
-      assert.strictEqual(post.responses[0].body[0].content.indexOf('{\n  "type": "array"'), 0);
+      assert.strictEqual(
+        post.responses[0].body[0].content.indexOf('{\n  "type": "array"'),
+        0
+      );
 
       const get = methods[1];
 
@@ -150,7 +170,10 @@ describe('raml2obj', () => {
 
       assert.strictEqual(resource.relativeUri, '/songs');
       assert.strictEqual(resource.displayName, 'Songs');
-      assert.strictEqual(resource.description, 'Access to all songs inside the music world library.');
+      assert.strictEqual(
+        resource.description,
+        'Access to all songs inside the music world library.'
+      );
       assert.strictEqual(resource.parentUrl, '');
       assert.strictEqual(resource.uniqueId, 'songs');
       assert.deepEqual(resource.securedBy, [{ schemeName: 'custom_scheme' }]);
@@ -215,7 +238,12 @@ describe('raml2obj', () => {
       assert.strictEqual(get.responses[0].body[0].examples.length, 2);
       assert.strictEqual(get.responses[0].body[0].type, 'object');
 
-      assert.strictEqual(get.responses[0].body[1].type.indexOf('<?xml version="1.0" encoding="UTF-8"?>'), 0);
+      assert.strictEqual(
+        get.responses[0].body[1].type.indexOf(
+          '<?xml version="1.0" encoding="UTF-8"?>'
+        ),
+        0
+      );
     });
   });
 });

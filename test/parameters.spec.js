@@ -9,13 +9,16 @@ describe('raml2obj', () => {
   describe('parameters.raml', () => {
     let obj;
 
-    before((done) => {
-      raml2obj.parse('test/parameters.raml').then((result) => {
-        obj = result;
-        done();
-      }, (error) => {
-        console.log('error', error);
-      });
+    before(done => {
+      raml2obj.parse('test/parameters.raml').then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log('error', error);
+        }
+      );
     });
 
     it('should test the basic properties of the raml object', () => {
@@ -39,10 +42,16 @@ describe('raml2obj', () => {
       assert.strictEqual(method.body.length, 1);
       assert.strictEqual(method.body[0].name, 'application/json');
       assert.strictEqual(method.body[0].type, 'object');
-      assert.strictEqual(method.body[0].examples[0].value, '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}');
+      assert.strictEqual(
+        method.body[0].examples[0].value,
+        '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}'
+      );
       assert.strictEqual(method.responses.length, 1);
       assert.strictEqual(method.responses[0].code, '200');
-      assert.strictEqual(method.responses[0].description, 'Account was created and user is now logged in');
+      assert.strictEqual(
+        method.responses[0].description,
+        'Account was created and user is now logged in'
+      );
     });
 
     it('should test the /account/find resource', () => {
@@ -63,9 +72,15 @@ describe('raml2obj', () => {
       assert.strictEqual(method.queryParameters[0].name, 'name');
       assert.strictEqual(method.queryParameters[0].displayName, 'name');
       assert.strictEqual(method.queryParameters[0].type, 'string');
-      assert.strictEqual(method.queryParameters[0].examples[0].value, 'Naruto Uzumaki');
+      assert.strictEqual(
+        method.queryParameters[0].examples[0].value,
+        'Naruto Uzumaki'
+      );
       assert.strictEqual(method.queryParameters[0].required, true);
-      assert.strictEqual(method.queryParameters[0].description, 'name on account');
+      assert.strictEqual(
+        method.queryParameters[0].description,
+        'name on account'
+      );
 
       assert.strictEqual(method.queryParameters[1].name, 'gender');
       assert.strictEqual(method.queryParameters[1].displayName, 'gender');
@@ -93,7 +108,10 @@ describe('raml2obj', () => {
       assert.strictEqual(resource.uriParameters[0].displayName, 'id');
       assert.strictEqual(resource.uriParameters[0].type, 'string');
       assert.strictEqual(resource.uriParameters[0].required, true);
-      assert.strictEqual(resource.uriParameters[0].description, 'account identifier');
+      assert.strictEqual(
+        resource.uriParameters[0].description,
+        'account identifier'
+      );
       assert.strictEqual(resource.uriParameters[0].minLength, 1);
       assert.strictEqual(resource.uriParameters[0].maxLength, 10);
 
@@ -108,9 +126,15 @@ describe('raml2obj', () => {
       assert.strictEqual(get.headers[0].name, 'Authorization');
       assert.strictEqual(get.headers[0].displayName, 'Authorization');
       assert.strictEqual(get.headers[0].type, 'string');
-      assert.strictEqual(get.headers[0].examples[0].value, 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n');
+      assert.strictEqual(
+        get.headers[0].examples[0].value,
+        'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==\n'
+      );
       assert.strictEqual(get.headers[0].required, true);
-      assert.strictEqual(get.headers[0].description, 'Basic authentication header');
+      assert.strictEqual(
+        get.headers[0].description,
+        'Basic authentication header'
+      );
 
       const put = resource.methods[1];
 
@@ -123,8 +147,14 @@ describe('raml2obj', () => {
       assert.strictEqual(put.body[0].properties.length, 2);
       assert.strictEqual(put.body[0].properties[0].name, 'name');
       assert.strictEqual(put.body[0].properties[0].examples.length, 2);
-      assert.strictEqual(put.body[0].properties[0].examples[0].value, 'Naruto Uzumaki');
-      assert.strictEqual(put.body[0].properties[0].examples[1].value, 'Kevin Renskers');
+      assert.strictEqual(
+        put.body[0].properties[0].examples[0].value,
+        'Naruto Uzumaki'
+      );
+      assert.strictEqual(
+        put.body[0].properties[0].examples[1].value,
+        'Kevin Renskers'
+      );
       assert.strictEqual(put.body[0].properties[1].name, 'gender');
     });
 
@@ -146,7 +176,10 @@ describe('raml2obj', () => {
       assert.strictEqual(get.responses.length, 1);
       assert.strictEqual(get.responses[0].headers.length, 1);
       assert.strictEqual(get.responses[0].headers[0].name, 'WWW-Authenticate');
-      assert.strictEqual(get.responses[0].headers[0].description, 'user was not authorized');
+      assert.strictEqual(
+        get.responses[0].headers[0].description,
+        'user was not authorized'
+      );
     });
   });
 });

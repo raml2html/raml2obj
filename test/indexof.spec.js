@@ -9,13 +9,16 @@ describe('raml2obj', () => {
   describe('indexof.raml', () => {
     let obj;
 
-    before((done) => {
-      raml2obj.parse('test/indexof.raml').then((result) => {
-        obj = result;
-        done();
-      }, (error) => {
-        console.log('error', error);
-      });
+    before(done => {
+      raml2obj.parse('test/indexof.raml').then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log('error', error);
+        }
+      );
     });
 
     it('should test the basic properties of the raml object', () => {
