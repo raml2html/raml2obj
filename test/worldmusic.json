@@ -467,9 +467,6 @@
                                     "maximum": 32,
                                     "format": "int32",
                                     "multipleOf": 2,
-                                    "fixedFacets": {
-                                        "format": "int32"
-                                    },
                                     "key": "propNumber"
                                 },
                                 {
@@ -482,9 +479,6 @@
                                     "maximum": 5,
                                     "format": "int8",
                                     "multipleOf": 1,
-                                    "fixedFacets": {
-                                        "format": "int8"
-                                    },
                                     "key": "propInteger"
                                 },
                                 {
@@ -518,17 +512,10 @@
                                     "type": "file",
                                     "required": true,
                                     "fileTypes": [
-                                        {},
-                                        {}
+                                        "image/jpeg",
+                                        "image/png"
                                     ],
                                     "maxLength": 307200,
-                                    "fixedFacets": {
-                                        "fileTypes": [
-                                            "image/jpeg",
-                                            "image/png"
-                                        ],
-                                        "maxLength": 307200
-                                    },
                                     "key": "userPicture"
                                 },
                                 {
@@ -905,6 +892,7 @@
                                             "name": "application/xml",
                                             "displayName": "application/xml",
                                             "typePropertyKind": "XML",
+                                            "schemaPath": "world-music-api/schemas/songs.xsd",
                                             "type": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n  elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n  <xs:element name=\"song\">\n    <xs:complexType>\n      <xs:sequence>\n        <xs:element name=\"title\" type=\"xs:string\" />\n        <xs:element name=\"artist\" type=\"xs:string\" />\n      </xs:sequence>\n    </xs:complexType>\n  </xs:element>\n</xs:schema>\n",
                                             "examples": [
                                                 {
@@ -1216,9 +1204,6 @@
                     "maximum": 32,
                     "format": "int32",
                     "multipleOf": 2,
-                    "fixedFacets": {
-                        "format": "int32"
-                    },
                     "key": "propNumber"
                 },
                 "propInteger": {
@@ -1231,9 +1216,6 @@
                     "maximum": 5,
                     "format": "int8",
                     "multipleOf": 1,
-                    "fixedFacets": {
-                        "format": "int8"
-                    },
                     "key": "propInteger"
                 },
                 "propBoolean": {
@@ -1267,17 +1249,10 @@
                     "type": "file",
                     "required": true,
                     "fileTypes": [
-                        {},
-                        {}
+                        "image/jpeg",
+                        "image/png"
                     ],
                     "maxLength": 307200,
-                    "fixedFacets": {
-                        "fileTypes": [
-                            "image/jpeg",
-                            "image/png"
-                        ],
-                        "maxLength": 307200
-                    },
                     "key": "userPicture"
                 },
                 "NilValue": {
