@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "datatype-expansion": "0.0.15",
-    "raml-1-parser": "1.1.18"
+    "raml-1-parser": "1.1.19"
   },
   "devDependencies": {
-    "eslint": "3.18.x",
+    "eslint": "3.19.x",
     "eslint-plugin-prettier": "2.0.x",
     "glob": "7.1.x",
     "mocha": "3.2.x",
-    "prettier": "0.22.x"
+    "prettier": "1.x"
   },
   "homepage": "https://github.com/raml2html/raml2obj",
   "keywords": [
