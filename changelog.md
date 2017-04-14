@@ -1,3 +1,6 @@
+5.2.1 - April 14, 2017
+- Updated third party dependencies
+
 5.2.0 - March 24, 2017
 - Updated raml-1-parser dependency
 
