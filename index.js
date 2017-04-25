@@ -140,27 +140,29 @@ function _enhanceRamlObj(ramlObj) {
   return ramlObj;
 }
 
-function _sourceToRamlObj(source) {
+function _sourceToRamlObj(source, validation) {
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-      return raml.loadApi(source, { rejectOnErrors: true }).then(result => {
-        if (result._node._universe._typedVersion === '0.8') {
-          throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
-        }
+      return raml
+        .loadApi(source, { rejectOnErrors: !!validation })
+        .then(result => {
+          if (result._node._universe._typedVersion === '0.8') {
+            throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
+          }
 
-        if (result.expand) {
-          return result.expand(true).toJSON({ serializeMetadata: false });
-        }
+          if (result.expand) {
+            return result.expand(true).toJSON({ serializeMetadata: false });
+          }
 
-        return new Promise((resolve, reject) => {
-          reject(
-            new Error(
-              '_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'
-            )
-          );
+          return new Promise((resolve, reject) => {
+            reject(
+              new Error(
+                '_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'
+              )
+            );
+          });
         });
-      });
     }
 
     return new Promise((resolve, reject) => {
@@ -182,6 +184,8 @@ function _sourceToRamlObj(source) {
   });
 }
 
-module.exports.parse = function(source) {
-  return _sourceToRamlObj(source).then(ramlObj => _enhanceRamlObj(ramlObj));
+module.exports.parse = function(source, validation) {
+  return _sourceToRamlObj(source, validation).then(ramlObj =>
+    _enhanceRamlObj(ramlObj)
+  );
 };
