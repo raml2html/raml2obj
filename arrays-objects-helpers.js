@@ -36,15 +36,12 @@ function _objectToArray(obj) {
 // EXAMPLE OUTPUT:
 // { foo: { ... }, bar: { ... } }
 function _arrayToObject(arr) {
-  return arr.reduce(
-    (acc, cur) => {
-      Object.keys(cur).forEach(key => {
-        acc[key] = cur[key];
-      });
-      return acc;
-    },
-    {}
-  );
+  return arr.reduce((acc, cur) => {
+    Object.keys(cur).forEach(key => {
+      acc[key] = cur[key];
+    });
+    return acc;
+  }, {});
 }
 
 // PUBLIC

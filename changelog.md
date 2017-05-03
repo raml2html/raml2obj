@@ -1,3 +1,6 @@
+5.4.0 - May 3, 2017
+- Updated third party dependencies
+
 5.3.0 - April 25, 2017
 - Updated third party dependencies
 - By default we're no longer using raml-1-parser's rejectOnErrors option since it's very slow (raml2html/raml2html#345)
