@@ -25,18 +25,8 @@ raml2obj.parse(source).then(function(ramlObj) {
 });
 ```
 
-
-## Contribute
-raml2obj is an open source project and your contribution is very much appreciated.
-
-1. Check for open issues or open a fresh issue to start a discussion around a feature idea or a bug.
-2. Fork the repository on Github and make your changes on the **develop** branch (or branch off of it).
-   Run `npm run lint` before committing to check for common problems and auto format all code.
-3. Add unit tests, run them with `npm run test`
-4. Send a pull request (with the develop branch as the target).
-
-A big thank you goes out to everyone who helped with the project, the [contributors](https://github.com/raml2html/raml2obj/graphs/contributors)
-and everyone who took the time to report issues and give feedback.
+## Questions & Support
+Do you have a question? Have you found a bug or would you like to request a feature? Please check out [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 
 ## License
