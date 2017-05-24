@@ -1,0 +1,30 @@
+#%RAML 1.0
+title: resource example
+
+types:
+    ResourceExampleType:
+        type: object
+        properties:
+            content: string
+        additionalProperties: false
+        examples:
+            typeExample1: { "content": "typeExample1" }
+            typeExample2: { "content": "typeExample2" }
+
+
+
+/example:
+    get:
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: ResourceExampleType
+            202:
+                body:
+                    application/json:
+                        type: ResourceExampleType
+                        examples:
+                            resourceExample1:  { "content": "resourceExample1" }
+                            resourceExample2:  { "content": "resourceExample2" }
+
