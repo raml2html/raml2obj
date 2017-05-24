@@ -27,7 +27,7 @@ function makeConsistent(obj, types) {
         }
 
         if (examples) {
-            mergedObj.examples = examples;
+          mergedObj.examples = examples;
         }
 
         Object.assign(obj, mergedObj);
