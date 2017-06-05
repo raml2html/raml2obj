@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "author": {
     "name": "Kevin Renskers",
     "email": "info@mixedcase.nl"
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "datatype-expansion": "0.0.15",
-    "raml-1-parser": "1.1.21"
+    "raml-1-parser": "1.1.23"
   },
   "devDependencies": {
     "eslint": "3.19.x",
