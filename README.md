@@ -18,11 +18,18 @@ npm i raml2obj --save
 ```js
 var raml2obj = require('raml2obj');
 
+// async api
+
 // source can either be a filename, url, or parsed RAML object.
 // Returns a promise.
 raml2obj.parse(source).then(function(ramlObj) {
   // Do something with the resulting ramlObj :)
 });
+
+// sync api
+
+const ramlObj = raml2obj.parseSync(source)
+// Do something with the resulting ramlObj :)
 ```
 
 ## Questions & Support
