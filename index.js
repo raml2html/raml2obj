@@ -184,8 +184,44 @@ function _sourceToRamlObj(source, validation) {
   });
 }
 
+function _sourceToRamlObjSync(source, validation) {
+  if (typeof source === 'string') {
+    if (fs.existsSync(source) || source.indexOf('http') === 0) {
+      // Parse as file or url
+      const result = raml.loadApiSync(source, { rejectOnErrors: !!validation });
+
+      if (result._node._universe._typedVersion === '0.8') {
+        throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
+      }
+
+      if (result.expand) {
+        return result.expand(true).toJSON({ serializeMetadata: false });
+      }
+
+      throw new Error(
+        '_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'
+      );
+    }
+
+    throw new Error('_sourceToRamlObj: source does not exist.');
+  } else if (typeof source === 'object') {
+    // Parse RAML object directly
+    return source;
+  }
+
+  throw new Error(
+    '_sourceToRamlObj: You must supply either file, url or object as source.'
+  );
+}
+
 module.exports.parse = function(source, validation) {
   return _sourceToRamlObj(source, validation).then(ramlObj =>
     _enhanceRamlObj(ramlObj)
   );
+};
+
+module.exports.parseSync = function(source, validation) {
+  let ramlObj = _sourceToRamlObjSync(source, validation);
+  ramlObj = _enhanceRamlObj(ramlObj);
+  return ramlObj;
 };
