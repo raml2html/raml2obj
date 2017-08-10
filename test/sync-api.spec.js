@@ -11,7 +11,7 @@ describe('raml2obj', () => {
 
     before(() => {
       try {
-        obj = raml2obj.parse('test/helloworld.raml');
+        obj = raml2obj.parseSync('test/helloworld.raml');
       } catch (error) {
         console.log('error', error);
       }
