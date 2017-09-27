@@ -1,3 +1,6 @@
+5.6.0 - September 27, 2017
+- Updated raml-1-parser
+
 5.5.0 - June 5, 2017
 - Prefer taking examples from higher level items instead of types (#41)
 - Update raml-1-parser dependency

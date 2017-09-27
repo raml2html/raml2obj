@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "datatype-expansion": "0.0.15",
-    "raml-1-parser": "1.1.23"
+    "raml-1-parser": "1.1.31"
   },
   "devDependencies": {
     "eslint": "3.19.x",
