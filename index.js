@@ -74,15 +74,14 @@ function _expandRootTypes(types) {
   }
 
   Object.keys(types).forEach(key => {
-    tools.expandedForm(types[key], types, (err, expanded) => {
-      if (expanded) {
-        tools.canonicalForm(expanded, (err2, canonical) => {
-          if (canonical) {
-            types[key] = canonical;
-          }
-        });
-      }
-    });
+    try {
+      const expanded = tools.expandedForm(types[key], types);
+      const canonical = tools.canonicalForm(expanded);
+      types[key] = canonical;
+    } catch (err) {
+      // Dump the error to stderr and continue with the non-canonical form
+      console.error(err);
+    }
   });
 
   return types;

@@ -111,12 +111,41 @@ describe('raml2obj', () => {
       assert.strictEqual(post.body.length, 1);
       assert.strictEqual(post.body[0].name, 'RamlDataType');
       assert.strictEqual(post.body[0].key, 'application/json');
-      assert.strictEqual(post.body[0].type, 'object');
-      assert.strictEqual(post.body[0].properties.length, 14);
+      assert.strictEqual(post.body[0].type, 'union');
+      assert.strictEqual(post.body[0].anyOf.length, 4);
+      assert.strictEqual(post.body[0].anyOf[0].properties.length, 14);
       assert.strictEqual(
-        post.body[0].properties[4].examples[0].value,
+        post.body[0].anyOf[0].properties[4].examples[0].value,
         'very well made'
       );
+      assert.strictEqual(post.body[0].anyOf[0].properties[10].key, 'NilValue');
+      assert.strictEqual(
+        post.body[0].anyOf[0].properties[10].properties[1].type,
+        'string'
+      );
+      assert.strictEqual(post.body[0].anyOf[0].properties[11].key, 'CatOrDog');
+      assert.strictEqual(post.body[0].anyOf[0].properties[11].name, 'Cat');
+      assert.strictEqual(post.body[0].anyOf[1].properties[10].key, 'NilValue');
+      assert.strictEqual(
+        post.body[0].anyOf[1].properties[10].properties[1].type,
+        'nil'
+      );
+      assert.strictEqual(post.body[0].anyOf[1].properties[11].key, 'CatOrDog');
+      assert.strictEqual(post.body[0].anyOf[1].properties[11].name, 'Cat');
+      assert.strictEqual(post.body[0].anyOf[2].properties[10].key, 'NilValue');
+      assert.strictEqual(
+        post.body[0].anyOf[2].properties[10].properties[1].type,
+        'string'
+      );
+      assert.strictEqual(post.body[0].anyOf[2].properties[11].key, 'CatOrDog');
+      assert.strictEqual(post.body[0].anyOf[2].properties[11].name, 'Dog');
+      assert.strictEqual(post.body[0].anyOf[3].properties[10].key, 'NilValue');
+      assert.strictEqual(
+        post.body[0].anyOf[3].properties[10].properties[1].type,
+        'nil'
+      );
+      assert.strictEqual(post.body[0].anyOf[3].properties[11].key, 'CatOrDog');
+      assert.strictEqual(post.body[0].anyOf[3].properties[11].name, 'Dog');
     });
 
     it('should test the /entry resource', () => {
