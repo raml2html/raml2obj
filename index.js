@@ -80,7 +80,9 @@ function _expandRootTypes(types) {
       types[key] = canonical;
     } catch (err) {
       // Dump the error to stderr and continue with the non-canonical form
-      console.error(err);
+      console.error(
+        'Warning: Unable to canonicalize type "' + key + '": ' + err.message
+      );
     }
   });
 
