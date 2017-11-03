@@ -1,3 +1,7 @@
+5.7.0 - November 3, 2017
+- Updated datatype-expansion dependency to 0.2.4
+- Updated raml-1-parser to 1.1.36
+
 5.6.0 - September 27, 2017
 - Updated raml-1-parser
 
