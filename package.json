@@ -10,7 +10,7 @@
     "url": "https://github.com/raml2html/raml2obj/issues"
   },
   "dependencies": {
-    "datatype-expansion": "0.2.4",
+    "datatype-expansion": "0.2.6",
     "raml-1-parser": "1.1.31"
   },
   "devDependencies": {
