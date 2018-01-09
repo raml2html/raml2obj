@@ -1,3 +1,6 @@
+5.9.0 - January 9, 2018
+- Updated raml-1-parser to 1.1.36, plus devDependencies like eslint, prettier, and mocha
+
 5.8.0 - December 6, 2017
 - Updated datatype-expansion dependency to 0.2.6
 
