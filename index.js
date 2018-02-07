@@ -107,12 +107,9 @@ function _enhanceRamlObj(ramlObj) {
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
   // we get the full graph.
-  // Delete the types from the ramlObj so it's not processed again later on.
   const types = makeExamplesAndTypesConsistent(_expandRootTypes(ramlObj.types));
+  // Delete the types from the ramlObj so it's not processed again later on.
   delete ramlObj.types;
-
-  // Recursibely go over the entire object and make all examples and types consistent.
-  ramlObj = makeExamplesAndTypesConsistent(ramlObj, types);
 
   // Other structures (like `responses`) are an object that hold other wrapped objects.
   // Flatten this to simple (non-wrapped) objects in an array instead,

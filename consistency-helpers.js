@@ -2,42 +2,8 @@ function _isObject(obj) {
   return obj === Object(obj);
 }
 
-function makeConsistent(obj, types) {
+function makeConsistent(obj) {
   if (_isObject(obj)) {
-    if (obj.type) {
-      if (Array.isArray(obj.type)) {
-        obj.type = obj.type[0];
-      }
-
-      if (
-        obj.type === 'array' &&
-        Array.isArray(obj.items) &&
-        obj.items.length === 1
-      ) {
-        obj.items = obj.items[0];
-      }
-
-      if (types && types[obj.type]) {
-        const examples = obj.examples;
-        const mergedObj = Object.assign({}, obj, types[obj.type]);
-
-        // Every exception of inheritance should be deleted from mergedObj
-        if (obj.description && types[obj.type].description) {
-          delete mergedObj.description;
-        }
-
-        if (examples) {
-          mergedObj.examples = examples;
-        }
-
-        Object.assign(obj, mergedObj);
-      }
-    }
-
-    if (obj.items && types && types[obj.items]) {
-      obj.items = types[obj.items];
-    }
-
     if (obj.structuredExample) {
       if (typeof obj.examples === 'undefined') {
         obj.examples = [];
@@ -103,14 +69,9 @@ function makeConsistent(obj, types) {
       });
     }
 
-    Object.keys(obj).forEach(key => {
-      const value = obj[key];
-      makeConsistent(value, types);
-    });
+    Object.keys(obj).forEach(key => makeConsistent(obj[key]));
   } else if (Array.isArray(obj)) {
-    obj.forEach(value => {
-      makeConsistent(value, types);
-    });
+    obj.forEach(makeConsistent);
   }
 
   return obj;
