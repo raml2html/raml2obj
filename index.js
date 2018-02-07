@@ -75,10 +75,14 @@ function _expandRootTypes(types) {
 
   Object.keys(types).forEach(key => {
     try {
-      const expanded = tools.expandedForm(types[key], types, {
+      const original = types[key];
+      const expanded = tools.expandedForm(original, types, {
         trackOriginalType: true,
       });
       const canonical = tools.canonicalForm(expanded, { hoistUnions: false });
+      // Save a reference to the type as defined in the RAML, so we can differentiate between declared
+      // and inherited facets, particularly annotations.
+      canonical.rawType = original;
       types[key] = canonical;
     } catch (err) {
       // Dump the error to stderr and continue with the non-canonical form
