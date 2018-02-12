@@ -120,6 +120,9 @@ function _enhanceRamlObj(ramlObj, options) {
   // Delete the types from the ramlObj so it's not processed again later on.
   delete ramlObj.types;
 
+  // Recursively go over the entire object and make all examples and types consistent.
+  ramlObj = makeExamplesAndTypesConsistent(ramlObj, types);
+
   // Other structures (like `responses`) are an object that hold other wrapped objects.
   // Flatten this to simple (non-wrapped) objects in an array instead,
   // this makes it easy to loop over them in raml2html / raml2md.
