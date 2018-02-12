@@ -4,6 +4,7 @@ function _isObject(obj) {
 
 function makeConsistent(obj, types) {
   if (_isObject(obj)) {
+    const ignoredKeys = { rawType: true };
     if (obj.type) {
       if (Array.isArray(obj.type)) {
         obj.type = obj.type[0];
@@ -31,11 +32,13 @@ function makeConsistent(obj, types) {
         }
 
         Object.assign(obj, mergedObj);
+        ignoredKeys.type = true;
       }
     }
 
     if (obj.items && types && types[obj.items]) {
       obj.items = types[obj.items];
+      ignoredKeys.items = true;
     }
 
     if (obj.structuredExample) {
@@ -104,8 +107,10 @@ function makeConsistent(obj, types) {
     }
 
     Object.keys(obj).forEach(key => {
-      const value = obj[key];
-      makeConsistent(value, types);
+      // Don't recurse into types, which have already been canonicalized.
+      if (!(key in ignoredKeys)) {
+        makeConsistent(obj[key], types);
+      }
     });
   } else if (Array.isArray(obj)) {
     obj.forEach(value => {
