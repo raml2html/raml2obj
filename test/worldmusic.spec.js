@@ -276,7 +276,7 @@ describe('raml2obj', () => {
     });
   });
 
-  describe('worldmusic.raml', function() {
+  describe('worldmusic.raml without union hoisting', function() {
     this.timeout(10000);
 
     let obj;
