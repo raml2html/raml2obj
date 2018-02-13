@@ -275,4 +275,89 @@ describe('raml2obj', () => {
       );
     });
   });
+
+  describe('worldmusic.raml', function() {
+    this.timeout(10000);
+
+    let obj;
+
+    before(done => {
+      raml2obj.parse('test/worldmusic.raml', { hoistUnions: false }).then(
+        result => {
+          obj = result;
+          done();
+        },
+        error => {
+          console.log(JSON.stringify(error));
+        }
+      );
+    });
+
+    it('should test the /api methods', () => {
+      const methods = obj.resources[0].methods;
+
+      assert.strictEqual(methods.length, 2);
+
+      const get = methods[0];
+
+      assert.strictEqual(get.method, 'get');
+      assert.strictEqual(get.allUriParameters.length, 0);
+      assert.deepEqual(get.securedBy, [{ schemeName: 'custom_scheme' }]);
+
+      assert.strictEqual(get.queryString.name, 'queryString');
+      assert.strictEqual(get.queryString.type, 'object');
+      assert.strictEqual(get.queryString.properties.length, 2);
+      assert.strictEqual(get.queryString.properties[0].name, 'start');
+      assert.strictEqual(get.queryString.properties[0].required, false);
+      assert.strictEqual(get.queryString.properties[0].type, 'number');
+
+      assert.strictEqual(get.queryString.properties[1].name, 'page-size');
+      assert.strictEqual(get.queryString.properties[1].required, false);
+      assert.strictEqual(get.queryString.properties[1].type, 'number');
+
+      const post = methods[1];
+
+      assert.strictEqual(post.method, 'post');
+      assert.strictEqual(post.allUriParameters.length, 0);
+      assert.deepEqual(post.securedBy, [{ schemeName: 'custom_scheme' }]);
+      assert.strictEqual(post.body.length, 1);
+      assert.strictEqual(post.body[0].name, 'RamlDataType');
+      assert.strictEqual(post.body[0].key, 'application/json');
+      assert.strictEqual(post.body[0].type, 'object');
+      assert.strictEqual(post.body[0].properties.length, 14);
+      assert.strictEqual(
+        post.body[0].properties[4].examples[0].value,
+        'very well made'
+      );
+      assert.strictEqual(post.body[0].properties[10].key, 'NilValue');
+      assert.strictEqual(
+        post.body[0].properties[10].properties[1].name,
+        'comment'
+      );
+      assert.strictEqual(
+        post.body[0].properties[10].properties[1].type,
+        'union'
+      );
+      assert.strictEqual(
+        post.body[0].properties[10].properties[1].anyOf[0].type,
+        'string'
+      );
+      assert.strictEqual(
+        post.body[0].properties[10].properties[1].anyOf[1].type,
+        'nil'
+      );
+      assert.strictEqual(post.body[0].properties[11].key, 'CatOrDog');
+      assert.strictEqual(post.body[0].properties[11].type, 'union');
+      assert.strictEqual(post.body[0].properties[11].anyOf[0].type, 'object');
+      assert.strictEqual(
+        post.body[0].properties[11].anyOf[0].originalType,
+        'ApiLib.Cat'
+      );
+      assert.strictEqual(post.body[0].properties[11].anyOf[1].type, 'object');
+      assert.strictEqual(
+        post.body[0].properties[11].anyOf[1].originalType,
+        'ApiLib.Dog'
+      );
+    });
+  });
 });
