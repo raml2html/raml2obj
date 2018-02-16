@@ -68,21 +68,18 @@ function _addRaml2htmlProperties(ramlObj, parentUrl, allUriParameters) {
 }
 
 // This uses the datatype-expansion library to expand all the root type to their canonical expanded form
-function _expandRootTypes(types, options) {
+function _expandRootTypes(types) {
   if (!types) {
     return types;
   }
 
-  // Defaults to true for compatibility with existing themes
-  const hoistUnions =
-    typeof options !== 'object' || options.hoistUnions !== false;
   Object.keys(types).forEach(key => {
     try {
       const original = types[key];
       const expanded = tools.expandedForm(original, types, {
         trackOriginalType: true,
       });
-      const canonical = tools.canonicalForm(expanded, { hoistUnions });
+      const canonical = tools.canonicalForm(expanded, { hoistUnions: false });
       // Save a reference to the type as defined in the RAML, so we can differentiate between declared
       // and inherited facets, particularly annotations.
       canonical.rawType = original;
@@ -98,7 +95,7 @@ function _expandRootTypes(types, options) {
   return types;
 }
 
-function _enhanceRamlObj(ramlObj, options) {
+function _enhanceRamlObj(ramlObj) {
   // Some of the structures (like `types`) are an array that hold key/value pairs, which is very annoying to work with.
   // Let's make them into a simple object, this makes it easy to use them for direct lookups.
   //
@@ -114,9 +111,7 @@ function _enhanceRamlObj(ramlObj, options) {
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
   // we get the full graph.
-  const types = makeExamplesAndTypesConsistent(
-    _expandRootTypes(ramlObj.types, options)
-  );
+  const types = makeExamplesAndTypesConsistent(_expandRootTypes(ramlObj.types));
   // Delete the types from the ramlObj so it's not processed again later on.
   delete ramlObj.types;
 
@@ -202,6 +197,6 @@ function _sourceToRamlObj(source, options = {}) {
 
 module.exports.parse = function(source, options) {
   return _sourceToRamlObj(source, options).then(ramlObj =>
-    _enhanceRamlObj(ramlObj, options)
+    _enhanceRamlObj(ramlObj)
   );
 };
