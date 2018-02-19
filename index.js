@@ -75,8 +75,14 @@ function _expandRootTypes(types) {
 
   Object.keys(types).forEach(key => {
     try {
-      const expanded = tools.expandedForm(types[key], types);
-      const canonical = tools.canonicalForm(expanded);
+      const original = types[key];
+      const expanded = tools.expandedForm(original, types, {
+        trackOriginalType: true,
+      });
+      const canonical = tools.canonicalForm(expanded, { hoistUnions: false });
+      // Save a reference to the type as defined in the RAML, so we can differentiate between declared
+      // and inherited facets, particularly annotations.
+      canonical.rawType = original;
       types[key] = canonical;
     } catch (err) {
       // Dump the error to stderr and continue with the non-canonical form
@@ -105,11 +111,11 @@ function _enhanceRamlObj(ramlObj) {
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
   // we get the full graph.
-  // Delete the types from the ramlObj so it's not processed again later on.
   const types = makeExamplesAndTypesConsistent(_expandRootTypes(ramlObj.types));
+  // Delete the types from the ramlObj so it's not processed again later on.
   delete ramlObj.types;
 
-  // Recursibely go over the entire object and make all examples and types consistent.
+  // Recursively go over the entire object and make all examples and types consistent.
   ramlObj = makeExamplesAndTypesConsistent(ramlObj, types);
 
   // Other structures (like `responses`) are an object that hold other wrapped objects.
@@ -141,12 +147,16 @@ function _enhanceRamlObj(ramlObj) {
   return ramlObj;
 }
 
-function _sourceToRamlObj(source, validation) {
+function _sourceToRamlObj(source, options = {}) {
+  // "options" was originally a validation flag
+  if (typeof options === 'boolean') {
+    options = { validate: options };
+  }
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
       return raml
-        .loadApi(source, { rejectOnErrors: !!validation })
+        .loadApi(source, { rejectOnErrors: !!options.validate })
         .then(result => {
           if (result._node._universe._typedVersion === '0.8') {
             throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
@@ -185,8 +195,8 @@ function _sourceToRamlObj(source, validation) {
   });
 }
 
-module.exports.parse = function(source, validation) {
-  return _sourceToRamlObj(source, validation).then(ramlObj =>
+module.exports.parse = function(source, options) {
+  return _sourceToRamlObj(source, options).then(ramlObj =>
     _enhanceRamlObj(ramlObj)
   );
 };
