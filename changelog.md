@@ -1,3 +1,8 @@
+6.0.0 - February 19, 2018
+- Updated datatype-expansion to 0.3.x, which fixes invalid hoisting of unions outside of array items, as well as several other issues
+- Enabled tracking of original type in datatype-expansion, so that themes can reference base types
+- Tracking rawType of canonicalized types, so that themes can distinguish between declared annotations and inherited annotations
+
 5.9.0 - January 9, 2018
 - Updated raml-1-parser to 1.1.36, plus devDependencies like eslint, prettier, and mocha
 
