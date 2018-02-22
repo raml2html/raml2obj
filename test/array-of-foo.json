@@ -34,21 +34,51 @@
                                     "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "array",
                                     "items": {
-                                        "additionalProperties": true,
                                         "type": "object",
-                                        "displayName": "Foo",
-                                        "name": "Foo",
-                                        "typePropertyKind": "TYPE_EXPRESSION",
                                         "properties": [
                                             {
                                                 "type": "string",
-                                                "displayName": "id",
                                                 "name": "id",
+                                                "displayName": "id",
                                                 "typePropertyKind": "TYPE_EXPRESSION",
                                                 "required": true,
                                                 "key": "id"
                                             }
-                                        ]
+                                        ],
+                                        "name": "Foo",
+                                        "displayName": "Foo",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "additionalProperties": true,
+                                        "rawType": {
+                                            "name": "Foo",
+                                            "displayName": "Foo",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "type": [
+                                                "object"
+                                            ],
+                                            "properties": [
+                                                {
+                                                    "name": "id",
+                                                    "displayName": "id",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "type": [
+                                                        "string"
+                                                    ],
+                                                    "required": true,
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        },
+                                        "originalType": "Foo"
+                                    },
+                                    "rawType": {
+                                        "name": "Foos",
+                                        "displayName": "Foos",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "array"
+                                        ],
+                                        "items": "Foo"
                                     },
                                     "key": "application/json"
                                 }
@@ -73,22 +103,44 @@
                                     "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "array",
                                     "items": {
-                                        "additionalProperties": true,
                                         "type": "object",
-                                        "displayName": "Foo",
-                                        "name": "Foo",
-                                        "typePropertyKind": "TYPE_EXPRESSION",
                                         "properties": [
                                             {
                                                 "type": "string",
-                                                "displayName": "id",
                                                 "name": "id",
+                                                "displayName": "id",
                                                 "typePropertyKind": "TYPE_EXPRESSION",
                                                 "required": true,
                                                 "key": "id"
                                             }
-                                        ]
+                                        ],
+                                        "name": "Foo",
+                                        "displayName": "Foo",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "additionalProperties": true,
+                                        "rawType": {
+                                            "name": "Foo",
+                                            "displayName": "Foo",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "type": [
+                                                "object"
+                                            ],
+                                            "properties": [
+                                                {
+                                                    "name": "id",
+                                                    "displayName": "id",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "type": [
+                                                        "string"
+                                                    ],
+                                                    "required": true,
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
                                     },
+                                    "minItems": 1,
+                                    "maxItems": 200,
                                     "key": "application/json"
                                 }
                             ],
@@ -115,28 +167,94 @@
     ],
     "types": {
         "Foo": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "Foo",
-            "name": "Foo",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": [
                 {
                     "type": "string",
-                    "displayName": "id",
                     "name": "id",
+                    "displayName": "id",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "key": "id"
                 }
-            ]
+            ],
+            "name": "Foo",
+            "displayName": "Foo",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "Foo",
+                "displayName": "Foo",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "properties": [
+                    {
+                        "name": "id",
+                        "displayName": "id",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "id"
+                    }
+                ]
+            }
         },
         "Foos": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": [
+                    {
+                        "type": "string",
+                        "name": "id",
+                        "displayName": "id",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "required": true,
+                        "key": "id"
+                    }
+                ],
+                "name": "Foo",
+                "displayName": "Foo",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "additionalProperties": true,
+                "rawType": {
+                    "name": "Foo",
+                    "displayName": "Foo",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": [
+                        "object"
+                    ],
+                    "properties": [
+                        {
+                            "name": "id",
+                            "displayName": "id",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": [
+                                "string"
+                            ],
+                            "required": true,
+                            "key": "id"
+                        }
+                    ]
+                },
+                "originalType": "Foo"
+            },
             "name": "Foos",
             "displayName": "Foos",
             "typePropertyKind": "TYPE_EXPRESSION",
-            "type": "array",
-            "items": "Foo"
+            "rawType": {
+                "name": "Foos",
+                "displayName": "Foos",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "array"
+                ],
+                "items": "Foo"
+            }
         }
     }
 }

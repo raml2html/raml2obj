@@ -13,7 +13,16 @@
                                     "displayName": "HasFullExamples",
                                     "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "object",
-                                    "additionalProperties": true,
+                                    "properties": [
+                                        {
+                                            "type": "string",
+                                            "name": "SomeField",
+                                            "displayName": "SomeField",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "SomeField"
+                                        }
+                                    ],
                                     "examples": [
                                         {
                                             "value": "{\n  \"SomeField\": \"Uno\"\n}",
@@ -36,16 +45,49 @@
                                             }
                                         }
                                     ],
-                                    "properties": [
-                                        {
-                                            "type": "string",
-                                            "displayName": "SomeField",
-                                            "name": "SomeField",
-                                            "typePropertyKind": "TYPE_EXPRESSION",
-                                            "required": true,
-                                            "key": "SomeField"
-                                        }
-                                    ],
+                                    "additionalProperties": true,
+                                    "rawType": {
+                                        "name": "HasFullExamples",
+                                        "displayName": "HasFullExamples",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "examples": [
+                                            {
+                                                "value": "{\n  \"SomeField\": \"Uno\"\n}",
+                                                "strict": true,
+                                                "name": "firstExample",
+                                                "displayName": "First Example!",
+                                                "description": "It's the first example",
+                                                "structuredValue": {
+                                                    "SomeField": "Uno"
+                                                }
+                                            },
+                                            {
+                                                "value": "{\n  \"SomeField\": \"Duo\"\n}",
+                                                "strict": true,
+                                                "name": "secondExample",
+                                                "displayName": "Second Example!",
+                                                "description": "It's the second example",
+                                                "structuredValue": {
+                                                    "SomeField": "Duo"
+                                                }
+                                            }
+                                        ],
+                                        "properties": [
+                                            {
+                                                "name": "SomeField",
+                                                "displayName": "SomeField",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "SomeField"
+                                            }
+                                        ]
+                                    },
                                     "key": "application/json"
                                 }
                             ],
@@ -78,21 +120,53 @@
                                     "displayName": "HasJsonExample",
                                     "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "object",
-                                    "additionalProperties": true,
                                     "properties": [
                                         {
                                             "type": "string",
-                                            "displayName": "TestField",
                                             "name": "TestField",
+                                            "displayName": "TestField",
                                             "typePropertyKind": "TYPE_EXPRESSION",
                                             "required": true,
                                             "key": "TestField"
                                         }
                                     ],
+                                    "additionalProperties": true,
+                                    "rawType": {
+                                        "name": "HasJsonExample",
+                                        "displayName": "HasJsonExample",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "example": {
+                                            "TestField": "This example is defined in JSON."
+                                        },
+                                        "properties": [
+                                            {
+                                                "name": "TestField",
+                                                "displayName": "TestField",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "TestField"
+                                            }
+                                        ],
+                                        "structuredExample": {
+                                            "value": "{\n    \"TestField\": \"This example is defined in JSON.\"\n}\n",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": {
+                                                "TestField": "This example is defined in JSON."
+                                            }
+                                        }
+                                    },
                                     "examples": [
                                         {
                                             "value": "{\n    \"TestField\": \"This example is defined in JSON.\"\n}\n",
                                             "strict": true,
+                                            "name": null,
                                             "structuredValue": {
                                                 "TestField": "This example is defined in JSON."
                                             }
@@ -346,37 +420,38 @@
                                     "displayName": "NestedExample",
                                     "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "object",
-                                    "additionalProperties": true,
                                     "properties": [
                                         {
+                                            "type": "object",
                                             "properties": [
                                                 {
                                                     "type": "number",
-                                                    "displayName": "HereIsANumber",
                                                     "name": "HereIsANumber",
+                                                    "displayName": "HereIsANumber",
                                                     "typePropertyKind": "TYPE_EXPRESSION",
                                                     "required": true,
                                                     "key": "HereIsANumber"
                                                 },
                                                 {
                                                     "type": "string",
-                                                    "displayName": "HereIsAString",
                                                     "name": "HereIsAString",
+                                                    "displayName": "HereIsAString",
                                                     "typePropertyKind": "TYPE_EXPRESSION",
                                                     "required": true,
                                                     "key": "HereIsAString"
                                                 }
                                             ],
-                                            "additionalProperties": true,
-                                            "displayName": "ChildObject",
                                             "name": "ChildObject",
-                                            "type": "object",
+                                            "displayName": "ChildObject",
                                             "typePropertyKind": "TYPE_EXPRESSION",
+                                            "additionalProperties": true,
+                                            "originalType": "Nestee",
                                             "required": true,
                                             "examples": [
                                                 {
                                                     "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
                                                     "strict": true,
+                                                    "name": null,
                                                     "displayName": "Sneaky nested example",
                                                     "description": "It's sneaky!",
                                                     "structuredValue": {
@@ -389,20 +464,59 @@
                                         },
                                         {
                                             "type": "string",
-                                            "displayName": "Message",
                                             "name": "Message",
+                                            "displayName": "Message",
                                             "typePropertyKind": "TYPE_EXPRESSION",
                                             "required": true,
                                             "examples": [
                                                 {
                                                     "value": "I'm layered, bro",
                                                     "strict": true,
+                                                    "name": null,
                                                     "structuredValue": "I'm layered, bro"
                                                 }
                                             ],
                                             "key": "Message"
                                         }
                                     ],
+                                    "additionalProperties": true,
+                                    "rawType": {
+                                        "name": "NestedExample",
+                                        "displayName": "NestedExample",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "properties": [
+                                            {
+                                                "name": "ChildObject",
+                                                "displayName": "ChildObject",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "Nestee"
+                                                ],
+                                                "required": true,
+                                                "key": "ChildObject"
+                                            },
+                                            {
+                                                "name": "Message",
+                                                "displayName": "Message",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "example": "I'm layered, bro",
+                                                "required": true,
+                                                "structuredExample": {
+                                                    "value": "I'm layered, bro",
+                                                    "strict": true,
+                                                    "name": null,
+                                                    "structuredValue": "I'm layered, bro"
+                                                },
+                                                "key": "Message"
+                                            }
+                                        ]
+                                    },
                                     "key": "application/json"
                                 }
                             ],
@@ -426,10 +540,20 @@
     ],
     "types": {
         "HasFullExamples": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "HasFullExamples",
+            "properties": {
+                "SomeField": {
+                    "type": "string",
+                    "name": "SomeField",
+                    "displayName": "SomeField",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "SomeField"
+                }
+            },
             "name": "HasFullExamples",
+            "displayName": "HasFullExamples",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "examples": [
                 {
                     "value": "{\n  \"SomeField\": \"Uno\"\n}",
@@ -452,38 +576,102 @@
                     }
                 }
             ],
-            "typePropertyKind": "TYPE_EXPRESSION",
-            "properties": {
-                "SomeField": {
-                    "type": "string",
-                    "displayName": "SomeField",
-                    "name": "SomeField",
-                    "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "SomeField"
-                }
+            "additionalProperties": true,
+            "rawType": {
+                "name": "HasFullExamples",
+                "displayName": "HasFullExamples",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "examples": [
+                    {
+                        "value": "{\n  \"SomeField\": \"Uno\"\n}",
+                        "strict": true,
+                        "name": "firstExample",
+                        "displayName": "First Example!",
+                        "description": "It's the first example",
+                        "structuredValue": {
+                            "SomeField": "Uno"
+                        }
+                    },
+                    {
+                        "value": "{\n  \"SomeField\": \"Duo\"\n}",
+                        "strict": true,
+                        "name": "secondExample",
+                        "displayName": "Second Example!",
+                        "description": "It's the second example",
+                        "structuredValue": {
+                            "SomeField": "Duo"
+                        }
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "SomeField",
+                        "displayName": "SomeField",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "SomeField"
+                    }
+                ]
             }
         },
         "HasJsonExample": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "HasJsonExample",
-            "name": "HasJsonExample",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "TestField": {
                     "type": "string",
-                    "displayName": "TestField",
                     "name": "TestField",
+                    "displayName": "TestField",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "key": "TestField"
+                }
+            },
+            "name": "HasJsonExample",
+            "displayName": "HasJsonExample",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "HasJsonExample",
+                "displayName": "HasJsonExample",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "example": {
+                    "TestField": "This example is defined in JSON."
+                },
+                "properties": [
+                    {
+                        "name": "TestField",
+                        "displayName": "TestField",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "TestField"
+                    }
+                ],
+                "structuredExample": {
+                    "value": "{\n    \"TestField\": \"This example is defined in JSON.\"\n}\n",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": {
+                        "TestField": "This example is defined in JSON."
+                    }
                 }
             },
             "examples": [
                 {
                     "value": "{\n    \"TestField\": \"This example is defined in JSON.\"\n}\n",
                     "strict": true,
+                    "name": null,
                     "structuredValue": {
                         "TestField": "This example is defined in JSON."
                     }
@@ -491,41 +679,39 @@
             ]
         },
         "NestedExample": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "NestedExample",
-            "name": "NestedExample",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "ChildObject": {
+                    "type": "object",
                     "properties": [
                         {
                             "type": "number",
-                            "displayName": "HereIsANumber",
                             "name": "HereIsANumber",
+                            "displayName": "HereIsANumber",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "required": true,
                             "key": "HereIsANumber"
                         },
                         {
                             "type": "string",
-                            "displayName": "HereIsAString",
                             "name": "HereIsAString",
+                            "displayName": "HereIsAString",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "required": true,
                             "key": "HereIsAString"
                         }
                     ],
-                    "additionalProperties": true,
-                    "displayName": "ChildObject",
                     "name": "ChildObject",
-                    "type": "object",
+                    "displayName": "ChildObject",
                     "typePropertyKind": "TYPE_EXPRESSION",
+                    "additionalProperties": true,
+                    "originalType": "Nestee",
                     "required": true,
                     "examples": [
                         {
                             "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
                             "strict": true,
+                            "name": null,
                             "displayName": "Sneaky nested example",
                             "description": "It's sneaky!",
                             "structuredValue": {
@@ -538,47 +724,133 @@
                 },
                 "Message": {
                     "type": "string",
-                    "displayName": "Message",
                     "name": "Message",
+                    "displayName": "Message",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "examples": [
                         {
                             "value": "I'm layered, bro",
                             "strict": true,
+                            "name": null,
                             "structuredValue": "I'm layered, bro"
                         }
                     ],
                     "key": "Message"
                 }
+            },
+            "name": "NestedExample",
+            "displayName": "NestedExample",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "NestedExample",
+                "displayName": "NestedExample",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "properties": [
+                    {
+                        "name": "ChildObject",
+                        "displayName": "ChildObject",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "Nestee"
+                        ],
+                        "required": true,
+                        "key": "ChildObject"
+                    },
+                    {
+                        "name": "Message",
+                        "displayName": "Message",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "I'm layered, bro",
+                        "required": true,
+                        "structuredExample": {
+                            "value": "I'm layered, bro",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "I'm layered, bro"
+                        },
+                        "key": "Message"
+                    }
+                ]
             }
         },
         "Nestee": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "Nestee",
-            "name": "Nestee",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "HereIsANumber": {
                     "type": "number",
-                    "displayName": "HereIsANumber",
                     "name": "HereIsANumber",
+                    "displayName": "HereIsANumber",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true
                 },
                 "HereIsAString": {
                     "type": "string",
-                    "displayName": "HereIsAString",
                     "name": "HereIsAString",
+                    "displayName": "HereIsAString",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true
+                }
+            },
+            "name": "Nestee",
+            "displayName": "Nestee",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "Nestee",
+                "displayName": "Nestee",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "example": {
+                    "HereIsANumber": 42,
+                    "HereIsAString": "Strange strong string"
+                },
+                "properties": {
+                    "HereIsANumber": {
+                        "name": "HereIsANumber",
+                        "displayName": "HereIsANumber",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "number"
+                        ],
+                        "required": true
+                    },
+                    "HereIsAString": {
+                        "name": "HereIsAString",
+                        "displayName": "HereIsAString",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    }
+                },
+                "structuredExample": {
+                    "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
+                    "strict": true,
+                    "name": null,
+                    "displayName": "Sneaky nested example",
+                    "description": "It's sneaky!",
+                    "structuredValue": {
+                        "HereIsANumber": 42,
+                        "HereIsAString": "Strange strong string"
+                    }
                 }
             },
             "examples": [
                 {
                     "value": "{\n  \"HereIsANumber\": 42,\n  \"HereIsAString\": \"Strange strong string\"\n}",
                     "strict": true,
+                    "name": null,
                     "displayName": "Sneaky nested example",
                     "description": "It's sneaky!",
                     "structuredValue": {

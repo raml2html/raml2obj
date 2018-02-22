@@ -86,36 +86,86 @@
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "type": "object",
                     "required": true,
-                    "additionalProperties": true,
                     "properties": [
                         {
                             "type": "string",
-                            "displayName": "firstname",
                             "name": "firstname",
+                            "displayName": "firstname",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "required": true,
                             "key": "firstname"
                         },
                         {
                             "type": "string",
-                            "displayName": "lastname",
                             "name": "lastname",
+                            "displayName": "lastname",
                             "typePropertyKind": "TYPE_EXPRESSION",
                             "required": false,
                             "examples": [
                                 {
                                     "value": "Doe",
                                     "strict": true,
+                                    "name": null,
                                     "structuredValue": "Doe"
                                 }
                             ],
                             "key": "lastname"
                         }
                     ],
+                    "additionalProperties": true,
+                    "rawType": {
+                        "name": "User",
+                        "displayName": "User",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "object"
+                        ],
+                        "example": {
+                            "firstname": "John"
+                        },
+                        "properties": [
+                            {
+                                "name": "firstname",
+                                "displayName": "firstname",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "required": true,
+                                "key": "firstname"
+                            },
+                            {
+                                "name": "lastname",
+                                "displayName": "lastname",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "example": "Doe",
+                                "required": false,
+                                "structuredExample": {
+                                    "value": "Doe",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "Doe"
+                                },
+                                "key": "lastname"
+                            }
+                        ],
+                        "structuredExample": {
+                            "value": "{\n  \"firstname\": \"John\"\n}",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": {
+                                "firstname": "John"
+                            }
+                        }
+                    },
                     "examples": [
                         {
                             "value": "{\n  \"firstname\": \"John\"\n}",
                             "strict": true,
+                            "name": null,
                             "structuredValue": {
                                 "firstname": "John"
                             }
@@ -364,84 +414,81 @@
                             "type": "object",
                             "properties": [
                                 {
+                                    "type": "string",
                                     "name": "propString",
                                     "displayName": "propString",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "string",
                                     "required": true,
                                     "key": "propString"
                                 },
                                 {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
                                     "name": "propStringArray1",
                                     "displayName": "propStringArray1",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "array",
                                     "required": true,
-                                    "items": "string",
                                     "key": "propStringArray1"
                                 },
                                 {
-                                    "name": "ideas",
-                                    "displayName": "ideas",
-                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "array",
-                                    "required": true,
                                     "items": {
-                                        "name": "items",
-                                        "displayName": "items",
-                                        "typePropertyKind": "TYPE_EXPRESSION",
                                         "type": "object",
                                         "properties": [
                                             {
+                                                "type": "string",
                                                 "name": "comment",
                                                 "displayName": "comment",
                                                 "typePropertyKind": "TYPE_EXPRESSION",
-                                                "type": "string",
                                                 "required": true,
                                                 "key": "comment"
                                             }
-                                        ]
+                                        ],
+                                        "name": "items",
+                                        "displayName": "items",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "additionalProperties": true
                                     },
+                                    "name": "ideas",
+                                    "displayName": "ideas",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
                                     "key": "ideas"
                                 },
                                 {
-                                    "name": "extIdeas",
-                                    "displayName": "extIdeas",
-                                    "typePropertyKind": "INPLACE",
-                                    "required": true,
+                                    "type": "object",
                                     "properties": [
                                         {
+                                            "type": "string",
+                                            "name": "comment",
+                                            "displayName": "comment",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "comment"
+                                        },
+                                        {
+                                            "type": "string",
                                             "name": "createdBy",
                                             "displayName": "createdBy",
                                             "typePropertyKind": "TYPE_EXPRESSION",
-                                            "type": "string",
                                             "required": true,
                                             "key": "createdBy"
                                         }
                                     ],
-                                    "type": {
-                                        "name": "type",
-                                        "displayName": "type",
-                                        "typePropertyKind": "TYPE_EXPRESSION",
-                                        "type": "object",
-                                        "properties": [
-                                            {
-                                                "name": "comment",
-                                                "displayName": "comment",
-                                                "typePropertyKind": "TYPE_EXPRESSION",
-                                                "type": "string",
-                                                "required": true,
-                                                "key": "comment"
-                                            }
-                                        ]
-                                    },
+                                    "name": "extIdeas",
+                                    "displayName": "extIdeas",
+                                    "typePropertyKind": "INPLACE",
+                                    "additionalProperties": true,
+                                    "required": true,
                                     "key": "extIdeas"
                                 },
                                 {
+                                    "type": "string",
                                     "name": "feedback",
                                     "displayName": "feedback",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "string",
                                     "default": "very nice",
                                     "required": true,
                                     "pattern": "[a-zA-Z\\s]*",
@@ -458,10 +505,10 @@
                                     "key": "feedback"
                                 },
                                 {
+                                    "type": "number",
                                     "name": "propNumber",
                                     "displayName": "propNumber",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "number",
                                     "required": true,
                                     "minimum": 0,
                                     "maximum": 32,
@@ -470,10 +517,10 @@
                                     "key": "propNumber"
                                 },
                                 {
+                                    "type": "integer",
                                     "name": "propInteger",
                                     "displayName": "propInteger",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "integer",
                                     "required": true,
                                     "minimum": 3,
                                     "maximum": 5,
@@ -482,18 +529,18 @@
                                     "key": "propInteger"
                                 },
                                 {
+                                    "type": "boolean",
                                     "name": "propBoolean",
                                     "displayName": "propBoolean",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "boolean",
                                     "required": true,
                                     "key": "propBoolean"
                                 },
                                 {
+                                    "type": "date-only",
                                     "name": "propDate",
                                     "displayName": "propDate",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "date-only",
                                     "required": true,
                                     "examples": [
                                         {
@@ -506,10 +553,10 @@
                                     "key": "propDate"
                                 },
                                 {
+                                    "type": "file",
                                     "name": "userPicture",
                                     "displayName": "userPicture",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "file",
                                     "required": true,
                                     "fileTypes": [
                                         "image/jpeg",
@@ -519,117 +566,427 @@
                                     "key": "userPicture"
                                 },
                                 {
-                                    "name": "NilValue",
-                                    "displayName": "NilValue",
-                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "object",
-                                    "required": true,
                                     "properties": [
                                         {
+                                            "type": "string",
                                             "name": "name",
                                             "displayName": "name",
                                             "typePropertyKind": "TYPE_EXPRESSION",
-                                            "type": "string",
                                             "required": true,
                                             "key": "name"
                                         },
                                         {
+                                            "type": "union",
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "nil"
+                                                }
+                                            ],
                                             "name": "comment",
                                             "displayName": "comment",
                                             "typePropertyKind": "TYPE_EXPRESSION",
-                                            "type": "string?",
                                             "required": true,
                                             "key": "comment"
                                         }
                                     ],
+                                    "name": "NilValue",
+                                    "displayName": "NilValue",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "additionalProperties": true,
                                     "key": "NilValue"
                                 },
                                 {
+                                    "anyOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": [
+                                                {
+                                                    "type": "string",
+                                                    "name": "name",
+                                                    "displayName": "name",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "name"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "name": "color",
+                                                    "displayName": "color",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "color"
+                                                }
+                                            ],
+                                            "name": "Cat",
+                                            "displayName": "Cat",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "additionalProperties": true,
+                                            "originalType": "ApiLib.Cat"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": [
+                                                {
+                                                    "type": "string",
+                                                    "name": "name",
+                                                    "displayName": "name",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "name"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "name": "fangs",
+                                                    "displayName": "fangs",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "fangs"
+                                                }
+                                            ],
+                                            "name": "Dog",
+                                            "displayName": "Dog",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "additionalProperties": true,
+                                            "originalType": "ApiLib.Dog"
+                                        }
+                                    ],
+                                    "type": "union",
                                     "name": "CatOrDog",
                                     "displayName": "CatOrDog",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "ApiLib.Cat | ApiLib.Dog",
                                     "required": true,
                                     "key": "CatOrDog"
                                 },
-                                [
-                                    {
-                                        "name": "Cat",
-                                        "displayName": "Cat",
-                                        "typePropertyKind": "TYPE_EXPRESSION",
-                                        "type": "object",
-                                        "required": true,
-                                        "additionalProperties": true,
-                                        "properties": [
-                                            {
-                                                "type": "string",
-                                                "displayName": "name",
-                                                "name": "name",
-                                                "typePropertyKind": "TYPE_EXPRESSION",
-                                                "required": true,
-                                                "key": "name"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "displayName": "color",
-                                                "name": "color",
-                                                "typePropertyKind": "TYPE_EXPRESSION",
-                                                "required": true,
-                                                "key": "color"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "name": "Dog",
-                                        "displayName": "Dog",
-                                        "typePropertyKind": "TYPE_EXPRESSION",
-                                        "type": "object",
-                                        "required": true,
-                                        "additionalProperties": true,
-                                        "properties": [
-                                            {
-                                                "type": "string",
-                                                "displayName": "name",
-                                                "name": "name",
-                                                "typePropertyKind": "TYPE_EXPRESSION",
-                                                "required": true,
-                                                "key": "name"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "displayName": "fangs",
-                                                "name": "fangs",
-                                                "typePropertyKind": "TYPE_EXPRESSION",
-                                                "required": true,
-                                                "key": "fangs"
-                                            }
-                                        ]
-                                    }
-                                ],
                                 {
-                                    "name": "CustomDate",
-                                    "displayName": "CustomDate",
+                                    "type": "object",
+                                    "properties": [
+                                        {
+                                            "type": "string",
+                                            "name": "name",
+                                            "displayName": "name",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "name"
+                                        },
+                                        {
+                                            "type": "string",
+                                            "name": "fangs",
+                                            "displayName": "fangs",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "fangs"
+                                        },
+                                        {
+                                            "type": "string",
+                                            "name": "color",
+                                            "displayName": "color",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "color"
+                                        }
+                                    ],
+                                    "name": "CatAndDog",
+                                    "displayName": "CatAndDog",
                                     "typePropertyKind": "TYPE_EXPRESSION",
-                                    "type": "date-only",
+                                    "additionalProperties": true,
+                                    "originalType": "ApiLib.Cat",
                                     "required": true,
-                                    "fixedFacets": {
-                                        "noHolidays": true
-                                    },
+                                    "key": "CatAndDog"
+                                },
+                                {
+                                    "type": "date-only",
+                                    "name": "PossibleMeetingDate",
+                                    "displayName": "PossibleMeetingDate",
                                     "facets": {
                                         "onlyFutureDates": {
+                                            "name": "onlyFutureDates",
+                                            "displayName": "onlyFutureDates",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": {
                                                 "type": "boolean"
                                             }
                                         },
                                         "noHolidays": {
+                                            "name": "noHolidays",
+                                            "displayName": "noHolidays",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": {
                                                 "type": "boolean"
                                             }
                                         }
                                     },
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "originalType": "ApiLib.CustomDate",
+                                    "required": true,
+                                    "fixedFacets": {
+                                        "noHolidays": true
+                                    },
                                     "key": "PossibleMeetingDate"
                                 }
                             ],
+                            "additionalProperties": true,
+                            "rawType": {
+                                "name": "RamlDataType",
+                                "displayName": "RamlDataType",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "object"
+                                ],
+                                "properties": [
+                                    {
+                                        "name": "propString",
+                                        "displayName": "propString",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "string"
+                                        ],
+                                        "required": true,
+                                        "key": "propString"
+                                    },
+                                    {
+                                        "name": "propStringArray1",
+                                        "displayName": "propStringArray1",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "array"
+                                        ],
+                                        "required": true,
+                                        "items": "string",
+                                        "key": "propStringArray1"
+                                    },
+                                    {
+                                        "name": "ideas",
+                                        "displayName": "ideas",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "array"
+                                        ],
+                                        "required": true,
+                                        "items": {
+                                            "name": "items",
+                                            "displayName": "items",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "type": [
+                                                "object"
+                                            ],
+                                            "properties": [
+                                                {
+                                                    "name": "comment",
+                                                    "displayName": "comment",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "type": [
+                                                        "string"
+                                                    ],
+                                                    "required": true,
+                                                    "key": "comment"
+                                                }
+                                            ]
+                                        },
+                                        "key": "ideas"
+                                    },
+                                    {
+                                        "name": "extIdeas",
+                                        "displayName": "extIdeas",
+                                        "typePropertyKind": "INPLACE",
+                                        "required": true,
+                                        "properties": [
+                                            {
+                                                "name": "createdBy",
+                                                "displayName": "createdBy",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "createdBy"
+                                            }
+                                        ],
+                                        "type": {
+                                            "name": "type",
+                                            "displayName": "type",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "type": [
+                                                "object"
+                                            ],
+                                            "properties": [
+                                                {
+                                                    "name": "comment",
+                                                    "displayName": "comment",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "type": [
+                                                        "string"
+                                                    ],
+                                                    "required": true,
+                                                    "key": "comment"
+                                                }
+                                            ]
+                                        },
+                                        "key": "extIdeas"
+                                    },
+                                    {
+                                        "name": "feedback",
+                                        "displayName": "feedback",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "string"
+                                        ],
+                                        "default": "very nice",
+                                        "example": "very well made",
+                                        "required": true,
+                                        "pattern": "[a-zA-Z\\s]*",
+                                        "minLength": 1,
+                                        "maxLength": 255,
+                                        "structuredExample": {
+                                            "value": "very well made",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": "very well made"
+                                        },
+                                        "key": "feedback"
+                                    },
+                                    {
+                                        "name": "propNumber",
+                                        "displayName": "propNumber",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "number"
+                                        ],
+                                        "required": true,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "format": "int32",
+                                        "multipleOf": 2,
+                                        "key": "propNumber"
+                                    },
+                                    {
+                                        "name": "propInteger",
+                                        "displayName": "propInteger",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "integer"
+                                        ],
+                                        "required": true,
+                                        "minimum": 3,
+                                        "maximum": 5,
+                                        "format": "int8",
+                                        "multipleOf": 1,
+                                        "key": "propInteger"
+                                    },
+                                    {
+                                        "name": "propBoolean",
+                                        "displayName": "propBoolean",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "boolean"
+                                        ],
+                                        "required": true,
+                                        "key": "propBoolean"
+                                    },
+                                    {
+                                        "name": "propDate",
+                                        "displayName": "propDate",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "date-only"
+                                        ],
+                                        "example": "2015-05-23",
+                                        "required": true,
+                                        "structuredExample": {
+                                            "value": "2015-05-23",
+                                            "strict": true,
+                                            "name": null,
+                                            "structuredValue": "2015-05-23"
+                                        },
+                                        "key": "propDate"
+                                    },
+                                    {
+                                        "name": "userPicture",
+                                        "displayName": "userPicture",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "file"
+                                        ],
+                                        "required": true,
+                                        "fileTypes": [
+                                            "image/jpeg",
+                                            "image/png"
+                                        ],
+                                        "maxLength": 307200,
+                                        "key": "userPicture"
+                                    },
+                                    {
+                                        "name": "NilValue",
+                                        "displayName": "NilValue",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "required": true,
+                                        "properties": [
+                                            {
+                                                "name": "name",
+                                                "displayName": "name",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "name"
+                                            },
+                                            {
+                                                "name": "comment",
+                                                "displayName": "comment",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string?"
+                                                ],
+                                                "required": true,
+                                                "key": "comment"
+                                            }
+                                        ],
+                                        "key": "NilValue"
+                                    },
+                                    {
+                                        "name": "CatOrDog",
+                                        "displayName": "CatOrDog",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "ApiLib.Cat | ApiLib.Dog"
+                                        ],
+                                        "required": true,
+                                        "key": "CatOrDog"
+                                    },
+                                    {
+                                        "name": "CatAndDog",
+                                        "displayName": "CatAndDog",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "ApiLib.Cat",
+                                            "ApiLib.Dog"
+                                        ],
+                                        "required": true,
+                                        "key": "CatAndDog"
+                                    },
+                                    {
+                                        "name": "PossibleMeetingDate",
+                                        "displayName": "PossibleMeetingDate",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "ApiLib.CustomDate"
+                                        ],
+                                        "required": true,
+                                        "fixedFacets": {
+                                            "noHolidays": true
+                                        },
+                                        "key": "PossibleMeetingDate"
+                                    }
+                                ]
+                            },
                             "key": "application/json"
                         }
                     ],
@@ -673,6 +1030,16 @@
                                     "typePropertyKind": "INPLACE",
                                     "type": "json",
                                     "content": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
+                                    "rawType": {
+                                        "name": "AnotherEntry",
+                                        "displayName": "AnotherEntry",
+                                        "typePropertyKind": "INPLACE",
+                                        "type": [
+                                            "Entry"
+                                        ],
+                                        "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
+                                    },
+                                    "originalType": "Entry",
                                     "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n",
                                     "key": "application/json"
                                 }
@@ -845,7 +1212,24 @@
                                             "displayName": "Song",
                                             "typePropertyKind": "TYPE_EXPRESSION",
                                             "type": "object",
-                                            "additionalProperties": true,
+                                            "properties": [
+                                                {
+                                                    "type": "string",
+                                                    "name": "title",
+                                                    "displayName": "title",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "title"
+                                                },
+                                                {
+                                                    "type": "number",
+                                                    "name": "length",
+                                                    "displayName": "length",
+                                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                                    "required": true,
+                                                    "key": "length"
+                                                }
+                                            ],
                                             "examples": [
                                                 {
                                                     "value": "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
@@ -868,24 +1252,57 @@
                                                     "displayName": "song2"
                                                 }
                                             ],
-                                            "properties": [
-                                                {
-                                                    "type": "string",
-                                                    "displayName": "title",
-                                                    "name": "title",
-                                                    "typePropertyKind": "TYPE_EXPRESSION",
-                                                    "required": true,
-                                                    "key": "title"
-                                                },
-                                                {
-                                                    "type": "number",
-                                                    "displayName": "length",
-                                                    "name": "length",
-                                                    "typePropertyKind": "TYPE_EXPRESSION",
-                                                    "required": true,
-                                                    "key": "length"
-                                                }
-                                            ],
+                                            "additionalProperties": true,
+                                            "rawType": {
+                                                "name": "Song",
+                                                "displayName": "Song",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "object"
+                                                ],
+                                                "examples": [
+                                                    {
+                                                        "value": "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
+                                                        "strict": false,
+                                                        "name": "song1",
+                                                        "structuredValue": {
+                                                            "title": "My Song",
+                                                            "length": 12
+                                                        }
+                                                    },
+                                                    {
+                                                        "value": "{\n  \"title\": \"Last\",\n  \"length\": 3\n}",
+                                                        "strict": true,
+                                                        "name": "song2",
+                                                        "structuredValue": {
+                                                            "title": "Last",
+                                                            "length": 3
+                                                        }
+                                                    }
+                                                ],
+                                                "properties": [
+                                                    {
+                                                        "name": "title",
+                                                        "displayName": "title",
+                                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                                        "type": [
+                                                            "string"
+                                                        ],
+                                                        "required": true,
+                                                        "key": "title"
+                                                    },
+                                                    {
+                                                        "name": "length",
+                                                        "displayName": "length",
+                                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                                        "type": [
+                                                            "number"
+                                                        ],
+                                                        "required": true,
+                                                        "key": "length"
+                                                    }
+                                                ]
+                                            },
                                             "key": "application/json"
                                         },
                                         {
@@ -995,99 +1412,222 @@
     },
     "types": {
         "Comment": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "Comment",
-            "name": "Comment",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "author": {
                     "type": "string",
-                    "displayName": "author",
                     "name": "author",
+                    "displayName": "author",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true
                 },
                 "body": {
                     "type": "string",
-                    "displayName": "body",
                     "name": "body",
+                    "displayName": "body",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true
                 },
                 "date": {
                     "type": "integer",
-                    "displayName": "date",
                     "name": "date",
+                    "displayName": "date",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true
                 },
                 "editAuthor": {
                     "type": "string",
-                    "displayName": "editAuthor",
                     "name": "editAuthor",
+                    "displayName": "editAuthor",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": false
                 },
                 "edited": {
                     "type": "integer",
-                    "displayName": "edited",
                     "name": "edited",
+                    "displayName": "edited",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": false
+                }
+            },
+            "name": "Comment",
+            "displayName": "Comment",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "Comment",
+                "displayName": "Comment",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "properties": {
+                    "author": {
+                        "name": "author",
+                        "displayName": "author",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    },
+                    "body": {
+                        "name": "body",
+                        "displayName": "body",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    },
+                    "date": {
+                        "name": "date",
+                        "displayName": "date",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "integer"
+                        ],
+                        "required": true
+                    },
+                    "editAuthor": {
+                        "name": "editAuthor",
+                        "displayName": "editAuthor",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": false
+                    },
+                    "edited": {
+                        "name": "edited",
+                        "displayName": "edited",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "integer"
+                        ],
+                        "required": false
+                    }
                 }
             }
         },
         "Entry": {
             "type": "json",
             "content": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
-            "displayName": "Entry",
             "name": "Entry",
-            "typePropertyKind": "JSON"
+            "displayName": "Entry",
+            "typePropertyKind": "JSON",
+            "rawType": {
+                "name": "Entry",
+                "displayName": "Entry",
+                "typePropertyKind": "JSON",
+                "type": [
+                    "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n"
+                ]
+            }
         },
         "AnotherEntry": {
             "type": "json",
             "content": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
-            "displayName": "AnotherEntry",
             "name": "AnotherEntry",
+            "displayName": "AnotherEntry",
             "typePropertyKind": "INPLACE",
+            "rawType": {
+                "name": "AnotherEntry",
+                "displayName": "AnotherEntry",
+                "typePropertyKind": "INPLACE",
+                "type": [
+                    "Entry"
+                ],
+                "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
+            },
+            "originalType": "Entry",
             "description": "This is just another entry to simulate that you can add facets also on JSON\nschema defined types. Although you can only add documentation-based facets.\n"
         },
         "User": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "User",
-            "name": "User",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "firstname": {
                     "type": "string",
-                    "displayName": "firstname",
                     "name": "firstname",
+                    "displayName": "firstname",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": true,
                     "key": "firstname"
                 },
                 "lastname": {
                     "type": "string",
-                    "displayName": "lastname",
                     "name": "lastname",
+                    "displayName": "lastname",
                     "typePropertyKind": "TYPE_EXPRESSION",
                     "required": false,
                     "examples": [
                         {
                             "value": "Doe",
                             "strict": true,
+                            "name": null,
                             "structuredValue": "Doe"
                         }
                     ],
                     "key": "lastname"
                 }
             },
+            "name": "User",
+            "displayName": "User",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "User",
+                "displayName": "User",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "example": {
+                    "firstname": "John"
+                },
+                "properties": [
+                    {
+                        "name": "firstname",
+                        "displayName": "firstname",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "firstname"
+                    },
+                    {
+                        "name": "lastname",
+                        "displayName": "lastname",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "Doe",
+                        "required": false,
+                        "structuredExample": {
+                            "value": "Doe",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "Doe"
+                        },
+                        "key": "lastname"
+                    }
+                ],
+                "structuredExample": {
+                    "value": "{\n  \"firstname\": \"John\"\n}",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": {
+                        "firstname": "John"
+                    }
+                }
+            },
             "examples": [
                 {
                     "value": "{\n  \"firstname\": \"John\"\n}",
                     "strict": true,
+                    "name": null,
                     "structuredValue": {
                         "firstname": "John"
                     }
@@ -1095,90 +1635,84 @@
             ]
         },
         "ApiLib.RamlDataType": {
-            "name": "RamlDataType",
-            "displayName": "RamlDataType",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "type": "object",
             "properties": {
                 "propString": {
+                    "type": "string",
                     "name": "propString",
                     "displayName": "propString",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "string",
                     "required": true,
                     "key": "propString"
                 },
                 "propStringArray1": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "name": "propStringArray1",
                     "displayName": "propStringArray1",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "array",
                     "required": true,
-                    "items": "string",
                     "key": "propStringArray1"
                 },
                 "ideas": {
-                    "name": "ideas",
-                    "displayName": "ideas",
-                    "typePropertyKind": "TYPE_EXPRESSION",
                     "type": "array",
-                    "required": true,
                     "items": {
-                        "name": "items",
-                        "displayName": "items",
-                        "typePropertyKind": "TYPE_EXPRESSION",
                         "type": "object",
                         "properties": [
                             {
+                                "type": "string",
                                 "name": "comment",
                                 "displayName": "comment",
                                 "typePropertyKind": "TYPE_EXPRESSION",
-                                "type": "string",
                                 "required": true,
                                 "key": "comment"
                             }
-                        ]
+                        ],
+                        "name": "items",
+                        "displayName": "items",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "additionalProperties": true
                     },
+                    "name": "ideas",
+                    "displayName": "ideas",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
                     "key": "ideas"
                 },
                 "extIdeas": {
-                    "name": "extIdeas",
-                    "displayName": "extIdeas",
-                    "typePropertyKind": "INPLACE",
-                    "required": true,
+                    "type": "object",
                     "properties": [
                         {
+                            "type": "string",
+                            "name": "comment",
+                            "displayName": "comment",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "required": true,
+                            "key": "comment"
+                        },
+                        {
+                            "type": "string",
                             "name": "createdBy",
                             "displayName": "createdBy",
                             "typePropertyKind": "TYPE_EXPRESSION",
-                            "type": "string",
                             "required": true,
                             "key": "createdBy"
                         }
                     ],
-                    "type": {
-                        "name": "type",
-                        "displayName": "type",
-                        "typePropertyKind": "TYPE_EXPRESSION",
-                        "type": "object",
-                        "properties": [
-                            {
-                                "name": "comment",
-                                "displayName": "comment",
-                                "typePropertyKind": "TYPE_EXPRESSION",
-                                "type": "string",
-                                "required": true,
-                                "key": "comment"
-                            }
-                        ]
-                    },
+                    "name": "extIdeas",
+                    "displayName": "extIdeas",
+                    "typePropertyKind": "INPLACE",
+                    "additionalProperties": true,
+                    "required": true,
                     "key": "extIdeas"
                 },
                 "feedback": {
+                    "type": "string",
                     "name": "feedback",
                     "displayName": "feedback",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "string",
                     "default": "very nice",
                     "required": true,
                     "pattern": "[a-zA-Z\\s]*",
@@ -1195,10 +1729,10 @@
                     "key": "feedback"
                 },
                 "propNumber": {
+                    "type": "number",
                     "name": "propNumber",
                     "displayName": "propNumber",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "number",
                     "required": true,
                     "minimum": 0,
                     "maximum": 32,
@@ -1207,10 +1741,10 @@
                     "key": "propNumber"
                 },
                 "propInteger": {
+                    "type": "integer",
                     "name": "propInteger",
                     "displayName": "propInteger",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "integer",
                     "required": true,
                     "minimum": 3,
                     "maximum": 5,
@@ -1219,18 +1753,18 @@
                     "key": "propInteger"
                 },
                 "propBoolean": {
+                    "type": "boolean",
                     "name": "propBoolean",
                     "displayName": "propBoolean",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "boolean",
                     "required": true,
                     "key": "propBoolean"
                 },
                 "propDate": {
+                    "type": "date-only",
                     "name": "propDate",
                     "displayName": "propDate",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "date-only",
                     "required": true,
                     "examples": [
                         {
@@ -1243,10 +1777,10 @@
                     "key": "propDate"
                 },
                 "userPicture": {
+                    "type": "file",
                     "name": "userPicture",
                     "displayName": "userPicture",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "file",
                     "required": true,
                     "fileTypes": [
                         "image/jpeg",
@@ -1256,191 +1790,606 @@
                     "key": "userPicture"
                 },
                 "NilValue": {
-                    "name": "NilValue",
-                    "displayName": "NilValue",
-                    "typePropertyKind": "TYPE_EXPRESSION",
                     "type": "object",
-                    "required": true,
                     "properties": [
                         {
+                            "type": "string",
                             "name": "name",
                             "displayName": "name",
                             "typePropertyKind": "TYPE_EXPRESSION",
-                            "type": "string",
                             "required": true,
                             "key": "name"
                         },
                         {
+                            "type": "union",
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "nil"
+                                }
+                            ],
                             "name": "comment",
                             "displayName": "comment",
                             "typePropertyKind": "TYPE_EXPRESSION",
-                            "type": "string?",
                             "required": true,
                             "key": "comment"
                         }
                     ],
+                    "name": "NilValue",
+                    "displayName": "NilValue",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "additionalProperties": true,
                     "key": "NilValue"
                 },
                 "CatOrDog": {
+                    "anyOf": [
+                        {
+                            "type": "object",
+                            "properties": [
+                                {
+                                    "type": "string",
+                                    "name": "name",
+                                    "displayName": "name",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "key": "name"
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "color",
+                                    "displayName": "color",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "key": "color"
+                                }
+                            ],
+                            "name": "Cat",
+                            "displayName": "Cat",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "additionalProperties": true,
+                            "originalType": "ApiLib.Cat"
+                        },
+                        {
+                            "type": "object",
+                            "properties": [
+                                {
+                                    "type": "string",
+                                    "name": "name",
+                                    "displayName": "name",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "key": "name"
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "fangs",
+                                    "displayName": "fangs",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "required": true,
+                                    "key": "fangs"
+                                }
+                            ],
+                            "name": "Dog",
+                            "displayName": "Dog",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "additionalProperties": true,
+                            "originalType": "ApiLib.Dog"
+                        }
+                    ],
+                    "type": "union",
                     "name": "CatOrDog",
                     "displayName": "CatOrDog",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "ApiLib.Cat | ApiLib.Dog",
                     "required": true,
                     "key": "CatOrDog"
                 },
-                "CatAndDog": [
-                    {
-                        "name": "Cat",
-                        "displayName": "Cat",
-                        "typePropertyKind": "TYPE_EXPRESSION",
-                        "type": "object",
-                        "required": true,
-                        "additionalProperties": true,
-                        "properties": [
-                            {
-                                "type": "string",
-                                "displayName": "name",
-                                "name": "name",
-                                "typePropertyKind": "TYPE_EXPRESSION",
-                                "required": true,
-                                "key": "name"
-                            },
-                            {
-                                "type": "string",
-                                "displayName": "color",
-                                "name": "color",
-                                "typePropertyKind": "TYPE_EXPRESSION",
-                                "required": true,
-                                "key": "color"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Dog",
-                        "displayName": "Dog",
-                        "typePropertyKind": "TYPE_EXPRESSION",
-                        "type": "object",
-                        "required": true,
-                        "additionalProperties": true,
-                        "properties": [
-                            {
-                                "type": "string",
-                                "displayName": "name",
-                                "name": "name",
-                                "typePropertyKind": "TYPE_EXPRESSION",
-                                "required": true,
-                                "key": "name"
-                            },
-                            {
-                                "type": "string",
-                                "displayName": "fangs",
-                                "name": "fangs",
-                                "typePropertyKind": "TYPE_EXPRESSION",
-                                "required": true,
-                                "key": "fangs"
-                            }
-                        ]
-                    }
-                ],
-                "PossibleMeetingDate": {
-                    "name": "CustomDate",
-                    "displayName": "CustomDate",
+                "CatAndDog": {
+                    "type": "object",
+                    "properties": [
+                        {
+                            "type": "string",
+                            "name": "name",
+                            "displayName": "name",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "required": true,
+                            "key": "name"
+                        },
+                        {
+                            "type": "string",
+                            "name": "fangs",
+                            "displayName": "fangs",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "required": true,
+                            "key": "fangs"
+                        },
+                        {
+                            "type": "string",
+                            "name": "color",
+                            "displayName": "color",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "required": true,
+                            "key": "color"
+                        }
+                    ],
+                    "name": "CatAndDog",
+                    "displayName": "CatAndDog",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "type": "date-only",
+                    "additionalProperties": true,
+                    "originalType": "ApiLib.Cat",
                     "required": true,
-                    "fixedFacets": {
-                        "noHolidays": true
-                    },
+                    "key": "CatAndDog"
+                },
+                "PossibleMeetingDate": {
+                    "type": "date-only",
+                    "name": "PossibleMeetingDate",
+                    "displayName": "PossibleMeetingDate",
                     "facets": {
                         "onlyFutureDates": {
+                            "name": "onlyFutureDates",
+                            "displayName": "onlyFutureDates",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": {
                                 "type": "boolean"
                             }
                         },
                         "noHolidays": {
+                            "name": "noHolidays",
+                            "displayName": "noHolidays",
+                            "typePropertyKind": "TYPE_EXPRESSION",
                             "type": {
                                 "type": "boolean"
                             }
                         }
                     },
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "originalType": "ApiLib.CustomDate",
+                    "required": true,
+                    "fixedFacets": {
+                        "noHolidays": true
+                    },
                     "key": "PossibleMeetingDate"
                 }
+            },
+            "name": "RamlDataType",
+            "displayName": "RamlDataType",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "RamlDataType",
+                "displayName": "RamlDataType",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "properties": [
+                    {
+                        "name": "propString",
+                        "displayName": "propString",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "propString"
+                    },
+                    {
+                        "name": "propStringArray1",
+                        "displayName": "propStringArray1",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "array"
+                        ],
+                        "required": true,
+                        "items": "string",
+                        "key": "propStringArray1"
+                    },
+                    {
+                        "name": "ideas",
+                        "displayName": "ideas",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "array"
+                        ],
+                        "required": true,
+                        "items": {
+                            "name": "items",
+                            "displayName": "items",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": [
+                                "object"
+                            ],
+                            "properties": [
+                                {
+                                    "name": "comment",
+                                    "displayName": "comment",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "key": "comment"
+                                }
+                            ]
+                        },
+                        "key": "ideas"
+                    },
+                    {
+                        "name": "extIdeas",
+                        "displayName": "extIdeas",
+                        "typePropertyKind": "INPLACE",
+                        "required": true,
+                        "properties": [
+                            {
+                                "name": "createdBy",
+                                "displayName": "createdBy",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "required": true,
+                                "key": "createdBy"
+                            }
+                        ],
+                        "type": {
+                            "name": "type",
+                            "displayName": "type",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": [
+                                "object"
+                            ],
+                            "properties": [
+                                {
+                                    "name": "comment",
+                                    "displayName": "comment",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": [
+                                        "string"
+                                    ],
+                                    "required": true,
+                                    "key": "comment"
+                                }
+                            ]
+                        },
+                        "key": "extIdeas"
+                    },
+                    {
+                        "name": "feedback",
+                        "displayName": "feedback",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "default": "very nice",
+                        "example": "very well made",
+                        "required": true,
+                        "pattern": "[a-zA-Z\\s]*",
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "structuredExample": {
+                            "value": "very well made",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "very well made"
+                        },
+                        "key": "feedback"
+                    },
+                    {
+                        "name": "propNumber",
+                        "displayName": "propNumber",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "number"
+                        ],
+                        "required": true,
+                        "minimum": 0,
+                        "maximum": 32,
+                        "format": "int32",
+                        "multipleOf": 2,
+                        "key": "propNumber"
+                    },
+                    {
+                        "name": "propInteger",
+                        "displayName": "propInteger",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "integer"
+                        ],
+                        "required": true,
+                        "minimum": 3,
+                        "maximum": 5,
+                        "format": "int8",
+                        "multipleOf": 1,
+                        "key": "propInteger"
+                    },
+                    {
+                        "name": "propBoolean",
+                        "displayName": "propBoolean",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "boolean"
+                        ],
+                        "required": true,
+                        "key": "propBoolean"
+                    },
+                    {
+                        "name": "propDate",
+                        "displayName": "propDate",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "date-only"
+                        ],
+                        "example": "2015-05-23",
+                        "required": true,
+                        "structuredExample": {
+                            "value": "2015-05-23",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "2015-05-23"
+                        },
+                        "key": "propDate"
+                    },
+                    {
+                        "name": "userPicture",
+                        "displayName": "userPicture",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "file"
+                        ],
+                        "required": true,
+                        "fileTypes": [
+                            "image/jpeg",
+                            "image/png"
+                        ],
+                        "maxLength": 307200,
+                        "key": "userPicture"
+                    },
+                    {
+                        "name": "NilValue",
+                        "displayName": "NilValue",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "object"
+                        ],
+                        "required": true,
+                        "properties": [
+                            {
+                                "name": "name",
+                                "displayName": "name",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "required": true,
+                                "key": "name"
+                            },
+                            {
+                                "name": "comment",
+                                "displayName": "comment",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string?"
+                                ],
+                                "required": true,
+                                "key": "comment"
+                            }
+                        ],
+                        "key": "NilValue"
+                    },
+                    {
+                        "name": "CatOrDog",
+                        "displayName": "CatOrDog",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "ApiLib.Cat | ApiLib.Dog"
+                        ],
+                        "required": true,
+                        "key": "CatOrDog"
+                    },
+                    {
+                        "name": "CatAndDog",
+                        "displayName": "CatAndDog",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "ApiLib.Cat",
+                            "ApiLib.Dog"
+                        ],
+                        "required": true,
+                        "key": "CatAndDog"
+                    },
+                    {
+                        "name": "PossibleMeetingDate",
+                        "displayName": "PossibleMeetingDate",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "ApiLib.CustomDate"
+                        ],
+                        "required": true,
+                        "fixedFacets": {
+                            "noHolidays": true
+                        },
+                        "key": "PossibleMeetingDate"
+                    }
+                ]
             }
         },
         "ApiLib.Cat": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "Cat",
-            "name": "Cat",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "name": {
                     "type": "string",
-                    "displayName": "name",
                     "name": "name",
+                    "displayName": "name",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "name"
+                    "required": true
                 },
                 "color": {
                     "type": "string",
-                    "displayName": "color",
                     "name": "color",
+                    "displayName": "color",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "color"
+                    "required": true
+                }
+            },
+            "name": "Cat",
+            "displayName": "Cat",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "Cat",
+                "displayName": "Cat",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "properties": {
+                    "name": {
+                        "name": "name",
+                        "displayName": "name",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    },
+                    "color": {
+                        "name": "color",
+                        "displayName": "color",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    }
                 }
             }
         },
         "ApiLib.Dog": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "Dog",
-            "name": "Dog",
-            "typePropertyKind": "TYPE_EXPRESSION",
             "properties": {
                 "name": {
                     "type": "string",
-                    "displayName": "name",
                     "name": "name",
+                    "displayName": "name",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "name"
+                    "required": true
                 },
                 "fangs": {
                     "type": "string",
-                    "displayName": "fangs",
                     "name": "fangs",
+                    "displayName": "fangs",
                     "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "fangs"
+                    "required": true
+                }
+            },
+            "name": "Dog",
+            "displayName": "Dog",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "additionalProperties": true,
+            "rawType": {
+                "name": "Dog",
+                "displayName": "Dog",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "properties": {
+                    "name": {
+                        "name": "name",
+                        "displayName": "name",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    },
+                    "fangs": {
+                        "name": "fangs",
+                        "displayName": "fangs",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    }
                 }
             }
         },
         "ApiLib.CustomDate": {
             "type": "date-only",
-            "displayName": "CustomDate",
             "name": "CustomDate",
+            "displayName": "CustomDate",
             "facets": {
                 "onlyFutureDates": {
+                    "name": "onlyFutureDates",
+                    "displayName": "onlyFutureDates",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "type": {
                         "type": "boolean"
                     }
                 },
                 "noHolidays": {
+                    "name": "noHolidays",
+                    "displayName": "noHolidays",
+                    "typePropertyKind": "TYPE_EXPRESSION",
                     "type": {
                         "type": "boolean"
                     }
                 }
             },
-            "typePropertyKind": "TYPE_EXPRESSION"
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "rawType": {
+                "name": "CustomDate",
+                "displayName": "CustomDate",
+                "facets": {
+                    "onlyFutureDates": {
+                        "name": "onlyFutureDates",
+                        "displayName": "onlyFutureDates",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "boolean"
+                        ]
+                    },
+                    "noHolidays": {
+                        "name": "noHolidays",
+                        "displayName": "noHolidays",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "boolean"
+                        ]
+                    }
+                },
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "date-only"
+                ]
+            }
         },
         "SongsLib.Song": {
-            "additionalProperties": true,
             "type": "object",
-            "displayName": "Song",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "name": "title",
+                    "displayName": "title",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "title"
+                },
+                "length": {
+                    "type": "number",
+                    "name": "length",
+                    "displayName": "length",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "length"
+                }
+            },
             "name": "Song",
+            "displayName": "Song",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "examples": [
                 {
                     "value": "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
@@ -1463,24 +2412,56 @@
                     "displayName": "song2"
                 }
             ],
-            "typePropertyKind": "TYPE_EXPRESSION",
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "displayName": "title",
-                    "name": "title",
-                    "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "title"
-                },
-                "length": {
-                    "type": "number",
-                    "displayName": "length",
-                    "name": "length",
-                    "typePropertyKind": "TYPE_EXPRESSION",
-                    "required": true,
-                    "key": "length"
-                }
+            "additionalProperties": true,
+            "rawType": {
+                "name": "Song",
+                "displayName": "Song",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "examples": [
+                    {
+                        "value": "{\n  \"title\": \"My Song\",\n  \"length\": 12\n}",
+                        "strict": false,
+                        "name": "song1",
+                        "structuredValue": {
+                            "title": "My Song",
+                            "length": 12
+                        }
+                    },
+                    {
+                        "value": "{\n  \"title\": \"Last\",\n  \"length\": 3\n}",
+                        "strict": true,
+                        "name": "song2",
+                        "structuredValue": {
+                            "title": "Last",
+                            "length": 3
+                        }
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "title",
+                        "displayName": "title",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "title"
+                    },
+                    {
+                        "name": "length",
+                        "displayName": "length",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "number"
+                        ],
+                        "required": true,
+                        "key": "length"
+                    }
+                ]
             }
         }
     }

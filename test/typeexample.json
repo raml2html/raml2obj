@@ -14,10 +14,27 @@
                             "type": "string",
                             "required": true,
                             "description": "A valid MongoDB object id.",
+                            "rawType": {
+                                "name": "objectid",
+                                "displayName": "objectid",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "example": "576bca8b70fddb149c4a9e92",
+                                "description": "A valid MongoDB object id.",
+                                "structuredExample": {
+                                    "value": "576bca8b70fddb149c4a9e92",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                                }
+                            },
                             "examples": [
                                 {
                                     "value": "576bca8b70fddb149c4a9e92",
                                     "strict": true,
+                                    "name": null,
                                     "structuredValue": "576bca8b70fddb149c4a9e92"
                                 }
                             ],
@@ -34,10 +51,27 @@
                     "type": "string",
                     "required": true,
                     "description": "A valid MongoDB object id.",
+                    "rawType": {
+                        "name": "objectid",
+                        "displayName": "objectid",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "576bca8b70fddb149c4a9e92",
+                        "description": "A valid MongoDB object id.",
+                        "structuredExample": {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    },
                     "examples": [
                         {
                             "value": "576bca8b70fddb149c4a9e92",
                             "strict": true,
+                            "name": null,
                             "structuredValue": "576bca8b70fddb149c4a9e92"
                         }
                     ],
@@ -60,10 +94,27 @@
                     "type": "string",
                     "required": true,
                     "description": "A valid MongoDB object id.",
+                    "rawType": {
+                        "name": "objectid",
+                        "displayName": "objectid",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "576bca8b70fddb149c4a9e92",
+                        "description": "A valid MongoDB object id.",
+                        "structuredExample": {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    },
                     "examples": [
                         {
                             "value": "576bca8b70fddb149c4a9e92",
                             "strict": true,
+                            "name": null,
                             "structuredValue": "576bca8b70fddb149c4a9e92"
                         }
                     ],
@@ -75,14 +126,31 @@
     "types": {
         "objectid": {
             "type": "string",
-            "description": "A valid MongoDB object id.",
-            "displayName": "objectid",
             "name": "objectid",
+            "displayName": "objectid",
             "typePropertyKind": "TYPE_EXPRESSION",
+            "description": "A valid MongoDB object id.",
+            "rawType": {
+                "name": "objectid",
+                "displayName": "objectid",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "string"
+                ],
+                "example": "576bca8b70fddb149c4a9e92",
+                "description": "A valid MongoDB object id.",
+                "structuredExample": {
+                    "value": "576bca8b70fddb149c4a9e92",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                }
+            },
             "examples": [
                 {
                     "value": "576bca8b70fddb149c4a9e92",
                     "strict": true,
+                    "name": null,
                     "structuredValue": "576bca8b70fddb149c4a9e92"
                 }
             ]

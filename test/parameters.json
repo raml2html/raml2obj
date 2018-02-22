@@ -246,7 +246,6 @@
                                                     "type": "string",
                                                     "required": true,
                                                     "description": "user was not authorized",
-                                                    "key": "WWW-Authenticate",
                                                     "examples": [
                                                         {
                                                             "value": "WWW-Authenticate: Basic realm=\"raml2html\"\n",
@@ -254,7 +253,8 @@
                                                             "name": null,
                                                             "structuredValue": "WWW-Authenticate: Basic realm=\"raml2html\"\n"
                                                         }
-                                                    ]
+                                                    ],
+                                                    "key": "WWW-Authenticate"
                                                 }
                                             ],
                                             "description": "Not authorized",
