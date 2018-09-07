@@ -155,7 +155,6 @@ function _sourceToRamlObj(source, options = {}) {
   if (typeof source === 'string') {
     if (fs.existsSync(source) || source.indexOf('http') === 0) {
       // Parse as file or url
-
       return raml
         .loadApi(source, options.extensionsAndOverlays || [], {
           rejectOnErrors: !!options.validate,
