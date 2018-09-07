@@ -8,6 +8,16 @@
             "key": "info"
         }
     ],
+    "uses": [
+        {
+            "key": "SongsLib",
+            "value": "world-music-api/libraries/songs-library.raml"
+        },
+        {
+            "key": "ApiLib",
+            "value": "world-music-api/libraries/api-library.raml"
+        }
+    ],
     "traits": {
         "secured": {
             "queryParameters": [
@@ -625,6 +635,7 @@
                                             "name": "Cat",
                                             "displayName": "Cat",
                                             "typePropertyKind": "TYPE_EXPRESSION",
+                                            "discriminatorValue": null,
                                             "additionalProperties": true,
                                             "originalType": "ApiLib.Cat"
                                         },
@@ -651,6 +662,7 @@
                                             "name": "Dog",
                                             "displayName": "Dog",
                                             "typePropertyKind": "TYPE_EXPRESSION",
+                                            "discriminatorValue": null,
                                             "additionalProperties": true,
                                             "originalType": "ApiLib.Dog"
                                         }
@@ -693,6 +705,7 @@
                                     "name": "CatAndDog",
                                     "displayName": "CatAndDog",
                                     "typePropertyKind": "TYPE_EXPRESSION",
+                                    "discriminatorValue": null,
                                     "additionalProperties": true,
                                     "originalType": "ApiLib.Cat",
                                     "required": true,
@@ -729,6 +742,7 @@
                                     "key": "PossibleMeetingDate"
                                 }
                             ],
+                            "discriminatorValue": null,
                             "additionalProperties": true,
                             "rawType": {
                                 "name": "RamlDataType",
@@ -793,19 +807,6 @@
                                         "name": "extIdeas",
                                         "displayName": "extIdeas",
                                         "typePropertyKind": "INPLACE",
-                                        "required": true,
-                                        "properties": [
-                                            {
-                                                "name": "createdBy",
-                                                "displayName": "createdBy",
-                                                "typePropertyKind": "TYPE_EXPRESSION",
-                                                "type": [
-                                                    "string"
-                                                ],
-                                                "required": true,
-                                                "key": "createdBy"
-                                            }
-                                        ],
                                         "type": {
                                             "name": "type",
                                             "displayName": "type",
@@ -826,6 +827,19 @@
                                                 }
                                             ]
                                         },
+                                        "required": true,
+                                        "properties": [
+                                            {
+                                                "name": "createdBy",
+                                                "displayName": "createdBy",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "createdBy"
+                                            }
+                                        ],
                                         "key": "extIdeas"
                                     },
                                     {
@@ -985,7 +999,8 @@
                                         },
                                         "key": "PossibleMeetingDate"
                                     }
-                                ]
+                                ],
+                                "discriminatorValue": null
                             },
                             "key": "application/json"
                         }
@@ -1027,13 +1042,13 @@
                                 {
                                     "name": "AnotherEntry",
                                     "displayName": "AnotherEntry",
-                                    "typePropertyKind": "INPLACE",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "type": "json",
                                     "content": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
                                     "rawType": {
                                         "name": "AnotherEntry",
                                         "displayName": "AnotherEntry",
-                                        "typePropertyKind": "INPLACE",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
                                         "type": [
                                             "Entry"
                                         ],
@@ -1066,6 +1081,7 @@
                                 {
                                     "name": "application/json",
                                     "displayName": "application/json",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
                                     "schema": [
                                         "Entry"
                                     ],
@@ -1252,6 +1268,7 @@
                                                     "displayName": "song2"
                                                 }
                                             ],
+                                            "discriminatorValue": null,
                                             "additionalProperties": true,
                                             "rawType": {
                                                 "name": "Song",
@@ -1301,7 +1318,8 @@
                                                         "required": true,
                                                         "key": "length"
                                                     }
-                                                ]
+                                                ],
+                                                "discriminatorValue": null
                                             },
                                             "key": "application/json"
                                         },
@@ -1530,11 +1548,11 @@
             "content": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/song\"\n  },\n  \"definitions\": {\n    \"song\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"artist\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
             "name": "AnotherEntry",
             "displayName": "AnotherEntry",
-            "typePropertyKind": "INPLACE",
+            "typePropertyKind": "TYPE_EXPRESSION",
             "rawType": {
                 "name": "AnotherEntry",
                 "displayName": "AnotherEntry",
-                "typePropertyKind": "INPLACE",
+                "typePropertyKind": "TYPE_EXPRESSION",
                 "type": [
                     "Entry"
                 ],
@@ -1849,6 +1867,7 @@
                             "name": "Cat",
                             "displayName": "Cat",
                             "typePropertyKind": "TYPE_EXPRESSION",
+                            "discriminatorValue": null,
                             "additionalProperties": true,
                             "originalType": "ApiLib.Cat"
                         },
@@ -1875,6 +1894,7 @@
                             "name": "Dog",
                             "displayName": "Dog",
                             "typePropertyKind": "TYPE_EXPRESSION",
+                            "discriminatorValue": null,
                             "additionalProperties": true,
                             "originalType": "ApiLib.Dog"
                         }
@@ -1917,6 +1937,7 @@
                     "name": "CatAndDog",
                     "displayName": "CatAndDog",
                     "typePropertyKind": "TYPE_EXPRESSION",
+                    "discriminatorValue": null,
                     "additionalProperties": true,
                     "originalType": "ApiLib.Cat",
                     "required": true,
@@ -1956,6 +1977,7 @@
             "name": "RamlDataType",
             "displayName": "RamlDataType",
             "typePropertyKind": "TYPE_EXPRESSION",
+            "discriminatorValue": null,
             "additionalProperties": true,
             "rawType": {
                 "name": "RamlDataType",
@@ -2020,19 +2042,6 @@
                         "name": "extIdeas",
                         "displayName": "extIdeas",
                         "typePropertyKind": "INPLACE",
-                        "required": true,
-                        "properties": [
-                            {
-                                "name": "createdBy",
-                                "displayName": "createdBy",
-                                "typePropertyKind": "TYPE_EXPRESSION",
-                                "type": [
-                                    "string"
-                                ],
-                                "required": true,
-                                "key": "createdBy"
-                            }
-                        ],
                         "type": {
                             "name": "type",
                             "displayName": "type",
@@ -2053,6 +2062,19 @@
                                 }
                             ]
                         },
+                        "required": true,
+                        "properties": [
+                            {
+                                "name": "createdBy",
+                                "displayName": "createdBy",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "required": true,
+                                "key": "createdBy"
+                            }
+                        ],
                         "key": "extIdeas"
                     },
                     {
@@ -2212,7 +2234,8 @@
                         },
                         "key": "PossibleMeetingDate"
                     }
-                ]
+                ],
+                "discriminatorValue": null
             }
         },
         "ApiLib.Cat": {
@@ -2236,6 +2259,7 @@
             "name": "Cat",
             "displayName": "Cat",
             "typePropertyKind": "TYPE_EXPRESSION",
+            "discriminatorValue": null,
             "additionalProperties": true,
             "rawType": {
                 "name": "Cat",
@@ -2263,7 +2287,8 @@
                         ],
                         "required": true
                     }
-                }
+                },
+                "discriminatorValue": null
             }
         },
         "ApiLib.Dog": {
@@ -2287,6 +2312,7 @@
             "name": "Dog",
             "displayName": "Dog",
             "typePropertyKind": "TYPE_EXPRESSION",
+            "discriminatorValue": null,
             "additionalProperties": true,
             "rawType": {
                 "name": "Dog",
@@ -2314,7 +2340,8 @@
                         ],
                         "required": true
                     }
-                }
+                },
+                "discriminatorValue": null
             }
         },
         "ApiLib.CustomDate": {
@@ -2412,6 +2439,7 @@
                     "displayName": "song2"
                 }
             ],
+            "discriminatorValue": null,
             "additionalProperties": true,
             "rawType": {
                 "name": "Song",
@@ -2461,7 +2489,8 @@
                         "required": true,
                         "key": "length"
                     }
-                ]
+                ],
+                "discriminatorValue": null
             }
         }
     }

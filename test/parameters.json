@@ -16,7 +16,7 @@
                             "name": "application/json",
                             "displayName": "application/json",
                             "typePropertyKind": "TYPE_EXPRESSION",
-                            "type": "object",
+                            "type": "any",
                             "examples": [
                                 {
                                     "value": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"super_secret\",\n  \"name\": \"John Doe\"\n}",
