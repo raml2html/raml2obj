@@ -41,7 +41,7 @@ describe('raml2obj', () => {
       assert.strictEqual(method.method, 'post');
       assert.strictEqual(method.body.length, 1);
       assert.strictEqual(method.body[0].name, 'application/json');
-      assert.strictEqual(method.body[0].type, 'object');
+      assert.strictEqual(method.body[0].type, 'any');
       assert.strictEqual(
         method.body[0].examples[0].value,
         '{\n  "email": "john@example.com",\n  "password": "super_secret",\n  "name": "John Doe"\n}'

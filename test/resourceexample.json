@@ -1,0 +1,268 @@
+{
+    "title": "resource example",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "responses": [
+                        {
+                            "code": "200",
+                            "body": [
+                                {
+                                    "name": "ResourceExampleType",
+                                    "displayName": "ResourceExampleType",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "object",
+                                    "properties": [
+                                        {
+                                            "type": "string",
+                                            "name": "content",
+                                            "displayName": "content",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "content"
+                                        }
+                                    ],
+                                    "examples": [
+                                        {
+                                            "value": "{\n  \"content\": \"typeExample1\"\n}",
+                                            "strict": true,
+                                            "name": "typeExample1",
+                                            "structuredValue": {
+                                                "content": "typeExample1"
+                                            },
+                                            "displayName": "typeExample1"
+                                        },
+                                        {
+                                            "value": "{\n  \"content\": \"typeExample2\"\n}",
+                                            "strict": true,
+                                            "name": "typeExample2",
+                                            "structuredValue": {
+                                                "content": "typeExample2"
+                                            },
+                                            "displayName": "typeExample2"
+                                        }
+                                    ],
+                                    "additionalProperties": false,
+                                    "rawType": {
+                                        "name": "ResourceExampleType",
+                                        "displayName": "ResourceExampleType",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "examples": [
+                                            {
+                                                "value": "{\n  \"content\": \"typeExample1\"\n}",
+                                                "strict": true,
+                                                "name": "typeExample1",
+                                                "structuredValue": {
+                                                    "content": "typeExample1"
+                                                }
+                                            },
+                                            {
+                                                "value": "{\n  \"content\": \"typeExample2\"\n}",
+                                                "strict": true,
+                                                "name": "typeExample2",
+                                                "structuredValue": {
+                                                    "content": "typeExample2"
+                                                }
+                                            }
+                                        ],
+                                        "properties": [
+                                            {
+                                                "name": "content",
+                                                "displayName": "content",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "content"
+                                            }
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    "key": "application/json"
+                                }
+                            ],
+                            "key": "200"
+                        },
+                        {
+                            "code": "202",
+                            "body": [
+                                {
+                                    "name": "ResourceExampleType",
+                                    "displayName": "ResourceExampleType",
+                                    "typePropertyKind": "TYPE_EXPRESSION",
+                                    "type": "object",
+                                    "examples": [
+                                        {
+                                            "value": "{\n  \"content\": \"resourceExample1\"\n}",
+                                            "strict": true,
+                                            "name": "resourceExample1",
+                                            "structuredValue": {
+                                                "content": "resourceExample1"
+                                            },
+                                            "displayName": "resourceExample1"
+                                        },
+                                        {
+                                            "value": "{\n  \"content\": \"resourceExample2\"\n}",
+                                            "strict": true,
+                                            "name": "resourceExample2",
+                                            "structuredValue": {
+                                                "content": "resourceExample2"
+                                            },
+                                            "displayName": "resourceExample2"
+                                        }
+                                    ],
+                                    "properties": [
+                                        {
+                                            "type": "string",
+                                            "name": "content",
+                                            "displayName": "content",
+                                            "typePropertyKind": "TYPE_EXPRESSION",
+                                            "required": true,
+                                            "key": "content"
+                                        }
+                                    ],
+                                    "additionalProperties": false,
+                                    "rawType": {
+                                        "name": "ResourceExampleType",
+                                        "displayName": "ResourceExampleType",
+                                        "typePropertyKind": "TYPE_EXPRESSION",
+                                        "type": [
+                                            "object"
+                                        ],
+                                        "examples": [
+                                            {
+                                                "value": "{\n  \"content\": \"typeExample1\"\n}",
+                                                "strict": true,
+                                                "name": "typeExample1",
+                                                "structuredValue": {
+                                                    "content": "typeExample1"
+                                                }
+                                            },
+                                            {
+                                                "value": "{\n  \"content\": \"typeExample2\"\n}",
+                                                "strict": true,
+                                                "name": "typeExample2",
+                                                "structuredValue": {
+                                                    "content": "typeExample2"
+                                                }
+                                            }
+                                        ],
+                                        "properties": [
+                                            {
+                                                "name": "content",
+                                                "displayName": "content",
+                                                "typePropertyKind": "TYPE_EXPRESSION",
+                                                "type": [
+                                                    "string"
+                                                ],
+                                                "required": true,
+                                                "key": "content"
+                                            }
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    "key": "application/json"
+                                }
+                            ],
+                            "key": "202"
+                        }
+                    ],
+                    "method": "get",
+                    "allUriParameters": []
+                }
+            ],
+            "relativeUri": "/example",
+            "displayName": "/example",
+            "relativeUriPathSegments": [
+                "example"
+            ],
+            "absoluteUri": "/example",
+            "parentUrl": "",
+            "uniqueId": "example",
+            "allUriParameters": []
+        }
+    ],
+    "types": {
+        "ResourceExampleType": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "name": "content",
+                    "displayName": "content",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "content"
+                }
+            },
+            "name": "ResourceExampleType",
+            "displayName": "ResourceExampleType",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "examples": [
+                {
+                    "value": "{\n  \"content\": \"typeExample1\"\n}",
+                    "strict": true,
+                    "name": "typeExample1",
+                    "structuredValue": {
+                        "content": "typeExample1"
+                    },
+                    "displayName": "typeExample1"
+                },
+                {
+                    "value": "{\n  \"content\": \"typeExample2\"\n}",
+                    "strict": true,
+                    "name": "typeExample2",
+                    "structuredValue": {
+                        "content": "typeExample2"
+                    },
+                    "displayName": "typeExample2"
+                }
+            ],
+            "additionalProperties": false,
+            "rawType": {
+                "name": "ResourceExampleType",
+                "displayName": "ResourceExampleType",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "examples": [
+                    {
+                        "value": "{\n  \"content\": \"typeExample1\"\n}",
+                        "strict": true,
+                        "name": "typeExample1",
+                        "structuredValue": {
+                            "content": "typeExample1"
+                        }
+                    },
+                    {
+                        "value": "{\n  \"content\": \"typeExample2\"\n}",
+                        "strict": true,
+                        "name": "typeExample2",
+                        "structuredValue": {
+                            "content": "typeExample2"
+                        }
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "content",
+                        "displayName": "content",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "content"
+                    }
+                ],
+                "additionalProperties": false
+            }
+        }
+    }
+}
