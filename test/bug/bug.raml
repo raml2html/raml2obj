@@ -1,0 +1,14 @@
+#%RAML 1.0
+---
+title: e-BookMobile API
+uses:
+    types: ./types.raml
+
+/analyses:
+    get:
+        description: Get all analyses
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: types.Analysis[]
