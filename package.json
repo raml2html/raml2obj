@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "datatype-expansion": "^0.3.4",
-    "raml-1-parser": "1.1.47"
+    "raml-1-parser": "1.1.47",
+    "raml-cli": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "5.x",
@@ -34,7 +35,8 @@
   "scripts": {
     "json": "node test/output-json.js",
     "lint": "eslint . --fix",
-    "test": "mocha 'test/*.spec.js' --reporter progress"
+    "test": "mocha 'test/*.spec.js' --reporter progress",
+    "validate": "raml validate ./test/bug/bug.raml"
   },
   "files": [
     "index.js",
