@@ -98,6 +98,7 @@ function makeConsistent(obj, types) {
 
     // Fix inconsistency between request headers and response headers from raml-1-parser.
     // https://github.com/raml-org/raml-js-parser-2/issues/582
+    // TODO this issue is fixed since 26 Sep 2017, i.e. v1.1.32, could be removed
     if (Array.isArray(obj.headers)) {
       obj.headers.forEach(hdr => {
         if (typeof hdr.key === 'undefined' && hdr.name) {
