@@ -97,9 +97,12 @@ function _expandRootTypes(types) {
 
 function _enhanceRamlObj(ramlObj, options) {
   // Override default options
-  options = Object.assign({
-    arraysTransform : "objects"
-  }, options)
+  options = Object.assign(
+    {
+      arraysTransform: 'objects',
+    },
+    options
+  );
 
   // Some of the structures (like `types`) are an array that hold key/value pairs, which is very annoying to work with.
   // Let's make them into a simple object, this makes it easy to use them for direct lookups.
@@ -112,9 +115,9 @@ function _enhanceRamlObj(ramlObj, options) {
   //
   // EXAMPLE of what we want:
   // { foo: { ... }, bar: { ... } }
-  if(options.arraysTransform == "objects"){
+  if (options.arraysTransform === 'objects') {
     ramlObj = helpers.arraysToObjects(ramlObj);
-  } else if (options.arraysTransform == "flatObject"){
+  } else if (options.arraysTransform === 'flatObject') {
     ramlObj = helpers.arraysToFlatObjects(ramlObj);
   }
 

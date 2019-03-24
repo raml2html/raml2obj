@@ -112,17 +112,14 @@ function arraysToFlatObjects(ramlObj) {
     'securitySchemes',
   ].forEach(key => {
     if (ramlObj[key]) {
-      ramlObj[key] = ramlObj[key].map(
-        obj => {
-          if(Object.keys(obj).length == 1) return obj[Object.keys(obj)[0]]
-        }
-      );
+      ramlObj[key] = ramlObj[key].map(obj => {
+        if (Object.keys(obj).length === 1) return obj[Object.keys(obj)[0]];
+      });
     }
   });
 
   return ramlObj;
 }
-
 
 module.exports = {
   arraysToObjects,

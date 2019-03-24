@@ -10,24 +10,26 @@ describe('raml2obj', () => {
     let obj;
 
     before(done => {
-      raml2obj.parse('test/typeexample.flatObject.raml', {
-        arraysTransform: "flatObject"
-      }).then(
-        result => {
-          obj = result;
-          done();
-        },
-        error => {
-          console.log('error', error);
-        }
-      );
+      raml2obj
+        .parse('test/typeexample.flatObject.raml', {
+          arraysTransform: 'flatObject',
+        })
+        .then(
+          result => {
+            obj = result;
+            done();
+          },
+          error => {
+            console.log('error', error);
+          }
+        );
     });
 
     it('should test the differing structure if the option "arraysToObjects" is set to "flatObject"', () => {
       assert.strictEqual(
         // check that it's really an array without keys
         Object.prototype.toString.call(obj.types),
-        "[object Array]"
+        '[object Array]'
       );
       assert.strictEqual(
         // check that it's really an Object
@@ -37,9 +39,8 @@ describe('raml2obj', () => {
       assert.strictEqual(
         // check that we can directly access the name (this is the actual difference the flag makes)
         obj.types[0].name,
-        "objectid"
+        'objectid'
       );
     });
-
   });
 });
