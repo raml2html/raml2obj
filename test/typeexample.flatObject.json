@@ -1,0 +1,159 @@
+{
+    "title": "Test",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "description": "bla",
+                    "method": "get",
+                    "allUriParameters": [
+                        {
+                            "name": "objectid",
+                            "displayName": "objectid",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "description": "A valid MongoDB object id.",
+                            "rawType": {
+                                "name": "objectid",
+                                "displayName": "objectid",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "example": "576bca8b70fddb149c4a9e92",
+                                "description": "A valid MongoDB object id.",
+                                "structuredExample": {
+                                    "value": "576bca8b70fddb149c4a9e92",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                                }
+                            },
+                            "examples": [
+                                {
+                                    "value": "576bca8b70fddb149c4a9e92",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                                }
+                            ],
+                            "key": "id"
+                        }
+                    ]
+                }
+            ],
+            "uriParameters": [
+                {
+                    "name": "objectid",
+                    "displayName": "objectid",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "description": "A valid MongoDB object id.",
+                    "rawType": {
+                        "name": "objectid",
+                        "displayName": "objectid",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "576bca8b70fddb149c4a9e92",
+                        "description": "A valid MongoDB object id.",
+                        "structuredExample": {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    },
+                    "examples": [
+                        {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    ],
+                    "key": "id"
+                }
+            ],
+            "relativeUri": "/company",
+            "displayName": "/company",
+            "relativeUriPathSegments": [
+                "company"
+            ],
+            "absoluteUri": "/company",
+            "parentUrl": "",
+            "uniqueId": "company",
+            "allUriParameters": [
+                {
+                    "name": "objectid",
+                    "displayName": "objectid",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "description": "A valid MongoDB object id.",
+                    "rawType": {
+                        "name": "objectid",
+                        "displayName": "objectid",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "576bca8b70fddb149c4a9e92",
+                        "description": "A valid MongoDB object id.",
+                        "structuredExample": {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    },
+                    "examples": [
+                        {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    ],
+                    "key": "id"
+                }
+            ]
+        }
+    ],
+    "types": [
+        {
+            "type": "string",
+            "name": "objectid",
+            "displayName": "objectid",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "description": "A valid MongoDB object id.",
+            "rawType": {
+                "name": "objectid",
+                "displayName": "objectid",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "string"
+                ],
+                "example": "576bca8b70fddb149c4a9e92",
+                "description": "A valid MongoDB object id.",
+                "structuredExample": {
+                    "value": "576bca8b70fddb149c4a9e92",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                }
+            },
+            "examples": [
+                {
+                    "value": "576bca8b70fddb149c4a9e92",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                }
+            ]
+        }
+      ]
+}

@@ -13,7 +13,6 @@ Versions 4.0.0 and up only support RAML 1.x files. If you still have RAML 0.8 so
 npm i raml2obj --save
 ```
 
-
 ## Usage
 ```js
 var raml2obj = require('raml2obj');
@@ -24,6 +23,30 @@ raml2obj.parse(source).then(function(ramlObj) {
   // Do something with the resulting ramlObj :)
 });
 ```
+
+## Options
+The `parse()` function can be called with options to customize the result. 
+Defaults are compatible with `raml2html`.
+
+```js
+raml2obj.parse(source, {
+  validate: true, 
+  extensionsAndOverlays : [], 
+  arraysTransform: "objects",
+}).then(function(ramlObj) {
+  // Do something with the resulting ramlObj :)
+});
+```
+ * `validate`: triggers the `rejectOnErrors` flag of the underlying parser. defaults to `false`
+ * `extensionsAndOverlays`:  Defaults to `[]`. See parser documentation.
+ * `arraysTransform` option values, transforming `[{name1: {..}}, {name2: {..}}]` patterns to:
+  
+| `arraysTransform` value | output |
+| --- | --- |
+|`objects` (default)|`{name1: {..}, name2: {..}}`  (eases e.g. property access but loses the order. )|
+|`flatObjects`|`[ {name: "name1", ..}, {name: "name2", ..}]`  (eases e.g. representation in a database)|
+|`original`| unmodified as returned from `raml-1-parser`|
+
 
 ## Questions & Support
 Do you have a question? Have you found a bug or would you like to request a feature? Please check out [`CONTRIBUTING.md`](CONTRIBUTING.md).

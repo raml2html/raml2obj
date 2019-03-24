@@ -94,7 +94,38 @@ function arraysToObjects(ramlObj) {
   return ramlObj;
 }
 
+// Transform some TOP LEVEL properties from arrays containing single-property objects to arrays containing the actual object
+// EXAMPLE INPUT:
+// [
+//   { foo: { ... } },
+//   { bar: { ... } },
+// ]
+//
+// EXAMPLE OUTPUT:
+// [ { name: "foo", ... }, { name: "bar", ... } }]
+function arraysToFlatObjects(ramlObj) {
+  [
+    'types',
+    'traits',
+    'resourceTypes',
+    'annotationTypes',
+    'securitySchemes',
+  ].forEach(key => {
+    if (ramlObj[key]) {
+      ramlObj[key] = ramlObj[key].map(
+        obj => {
+          if(Object.keys(obj).length == 1) return obj[Object.keys(obj)[0]]
+        }
+      );
+    }
+  });
+
+  return ramlObj;
+}
+
+
 module.exports = {
   arraysToObjects,
   recursiveObjectToArray,
+  arraysToFlatObjects,
 };
