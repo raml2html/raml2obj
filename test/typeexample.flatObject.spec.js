@@ -12,7 +12,7 @@ describe('raml2obj', () => {
     before(done => {
       raml2obj
         .parse('test/typeexample.flatObject.raml', {
-          arraysTransform: 'flatObjects',
+          collectionFormat: 'arrays',
         })
         .then(
           result => {

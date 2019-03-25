@@ -32,19 +32,19 @@ Defaults are compatible with `raml2html`.
 raml2obj.parse(source, {
   validate: true, 
   extensionsAndOverlays : [], 
-  arraysTransform: "flatObjects",
+  collectionFormat: 'arrays',
 }).then(function(ramlObj) {
   // Do something with the resulting ramlObj :)
 });
 ```
  * `validate`: triggers the `rejectOnErrors` flag of the underlying parser. defaults to `false`
  * `extensionsAndOverlays`:  Defaults to `[]`. See parser documentation.
- * `arraysTransform` option values, transforming `[{name1: {..}}, {name2: {..}}]` patterns to:
+ * `collectionFormat`: choose what data structure the double-nested `[{name1: {..}}, {name2: {..}}]` patterns of the `raml-1-parser` are transformed to in the output object:
   
-| `arraysTransform` value | output |
+| `collectionFormat` value | output |
 | --- | --- |
-|`objects` (default)|`{name1: {..}, name2: {..}}`  (eases e.g. property access but loses the order. )|
-|`flatObjects`|`[ {nameId: "name1", ..}, {nameId: "name2", ..}]`  (eases e.g. representation in a database)|
+|`objects` (*default*)|`{name1: { orderHint: 0, ..}, name2: { orderHint: 1, ..}}`  (eases e.g. property access). *Applies to top-level collections only, nested are arrays except type properties.*|
+|`arrays`|`[ {key: "name1", ..}, {key: "name2", ..}]`  (eases e.g. representation in a database). *Applies recursively everywhere.* |
 
 
 ## Questions & Support

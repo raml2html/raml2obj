@@ -99,7 +99,7 @@ function _enhanceRamlObj(ramlObj, options) {
   // Override default options
   options = Object.assign(
     {
-      arraysTransform: 'objects',
+      collectionFormat: 'objects',
     },
     options
   );
@@ -159,7 +159,7 @@ function _enhanceRamlObj(ramlObj, options) {
   }
 
   // convert to optional variations in the output structure:
-  if (options.arraysTransform === 'flatObjects') {
+  if (options.collectionFormat === 'arrays') {
     // repeat recursive to also clean up the types:
     ramlObj = helpers.recursiveObjectToArray(ramlObj);
     // modify the top-level collections to be arrays
