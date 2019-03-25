@@ -160,6 +160,9 @@ function _enhanceRamlObj(ramlObj, options) {
 
   // convert to optional variations in the output structure:
   if (options.arraysTransform === 'flatObjects') {
+    // repeat recursive to also clean up the types:
+    ramlObj = helpers.recursiveObjectToArray(ramlObj);
+    // modify the top-level collections to be arrays
     ramlObj = helpers.objectsToArrays(ramlObj);
   }
 

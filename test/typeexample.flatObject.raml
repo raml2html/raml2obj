@@ -5,6 +5,13 @@ types:
     description: A valid MongoDB object id.
     example:
       value: 576bca8b70fddb149c4a9e92
+  objectType:
+    description: a type with properties.
+    properties:
+      first:
+        type: string
+      second:
+        type: number
 /company:
   uriParameters:
     id:
