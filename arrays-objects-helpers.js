@@ -95,47 +95,13 @@ function arraysToObjects(ramlObj) {
   return ramlObj;
 }
 
-// Transform some TOP LEVEL properties from arrays containing single-property objects to arrays containing the actual object
-// EXAMPLE INPUT:
-// [
-//   { foo: { ... } },
-//   { bar: { ... } },
-// ]
-//
-// EXAMPLE OUTPUT:
-// [ { nameId: "foo", ... }, { nameId: "bar", ... } }]
-function arraysToFlatObjects(ramlObj) {
-  [
-    'types',
-    'traits',
-    'resourceTypes',
-    'annotationTypes',
-    'securitySchemes',
-  ].forEach(key => {
-    if (ramlObj[key]) {
-      ramlObj[key] = ramlObj[key].map(obj => {
-        if (Object.keys(obj).length === 1) {
-          const firstKey = Object.keys(obj)[0];
-          const out = obj[firstKey];
-          // the actual key needs to be retained because it contains the library namespaces, which the name inside the object alone doesn't
-          // "nameId" is oriented at the raml-1-parser naming and does not collide (unlinke "name" or "key")
-          out.nameId = firstKey;
-          return out;
-        }
-      });
-    }
-  });
-
-  return ramlObj;
-}
-
 // Transform some TOP LEVEL properties from objects to arrays containing the object and a "nameId"
 // EXAMPLE INPUT (output of arraysToObjects() )
-// { foo: { orderHint: 0, ... }, bar: { oderHint: 1, ... } }
+// { foo: { orderHint: 1, ... }, bar: { oderHint: 0, ... } }
 //
 // EXAMPLE OUTPUT:
-// [ { nameId: "foo", ... }, { nameId: "bar", ... } }]
-function objectsToArraysOfFlatObjects(ramlObj) {
+// [ { key: "bar", ... }, { key: "foo", ... } }]
+function objectsToArrays(ramlObj) {
   [
     'types',
     'traits',
@@ -144,16 +110,10 @@ function objectsToArraysOfFlatObjects(ramlObj) {
     'securitySchemes',
   ].forEach(key => {
     if (ramlObj[key]) {
-      const obj = ramlObj[key];
-      const arr = Object.keys(obj).map(innerKey => {
-        const entry = obj[innerKey];
-        entry.nameId = innerKey;
-        return entry;
-      });
-      arr.sort((first, second) => {
+      ramlObj[key] = _objectToArray(ramlObj[key]);
+      ramlObj[key].sort((first, second) => {
         first.orderHint - second.orderHint;
       });
-      ramlObj[key] = arr;
     }
   });
 
@@ -163,6 +123,5 @@ function objectsToArraysOfFlatObjects(ramlObj) {
 module.exports = {
   arraysToObjects,
   recursiveObjectToArray,
-  arraysToFlatObjects,
-  objectsToArraysOfFlatObjects,
+  objectsToArrays,
 };

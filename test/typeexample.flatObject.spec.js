@@ -43,7 +43,7 @@ describe('raml2obj', () => {
       );
       assert.strictEqual(
         // check that the property key is not in a property "nameId" inside the object
-        obj.types[0].nameId,
+        obj.types[0].key,
         'objectid'
       );
     });

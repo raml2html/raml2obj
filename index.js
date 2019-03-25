@@ -160,7 +160,7 @@ function _enhanceRamlObj(ramlObj, options) {
 
   // convert to optional variations in the output structure:
   if (options.arraysTransform === 'flatObjects') {
-    ramlObj = helpers.objectsToArraysOfFlatObjects(ramlObj);
+    ramlObj = helpers.objectsToArrays(ramlObj);
   }
 
   return ramlObj;
