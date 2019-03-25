@@ -12,7 +12,7 @@ describe('raml2obj', () => {
     before(done => {
       raml2obj
         .parse('test/typeexample.flatObject.raml', {
-          arraysTransform: 'flatObject',
+          arraysTransform: 'flatObjects',
         })
         .then(
           result => {
@@ -25,7 +25,7 @@ describe('raml2obj', () => {
         );
     });
 
-    it('should test the differing structure if the option "arraysToObjects" is set to "flatObject"', () => {
+    it('should test the differing structure if the option "arraysToObjects" is set to "flatObjects"', () => {
       assert.strictEqual(
         // check that it's really an array without keys
         Object.prototype.toString.call(obj.types),

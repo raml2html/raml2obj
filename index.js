@@ -117,7 +117,7 @@ function _enhanceRamlObj(ramlObj, options) {
   // { foo: { ... }, bar: { ... } }
   if (options.arraysTransform === 'objects') {
     ramlObj = helpers.arraysToObjects(ramlObj);
-  } else if (options.arraysTransform === 'flatObject') {
+  } else if (options.arraysTransform === 'flatObjects') {
     ramlObj = helpers.arraysToFlatObjects(ramlObj);
   }
 
