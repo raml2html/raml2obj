@@ -34,7 +34,7 @@ function _objectToArray(obj) {
 // ]
 //
 // EXAMPLE OUTPUT:
-// { foo: { orderHint: 0, ... }, bar: { oderHint: 1, ... } }
+// { foo: { orderHint: 0, ... }, bar: { orderHint: 1, ... } }
 function _arrayToObject(arr) {
   return arr.reduce((acc, cur, idx) => {
     Object.keys(cur).forEach(key => {

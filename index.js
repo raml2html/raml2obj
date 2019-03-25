@@ -113,14 +113,13 @@ function _enhanceRamlObj(ramlObj, options) {
   //   { bar: { ... } },
   // ]
   //
-  // EXAMPLE of what we want (default option "object")
+  // EXAMPLE of what we want (default option "objects")
   // { foo: { ... }, bar: { ... } }
   //
-  // EXAMPLE of what we want (option "flatObject")
-  // [ { nameId: "foo", ... }, { nameId: "bar", ... } ]
-  //
-  // the option will be evalulated at the very end to have the various conversion code
-  // not have to handle different data structures.
+  // EXAMPLE of what we want (option "arrays")
+  // [ { key: "foo", ... }, { key: "bar", ... } ]
+  // the "arrays" option will be evalulated at the very end to so the conversion and cleanup code
+  // does not have to handle different data structures.
   ramlObj = helpers.arraysToObjects(ramlObj);
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
