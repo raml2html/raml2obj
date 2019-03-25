@@ -113,7 +113,14 @@ function arraysToFlatObjects(ramlObj) {
   ].forEach(key => {
     if (ramlObj[key]) {
       ramlObj[key] = ramlObj[key].map(obj => {
-        if (Object.keys(obj).length === 1) return obj[Object.keys(obj)[0]];
+        if (Object.keys(obj).length === 1){
+          const firstKey = Object.keys(obj)[0]
+          const out = obj[firstKey];
+          // the actual key needs to be retained because it contains the library namespaces, which the name inside the object alone doesn't
+          // "nameId" is oriented at the raml-1-parser naming and does not collide (unlinke "name" or "key")
+          out.nameId = firstKey
+          return out
+        }
       });
     }
   });

@@ -44,7 +44,7 @@ raml2obj.parse(source, {
 | `arraysTransform` value | output |
 | --- | --- |
 |`objects` (default)|`{name1: {..}, name2: {..}}`  (eases e.g. property access but loses the order. )|
-|`flatObjects`|`[ {name: "name1", ..}, {name: "name2", ..}]`  (eases e.g. representation in a database)|
+|`flatObjects`|`[ {nameId: "name1", ..}, {nameId: "name2", ..}]`  (eases e.g. representation in a database)|
 |`original`| unmodified as returned from `raml-1-parser`|
 
 

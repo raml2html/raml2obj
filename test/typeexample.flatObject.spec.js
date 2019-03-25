@@ -37,8 +37,13 @@ describe('raml2obj', () => {
         obj
       );
       assert.strictEqual(
-        // check that we can directly access the name (this is the actual difference the flag makes)
+        // check that we can directly access a property inside the object (this is the actual difference the flag makes)
         obj.types[0].name,
+        'objectid'
+      );
+      assert.strictEqual(
+        // check that the property key is not in a property "nameId" inside the object
+        obj.types[0].nameId,
         'objectid'
       );
     });
