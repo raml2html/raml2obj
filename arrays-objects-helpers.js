@@ -102,7 +102,7 @@ function arraysToObjects(ramlObj) {
 // ]
 //
 // EXAMPLE OUTPUT:
-// [ { name: "foo", ... }, { name: "bar", ... } }]
+// [ { nameId: "foo", ... }, { nameId: "bar", ... } }]
 function arraysToFlatObjects(ramlObj) {
   [
     'types',
