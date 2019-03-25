@@ -78,29 +78,7 @@ function recursiveObjectToArray(obj) {
   return obj;
 }
 
-// Transform some TOP LEVEL properties from arrays to simple objects
-function arraysToObjects(ramlObj) {
-  [
-    'types',
-    'traits',
-    'resourceTypes',
-    'annotationTypes',
-    'securitySchemes',
-  ].forEach(key => {
-    if (ramlObj[key]) {
-      ramlObj[key] = _arrayToObject(ramlObj[key]);
-    }
-  });
-
-  return ramlObj;
-}
-
-// Transform some TOP LEVEL properties from objects to arrays containing the object and a "nameId"
-// EXAMPLE INPUT (output of arraysToObjects() )
-// { foo: { orderHint: 1, ... }, bar: { oderHint: 0, ... } }
-//
-// EXAMPLE OUTPUT:
-// [ { key: "bar", ... }, { key: "foo", ... } }]
+// Transform some TOP LEVEL properties from objects to simple arrays
 function objectsToArrays(ramlObj) {
   [
     'types',
@@ -114,6 +92,23 @@ function objectsToArrays(ramlObj) {
       ramlObj[key].sort((first, second) => {
         first.orderHint - second.orderHint;
       });
+    }
+  });
+
+  return ramlObj;
+}
+
+// Transform some TOP LEVEL properties from arrays to simple objects
+function arraysToObjects(ramlObj) {
+  [
+    'types',
+    'traits',
+    'resourceTypes',
+    'annotationTypes',
+    'securitySchemes',
+  ].forEach(key => {
+    if (ramlObj[key]) {
+      ramlObj[key] = _arrayToObject(ramlObj[key]);
     }
   });
 
