@@ -25,7 +25,7 @@ describe('raml2obj', () => {
         );
     });
 
-    it('should test the differing structure if the option "arraysToObjects" is set to "flatObjects"', () => {
+    it('should test the structure if the option "arraysToObjects" is set to "flatObjects"', () => {
       assert.strictEqual(
         // check that it's really an array without keys
         Object.prototype.toString.call(obj.types),

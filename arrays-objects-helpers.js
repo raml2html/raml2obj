@@ -34,11 +34,12 @@ function _objectToArray(obj) {
 // ]
 //
 // EXAMPLE OUTPUT:
-// { foo: { ... }, bar: { ... } }
+// { foo: { orderHint: 0, ... }, bar: { oderHint: 1, ... } }
 function _arrayToObject(arr) {
-  return arr.reduce((acc, cur) => {
+  return arr.reduce((acc, cur, idx) => {
     Object.keys(cur).forEach(key => {
       acc[key] = cur[key];
+      acc[key].orderHint = idx;
     });
     return acc;
   }, {});
@@ -113,15 +114,46 @@ function arraysToFlatObjects(ramlObj) {
   ].forEach(key => {
     if (ramlObj[key]) {
       ramlObj[key] = ramlObj[key].map(obj => {
-        if (Object.keys(obj).length === 1){
-          const firstKey = Object.keys(obj)[0]
+        if (Object.keys(obj).length === 1) {
+          const firstKey = Object.keys(obj)[0];
           const out = obj[firstKey];
           // the actual key needs to be retained because it contains the library namespaces, which the name inside the object alone doesn't
           // "nameId" is oriented at the raml-1-parser naming and does not collide (unlinke "name" or "key")
-          out.nameId = firstKey
-          return out
+          out.nameId = firstKey;
+          return out;
         }
       });
+    }
+  });
+
+  return ramlObj;
+}
+
+// Transform some TOP LEVEL properties from objects to arrays containing the object and a "nameId"
+// EXAMPLE INPUT (output of arraysToObjects() )
+// { foo: { orderHint: 0, ... }, bar: { oderHint: 1, ... } }
+//
+// EXAMPLE OUTPUT:
+// [ { nameId: "foo", ... }, { nameId: "bar", ... } }]
+function objectsToArraysOfFlatObjects(ramlObj) {
+  [
+    'types',
+    'traits',
+    'resourceTypes',
+    'annotationTypes',
+    'securitySchemes',
+  ].forEach(key => {
+    if (ramlObj[key]) {
+      const obj = ramlObj[key];
+      const arr = Object.keys(obj).map(innerKey => {
+        const entry = obj[innerKey];
+        entry.nameId = innerKey;
+        return entry;
+      });
+      arr.sort((first, second) => {
+        first.orderHint - second.orderHint;
+      });
+      ramlObj[key] = arr;
     }
   });
 
@@ -132,4 +164,5 @@ module.exports = {
   arraysToObjects,
   recursiveObjectToArray,
   arraysToFlatObjects,
+  objectsToArraysOfFlatObjects,
 };

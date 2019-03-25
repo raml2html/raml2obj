@@ -32,7 +32,7 @@ Defaults are compatible with `raml2html`.
 raml2obj.parse(source, {
   validate: true, 
   extensionsAndOverlays : [], 
-  arraysTransform: "objects",
+  arraysTransform: "flatObjects",
 }).then(function(ramlObj) {
   // Do something with the resulting ramlObj :)
 });
@@ -45,7 +45,6 @@ raml2obj.parse(source, {
 | --- | --- |
 |`objects` (default)|`{name1: {..}, name2: {..}}`  (eases e.g. property access but loses the order. )|
 |`flatObjects`|`[ {nameId: "name1", ..}, {nameId: "name2", ..}]`  (eases e.g. representation in a database)|
-|`original`| unmodified as returned from `raml-1-parser`|
 
 
 ## Questions & Support

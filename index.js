@@ -113,13 +113,15 @@ function _enhanceRamlObj(ramlObj, options) {
   //   { bar: { ... } },
   // ]
   //
-  // EXAMPLE of what we want:
+  // EXAMPLE of what we want (default option "object")
   // { foo: { ... }, bar: { ... } }
-  if (options.arraysTransform === 'objects') {
-    ramlObj = helpers.arraysToObjects(ramlObj);
-  } else if (options.arraysTransform === 'flatObjects') {
-    ramlObj = helpers.arraysToFlatObjects(ramlObj);
-  }
+  //
+  // EXAMPLE of what we want (option "flatObject")
+  // [ { nameId: "foo", ... }, { nameId: "bar", ... } ]
+  //
+  // the option will be evalulated at the very end to have the various conversion code
+  // not have to handle different data structures.
+  ramlObj = helpers.arraysToObjects(ramlObj);
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
   // we get the full graph.
@@ -154,6 +156,11 @@ function _enhanceRamlObj(ramlObj, options) {
 
   if (types) {
     ramlObj.types = types;
+  }
+
+  // convert to optional variations in the output structure:
+  if (options.arraysTransform === 'flatObjects') {
+    ramlObj = helpers.objectsToArraysOfFlatObjects(ramlObj);
   }
 
   return ramlObj;
