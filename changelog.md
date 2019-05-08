@@ -1,3 +1,10 @@
+6.2.0 - April 2, 2019
+- Updated dependencies
+
+6.1.0 - September 7, 2018
+- Added options.extensionsAndOverlays
+- Updated dependencies
+
 6.0.0 - February 19, 2018
 - Updated datatype-expansion to 0.3.x, which fixes invalid hoisting of unions outside of array items, as well as several other issues
 - Enabled tracking of original type in datatype-expansion, so that themes can reference base types

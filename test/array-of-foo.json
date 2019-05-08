@@ -139,6 +139,8 @@
                                             ]
                                         }
                                     },
+                                    "minItems": 1,
+                                    "maxItems": 200,
                                     "key": "application/json"
                                 }
                             ],
