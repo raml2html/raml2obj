@@ -95,7 +95,15 @@ function _expandRootTypes(types) {
   return types;
 }
 
-function _enhanceRamlObj(ramlObj) {
+function _enhanceRamlObj(ramlObj, options) {
+  // Override default options
+  options = Object.assign(
+    {
+      collectionFormat: 'objects',
+    },
+    options
+  );
+
   // Some of the structures (like `types`) are an array that hold key/value pairs, which is very annoying to work with.
   // Let's make them into a simple object, this makes it easy to use them for direct lookups.
   //
@@ -105,8 +113,13 @@ function _enhanceRamlObj(ramlObj) {
   //   { bar: { ... } },
   // ]
   //
-  // EXAMPLE of what we want:
+  // EXAMPLE of what we want (default option "objects")
   // { foo: { ... }, bar: { ... } }
+  //
+  // EXAMPLE of what we want (option "arrays")
+  // [ { key: "foo", ... }, { key: "bar", ... } ]
+  // the "arrays" option will be evalulated at the very end to so the conversion and cleanup code
+  // does not have to handle different data structures.
   ramlObj = helpers.arraysToObjects(ramlObj);
 
   // We want to expand inherited root types, so that later on when we copy type properties into an object,
@@ -142,6 +155,14 @@ function _enhanceRamlObj(ramlObj) {
 
   if (types) {
     ramlObj.types = types;
+  }
+
+  // convert to optional variations in the output structure:
+  if (options.collectionFormat === 'arrays') {
+    // repeat recursive to also clean up the types:
+    ramlObj = helpers.recursiveObjectToArray(ramlObj);
+    // modify the top-level collections to be arrays
+    ramlObj = helpers.objectsToArrays(ramlObj);
   }
 
   return ramlObj;
@@ -201,6 +222,6 @@ function _sourceToRamlObj(source, options = {}) {
 
 module.exports.parse = function(source, options) {
   return _sourceToRamlObj(source, options).then(ramlObj =>
-    _enhanceRamlObj(ramlObj)
+    _enhanceRamlObj(ramlObj, options)
   );
 };

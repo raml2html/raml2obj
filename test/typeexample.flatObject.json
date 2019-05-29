@@ -1,0 +1,228 @@
+{
+    "title": "Test",
+    "resources": [
+        {
+            "methods": [
+                {
+                    "description": "bla",
+                    "method": "get",
+                    "allUriParameters": [
+                        {
+                            "name": "objectid",
+                            "displayName": "objectid",
+                            "typePropertyKind": "TYPE_EXPRESSION",
+                            "type": "string",
+                            "required": true,
+                            "description": "A valid MongoDB object id.",
+                            "orderHint": 0,
+                            "rawType": {
+                                "name": "objectid",
+                                "displayName": "objectid",
+                                "typePropertyKind": "TYPE_EXPRESSION",
+                                "type": [
+                                    "string"
+                                ],
+                                "example": "576bca8b70fddb149c4a9e92",
+                                "description": "A valid MongoDB object id.",
+                                "structuredExample": {
+                                    "value": "576bca8b70fddb149c4a9e92",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                                },
+                                "orderHint": 0
+                            },
+                            "examples": [
+                                {
+                                    "value": "576bca8b70fddb149c4a9e92",
+                                    "strict": true,
+                                    "name": null,
+                                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                                }
+                            ],
+                            "key": "id"
+                        }
+                    ]
+                }
+            ],
+            "uriParameters": [
+                {
+                    "name": "objectid",
+                    "displayName": "objectid",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "description": "A valid MongoDB object id.",
+                    "orderHint": 0,
+                    "rawType": {
+                        "name": "objectid",
+                        "displayName": "objectid",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "576bca8b70fddb149c4a9e92",
+                        "description": "A valid MongoDB object id.",
+                        "structuredExample": {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        },
+                        "orderHint": 0
+                    },
+                    "examples": [
+                        {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    ],
+                    "key": "id"
+                }
+            ],
+            "relativeUri": "/company",
+            "displayName": "/company",
+            "relativeUriPathSegments": [
+                "company"
+            ],
+            "absoluteUri": "/company",
+            "parentUrl": "",
+            "uniqueId": "company",
+            "allUriParameters": [
+                {
+                    "name": "objectid",
+                    "displayName": "objectid",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "type": "string",
+                    "required": true,
+                    "description": "A valid MongoDB object id.",
+                    "orderHint": 0,
+                    "rawType": {
+                        "name": "objectid",
+                        "displayName": "objectid",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "example": "576bca8b70fddb149c4a9e92",
+                        "description": "A valid MongoDB object id.",
+                        "structuredExample": {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        },
+                        "orderHint": 0
+                    },
+                    "examples": [
+                        {
+                            "value": "576bca8b70fddb149c4a9e92",
+                            "strict": true,
+                            "name": null,
+                            "structuredValue": "576bca8b70fddb149c4a9e92"
+                        }
+                    ],
+                    "key": "id"
+                }
+            ]
+        }
+    ],
+    "types": [
+        {
+            "type": "string",
+            "name": "objectid",
+            "displayName": "objectid",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "description": "A valid MongoDB object id.",
+            "orderHint": 0,
+            "rawType": {
+                "name": "objectid",
+                "displayName": "objectid",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "string"
+                ],
+                "example": "576bca8b70fddb149c4a9e92",
+                "description": "A valid MongoDB object id.",
+                "structuredExample": {
+                    "value": "576bca8b70fddb149c4a9e92",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                },
+                "orderHint": 0
+            },
+            "examples": [
+                {
+                    "value": "576bca8b70fddb149c4a9e92",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": "576bca8b70fddb149c4a9e92"
+                }
+            ],
+            "key": "objectid"
+        },
+        {
+            "type": "object",
+            "properties": [
+                {
+                    "type": "string",
+                    "name": "first",
+                    "displayName": "first",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "first"
+                },
+                {
+                    "type": "number",
+                    "name": "second",
+                    "displayName": "second",
+                    "typePropertyKind": "TYPE_EXPRESSION",
+                    "required": true,
+                    "key": "second"
+                }
+            ],
+            "name": "objectType",
+            "displayName": "objectType",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "description": "a type with properties.",
+            "orderHint": 1,
+            "additionalProperties": true,
+            "rawType": {
+                "name": "objectType",
+                "displayName": "objectType",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                    "object"
+                ],
+                "description": "a type with properties.",
+                "properties": [
+                    {
+                        "name": "first",
+                        "displayName": "first",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "string"
+                        ],
+                        "required": true,
+                        "key": "first"
+                    },
+                    {
+                        "name": "second",
+                        "displayName": "second",
+                        "typePropertyKind": "TYPE_EXPRESSION",
+                        "type": [
+                            "number"
+                        ],
+                        "required": true,
+                        "key": "second"
+                    }
+                ],
+                "orderHint": 1
+            },
+            "key": "objectType"
+        }
+    ]
+}

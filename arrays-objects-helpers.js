@@ -34,11 +34,12 @@ function _objectToArray(obj) {
 // ]
 //
 // EXAMPLE OUTPUT:
-// { foo: { ... }, bar: { ... } }
+// { foo: { orderHint: 0, ... }, bar: { orderHint: 1, ... } }
 function _arrayToObject(arr) {
-  return arr.reduce((acc, cur) => {
+  return arr.reduce((acc, cur, idx) => {
     Object.keys(cur).forEach(key => {
       acc[key] = cur[key];
+      acc[key].orderHint = idx;
     });
     return acc;
   }, {});
@@ -77,6 +78,26 @@ function recursiveObjectToArray(obj) {
   return obj;
 }
 
+// Transform some TOP LEVEL properties from objects to simple arrays
+function objectsToArrays(ramlObj) {
+  [
+    'types',
+    'traits',
+    'resourceTypes',
+    'annotationTypes',
+    'securitySchemes',
+  ].forEach(key => {
+    if (ramlObj[key]) {
+      ramlObj[key] = _objectToArray(ramlObj[key]);
+      ramlObj[key].sort((first, second) => {
+        first.orderHint - second.orderHint;
+      });
+    }
+  });
+
+  return ramlObj;
+}
+
 // Transform some TOP LEVEL properties from arrays to simple objects
 function arraysToObjects(ramlObj) {
   [
@@ -97,4 +118,5 @@ function arraysToObjects(ramlObj) {
 module.exports = {
   arraysToObjects,
   recursiveObjectToArray,
+  objectsToArrays,
 };
