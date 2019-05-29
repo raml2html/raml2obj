@@ -1,10 +1,10 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "author": {
     "name": "Kevin Renskers",
-    "email": "info@mixedcase.nl"
+    "email": "kevin@mixedcase.nl"
   },
   "bugs": {
     "url": "https://github.com/raml2html/raml2obj/issues"
