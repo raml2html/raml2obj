@@ -201,11 +201,31 @@ function _sourceToRamlObj(source, options = {}) {
           fsResolver: options.fsResolver,
         })
         .then(_validateLoadedRaml);
+    } else if (source) {
+      return raml
+        .parseRAML(source, {
+          rejectOnErrors: !!options.validate,
+          httpResolver: options.httpResolver,
+          fsResolver: options.fsResolver,
+        })
+        .then(_validateLoadedRaml);
     }
 
     return new Promise((resolve, reject) => {
-      reject(new Error('_sourceToRamlObj: source does not exist.'));
+      reject(
+        new Error(
+          '_sourceToRamlObj: source does not exist or cannot be parsed.'
+        )
+      );
     });
+  } else if (source instanceof Buffer) {
+    return raml
+      .parseRAML(source.toString(), {
+        rejectOnErrors: !!options.validate,
+        httpResolver: options.httpResolver,
+        fsResolver: options.fsResolver,
+      })
+      .then(_validateLoadedRaml);
   } else if (typeof source === 'object') {
     // Parse RAML object directly
     return new Promise(resolve => {
