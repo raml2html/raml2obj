@@ -168,6 +168,24 @@ function _enhanceRamlObj(ramlObj, options) {
   return ramlObj;
 }
 
+function _validateLoadedRaml(ramlObj) {
+  if (ramlObj._node._universe._typedVersion === '0.8') {
+    throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
+  }
+
+  if (ramlObj.expand) {
+    return ramlObj.expand(true).toJSON({ serializeMetadata: false });
+  }
+
+  return new Promise((resolve, reject) => {
+    reject(
+      new Error(
+        '_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'
+      )
+    );
+  });
+}
+
 function _sourceToRamlObj(source, options = {}) {
   // "options" was originally a validation flag
   if (typeof options === 'boolean') {
@@ -182,23 +200,7 @@ function _sourceToRamlObj(source, options = {}) {
           httpResolver: options.httpResolver,
           fsResolver: options.fsResolver,
         })
-        .then(result => {
-          if (result._node._universe._typedVersion === '0.8') {
-            throw new Error('_sourceToRamlObj: only RAML 1.0 is supported!');
-          }
-
-          if (result.expand) {
-            return result.expand(true).toJSON({ serializeMetadata: false });
-          }
-
-          return new Promise((resolve, reject) => {
-            reject(
-              new Error(
-                '_sourceToRamlObj: source could not be parsed. Is it a root RAML file?'
-              )
-            );
-          });
-        });
+        .then(_validateLoadedRaml);
     }
 
     return new Promise((resolve, reject) => {
