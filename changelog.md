@@ -1,3 +1,6 @@
+6.5.0 - June 13, 2019
+- Allow for 'parse' to accept raw input (e.g. string or Buffer)
+
 6.4.0 - May 29, 2019
 - Array output format and orderHints in object output (via options flag)
 
