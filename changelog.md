@@ -1,3 +1,6 @@
+6.6.0 - Oct 30, 2019
+- Updated dependencies
+
 6.5.0 - June 13, 2019
 - Allow for 'parse' to accept raw input (e.g. string or Buffer)
 
