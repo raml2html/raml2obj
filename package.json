@@ -1,7 +1,7 @@
 {
   "name": "raml2obj",
   "description": "RAML to object",
-  "version": "6.7.0",
+  "version": "6.8.0",
   "author": {
     "name": "Kevin Renskers",
     "email": "kevin@loopwerk.io"
