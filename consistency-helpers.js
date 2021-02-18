@@ -2,6 +2,19 @@ function _isObject(obj) {
   return obj === Object(obj);
 }
 
+function _objectToArray(obj) {
+  if (Array.isArray(obj)) {
+    return obj;
+  }
+
+  return Object.keys(obj).map(key => {
+    if (_isObject(obj[key])) {
+      obj[key].key = key;
+    }
+    return obj[key];
+  });
+}
+
 function makeConsistent(obj, types) {
   if (_isObject(obj)) {
     const ignoredKeys = { rawType: true };
@@ -19,7 +32,6 @@ function makeConsistent(obj, types) {
       }
 
       if (types && types[obj.type]) {
-        const examples = obj.examples;
         const mergedObj = Object.assign({}, obj, types[obj.type]);
 
         // Every exception of inheritance should be deleted from mergedObj
@@ -27,8 +39,14 @@ function makeConsistent(obj, types) {
           delete mergedObj.description;
         }
 
-        if (examples) {
-          mergedObj.examples = examples;
+        if (obj.examples) {
+          mergedObj.examples = _objectToArray(obj.examples);
+        } else if (obj.example) {
+          mergedObj.examples = [];
+        } else if (Array.isArray(types[obj.type].examples)) {
+          mergedObj.examples = [...types[obj.type].examples];
+        } else if (_isObject(types[obj.type].examples)) {
+          mergedObj.examples = _objectToArray(types[obj.type].examples);
         }
 
         Object.assign(obj, mergedObj);

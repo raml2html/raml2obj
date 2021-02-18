@@ -1,0 +1,23 @@
+#%RAML 1.0
+title: Test examples are not polluted with previous usages
+types:
+  TypeId:
+    description: The request identifier.
+    type: integer
+    example: 123
+
+/a/{aId}:
+  uriParameters:
+    aId:
+      type: TypeId
+      example: 456
+  get:
+    description: bla
+
+/b/{bId}:
+  uriParameters:
+    bId:
+      type: TypeId
+      example: 789
+  get:
+    description: bla
