@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [ developer ]
+    branches: [ develop ]
   pull_request:
     branches: [ '*' ]
 
