@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 'use strict';
 
 const raml = require('raml-1-parser');

@@ -1,3 +1,6 @@
+6.8.1 - Jun 28, 2021
+- Removed `#!/usr/bin/env node` from index.js
+
 6.7.0 - Jul 16, 2020
 - Updated dependencies
 
