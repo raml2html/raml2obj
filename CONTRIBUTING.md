@@ -3,7 +3,7 @@ raml2obj is an open source project and your contribution is very much appreciate
 maintained by a very limited number of people, we ask you to please keep these rules in mind.
 
 ## Questions
-If you have a question, please use [StackOverflow](http://stackoverflow.com/) instead of creating an issue.
+If you have a question, please use [StackOverflow](http://stackoverflow.com/).
 
 ## Bugs
 If you found a bug, instead of creating a new issue, please create a failing unit test and send in a pull request.
