@@ -9,10 +9,6 @@ If you have a question, please use [StackOverflow](http://stackoverflow.com/) in
 If you found a bug, instead of creating a new issue, please create a failing unit test and send in a pull request.
 It would be even better if you could include the fix as well :)
 
-## Feature requests
-Check for open issues or open a new issue to start a discussion around an idea. A pull request with actual code to
-look at would be even more welcome!
-
 ## Workflow
 1. Fork the repository on Github and make your changes on the **develop** branch (or branch off of it).
 3. Add unit tests, run them with `npm run test`
